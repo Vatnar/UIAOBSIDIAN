@@ -73,4 +73,4 @@ This section provides an overview of the various physical media used for interne
 ![[networkcore.jpg]]
 
 ## Packet Switching
-End systems exchange <span style="color:rgb(255, 0, 0)">messages</span> with each other. Messages can contain anything the application designer wants. Messages may perform a control function (for example, the "Hi" maessages in our handshaking example) or can contain data. Also it is very import that you dont worry bout it right now!
+End systems exchange <span style="color:rgb(255, 0, 0)">messages</span> with each other. Messages can contain anything the application designer wants. Messages may perform a control function (for example, the "Hi" maessages in our handshaking example) or can contain data. 
