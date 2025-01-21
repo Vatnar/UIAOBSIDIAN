@@ -35,7 +35,7 @@ Fundamental of logic: Statement, predicate, truth tables. Inference, Quantifiers
 Set theory: Sets and subsets, set operation, venn diagram, laws of set theory, probability.
 Fundamental principles of counting: Permutations, combinations, combinations with repitions.
 Functions: Injective and surjective, special and inverse functions.
-Formal models: Finite state machines. Regular expressions, complexeity.
+Formal models: Finite state machines. Regular expressions, complexity.
 Graph Theory: Graph, Trees, Euler path
 
 5. Mandatory assignments. In Canvas. Needs to be passed 4 to do exam.
