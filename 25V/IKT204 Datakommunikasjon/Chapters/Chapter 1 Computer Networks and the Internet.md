@@ -77,7 +77,10 @@ End systems exchange <span style="color:rgb(255, 0, 0)">messages</span> with eac
 ### Store-and-Forward Transmission / Transmission delay
 Most packet switches use store and forward transmission from inputs to links. The switch must then receive the entire packet before it can begin transmitting the packet to the outbound link. The receiving switch receives at the same time as the sender sends, thus the the time for transmission can be calculated by looking at the amount of hops between switches. So for instance for one switch between 2 computers it would be $2$ $hops\times  L/R$ = $2L/R$ transmission delay.
 ### Queuing Delays and Packet Loss
-For each attached links to a packet switch the switch has an <span style="color:rgb(255, 0, 0)">output buffer</span> or output queue, which stores packets that the router is about to sendd into taht link. If the arriving packet needs to be transmitted onto a link but the links busy the arriving packet must wait in the output buffer. Thus in addition to the store and forward delays packets suffer output buffere <span style="color:rgb(255, 0, 0)">queueing delays</span>. These delays are variab le and depend on th econgestion/saturation/metning in the network.
+For each attached links to a packet switch the switch has an <span style="color:rgb(255, 0, 0)">output buffer</span> or output queue, which stores packets that the router is about to send into that link. If the arriving packet needs to be transmitted onto a link but the links busy the arriving packet must wait in the output buffer. Thus in addition to the store and forward delays packets suffer output buffere <span style="color:rgb(255, 0, 0)">queueing delays</span>. These delays are variable  and depend on the congestion/saturation/metning in the network.
 ![[Packet switching.jpg]]
+If the buffer is completely full with other packets <span style="color:rgb(255, 0, 0)">packet loss</span> will occur. Either for the arriving packet, or one of the already-queued packets will be dropper.
+
+### Forwarding Tables and Routing Protocols
 
 
