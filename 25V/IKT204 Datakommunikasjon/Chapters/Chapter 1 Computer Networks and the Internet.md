@@ -82,5 +82,5 @@ For each attached links to a packet switch the switch has an <span style="color:
 If the buffer is completely full with other packets <span style="color:rgb(255, 0, 0)">packet loss</span> will occur. Either for the arriving packet, or one of the already-queued packets will be dropper.
 
 ### Forwarding Tables and Routing Protocols
-
+continue page 55-56 file:///C:/Users/peter/OneDrive%20-%20Universitetet%20i%20Agder/Books/Fagb%C3%B8ker%20per%20fag/ikt204g22v_books/Computer%20Networking%20A%20Top-Down%20Approach,%20Global%20Edition,%208th%20Edition%20by%20Kurose,%20James,%20Ross,%20Keith.pdf
 
