@@ -37,6 +37,9 @@ Fundamental principles of counting: Permutations, combinations, combinations wit
 Functions: Injective and surjective, special and inverse functions.
 Formal models: Finite state machines. Regular expressions, complexeity.
 Graph Theory: Graph, Trees, Euler path
+
+5. Mandatory assignments. In Canvas. Needs to be passed 4 to do exam.
+Frist for innlevering er 5 dager fra startdato. 
 # Utsagnlogikk Propositional Logics
 # Sannhetstabell Truth tables
 # Logisk ekvivalens
