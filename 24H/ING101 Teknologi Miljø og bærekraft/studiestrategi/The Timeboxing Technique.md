@@ -1,0 +1,1 @@
+To-do-list. Have some left. Not good for planning. The best for planning is having a plan you can achieve. 

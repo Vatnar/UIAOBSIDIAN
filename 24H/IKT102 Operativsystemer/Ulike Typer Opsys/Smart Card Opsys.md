@@ -1,0 +1,1 @@
+Bankkort osv.

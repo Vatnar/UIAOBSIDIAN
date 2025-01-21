@@ -1,0 +1,10 @@
+Lager en [[daemon]] og et spesielt directory [[spooler directory]] .
+
+
+In [computing](https://www.wikiwand.com/en/articles/Computing "Computing"), **spooling** is a specialized form of [multi-programming](https://www.wikiwand.com/en/articles/Computer_multitasking "Computer multitasking") for the purpose of copying data between different devices. In contemporary systems,[](https://www.wikiwand.com/en/articles/Spooling#cite_note-1) it is usually used for mediating between a computer application and a slow [peripheral](https://www.wikiwand.com/en/articles/Peripheral "Peripheral"), such as a [printer](https://www.wikiwand.com/en/articles/Printer_(computing) "Printer (computing)"). Spooling allows programs to "hand off" work to be done by the peripheral and then proceed to other tasks, or to not begin until input has been transcribed. A dedicated program, the **spooler**, maintains an orderly sequence of jobs for the peripheral and feeds it data at its own rate. Conversely, for slow _input_ peripherals, such as a [card reader](https://www.wikiwand.com/en/articles/Punched_card "Punched card"), a spooler can maintain a sequence of computational jobs waiting for data, starting each job when all of the relevant input is available; see [batch processing](https://www.wikiwand.com/en/articles/Batch_processing "Batch processing"). The **spool** itself refers to the sequence of jobs, or the storage area where they are held. In many cases, the spooler is able to drive devices at their full rated speed with minimal impact on other processing.
+
+[![Thumb](https://upload.wikimedia.org/wikipedia/commons/thumb/c/c0/Largetape.jpg/640px-Largetape.jpg)](https://www.wikiwand.com/en/articles/Spooling#/media/File:Largetape.jpg)
+
+Magnetic recording tape wound onto a spool may have contributed to the origin of the term
+
+Spooling is a combination of [buffering](https://www.wikiwand.com/en/articles/Data_buffer "Data buffer") and [queueing](https://www.wikiwand.com/en/articles/Queue_(data_structure) "Queue (data structure)").

@@ -1,0 +1,1 @@
+Hele rom og maskoner med masse CPU minne og lagring

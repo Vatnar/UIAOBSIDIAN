@@ -1,0 +1,72 @@
+{
+  "collapse-filter": true,
+  "search": "",
+  "showTags": false,
+  "showAttachments": false,
+  "hideUnresolved": false,
+  "showOrphans": true,
+  "collapse-color-groups": false,
+  "colorGroups": [
+    {
+      "query": "path:\"Ma-178 Matematikk 1\"  ",
+      "color": {
+        "a": 1,
+        "rgb": 14048348
+      }
+    },
+    {
+      "query": "path:\"IKT101 Grunnleggende Softwareutvikling\"  ",
+      "color": {
+        "a": 1,
+        "rgb": 7524836
+      }
+    },
+    {
+      "query": "path:\"IKT100 Nettverk, Sikkerhet og Personvern\"  ",
+      "color": {
+        "a": 1,
+        "rgb": 8986306
+      }
+    },
+    {
+      "query": "path:\"ING101 Teknologi Miljø og bærekraft/studiestrategi\"  ",
+      "color": {
+        "a": 1,
+        "rgb": 10410910
+      }
+    },
+    {
+      "query": "path:\"ORG001 HMS-Kurs\"  ",
+      "color": {
+        "a": 1,
+        "rgb": 0
+      }
+    },
+    {
+      "query": "path:\"ING101 Teknologi Miljø og bærekraft\"  ",
+      "color": {
+        "a": 1,
+        "rgb": 633364
+      }
+    },
+    {
+      "query": "path:\"IKT102 Operativsystemer\"  ",
+      "color": {
+        "a": 1,
+        "rgb": 12058624
+      }
+    }
+  ],
+  "collapse-display": true,
+  "showArrow": true,
+  "textFadeMultiplier": -2.7,
+  "nodeSizeMultiplier": 3.22234927234927,
+  "lineSizeMultiplier": 2.57037422037422,
+  "collapse-forces": false,
+  "centerStrength": 0.558212058212058,
+  "repelStrength": 19.1476091476091,
+  "linkStrength": 0.882536382536383,
+  "linkDistance": 245,
+  "scale": 0.22215553519163958,
+  "close": true
+}

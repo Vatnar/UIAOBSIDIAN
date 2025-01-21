@@ -1,0 +1,2 @@
+**Strategos** (flertall _strategoi_, [gresk](https://no.wikipedia.org/wiki/Gresk "Gresk") _στρατηγός_, bokstavelig «arméleder») er brukt på gresk og betyr «[general](https://no.wikipedia.org/wiki/General "General")». I hellenistisk og [bysantinsk](https://no.wikipedia.org/wiki/%C3%98stromerriket) tid ble begrepet også brukt for å beskrive en militærguvernør. I dagens greske hær er det den høyeste offisersgraden.
+fra [Strategos](https://no.wikipedia.org/wiki/Strategos) wikipedia.

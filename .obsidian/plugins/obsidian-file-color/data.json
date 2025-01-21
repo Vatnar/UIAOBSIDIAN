@@ -1,0 +1,44 @@
+{
+  "cascadeColors": true,
+  "colorBackground": true,
+  "palette": [
+    {
+      "id": "IIcI8QHN-LyEq1vDD1Q4W",
+      "name": "ING101",
+      "value": "#2c9410"
+    },
+    {
+      "id": "jfjI3oozVd9YJ1pj-cj7d",
+      "name": "IKT100",
+      "value": "#9c27b4"
+    },
+    {
+      "id": "SjwM_LQPgxTriEVx5wyrl",
+      "name": "IKT102",
+      "value": "#f00000"
+    },
+    {
+      "id": "02Od8_hD_-HxxsMVl1WPD",
+      "name": "IKT101",
+      "value": "#29b4c7"
+    }
+  ],
+  "fileColors": [
+    {
+      "path": "24H/ING101 Teknologi Miljø og bærekraft",
+      "color": "IIcI8QHN-LyEq1vDD1Q4W"
+    },
+    {
+      "path": "24H/IKT100 Nettverk, Sikkerhet og Personvern",
+      "color": "jfjI3oozVd9YJ1pj-cj7d"
+    },
+    {
+      "path": "24H/IKT101 Grunnleggende Softwareutvikling",
+      "color": "02Od8_hD_-HxxsMVl1WPD"
+    },
+    {
+      "path": "24H/IKT102 Operativsystemer",
+      "color": "SjwM_LQPgxTriEVx5wyrl"
+    }
+  ]
+}

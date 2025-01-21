@@ -1,0 +1,5 @@
+- Kaizen mener aktiviteter som kontinuerlig forbedrer alle funksjoner.
+- Vi gjør magi ved å forstørre.
+- Start i det små og øk i størrelse og kvalitet.
+- Du blir ikke ingeniør fra den ene dag til den andre. Du blir mer erfaren etter å ha vært litt erfaren.
+- Dette er tilpasset hjernen.

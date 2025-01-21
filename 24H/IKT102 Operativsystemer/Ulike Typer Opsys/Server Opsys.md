@@ -1,0 +1,1 @@
+Tjener flere brukere på en gang

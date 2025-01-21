@@ -1,0 +1,58 @@
+{
+  "collapse-filter": true,
+  "search": "",
+  "showTags": false,
+  "showAttachments": false,
+  "hideUnresolved": false,
+  "showOrphans": true,
+  "collapse-color-groups": false,
+  "colorGroups": [
+    {
+      "query": "path:\"IKT101 Grunnleggende Softwareutvikling\"  ",
+      "color": {
+        "a": 1,
+        "rgb": 7524836
+      }
+    },
+    {
+      "query": "path:\"IKT100 Nettverk, Sikkerhet og Personvern\"  ",
+      "color": {
+        "a": 1,
+        "rgb": 8986306
+      }
+    },
+    {
+      "query": "path:\"ORG001 HMS-Kurs\"  ",
+      "color": {
+        "a": 1,
+        "rgb": 0
+      }
+    },
+    {
+      "query": "path:\"ING101 Teknologi Miljø og bærekraft\"  ",
+      "color": {
+        "a": 1,
+        "rgb": 633364
+      }
+    },
+    {
+      "query": "path:\"IKT102 Operativsystemer\"  ",
+      "color": {
+        "a": 1,
+        "rgb": 12058624
+      }
+    }
+  ],
+  "collapse-display": false,
+  "showArrow": true,
+  "textFadeMultiplier": -2.7,
+  "nodeSizeMultiplier": 3.22234927234927,
+  "lineSizeMultiplier": 2.57037422037422,
+  "collapse-forces": false,
+  "centerStrength": 0.495841995841996,
+  "repelStrength": 20,
+  "linkStrength": 1,
+  "linkDistance": 218,
+  "scale": 0.25485879095297714,
+  "close": true
+}

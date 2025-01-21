@@ -1,0 +1,256 @@
+{
+  "main": {
+    "id": "0bc3a3babe4a2233",
+    "type": "split",
+    "children": [
+      {
+        "id": "140bcd2130e96621",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "ff3ee1cbb39eafce",
+            "type": "leaf",
+            "pinned": true,
+            "state": {
+              "type": "graph",
+              "state": {},
+              "pinned": true,
+              "icon": "lucide-git-fork",
+              "title": "Graph view"
+            }
+          },
+          {
+            "id": "8421da8d2ce71fbb",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "IKT101 Grunnleggende Softwareutvikling/Hvordan minne er representert i C..md",
+                "mode": "source",
+                "backlinks": true,
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Hvordan minne er representert i C."
+            }
+          },
+          {
+            "id": "5704b257fcc04382",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "IKT101 Grunnleggende Softwareutvikling/C språk.md",
+                "mode": "source",
+                "backlinks": true,
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "C språk"
+            }
+          }
+        ],
+        "currentTab": 2
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "23e78f0c8d811370",
+    "type": "split",
+    "children": [
+      {
+        "id": "81467cec8150e80a",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "96811cdd0ad6c719",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "byModifiedTime"
+              },
+              "icon": "lucide-folder-closed",
+              "title": "File explorer"
+            }
+          },
+          {
+            "id": "1f4647717303f64d",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "Translat",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "Search"
+            }
+          },
+          {
+            "id": "90a2f7b884f0e1cf",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "Bookmarks"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 258.5
+  },
+  "right": {
+    "id": "8d7125acfae3d684",
+    "type": "split",
+    "children": [
+      {
+        "id": "29a1a1cb677663a5",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "dc7801bd5180ff6a",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "Backlinks"
+            }
+          },
+          {
+            "id": "c522d3648c5389aa",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "Outgoing links"
+            }
+          },
+          {
+            "id": "8a07deb32e4b438b",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true
+              },
+              "icon": "lucide-tags",
+              "title": "Tags"
+            }
+          },
+          {
+            "id": "fbb247422ca5dba2",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {},
+              "icon": "lucide-list",
+              "title": "Outline"
+            }
+          },
+          {
+            "id": "7dbad02dffe0e0eb",
+            "type": "leaf",
+            "state": {
+              "type": "all-properties",
+              "state": {
+                "sortOrder": "frequency",
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-archive",
+              "title": "All properties"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 200,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "daily-notes:Open today's note": false,
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false,
+      "obsidian-importer:Open Importer": false,
+      "obsidian-wordnet-plugin:WordNet Dictionary": false
+    }
+  },
+  "active": "5704b257fcc04382",
+  "lastOpenFiles": [
+    "Lecture notes unprocessed/2024-10-29.md",
+    "IKT101 Grunnleggende Softwareutvikling/Hvordan minne er representert i C..md",
+    "IKT101 Grunnleggende Softwareutvikling/C språk.md",
+    "Pasted image 20241025145810.png",
+    "Pasted image 20241025145718.png",
+    "Pasted image 20241025145615.png",
+    "Pasted image 20241025145545.png",
+    "IKT102 Operativsystemer/Segmentering.md",
+    "Pasted image 20241025144325.png",
+    "Pasted image 20241025142424.png",
+    "IKT102 Operativsystemer/Virtuelt Minne.md",
+    "IKT102 Operativsystemer/Sideskiftsalgoritmer.md",
+    "img/Pasted image 20241025135611.png",
+    "img/Pasted image 20241025135528.png",
+    "img/Pasted image 20241025135521.png",
+    "IKT102 Operativsystemer/Paging.md",
+    "IKT102 Operativsystemer/TLB.md",
+    "IKT102 Operativsystemer/Minnehåndtering.md",
+    "IKT102 Operativsystemer/Swapping.md",
+    "img/Pasted image 20241018134535.png",
+    "IKT102 Operativsystemer/2024-10-18.md",
+    "IKT102 Operativsystemer/Minne.md",
+    "IKT102 Operativsystemer/Hardware/Minne fysisk.md",
+    "IKT102 Operativsystemer/2024-10-11.md",
+    "IKT100 Nettverk, Sikkerhet og Personvern/2024-10-22 Sikkerhet 2.md",
+    "Lecture notes unprocessed/2024-10-21.md",
+    "Lecture notes unprocessed/2024-10-20.md",
+    "Lecture notes unprocessed/2024-10-10.md",
+    "IKT100 Nettverk, Sikkerhet og Personvern/2024-10-15 Sikkerhet 1.md",
+    "IKT102 Operativsystemer/Scheduling.md",
+    "Lecture notes unprocessed/2024-10-08.md",
+    "ING101 Teknologi Miljø og bærekraft/Akademisk skriving oppgave 1000 ord pluss rapport.md",
+    "ING101 Teknologi Miljø og bærekraft/studiestrategi/2024-08-15 Hjerneforskning for læring.md",
+    "Index.md",
+    "IKT100 Nettverk, Sikkerhet og Personvern/2024-09-10 Nettverk.md",
+    "IKT101 Grunnleggende Softwareutvikling/C Structs.md",
+    "img",
+    "ING101 Teknologi Miljø og bærekraft/MAP.canvas",
+    "IKT102 Operativsystemer/Abstrakte konsepter",
+    "IKT102 Operativsystemer/Hardware",
+    "IKT102 Operativsystemer/måter å se OS på",
+    "IKT102 Operativsystemer/Ulike Typer Opsys",
+    "IKT102 Operativsystemer",
+    "ORG001 HMS-Kurs",
+    "Ma-178 Matematikk 1",
+    "IKT100 Nettverk, Sikkerhet og Personvern",
+    "IKT101 Grunnleggende Softwareutvikling"
+  ]
+}

@@ -1,0 +1,1 @@
+Two or more processes continuisly change their states in response to changes in other processes, without doing useful work.

@@ -1,0 +1,1 @@
+File descriptors i File Management er en oversikt over hvilke filer som er lagret. Noe som beskriver filen. Generelt er at i det spesifikke filsystemet har de en filstruktur som er beskrevet. 

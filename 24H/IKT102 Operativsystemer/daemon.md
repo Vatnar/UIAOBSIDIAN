@@ -1,0 +1,1 @@
+Bakgrunnsprosess som ikke er av kontroll fra brukeren. For eksempel, er syslogd en daemon som implementerer systemlogging og sshd er en daemon som styrer innkomne [SSH](https://www.wikiwand.com/no/articles/Secure_Shell "Secure Shell")-forbindelser.

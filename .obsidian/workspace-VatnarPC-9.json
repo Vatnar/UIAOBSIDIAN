@@ -1,0 +1,317 @@
+{
+  "main": {
+    "id": "0bc3a3babe4a2233",
+    "type": "split",
+    "children": [
+      {
+        "id": "140bcd2130e96621",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "ff3ee1cbb39eafce",
+            "type": "leaf",
+            "pinned": true,
+            "state": {
+              "type": "graph",
+              "state": {},
+              "pinned": true,
+              "icon": "lucide-git-fork",
+              "title": "Graph view"
+            }
+          },
+          {
+            "id": "1f2a01a3ee6e10ba",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "PLAN.md",
+                "mode": "preview",
+                "backlinks": true,
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "PLAN"
+            }
+          },
+          {
+            "id": "282315ef44b5d5c4",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Eksamenforelsenging.md",
+                "mode": "source",
+                "backlinks": true,
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Eksamenforelsenging"
+            }
+          },
+          {
+            "id": "7e9e34a564126079",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Eksamenforelsenging.md",
+                "mode": "preview",
+                "backlinks": true,
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Eksamenforelsenging"
+            }
+          },
+          {
+            "id": "62a036510e3fc13a",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "IKT102 Operativsystemer/Swapping.md",
+                "mode": "preview",
+                "backlinks": true,
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Swapping"
+            }
+          },
+          {
+            "id": "1c411bd3db1ad7be",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "IKT102 Operativsystemer/Introduksjon til Operativsystemer.md",
+                "mode": "source",
+                "backlinks": true,
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Introduksjon til Operativsystemer"
+            }
+          },
+          {
+            "id": "afcdf3e678446bf5",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "IKT102 Operativsystemer/måter å se OS på/Extended Machine.md",
+                "mode": "source",
+                "backlinks": true,
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Extended Machine"
+            }
+          }
+        ],
+        "currentTab": 6
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "23e78f0c8d811370",
+    "type": "split",
+    "children": [
+      {
+        "id": "81467cec8150e80a",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "96811cdd0ad6c719",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "byModifiedTime"
+              },
+              "icon": "lucide-folder-closed",
+              "title": "Files"
+            }
+          },
+          {
+            "id": "1f4647717303f64d",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "operativsys",
+                "matchingCase": true,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "Search"
+            }
+          },
+          {
+            "id": "90a2f7b884f0e1cf",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "Bookmarks"
+            }
+          }
+        ],
+        "currentTab": 1
+      }
+    ],
+    "direction": "horizontal",
+    "width": 258.5
+  },
+  "right": {
+    "id": "8d7125acfae3d684",
+    "type": "split",
+    "children": [
+      {
+        "id": "29a1a1cb677663a5",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "dc7801bd5180ff6a",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "Backlinks"
+            }
+          },
+          {
+            "id": "c522d3648c5389aa",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "Outgoing links"
+            }
+          },
+          {
+            "id": "8a07deb32e4b438b",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true
+              },
+              "icon": "lucide-tags",
+              "title": "Tags"
+            }
+          },
+          {
+            "id": "fbb247422ca5dba2",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {},
+              "icon": "lucide-list",
+              "title": "Outline"
+            }
+          },
+          {
+            "id": "7dbad02dffe0e0eb",
+            "type": "leaf",
+            "state": {
+              "type": "all-properties",
+              "state": {
+                "sortOrder": "frequency",
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-archive",
+              "title": "All properties"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 200,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "daily-notes:Open today's note": false,
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false,
+      "obsidian-importer:Open Importer": false,
+      "obsidian-wordnet-plugin:WordNet Dictionary": false
+    }
+  },
+  "active": "afcdf3e678446bf5",
+  "lastOpenFiles": [
+    "IKT102 Operativsystemer/Ulike Typer Opsys/Måter å se OS på..md",
+    "IKT102 Operativsystemer/Introduksjon til Operativsystemer.md",
+    "IKT102 Operativsystemer/Input Output.md",
+    "Eksamenforelsenging.md",
+    "PLAN.md",
+    "IKT102 Operativsystemer/EKSAMEN.md",
+    "IKT102 Operativsystemer/spooler directory.md",
+    "IKT102 Operativsystemer/Abstrakte konsepter/Prosesser og tråder.md",
+    "Files System Software Architecture.md",
+    "IKT102 Operativsystemer/måter å se OS på/Resource manager.md",
+    "IKT102 Operativsystemer/Paging.md",
+    "IKT102 Operativsystemer/Swapping.md",
+    "IKT102 Operativsystemer/Minnehåndtering.md",
+    "IKT102 Operativsystemer/Concurrency IPC.md",
+    "IKT102 Operativsystemer/TLB.md",
+    "IKT102 Operativsystemer/Segmentering.md",
+    "IKT102 Operativsystemer/Sideskiftsalgoritmer.md",
+    "IKT102 Operativsystemer/Minne.md",
+    "IKT102 Operativsystemer/Hardware/CPU.md",
+    "IKT102 Operativsystemer/Scheduling.md",
+    "IKT102 Operativsystemer/IKT102 Operativsystemer.md",
+    "Index.md",
+    "IKT102 Operativsystemer/PCB.md",
+    "IKT101 Grunnleggende Softwareutvikling/Hvordan minne er representert i C..md",
+    "IKT102 Operativsystemer/Race condition.md",
+    "IKT102 Operativsystemer/critical sections.md",
+    "Pasted image 20241115164716.png",
+    "Pasted image 20241115164635.png",
+    "Pasted image 20241115164528.png",
+    "Pasted image 20241115164256.png",
+    "Pasted image 20241115164236.png",
+    "Pasted image 20241115164201.png",
+    "Pasted image 20241115164052.png",
+    "Pasted image 20241115163944.png",
+    "Pasted image 20241115163652.png",
+    "Pasted image 20241115163426.png",
+    "HTML import/Attachments",
+    "HTML import",
+    "Pasted image 20241101135105.png~RF6f7e4c.TMP",
+    "Pasted image 20241101135119.png~RF6f7e1d.TMP",
+    "Pasted image 20241101135941.png~RF6f7dfe.TMP",
+    "Pasted image 20241104132120.png~RF6f7dee.TMP",
+    "ING101 Teknologi Miljø og bærekraft/img",
+    "ING101 Teknologi Miljø og bærekraft/MAP.canvas",
+    "IKT102 Operativsystemer/Abstrakte konsepter",
+    "IKT102 Operativsystemer/Hardware",
+    "IKT102 Operativsystemer/måter å se OS på"
+  ]
+}

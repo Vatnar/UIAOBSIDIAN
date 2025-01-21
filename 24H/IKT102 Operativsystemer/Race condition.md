@@ -1,0 +1,1 @@
+A situation in which multiple [[Prosesser og tråder]] or [[Prosess]] read and write a shared data item  and the final result is based on the relative timing of their execution

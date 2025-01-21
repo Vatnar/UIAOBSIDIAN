@@ -1,0 +1,1 @@
+**Synchronization** is the task of coordinating multiple [processes](https://www.wikiwand.com/en/articles/Process_(computer_science) "Process (computer science)") to join up or [handshake](https://www.wikiwand.com/en/articles/Handshake_(computing) "Handshake (computing)") at a certain point, in order to reach an agreement or commit to a certain sequence of action.

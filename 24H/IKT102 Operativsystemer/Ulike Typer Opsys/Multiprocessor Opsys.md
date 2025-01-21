@@ -1,0 +1,1 @@
+Koble sammen flere små maskiner.

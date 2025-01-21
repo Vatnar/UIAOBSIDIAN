@@ -1,0 +1,1 @@
+A situation in which a runnable process is overlooked indefinitely by the scheduler. 
