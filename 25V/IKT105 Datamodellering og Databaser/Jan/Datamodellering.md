@@ -18,3 +18,8 @@ Redusere feil og duplisering
 Overordnet struktur'
 Utviklingsklar
 
+# Hvordan bør man tenke?
+- Hva trenger du å vite, hvilke data trenger systemet og hvordan skal det brukes?
+- Hvilke ting henger sammen? Eks. Kunde legger inn ordre.
+- Forenkle: Begynn med det viktigste tingene og bygg ut modellen.
+- Unngå gjentakelser: Lag kun en versjon av hver type data.
