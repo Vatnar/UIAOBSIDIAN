@@ -82,5 +82,19 @@ For each attached links to a packet switch the switch has an <span style="color:
 If the buffer is completely full with other packets <span style="color:rgb(255, 0, 0)">packet loss</span> will occur. Either for the arriving packet, or one of the already-queued packets will be dropper.
 
 ### Forwarding Tables and Routing Protocols
-continue page 55-56 file:///C:/Users/peter/OneDrive%20-%20Universitetet%20i%20Agder/Books/Fagb%C3%B8ker%20per%20fag/ikt204g22v_books/Computer%20Networking%20A%20Top-Down%20Approach,%20Global%20Edition,%208th%20Edition%20by%20Kurose,%20James,%20Ross,%20Keith.pdf
+How does a router determine which link it should forward a packet onto?
+Different ways for different types of computer networks.
+#### Internet
+Every end system has a IP Address. Source end systems includes the destination's IP address in the packet's header. Address has a hierearchial structure. When a packet arrives, the router examines a portion of the packet's destination address and forwardds the packet to an adjacent router. Each router has a *forwarding table* that maps destination addresses (or portions of the destination addresses) to that router's outbound links. It searches its forwarding table, using this address, to find the appropriate outbound link. The router then directs the packet to this outbound link.
 
+Analogous to a car driver not using maps but instead asking for directions and being pointed in the direction. 
+
+Router uses a packet's destination address to index a forwarding table and determine the apporpriate outbound link. But how does forwarding tables get set? Are they configured by hand in each and every router, or does it be automated? More about that in [[Chapter 5]]. Internet has a number of special *routing protocols* that are used to automatically set the forwarding tables.  They may for example determine the shortest path from each router to each destination and use the shortest path results to configre the forwarding tables in the routers.
+
+## Circuit Switching
+Resources needed along a path is reserved for the duration of the communication session between end systems. On the contrary in packet switching networks they are multiplexed.
+
+Telephone networks are example of circuit-switched networks. Network established connection between sender and receiver. Bona fide connection switches mantains state. This is called circuit When the network establishes the ciruit, it also reserves a constant transmission rate in the networks links (representing a given transmision rate has been reserved for this sender-to-receiver connection, the sender can transfer the data to the receiver at the garenteed constant rate. 
+![[2025.01.28.11.10.18.877 firefox.jpg]]
+### Multiplexing in Circuit-Switched Networks
+ITs either multiplexed with frequency-division multiplexing  (FDM) or time-division multiplexing (TDM)[[#FDM og TDM]].  
