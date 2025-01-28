@@ -114,4 +114,4 @@ Assume FCFS, our packet can be transmitted onlty after all the packets that have
 When it gets to the link its needs to propagate to router B. The time required to go from the beginning of the link to Router B is the propagation delay. It propagates at the propagataion speed of the link. That depends on the physical medium of the links (i.e fiber, TP wire, coax). Usually from $2 \cdot 10^8 m/s$ to $3 \cdot 10^8m/s$ almost speed of light. THe delay is the distance between the routers divided by the speed. So d/s. 
 
 ### Queuing Delay and Packet Loss.
-Avarage rate of bits arrive at the queue is $La\;bits/sec$  
+Let $a$ denote the avarage rate at which packets arrive at the queue (packets/sec). $R$ is transmission rate, and $L$ is the lenght of packet. Avarage rate of bits arrive at the queue is $La\;bits/sec$ . The ratio $La/R$ 
