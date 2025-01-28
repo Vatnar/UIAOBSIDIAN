@@ -98,3 +98,20 @@ Telephone networks are example of circuit-switched networks. Network established
 ![[2025.01.28.11.10.18.877 firefox.jpg]]
 ### Multiplexing in Circuit-Switched Networks
 ITs either multiplexed with frequency-division multiplexing  (FDM) or time-division multiplexing (TDM)[[#FDM og TDM]].  
+
+## Delay, Loss, and Throughput in Packet-switched networks
+### Delay
+Most important delays are *Nodal processing delay*, *queuing delay*, *transmission delay*, and *propegation delay*; together, these delay accumulate to give a *total nodal delay*. Performance is greatly affected by network delays. 
+![[2025.01.28.11.17.21.845 firefox.jpg]]
+#### Processing delay
+The time required to examine the packet's header and determine where to direct the packet is part of the processing delay. The processing delay can also include factors such as time needed to check for bit-level errors in the packet that occured in transmitting the packet's bits from the upstream node to router A. Processing delays in high-speed routeres are typicalle on the order of microsecojnds or less. After this nodal processing, the router directs the packet to the queue that precedes the link to royuter B. IN chapter 4 we will see more about this [[Chapter 4]]. 
+#### Queuing Delay
+Packet experiences a queuing delay  as it waitas to be transmitted onto the link. Queueing delay for a packet will depend on the number of earlier-arriving packets that are queued and waiting for transmission. If its empty then it will be zero, if the traffic is heavy, the queuing delay will be long. Can be in the order of microeconds to milliseconds.
+#### Transmission Delay
+Assume FCFS, our packet can be transmitted onlty after all the packets that have arrived before it have been transmitted. Denote the lenght of the packet by $L$ bits, and denote the transmission rate of the link from router A to router B by $R$ $bits/sec$. For example, for a $10$ $Mbps$ Ethernet link, the rate is $R=10$ $Mbps$; for a $100$ $Mbps$ Ethernet link the rate is $R = 100$. The transmission delay is $L/R$. This is the amount of time requrired to push (that is transmit) all of th epackets bits into the link. Transmission delays are typically on the order of microseconds to milliseconds.
+
+#### Propagation delay
+When it gets to the link its needs to propagate to router B. The time required to go from the beginning of the link to Router B is the propagation delay. It propagates at the propagataion speed of the link. That depends on the physical medium of the links (i.e fiber, TP wire, coax). Usually from $2 \cdot 10^8 m/s$ to $3 \cdot 10^8m/s$ almost speed of light. THe delay is the distance between the routers divided by the speed. So d/s. 
+
+### Queuing Delay and Packet Loss.
+Avarage rate of bits arrive at the queue is $La\;bits/sec$  
