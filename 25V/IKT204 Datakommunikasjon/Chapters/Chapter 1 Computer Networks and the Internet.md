@@ -122,4 +122,45 @@ Suppose there are $N-1$ routers between the source host and the destinationb hos
 d_{end-end} = N(d_{proc}+d_{trans}+d_{prop})
 $$
 ## Throughput
-THrougput 
+## 1.4.4 Throughput in Computer Networks
+
+Throughput is a critical performance measure in computer networks, representing the rate at which data is successfully transmitted from a sender to a receiver.
+
+### Definition
+- **Instantaneous Throughput**: The data transfer rate (in bits/sec) at a specific moment.  
+- **Average Throughput**: For a file of size \(F\) bits transferred in \(T\) seconds, the throughput is calculated as:  
+  $$
+  \text{Throughput} = \frac{F}{T} \, \text{bits/sec}
+  $$
+
+### Key Examples
+1. **Two-Link Network**:  
+   - For a server, router, and client with link rates \(R_s\) and \(R_c\), the throughput is determined by the bottleneck link:  
+     $$
+     \text{Throughput} = \min(R_s, R_c)
+     $$
+   - Example: Transferring a file of \(F = 32\) Mb over links with \(R_s = 2\) Mbps and \(R_c = 1\) Mbps takes:  
+     $$
+     T = \frac{F}{\min(R_s, R_c)} = 32 \, \text{seconds}
+     $$
+
+2. **Multi-Link Network**:  
+   - For \(N\) links with transmission rates \(R_1, R_2, \dots, R_N\), throughput is:  
+     $$
+     \text{Throughput} = \min(R_1, R_2, \dots, R_N)
+     $$
+
+3. **Shared Link Network**:  
+   - With multiple simultaneous downloads, shared link capacity becomes a bottleneck.  
+   - Example: For 10 downloads sharing a link with \(R = 5\) Mbps, each download receives:  
+     $$
+     \text{Throughput per download} = \frac{R}{10} = 500 \, \text{kbps}
+     $$
+
+### Factors Affecting Throughput
+- **Bottleneck Links**: The slowest link along the path determines throughput.  
+- **Intervening Traffic**: High traffic on shared links can reduce throughput.  
+- Even links with high capacity may act as bottlenecks when overloaded.
+
+### Conclusion
+Throughput depends on the minimum transmission rate along the data path and is impacted by intervening traffic and shared link utilization. Future chapters and homework will explore these concepts in more detail.
