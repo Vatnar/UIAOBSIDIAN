@@ -114,4 +114,12 @@ Assume FCFS, our packet can be transmitted onlty after all the packets that have
 When it gets to the link its needs to propagate to router B. The time required to go from the beginning of the link to Router B is the propagation delay. It propagates at the propagataion speed of the link. That depends on the physical medium of the links (i.e fiber, TP wire, coax). Usually from $2 \cdot 10^8 m/s$ to $3 \cdot 10^8m/s$ almost speed of light. THe delay is the distance between the routers divided by the speed. So d/s. 
 
 ### Queuing Delay and Packet Loss.
-Let $a$ denote the avarage rate at which packets arrive at the queue (packets/sec). $R$ is transmission rate, and $L$ is the lenght of packet. Avarage rate of bits arrive at the queue is $La\;bits/sec$ . The ratio $La/R$  is *traffic intensity.* If $La/R\,>\,1$, then the avarage rate at which bits arrive at the queue exceed s the rate that bits can be transmittedc from the queue. Queue will increase without baound and the delay will approach infinity. Golden rules is. Design a system so  that the traffic intensitiy is no greater than 1. Consider 
+Let $a$ denote the avarage rate at which packets arrive at the queue (packets/sec). $R$ is transmission rate, and $L$ is the lenght of packet. Avarage rate of bits arrive at the queue is $La\;bits/sec$ . The ratio $La/R$  is *traffic intensity.* If $La/R\,>\,1$, then the avarage rate at which bits arrive at the queue exceed s the rate that bits can be transmittedc from the queue. Queue will increase without baound and the delay will approach infinity. Golden rules is. Design a system so  that the traffic intensitiy is no greater than 1. Consider $La/R \leq 1$. There will be no queuing delay if packets arrive periodically. If its in burst there will be significant avarage queuing delay. for $N$ packets arrive simoultaniasly every $(L/R)N\;Seconds$ then the first packet will have no queuing, the second packlet will have a queuing delay of L/R. Or genrally $(n-1)L/R$ seconds. ![[queuingdelay.jpg]]
+#### Packet Loss
+In reality a queue has finite capacity. If packet approaches a full queue, a router will drop the packet. And the packet will be lost. 
+### End to end delay
+Suppose there are $N-1$ routers between the source host and the destinationb host. Lets also suppose for a moment that the nework is uncongested, the processing ddelay at each router and at the host is $d_{proc}$, the transmission rate out of each erouter and out fot eh host is $R\; bits/sec$, and the propagation on each link is $d_{prop}$. The nodal delays accumalate and give end to den delay $$
+d_{end-end} = N(d_{proc}+d_{trans}+d_{prop})
+$$
+## Throughput
+THrougput 
