@@ -11,5 +11,6 @@
   "automatic-table-of-contents",
   "obsidian-git",
   "text-extractor",
-  "obsidian-plantuml"
+  "obsidian-plantuml",
+  "diagram-zoom-drag"
 ]
