@@ -10,5 +10,6 @@
   "obsidian-latex-suite",
   "automatic-table-of-contents",
   "obsidian-git",
-  "text-extractor"
+  "text-extractor",
+  "obsidian-plantuml"
 ]
