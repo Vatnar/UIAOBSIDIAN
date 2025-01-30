@@ -494,4 +494,5 @@ subscriber requests content, service provider returns manifest
 ![[2025.01.30.10.58.42.381 POWERPNT.jpg]]
 # Review Questions and Problems
 ## Exercise 1 (R3)
-- For a communication session between a pair of processes
+- For a communication session between a pair of processes, which process is the client and which is the server?
+The client is the process that 
