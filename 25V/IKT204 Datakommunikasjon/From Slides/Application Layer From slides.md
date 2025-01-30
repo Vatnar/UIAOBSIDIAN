@@ -232,3 +232,18 @@ Web sites and client browser use cookies to maintain some state between transact
 	- enttry in backend databse for ID
 - subsequent HTTP requests from Susan to this site will contain Cookie ID value allowing site to Identify susan.
 ![[maintainingstatewithcookies.jpg]]
+## Web caches
+<span style="color:rgb(255, 0, 0)">Goal</span>: satisfy client requests without involving origin server
+- user configures browser to point to a (local) <span style="color:rgb(255, 0, 0)">Web Cache</span> 
+- browser sends all HTTP requests to cache
+	- if object in cache: cache returns object to client
+	- else cache requests object from origin server, caches received object, then returns object to client.
+## Conditional GET
+goal: don't send object if cache has up-to-date cached version
+	- no object transmission delay (or use of network resources)
+- client: specify date of cached copy in HTTP request
+	if-modified-since: <date>;
+	d
+dd
+- server: response contains no object if cached copy is up-to-date: `HTTP/1.0 304 Not Modified`
+- 
