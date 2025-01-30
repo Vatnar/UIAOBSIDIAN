@@ -110,11 +110,11 @@ encryption, data integrity
 - <span style="color:rgb(255, 0, 0)">does not provide:</span> reliability, flow control, congestion control, timing, throughput guarantee, security, or connection setup
 - Q: why bother? Why is there a UDP. A: just faster
 # Internet applications, and transport protocols
-| application            | application layer protocol                                  | transport protocol |
-| ---------------------- | ----------------------------------------------------------- | ------------------ |
-| file transfer/download | FTP [RFC 959]                                               | TCP                |
-| e-mail                 | (sending) SMTP [RFC 5321]<br>(receiving)IMAP[9051] and POP3 | TCP<br>TCP         |
-|                        |                                                             | TCP<br>UDP         |
-|                        |                                                             | TCP or UDP         |
-|                        |                                                             | TCP                |
-|                        |                                                             | UDP or TCP         |
+| application            | application layer protocol                                        | transport protocol |
+| ---------------------- | ----------------------------------------------------------------- | ------------------ |
+| file transfer/download | FTP [RFC 959]                                                     | TCP                |
+| e-mail                 | (sending) SMTP [RFC 5321]<br>(receiving)IMAP[9051] and POP3[1939] | TCP<br>TCP         |
+| Web documents          | HTTP/1.1 [RFC 7320]<br>HTTP/3 [RFC 9114]                          | TCP<br>UDP         |
+| Internet telephony     | SIP[RFC 3261]<br>RTP[RFC 3550], or prop                           | TCP or UDP<br>UDP  |
+| streaming audio/video  | HTTP [RFC 7320], DASH                                             | TCP                |
+| interactive games      | WOW, FPS (proprietary)                                            | UDP or TCP         |
