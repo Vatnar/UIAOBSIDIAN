@@ -492,3 +492,6 @@ subscriber requests content, service provider returns manifest
 ![[2025.01.30.10.58.24.830 POWERPNT.jpg]]
 # wireshark
 ![[2025.01.30.10.58.42.381 POWERPNT.jpg]]
+# Review Questions and Problems
+## Exercise 1 (R3)
+- For a communication session between a pair of processes
