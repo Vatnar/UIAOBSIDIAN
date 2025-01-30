@@ -118,3 +118,12 @@ encryption, data integrity
 | Internet telephony     | SIP[RFC 3261]<br>RTP[RFC 3550], or prop                           | TCP or UDP<br>UDP  |
 | streaming audio/video  | HTTP [RFC 7320], DASH                                             | TCP                |
 | interactive games      | WOW, FPS (proprietary)                                            | UDP or TCP         |
+# Securing TCP
+## Vanilla TCP & UDP sockets:
+- no encryption 
+- cleartext passwords sent into socket traverse Internet in cleartext (!)
+## Transport Layer Security (TLS)
+- provides encrypted TCP connections
+- data integrity
+- end-point auuthentication
+## TSL
