@@ -363,5 +363,34 @@ Q: how to map between IP address and name, and vice versa
 ## Domain Name System (DNS):
 - distributed database implemented in hierarchy of many name servers
 - application-layer protocol: hosts, DNS servers communicate to resolve names (address/ name translation) 
-	- note: core internet function, implmeneted as application-layer protocol
+	- note: core internet function, implemented as application-layer protocol
 	- complexity at network's "edge"
+## DNS: services, strucutre
+### DNS services:
+- hostname-to-IP-address translation
+- host aliasing
+	- canonical , alias names
+- mail server aliasing
+- load distributiojn
+	- replicated Web servers: many IP addresses correspond to one name
+Q: Why not centralize DNS?
+- single point of failure
+- traffic volume
+- distant centralized database
+- maintenance
+A: doesnt scale!
+- Comcast DNS servers alone: 600B DNS queries/day
+- Akamai DNS servers alone: 2.2T DNS queries./day
+### Thinking about the DNS
+humongous distributed database:
+- ~ billion records, each simple
+- handles many trillions of queries/day:
+	- many more reads than wrirtes
+	- performance matters: almost very internet transaction interacts with DNS - msecs count!
+organizationally, phyiscally decentralized:
+- millions of different organizations responsible for their records
+Bulletproof: reliability, security. 
+![[DNSdatabse.jpg]]
+#### DNS: root name servers
+- official, contact-of-last-resort by name servers that can not resolve name
+- 
