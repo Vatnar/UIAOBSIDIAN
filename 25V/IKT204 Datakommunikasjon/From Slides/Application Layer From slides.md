@@ -582,15 +582,27 @@ Peer upload rate does not matter here, unless a peer first should upload the fil
 ### P2P
 The total download bandwhitdh available to a peer depends on the number of other peers.
 $$B_{total}=\frac{(N-1)\cdot u_{i}}{N}$$
+But max $d_i$. 
+
+$$B_{N=15,U_{i}=2}=\frac{(15-1)\cdot 2}{15}=1.86 < D_{i}$$
+$$B_{N=15,U_{i}=10}=\frac{(15-1)\cdot 10}{15}=9.33 < D_{i}$$
+$$B_{N=15,U_{i}=50}=\frac{(15-1)\cdot 50}{15}=46 < D_{i}$$
+$$B_{N=300,U_{i}=2}=\frac{(300-1)\cdot 2}{300}=1.99 < D_{i}$$
+$$B_{N=300,U_{i}=10}=\frac{(300-1)\cdot 10}{300}=9.96 < D_{i}$$
+$$B_{N=300,U_{i}=50}=\frac{(300-1)\cdot 50}{300}=49.8 < D_{i}$$
+$$B_{N=6000,U_{i}=2}=\frac{(6000-1)\cdot 2}{6000}=1.999 < D_{i}$$
+$$B_{N=6000,U_{i}=10}=\frac{(6000-1)\cdot 10}{6000}= 9.999< D_{i}$$
+$$B_{N=6000,U_{i}=50}=\frac{(6000-1)\cdot 50}{6000}=49.99 < D_{i}$$
 
 | Minimum Distribution Time | $N$        | $u_i$          |
 | ------------------------- | ---------- | -------------- |
-|                           | $15$       | $2\;Mbps$      |
-|                           | $15$<br>   | $10\;Mbps$<br> |
-|                           | $15$<br>   | $50\;Mbps$<br> |
-|                           | $300$<br>  | $2\;Mbps$<br>  |
-|                           | $300$      | $10\;Mbps$     |
-|                           | $300$<br>  | $50\;Mbps$<br> |
-|                           | $6000$<br> | $2\;Mbps$<br>  |
-|                           | $6000$<br> | $10\;Mbps$<br> |
-|                           | $6000$<br> | $50\;Mbps$<br> |
+| 2150s                     | $15$       | $2\;Mbps$      |
+| 428s                      | $15$<br>   | $10\;Mbps$<br> |
+| 86s                       | $15$<br>   | $50\;Mbps$<br> |
+| 2010s                     | $300$<br>  | $2\;Mbps$<br>  |
+| 401s                      | $300$      | $10\;Mbps$     |
+| 80s                       | $300$<br>  | $50\;Mbps$<br> |
+| 2005s                     | $6000$<br> | $2\;Mbps$<br>  |
+| 410s                      | $6000$<br> | $10\;Mbps$<br> |
+| 80s                       | $6000$<br> | $50\;Mbps$<br> |
+We can see how P2P file distribution scales way better than using a server. As N approaches infinity the download time approaches $F/u_i$. 
