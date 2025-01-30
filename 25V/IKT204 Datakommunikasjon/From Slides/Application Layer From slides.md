@@ -555,4 +555,28 @@ E) The browser that initiates this message is Mozilla Netscape, this is needed b
 3. Use _nslookup_ on your local host to send DNS queries to three DNS servers: your local DNS server and the two DNS servers you found in part (b). Try querying for Type A, NS, and MX reports. Summarize your findings.
    ![[2025.01.30.11.57.33.705 WindowsTerminal.jpg]]
    non authrorative
-1. Use _nslookup_ to find a Web server that has multiple IP addresses. Does the Web server of your institution (school or company) have multiple IP addresses?
+1. Use _nslookup_ to find a Web server that has multiple IP addresses. Does the Web server of your institution (school or company) have multiple IP addresses?#
+
+## Exercise 8 (P22)
+ 
+- **Ch. 2.6 (30 points)**. Consider distributing a file of **_F_** = 500 MB to N peers, where M is SI standard (base 10) $10^6$ and not binary (base 2) $2^{20}$ = 10242. The server has an upload rate of $u_s$ = 1000 Mbps, and each peer has a download rate of $d_i$ = 80 Mbps (i.e., $d_{min}=d_{i}$) and an upload rate of $u_{i}$. For **_N_** = 15, 300, and 6 000 and $u_i$ = 2 Mbps, 10 Mbps, and 50 Mbps, prepare a table giving the minimum distribution time for each of the combinations of **_N_** and $u_i$ for both client-server distribution and P2P distribution.
+### Client Server
+
+$F = 500\;MB$, $d_{i} = 80\;Mbps$, $u_{s}=1000\;Mbps$. 
+
+The load for the upload rate of the server would be $N\cdot d_{i}$ as long as its less than $u_s$. 
+So for a file with size $F = 500\;MB=4000\;Mb$ it would take  minimum of $F/d_{i}$. 
+$u_s/d_{i}=12.5$. Therefore all our values of N exceed the limit for downloading at the max speed at the same time. As long as the full upstream capacity of the server is reached its the same if all clients download slower at the same time or a few at at time.
+
+$$u_{s}/15= 66.67\;Mbps\qquad \frac{4000\;Mb}{66.67\;Mbps} \approx60s$$
+$$u_{s}/300= 3.33\;Mbps\qquad \frac{4000\;Mb}{3.33\;Mbps} \approx1201s\approx 20m$$
+$$u_{s}/6000= 0.1667\;Mbps\qquad \frac{4000\;Mb}{0.1667\;Mbps} \approx23995s\approx6.6t$$
+
+Peer upload rate does not matter here, unless a peer first should upload the file, then just add $F/u_i$ to the minimum time.
+
+| Minimum Distribution Time | $N$     |
+| ------------------------- | ------- |
+| $60s$                     | $15$    |
+| $20m$                     | $300$   |
+| $6.6t$                    | $6 000$ |
+### P2P
