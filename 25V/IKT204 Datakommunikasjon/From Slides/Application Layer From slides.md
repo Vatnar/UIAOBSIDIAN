@@ -401,3 +401,25 @@ Bulletproof: reliability, security.
 #### Top-level domain, and authoritative servers
 ##### Top-levell domain TLD servers:
 - responsible for .com, .org, .net, .edu, and all top-level country domains. .no, .uk
+- network solutions, authooritive registry for .com, .net. TLD.
+- educase .edu
+#### authorative DNS service
+- organizations own DNS servers, providing authjoritative hostname to IP mappings for organizations named hosts
+- can be maintained by orgnaization or ISP.
+- §when host makes DNS query, it is sent to its local DNS server
+
+•Local DNS server returns reply, answering:
+
+•from its local cache of recent name-to-address translation pairs (possibly out of date!)
+
+•forwarding request into DNS hierarchy for resolution
+
+•each ISP has local DNS name server; to find yours:
+
+•MacOS: % scutil --dns
+
+•Windows: >ipconfig /all
+
+§local DNS server doesn’t strictly belong to hierarchy
+
+![[2025.01.30.10.39.46.073 POWERPNT.jpg]]![[2025.01.30.10.39.57.682 POWERPNT.jpg]]
