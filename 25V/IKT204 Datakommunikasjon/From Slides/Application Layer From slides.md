@@ -393,4 +393,11 @@ Bulletproof: reliability, security.
 ![[DNSdatabse.jpg]]
 #### DNS: root name servers
 - official, contact-of-last-resort by name servers that can not resolve name
-- 
+- incredibly imoportant internet function
+	- internet couldnt function without
+	- DNSSEC - provides security (authentication, message integrity)
+- ICANN (internet corporation for assigned names and numbers) manages root DNS domain
+![[rootdns.jpg]]
+#### Top-level domain, and authoritative servers
+##### Top-levell domain TLD servers:
+- responsible for .com, .org, .net, .edu, and all top-level country domains. .no, .uk
