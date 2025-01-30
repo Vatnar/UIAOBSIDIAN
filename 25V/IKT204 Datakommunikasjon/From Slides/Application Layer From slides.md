@@ -243,7 +243,5 @@ goal: don't send object if cache has up-to-date cached version
 	- no object transmission delay (or use of network resources)
 - client: specify date of cached copy in HTTP request
 	if-modified-since: <date>;
-	d
-dd
 - server: response contains no object if cached copy is up-to-date: `HTTP/1.0 304 Not Modified`
-- 
+![[condit.jpg]]
