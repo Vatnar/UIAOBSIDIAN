@@ -353,3 +353,4 @@ RFC 5322 defines syntax for email message itself like html defines syntax for we
 ![[2025.01.30.10.16.25.442 POWERPNT.jpg]]
 ![[ESMTP.jpg]]![[esmpt2.jpg]]
 ![[2025.01.30.10.18.25.887 POWERPNT.jpg]]
+# DNBS
