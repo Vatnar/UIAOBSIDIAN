@@ -250,3 +250,4 @@ goal: don't send object if cache has up-to-date cached version
 Key Goal: decreased delay in multi-object HTTP requests
 
 HTTP1.1: introduced multiple, piplined GETs over single TCP connection
+- server responds in-order (FCFS: first-come-first-served scheduling)
