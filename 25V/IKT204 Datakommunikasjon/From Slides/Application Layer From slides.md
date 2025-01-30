@@ -580,6 +580,8 @@ Peer upload rate does not matter here, unless a peer first should upload the fil
 | $20m$                     | $300$   |
 | $6.6t$                    | $6 000$ |
 ### P2P
+The total download bandwhitdh available to a peer depends on the number of other peers.
+$$B_{total}=\frac{(N-1)\cdot u_{i}}{N}$$
 
 | Minimum Distribution Time | $N$        | $u_i$          |
 | ------------------------- | ---------- | -------------- |
