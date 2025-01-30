@@ -126,4 +126,8 @@ encryption, data integrity
 - provides encrypted TCP connections
 - data integrity
 - end-point auuthentication
-## TSL
+## TLS implemented in application layer
+- apps use TSL libraries, that use TCP in turn
+- cleartext sent into "socket" traverse Internet encrypted
+- more in [[chapter 8]]
+- 
