@@ -353,4 +353,15 @@ RFC 5322 defines syntax for email message itself like html defines syntax for we
 ![[2025.01.30.10.16.25.442 POWERPNT.jpg]]
 ![[ESMTP.jpg]]![[esmpt2.jpg]]
 ![[2025.01.30.10.18.25.887 POWERPNT.jpg]]
-# DNBS
+# DNS: Domain Name System
+people: many identifiers: SSN, name, passport
+
+internet hosts, router:
+- IP Address (32 bit) - used for addressing datagrams
+- "name", e.g., vg.no - used by humans
+Q: how to map between IP address and name, and vice versa
+## Domain Name System (DNS):
+- distributed database implemented in hierarchy of many name servers
+- application-layer protocol: hosts, DNS servers communicate to resolve names (address/ name translation) 
+	- note: core internet function, implmeneted as application-layer protocol
+	- complexity at network's "edge"
