@@ -156,4 +156,39 @@ Protocols that maintain "state" are complex!
 
 ## HTTP connections: two types
 ### Non-persistent HTTP/1.0 [1996]
+1. TCP connection opened
+2. at most one object sent over TCP connection
+3. TCP connection closed
+downloading multiple objects required multiple connections
 
+### Persistent HTTP/1.1 [1997]
+- TCP connection opened to a server
+- multiple objects can be sent over single TCP connection between client, and that server
+- TCP connection closed
+### Non-persistent HTTP: response time: 2RTT + file transmission time
+#### RTT (definition):
+time for small packet to travel from client to server and back. Stands for round-trip time
+#### HTTP response time (per object):
+- one RTT to initiate TCP connection
+- one RTT for HTTP request and first few bytes of HTTP response to return
+- object/file transmission time.
+ ![[Non-persistent RTT.jpg]]
+### Persistent HTTP (HTTP 1.1)
+#### Non-persistent HTTP issues:
+- Requires 2 RTTs per object
+- OS overhead for each TCP connection
+- browsers often open multiple parallel TCP connections to fetch reference objects in parallel.
+#### Persistent HTTP (HTTP1.1):
+- server leaves connection open after sending response
+- subsequent HTTP messages between same client/server sent over open connection
+- client sends requests as soon as it encounters a referenced object
+- as little as one RTT for all the referenced objects (cutting response time in half)
+
+## HTTP message
+### HTTP Request message
+- two types of HTTP messages: <span style="color:rgb(255, 0, 0)">request, response</span> 
+- <span style="color:rgb(255, 0, 0)">HTTP request message:</span> 
+	- ASCII (human-readable format)
+![[ASCCIIHTML.jpg]]
+#### General format:
+![[general format of HTTP request.jpg]]
