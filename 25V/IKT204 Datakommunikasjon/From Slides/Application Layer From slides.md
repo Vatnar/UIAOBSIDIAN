@@ -278,4 +278,77 @@ HTTP/3: adds security, per object error- and congestion-control (more pipelining
 - user agents
 - mail servers
 - simple mail transfer protocol: SMTP
-# 
+### User Agent
+- a.k.a "mail reader"
+- composing, editing, reading mail messages
+- e.g., Outlook, iPhone mail client
+- outgoing, incoming messatges stored on server. 
+ ![[EMAIL.jpg]]
+## SMTP RFC [~~821, 2811, ~~5321]
+- uses TCP to reliably transfer  email message from client (mail server initiating connection) to server, port 25 (or TLS port 587)
+	- direct transfer: sending server (acting like client) to receiving server
+- three phases of transfer
+	- SMTP handshaking (greeting)
+	- SMTP transfer of messages
+	- SMTP closure
+- command/response interaction (like HTTP)
+	- commands: ASCII text
+	- response: status code and phrase
+![[mail.jpg]]
+```SMTP
+S: 220 smtp.example.com ESMTP Postfix
+
+C: HELO relay.example.org
+
+S: 250 Hello relay.example.org, I am glad to meet you
+
+C: MAIL FROM:<bob@example.org>
+
+S: 250 Ok
+
+C: RCPT TO:<alice@example.com>
+
+S: 250 Ok
+
+C: RCPT TO:<theboss@example.com>
+
+S: 250 Ok
+
+C: DATA
+
+S: 354 End data with <CR><LF>.<CR><LF>
+
+C: From: "Bob Example" <bob@example.org>
+
+C: To: "Alice Example" >alice@example.com>
+
+C: Cc: <theboss@example.com>
+
+C: Date: Tue, 15 Jan 2008 16:02:43 -0500
+
+C: Subject: Test message
+
+C:
+
+C: Hello Alice.
+
+C: This is a test message with 5 header fields and 4 lines in the message body.
+
+C: Your friend,
+
+C: Bob
+
+C: .
+
+S: 250 Ok: queued as 12345
+
+C: QUIT
+
+S: 221 Bye
+```
+## Mail message format
+SMTP: protocol for exchanging e-mail messages, defined in RFC 5321.
+RFC 5322 defines syntax for email message itself like html defines syntax for web docs.
+
+![[2025.01.30.10.16.25.442 POWERPNT.jpg]]
+![[ESMTP.jpg]]
