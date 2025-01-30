@@ -553,4 +553,6 @@ E) The browser that initiates this message is Mozilla Netscape, this is needed b
    Used who.is database and searched for uia.no. There are three listings for name servers, being ns2.uia.no, ns1.uia.no and nn.uninett.no
    
 3. Use _nslookup_ on your local host to send DNS queries to three DNS servers: your local DNS server and the two DNS servers you found in part (b). Try querying for Type A, NS, and MX reports. Summarize your findings.
-4. Use _nslookup_ to find a Web server that has multiple IP addresses. Does the Web server of your institution (school or company) have multiple IP addresses?
+   ![[2025.01.30.11.57.33.705 WindowsTerminal.jpg]]
+   
+1. Use _nslookup_ to find a Web server that has multiple IP addresses. Does the Web server of your institution (school or company) have multiple IP addresses?
