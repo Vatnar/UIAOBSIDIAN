@@ -110,11 +110,11 @@ encryption, data integrity
 - <span style="color:rgb(255, 0, 0)">does not provide:</span> reliability, flow control, congestion control, timing, throughput guarantee, security, or connection setup
 - Q: why bother? Why is there a UDP. A: just faster
 # Internet applications, and transport protocols
-| application            | application layer protocol | transport protocol |
-| ---------------------- | -------------------------- | ------------------ |
-| file transfer/download | FTP [RFC 959]              | TCP                |
-|                        |                            | TCP                |
-|                        |                            | TCP<br>UDP         |
-|                        |                            | TCP or UDP         |
-|                        |                            | TCP                |
-|                        |                            | UDP or TCP         |
+| application            | application layer protocol                                  | transport protocol |
+| ---------------------- | ----------------------------------------------------------- | ------------------ |
+| file transfer/download | FTP [RFC 959]                                               | TCP                |
+| e-mail                 | (sending) SMTP [RFC 5321]<br>(receiving)IMAP[9051] and POP3 | TCP<br>TCP         |
+|                        |                                                             | TCP<br>UDP         |
+|                        |                                                             | TCP or UDP         |
+|                        |                                                             | TCP                |
+|                        |                                                             | UDP or TCP         |
