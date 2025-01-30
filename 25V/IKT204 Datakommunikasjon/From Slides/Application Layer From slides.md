@@ -242,6 +242,11 @@ Web sites and client browser use cookies to maintain some state between transact
 goal: don't send object if cache has up-to-date cached version
 	- no object transmission delay (or use of network resources)
 - client: specify date of cached copy in HTTP request
-	if-modified-since: <date>;
+	if-modified-since: <date;
 - server: response contains no object if cached copy is up-to-date: `HTTP/1.0 304 Not Modified`
 ![[condit.jpg]]
+
+## HTTP/2 
+Key Goal: decreased delay in multi-object HTTP requests
+
+HTTP1.1: introduced multiple, piplined GETs over single TCP connection
