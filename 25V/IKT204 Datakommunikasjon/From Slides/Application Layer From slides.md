@@ -580,3 +580,15 @@ Peer upload rate does not matter here, unless a peer first should upload the fil
 | $20m$                     | $300$   |
 | $6.6t$                    | $6 000$ |
 ### P2P
+
+| Minimum Distribution Time | $N$        | $u_i$          |
+| ------------------------- | ---------- | -------------- |
+|                           | $15$       | $2\;Mbps$      |
+|                           | $15$<br>   | $10\;Mbps$<br> |
+|                           | $15$<br>   | $50\;Mbps$<br> |
+|                           | $300$<br>  | $2\;Mbps$<br>  |
+|                           | $300$      | $10\;Mbps$     |
+|                           | $300$<br>  | $50\;Mbps$<br> |
+|                           | $6000$<br> | $2\;Mbps$<br>  |
+|                           | $6000$<br> | $10\;Mbps$<br> |
+|                           | $6000$<br> | $50\;Mbps$<br> |
