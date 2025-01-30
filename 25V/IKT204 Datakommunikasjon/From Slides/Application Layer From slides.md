@@ -76,3 +76,45 @@ clients:
  ![[socket as a door.jpg]]
 # Addressing processes
 - to receive messages, a process must have a **identifier**
+- host device has unique 32-bit IP address
+- Q: Does the IP address of host on which process runs suffice for identifying the process?
+	- A: No, many processes can be running on the same host.
+- **Identifier** includes both **IP address** and **port numbers** associated with process on host. 
+- Example port numbers:
+	- HTTP server: 80
+	- mail server: 25
+- To send HTTP message to gaia.cs.umass.edu web server:
+	- IP address: 128.119.245.12
+	- port number: 80
+- More shortly
+# What transport service does an app need?
+## data integrity
+- some apps (e.g., file transfer, web transactions) require 100% reliable data transfer
+- other apps (e.g audio) can tolerate som loss
+## timing
+- some apps (e.g., Internet telephony, interactive games) require low delay to be "effective"
+## throughput
+- some apps (e.g., multimedia) require minimum amount of throughput to be "effective"
+- other apps ("elastic apps") make use of whatever throughput they get
+## security
+encryption, data integrity
+# Internet transport protocol services
+## TCP service:
+- <span style="color:rgb(255, 0, 0)">reliable transport:</span> between sending and receiving process
+- <span style="color:rgb(255, 0, 0)">flow control:</span> sender won't overwhelm receiver
+- <span style="color:rgb(255, 0, 0)">congestion control:</span> throttle sender when network overloaded
+- <span style="color:rgb(255, 0, 0)">connection-oriented:</span> setup required between client and server processes
+- <span style="color:rgb(255, 0, 0)">does not provide:</span> timing, minimum throughput guarantee, security
+## UDP service:
+- <span style="color:rgb(255, 0, 0)">unreliable data transfer:</span> between sending and receiving process
+- <span style="color:rgb(255, 0, 0)">does not provide:</span> reliability, flow control, congestion control, timing, throughput guarantee, security, or connection setup
+- Q: why bother? Why is there a UDP. A: just faster
+# Internet applications, and transport protocols
+| application            | application layer protocol | transport protocol |
+| ---------------------- | -------------------------- | ------------------ |
+| file transfer/download | FTP [RFC 959]              | TCP                |
+|                        |                            | TCP                |
+|                        |                            | TCP<br>UDP         |
+|                        |                            | TCP or UDP         |
+|                        |                            | TCP                |
+|                        |                            | UDP or TCP         |
