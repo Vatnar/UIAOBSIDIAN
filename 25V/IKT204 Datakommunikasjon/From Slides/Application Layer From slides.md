@@ -192,3 +192,17 @@ time for small packet to travel from client to server and back. Stands for round
 ![[ASCCIIHTML.jpg]]
 #### General format:
 ![[general format of HTTP request.jpg]]
+#### Other HTTP Request messages
+##### Post method:
+- web page often includes form input
+- user input sent from client to server in entity body of HTTP POST request message
+
+##### GET method (for sending data to server)
+- include user data in URL field of HTTP GET request message (following a '?')
+##### HEAD method:
+- requests headers (only) that would be returned if specified URL were requested with an HTTP GET method.
+##### PUT method:
+- uploads new file (object) to server
+- completely replaces file that exists at specified URL with content in entitiy body of PUT HTTP request message.
+### HTTP response message
+![[HTTPresponse.jpg]]
