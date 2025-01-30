@@ -249,5 +249,13 @@ goal: don't send object if cache has up-to-date cached version
 ## HTTP/2 
 Key Goal: decreased delay in multi-object HTTP requests
 
-HTTP1.1: introduced multiple, piplined GETs over single TCP connection
-- server responds in-order (FCFS: first-come-first-served scheduling)
+HTTP1.1: introduced multiple, pipelined GETs over single TCP connection
+- server responds in-order (FCFS: first-come-first-served scheduling) to GET requests
+- with FCFS, small object may have to wait for transmission (head-of-line (HOL) blocking)) behind large objects
+- loss recovery (retransmitting lost TCP segments) stalls object transmission
+
+HTTP/2: [RFC 7540, 2015] increased flexibility at server in sending objects to client:
+- methods, status codes, most header fieds unchanged from 1.1 but represented in compressed binary frames
+- transmission order of requested objects based on client-specified object priority (not necessarily FCFS)
+- push unrequested objects to client
+- divide object into frames schedule frame to mitigate HOL blocking
