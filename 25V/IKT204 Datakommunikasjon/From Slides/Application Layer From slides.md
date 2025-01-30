@@ -422,4 +422,9 @@ Bulletproof: reliability, security.
 
 §local DNS server doesn’t strictly belong to hierarchy
 
-![[2025.01.30.10.39.46.073 POWERPNT.jpg]]![[2025.01.30.10.39.57.682 POWERPNT.jpg]]
+![[2025.01.30.10.39.46.073 POWERPNT.jpg]]![[2025.01.30.10.39.57.682 POWERPNT.jpg]]![[2025.01.30.10.42.04.450 POWERPNT.jpg]]
+## Getting your info into the DNS
+example: new startup "network utopia"
+1. register name networkuptopia.com at DNS registrar e.g domeneshop
+	- provide names, ip addresses of autoritative name server, primary and secondary
+	- registrar inserts NS, A RRs into .com TLD server
