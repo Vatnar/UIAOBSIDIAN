@@ -259,3 +259,23 @@ HTTP/2: [RFC 7540, 2015] increased flexibility at server in sending objects to c
 - transmission order of requested objects based on client-specified object priority (not necessarily FCFS)
 - push unrequested objects to client
 - divide object into frames schedule frame to mitigate HOL blocking
+### Mitigating HOL blocking HTTP2
+HTTP 1.1: client requests 1 large object (e.g., a big chunk of a video file) and 3 smaller objects
+![[mitigate.jpg]]
+HTTP/2: objects divided into frames. frame transmission interleaved
+![[mitigate2.jpg]]
+## HTTP/2 to HTTP/3
+HTTP/2 over single TCP connection means:
+- recovery from packet loss stil stalls all object transmission
+	- as in HTTP 1.1, browsers have incentive to open multiple parallel TCP connections to reduce stalling, increase overall throughput
+- no security over vanilla TCP connection
+HTTP/3: adds security, per object error- and congestion-control (more pipelining) over UDP
+- More on HTTP/3 in transport layer
+
+# E-mail SMTP
+## E-mail
+### Three major Components:
+- user agents
+- mail servers
+- simple mail transfer protocol: SMTP
+# 
