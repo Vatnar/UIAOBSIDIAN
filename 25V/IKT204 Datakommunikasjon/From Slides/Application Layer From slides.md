@@ -206,3 +206,29 @@ time for small packet to travel from client to server and back. Stands for round
 - completely replaces file that exists at specified URL with content in entitiy body of PUT HTTP request message.
 ### HTTP response message
 ![[HTTPresponse.jpg]]
+#### HTTP response status codes
+- status code appears in 1st line in server-to-client response message.
+- some sample codes:
+- <span style="color:rgb(255, 0, 0)">200 OK</span>
+	- requests succeeded, requested object later in this message
+- <span style="color:rgb(255, 0, 0)">301 Moved Permamently</span> 
+	- requested object moved, new location specified later in this message (in Location: field)
+- <span style="color:rgb(255, 0, 0)">400 Bad Request</span> 
+	- request msg not understood by server
+- <span style="color:rgb(255, 0, 0)">404 Not Found</span> 
+	- requested document not found on this server
+<span style="color:rgb(255, 0, 0)">505 HTTP Version Not Supported</span> 
+## Maintaining user/server state: cookies
+Web sites and client browser use cookies to maintain some state between transactions.
+### four components:
+1. cookie header line of HTTP response message
+2. cookie header line in next HTTP request message
+3. cookie file kept on user's host, managed by user's browser
+4. back-end database at Web site
+### Example:
+- Susan uses browser on laptop, visits specific e-commerce site for first time
+- when initial HTTP requests arrrives at site, site creates:
+	- unique ID (AKA cookie)
+	- enttry in backend databse for ID
+- subsequent HTTP requests from Susan to this site will contain Cookie ID value allowing site to Identify susan.
+![[maintainingstatewithcookies.jpg]]
