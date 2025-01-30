@@ -428,3 +428,67 @@ example: new startup "network utopia"
 1. register name networkuptopia.com at DNS registrar e.g domeneshop
 	- provide names, ip addresses of autoritative name server, primary and secondary
 	- registrar inserts NS, A RRs into .com TLD server
+	`networkutopia.com, dns1.networkutopia.com, NS)`
+	 `(dns1.networkutopia.com, 212.212.212.1, A)`
+2. create authoritative DNS server locally with IP Adress `212.212.212.1`
+	- type A record for www.networkuptopia.com
+	- type MX record
+## DNS security
+### DDoS attacks
+- bombard root servers with traffic
+	- not successful to date
+	- traffic filtering
+	- local DNS servers cache IPs of TLD servers, allowing root server bypas
+- bombard TLD servers
+	- potentially more dangerous
+- spoofing attacks
+	- intercept DNS queries, returning bogus replies
+	- DNS cache poisoning
+	- RFC 4033: DNSEC authentication services.
+# P2P applications
+- no always-on server
+
+- arbitrary end systems directly communicate
+
+- peers request service from other peers, provide service in return to other peers
+
+- self scalability – new peers bring new service capacity, and new service demands
+
+- peers are intermittently connected and change IP addresses
+
+- complex management
+
+- examples: P2P file sharing (BitTorrent), streaming (KanKan), VoIP (Skype)
+# File distribution: client-server vs P2p
+Q: how much time to distribrute file (size F) from one server to N peers?
+- peer upload/download capacity is limited resource
+![[2025.01.30.10.50.26.472 POWERPNT.jpg]]
+# File distribution time: P2P
+- server transmission: must upload at least one copy:
+	- time to send one copy: $F/u_s$ 
+- client: each client must download file copy
+	- min client dowanlod time: $F/d_{min}$ 
+- clients: as aggregate must download NF bits
+	- max upload rate (limiting max download rate) is $u_s+\Sigma u_{i}$ 
+	Time to distribute F to N clients using P2p Approach
+	$$
+D_{P2P}\geq \max{(F/U_{s}\;,F/d_{min}, NF/(u_{s}+\Sigma u_{i}))}
+$$
+NF incereases linearly, but so does the capacity. 
+![[2025.01.30.10.55.20.124 POWERPNT.jpg]]
+![[2025.01.30.10.55.33.211 POWERPNT.jpg]]
+# Video streaming and content distribution networks
+## Video streaming and CDNs: context
+- stream video traffic: major consumer of internet banmdwith
+	- netflix, youtube, amazon prime: 80% of residential isp traffic 
+- challenge: scale - how to reach ~1B users?
+- challenge: heterogeneity
+	- different users have different capabilities (e.g wired versus mobvile; vbandwith rich versus bandwidh poor)
+- solution: distributed, application-level infrastructure.
+CDN: stores copies of content at CDN nodes
+subscriber requests content, service provider returns manifest
+- using manifest, client retrieves content at highest supportab le rate
+- mayu choose different rate or copy if network path congested
+![[2025.01.30.10.58.24.830 POWERPNT.jpg]]
+# wireshark
+![[2025.01.30.10.58.42.381 POWERPNT.jpg]]
