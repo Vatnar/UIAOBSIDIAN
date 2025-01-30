@@ -130,4 +130,30 @@ encryption, data integrity
 - apps use TSL libraries, that use TCP in turn
 - cleartext sent into "socket" traverse Internet encrypted
 - more in [[chapter 8]]
-- 
+# Web and HTTP
+First, a quick review...
+- web page consists of **objects**, each of which can be stored on different Web servers
+- object can be HTML file, JPEG image, Java applet, audio file,...
+- web page consists of <span style="color:rgb(255, 0, 0)">base HTML-file</span> which includes <span style="color:rgb(255, 0, 0)">several reference objects, each</span> addressable by a <span style="color:rgb(255, 0, 0)">URL</span> e.g., `www.someschool.edu/someDept/pic.gif`
+## HTTP overview
+### HTTP: hypertext transfer protocol
+- Web's application-layer protocol
+- client/server model:
+	- client: browser that requests, receives, (using HTTP protocol) and "displays" Web objects
+	- server: Web server sends (using HTTP protocol) objects in response to requests.
+![[HTTP overview.jpg]]
+### HTTP uses TCP:
+- client initiates TCP connection (creates socket) to server, port 80
+- server accepts TCP connection from client
+- HTTP messages (application-layer protocol messages) exchanged between browser (HTTP client) and Web Server (HTTP server)
+- TCP connection closed
+### HTTP is "stateless"
+- server maintains no information about past client requests
+#### aside
+Protocols that maintain "state" are complex!
+- past history (state) moust be maintained
+- if server/client crashes, their views of "state" may be inconsistent, must be reconciled
+
+## HTTP connections: two types
+### Non-persistent HTTP/1.0 [1996]
+
