@@ -16,4 +16,3 @@ Real time OS
 - Semaphores
 - Event flags
 - mail queues
-- 
