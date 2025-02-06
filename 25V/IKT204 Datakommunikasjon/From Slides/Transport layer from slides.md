@@ -7,10 +7,10 @@ A UDP socket is fully identified by using an IP-address + port number since one 
 
 ## Exercise 2 (R4)
 **Describe why an application developer might choose to run an application over UDP rather than TCP.**:
-UDP does not introduce any delay when establishing a connections since it doesn't like TCP does. UDP just spews out data and requires 
+UDP does not introduce any delay when establishing a connections since it doesn't like TCP does. UDP just spews out data and requires the application to choose how to handle it. Due to the lack of initial delay and ability to spew out as much as the application wants it might be favorable when speed and throughput is more valuable than reliability. 
 ## Exercise 3 (R6)
 **Is it possible for an application to enjoy reliable data transfer even when the application runs over UDP? If so, how?**:
-
+Yes, but it requires the application to manually validate the payloads
 ## Exercise 4 (R7)
 
 **Suppose a process in Host C has a UDP socket with port number 6789. Suppose both Host A and Host B each send a UDP segment to Host C with destination port number 6789. Will both of these segments be directed to the same socket at Host C? If so, how will the process at Host C know that these two segments originated from two different hosts?**:
