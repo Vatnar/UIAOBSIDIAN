@@ -41,3 +41,4 @@ Analoge outputs - use cases
 - Motor speed, Motor kontroller Gir analog input, også styrer chippen motoroen.
 ![](https://lh7-rt.googleusercontent.com/slidesz/AGV_vUdACt0k8t0vGKWZiA42eS4jED4plPGoPHZyqAEsf99hb8_aFLRP8JmAPhmTmIzEj7P73qDpIKt_qfUB34S8wymWFqCth6HiaMq_4mePT9RaHab1TWfpcVoSRMt7hI2zCIvQRFpa=s2048?key=L6Vc0XISLPY16DM8Cr22o9P2)
 AnalogOut::write()
+Sample ofte, høyere frekvenser, 44.1 KHz sampling kan du gjenskape halvparten. Opp tik 22KHz.
