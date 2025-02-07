@@ -33,3 +33,6 @@ Light intensity Sensors.
 
 **ADC** Kan ofte konfigurere oppløsning på den. ofte 10 eller 12 bit, for høyere og lavere nøyaktighet. Hastigheten avhenger av det. 
 STM32L4xx er det 12-bit default. 0-4095. Microcontroller might have higher or lower internal resolution than the default. 
+
+Analoge outputs - use cases
+- 
