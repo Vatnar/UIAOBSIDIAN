@@ -28,3 +28,5 @@ That hav emultiple steps
 Sensors:
 Mikrophon
 temperature sensor.
+Humidity sensors
+Light intensity Sensors.
