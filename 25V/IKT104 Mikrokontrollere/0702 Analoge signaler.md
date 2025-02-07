@@ -68,7 +68,7 @@ int main() {
 
     printf("ADC value read %.1f, %u 12-bit converted to 16-bit, %.1f volt\n",
 
-           ain.read(), ain.read_u16(), ain.read_voltage());
+           ain.read(), ain.read_u16(), ain.read_voltage());
 
   
 
