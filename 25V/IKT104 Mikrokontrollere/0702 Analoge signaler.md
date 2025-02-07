@@ -42,3 +42,45 @@ Analoge outputs - use cases
 ![](https://lh7-rt.googleusercontent.com/slidesz/AGV_vUdACt0k8t0vGKWZiA42eS4jED4plPGoPHZyqAEsf99hb8_aFLRP8JmAPhmTmIzEj7P73qDpIKt_qfUB34S8wymWFqCth6HiaMq_4mePT9RaHab1TWfpcVoSRMt7hI2zCIvQRFpa=s2048?key=L6Vc0XISLPY16DM8Cr22o9P2)
 AnalogOut::write()
 Sample ofte, høyere frekvenser, 44.1 KHz sampling kan du gjenskape halvparten. Opp tik 22KHz.
+
+```cpp
+#include "mbed.h"
+
+  
+
+#define WAIT_TIME_MS 1000
+
+  
+
+AnalogIn ain(A0, 3.3f); // PC_5
+
+AnalogOut aout(PA_4); // PA_4
+
+  
+
+int main() {
+
+  printf("ADC reference voltage %.1f\n", ain.get_reference_voltage());
+
+  
+
+  while (true) {
+
+    printf("ADC value read %.1f, %u 12-bit converted to 16-bit, %.1f volt\n",
+
+           ain.read(), ain.read_u16(), ain.read_voltage());
+
+  
+
+    printf("Set DAC output to %.1f volt\n", ain.read_voltage());
+
+    aout.write(ain.read()); // Shorthand aout = ain;
+
+  
+
+    thread_sleep_for(WAIT_TIME_MS);
+
+  }
+
+}
+```
