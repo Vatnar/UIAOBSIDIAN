@@ -85,4 +85,59 @@ int main() {
 }
 ```
 
+### PWM
+Pulse Width Modulation
+- Not all microcontrollers have DAC, and those that do have few.
+- PWM is a method of approximating an analoug output with digital signal. 
+- Turn it on and off really fast, styre styrke.
+- The % of on time is called the duty cycle
+- o % duty is off, 100% is always on.
+- Control speed of motors or brighness of LED.
+![[firefox 2025.02.07 NeKxPqbYzbT.png]]
+```cpp
+#include "mbed.h"
 
+  
+
+#define WAIT_TIME_MS 1000
+
+  
+
+AnalogIn ain(A0, 3.3f); // PC_5
+
+PwmOut pwm(D9); // PA_15
+
+  
+
+int main() {
+
+  // Set PWM periode to 100Hz, i.e. 10 milliseconds
+
+  pwm.period_ms(10);
+
+  
+
+  printf("ADC reference voltage %.1f\n", ain.get_reference_voltage());
+
+  
+
+  while (true) {
+
+    printf("ADC value read %.1f, %u 12-bit converted to 16-bit, %.1f volt\n",
+
+           ain.read(), ain.read_u16(), ain.read_voltage());
+
+  
+
+    printf("Set PWM duty cycle to %d%%\n", (int)(ain.read() * 100));
+
+    pwm.write(ain.read());// Shorthand pwm = ain; 
+
+  
+
+    thread_sleep_for(WAIT_TIME_MS);
+
+  }
+
+}
+```
