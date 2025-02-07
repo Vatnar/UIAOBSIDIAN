@@ -4,3 +4,11 @@ Overfører bits. Eller skru noe av eller på.
 
 **Analog**:
 Sinuskurve, variabel spenning, -120v til + 120v f.eks. 0-3.3v hos oss. Sende ut alle verdiene mellom minimum og maksimum.
+
+Digi
+1 på 2.5 og opp.
+Burde ikke ligge i melllområdet siden man ikke vet hva man får.
+
+Analoge er ikke like nøyaktige sånn sett.
+
+Digital brukes for ren data.
