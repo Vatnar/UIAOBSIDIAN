@@ -7,8 +7,12 @@ Sinuskurve, variabel spenning, -120v til + 120v f.eks. 0-3.3v hos oss. Sende ut 
 
 Digi
 1 på 2.5 og opp.
-Burde ikke ligge i melllområdet siden man ikke vet hva man får.
+Burde ikke ligge i mellomområdet siden man ikke vet hva man får.
 
 Analoge er ikke like nøyaktige sånn sett.
 
 Digital brukes for ren data.
+
+Analog, vifte, sensorer, rotering, harddisk.  Ofte litt av begge deler
+.
+Analog krever ADC analog digital converter. 
