@@ -141,3 +141,10 @@ int main() {
 
 }
 ```
+
+
+
+0 0% duty.
+range() 100%
+
+AnalogWrite()
