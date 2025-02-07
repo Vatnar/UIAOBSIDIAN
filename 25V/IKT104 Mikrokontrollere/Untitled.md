@@ -25,3 +25,6 @@ That hav emultiple steps
 - turnable knobs (styre en motstand, helt åpen da kommer 3.3V, øke motstanden, spenningsfall)
 - Levers
 - Push buttons with depth sensing (R2).
+Sensors:
+Mikrophon
+temperature sensor.
