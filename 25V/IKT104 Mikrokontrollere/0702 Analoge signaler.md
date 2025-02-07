@@ -132,7 +132,7 @@ int main() {
     printf("Set PWM duty cycle to %d%%\n", (int)(ain.read() * 100));
 
     pwm.write(ain.read());// Shorthand pwm = ain; 
-
+    // Glemt å gange med 100
   
 
     thread_sleep_for(WAIT_TIME_MS);
