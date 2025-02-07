@@ -113,7 +113,7 @@ int main() {
 
   // Set PWM periode to 100Hz, i.e. 10 milliseconds
 
-  pwm.period_ms(10);
+  pwm.period_ms(10 );
 
   
 
