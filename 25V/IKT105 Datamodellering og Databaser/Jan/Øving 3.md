@@ -1,4 +1,7 @@
-Objekter
-Flyplass (FPKode)
-Rullebane(RKode)
+**Objekter**
+Flyplass (FPKode unik)
+Rullebane(RKode unik)
 Fly(FKode)
+
+**Relasjoner**
+Flyplass ||---|< Flyplass
