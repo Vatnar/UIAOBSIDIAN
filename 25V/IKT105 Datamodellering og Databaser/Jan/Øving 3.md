@@ -8,8 +8,7 @@ Rullebane(RKode unik)
 Fly(FKode)
 	FSelskap
 	PPlass
-Rullebaneoversikt
-	(Tid, Rullebane) 
+Flyvninger (Tid, Rullebane) 
 	FKode
 	Reise
 	AntPerson
