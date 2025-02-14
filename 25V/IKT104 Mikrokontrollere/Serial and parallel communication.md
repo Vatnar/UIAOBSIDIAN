@@ -99,6 +99,8 @@ Often speed is a multiple of 9600 bps, roughly 1000 Byte per sekund.
 9600, 38400, 57600, 115200, 230400, 460800, 921600
 Buffered and unbuffered serial classes can be used with functions read and write functions, for simple commands you can send 0 and 1 for off.
 Use a protocol for more complex commands.
+
+---
 ```cpp
 Master device
 #define BLINKING_RATE 250
