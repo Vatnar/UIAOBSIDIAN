@@ -21,3 +21,7 @@ Parallel
 - Bigger PCB
 - THicker or more wires.
 ![[Pasted image 20250214082337.png]]
+the sides need to agree on how long one byte is and so on. 
+Need to setup speed.
+Or you can use a clock, goes up and down every other time. Every time it changes, there is red a new bit from the bata line
+We need the clock to synchronize
