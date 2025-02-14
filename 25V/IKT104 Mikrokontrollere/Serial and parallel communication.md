@@ -90,3 +90,7 @@ Therefore tx to rx.
 and opposite.
 Buffered Serial, goes to a buffer first, can send faster than it should 
 Unbuffered Seriaal, it goes directly
+UART has no clock
+![[Pasted image 20250214092559.png]]
+They need a common ground
+If the speeds are mismatched they will misinterprate bits and bytes.
