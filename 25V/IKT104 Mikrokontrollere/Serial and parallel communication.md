@@ -98,3 +98,44 @@ If the speeds are mismatched they will misinterprate bits and bytes.
 Often speed is a multiple of 9600 bps, roughly 1000 Byte per sekund. 
 9600, 38400, 57600, 115200, 230400, 460800, 921600
 Buffered and unbuffered serial classes can be used with functions read and write functions, for simple commands you can send 0 and 1 for off.
+Use a protocol for more complex commands.
+```cpp
+Master device
+#define BLINKING_RATE 250
+BufferedSerial serial_port(PA_0, PA_1, 115200);
+
+int main() {
+  DigitalOut led(LED1);
+
+  while (true) {
+
+    serial_port.write("on", 2);
+    thread_sleep_for(BLINKING_RATE);
+
+    serial_port.write("off", 3);
+    thread_sleep_for(BLINKING_RATE);
+
+    // Toggle "running" LED
+
+    led = !led;
+  }
+}
+Slave device
+BufferedSerial serial_port(PA_0, PA_1, 115200);
+
+int main() {
+
+  DigitalOut led(LED3);
+
+  while (true) {
+    char cmd[10];
+    serial_port.read(cmd, sizeof(cmd));
+
+    if (strncmp(cmd, "on", 2) {
+      led.write(1); // Shorthand led = 1;
+    } else if (strncmp(cmd, "off", 3) == 0) {
+      led.write(0); // Shorthand led = 0;
+    }
+  }
+}
+```
