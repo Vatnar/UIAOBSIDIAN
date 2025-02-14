@@ -46,3 +46,4 @@ Usb 3.0 has 4 data signals usb c is more complex.
 
 *Parallel*
 Paralell port, or RAM.
+Ack busy so on.
