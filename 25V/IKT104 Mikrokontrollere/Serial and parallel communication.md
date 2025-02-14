@@ -41,3 +41,8 @@ High frequency means less distance. DDR5 RAM is 64 lines.
 *Serial*
 USB, serial port.
 Universal Serial Bus, 
+Clock is part of data signasl. up to Usb 2.0
+Usb 3.0 has 4 data signals usb c is more complex.
+
+*Parallel*
+Paralell port, or RAM.
