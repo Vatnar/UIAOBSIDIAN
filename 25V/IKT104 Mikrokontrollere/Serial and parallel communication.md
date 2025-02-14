@@ -81,3 +81,10 @@ Something that transmits data
 - An external bus connects peripherals
 - Devices on a bus often have an address to tell them apart
 - ![[Pasted image 20250214085846.png]]
+
+Uart example
+Ground to ground
+Tx transmit
+Rx receive,
+Therefore tx to rx.
+and opposite.
