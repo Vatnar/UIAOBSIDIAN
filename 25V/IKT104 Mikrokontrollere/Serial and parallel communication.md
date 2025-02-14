@@ -64,3 +64,10 @@ mikrokontrollere er master og enhetene er slaver.
 
 SPI - Serial Peripheral Interface Bus
 - Used to connect to peripherals
+- SD Cards support SPI
+- Uses 3 lines minimum for bidirectional Transmit receive clock
+- Clock
+- Serial in
+- Serial Out
+- Slave select
+![[Pasted image 20250214085440.png]]
