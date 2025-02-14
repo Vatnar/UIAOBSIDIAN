@@ -94,3 +94,6 @@ UART has no clock
 ![[Pasted image 20250214092559.png]]
 They need a common ground
 If the speeds are mismatched they will misinterprate bits and bytes.
+
+Often speed is a multiple of 9600 bps, roughly 1000 Byte per sekund. 
+9600, 38400, 57600, 115200, 230400, 460800, 921600
