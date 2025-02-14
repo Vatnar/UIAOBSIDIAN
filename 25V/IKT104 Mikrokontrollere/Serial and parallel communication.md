@@ -141,3 +141,26 @@ int main() {
   }
 }
 ```
+
+I2c
+Low speed bus that uses 2 ios.
+- SDA serial data line, used for data in both direciton
+- SCL - serial clock line, data is transferred on change
+- Sensors
+- Slave select through data line
+	- Each slave has an address 
+	- Managed by NXP 
+- Commands and results are written/read to / from register
+	We will cover this later
+Premade libraries to handle specific sensors
+You can use i2c manually with mbed os i2c lib
+![[Pasted image 20250214094659.png]]
+
+*usage*
+we will use
+HTS221 temp humidy sensor
+16x2 RGB LCD display
+[https://developer.mbed.org/teams/ST/code/HTS221/](https://developer.mbed.org/teams/ST/code/HTS221/)
+https://drive.google.com/file/d/1_pAloGqN2qxBgUnQEKW5XsiAl8n0NUxe/view
+![[Pasted image 20250214094905.png]]
+![[Pasted image 20250214094934.png]]
