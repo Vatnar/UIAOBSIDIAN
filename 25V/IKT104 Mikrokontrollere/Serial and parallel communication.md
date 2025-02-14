@@ -71,3 +71,13 @@ SPI - Serial Peripheral Interface Bus
 - Serial Out
 - Slave select
 ![[Pasted image 20250214085440.png]]
+
+*Bus*
+Something that transmits data
+- Connect more than two devices, if not its point to point
+-  Most buses these days are digital
+- Serial or parallel
+- Internal connects system components
+- An external bus connects peripherals
+- Devices on a bus often have an address to tell them apart
+- ![[Pasted image 20250214085846.png]]
