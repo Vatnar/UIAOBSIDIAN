@@ -51,3 +51,16 @@ Ack busy so on.
 *Microcontroller communication options*
 UART - Univerasal asynchronous receiver tranceiver
 - WE have used this already with std:printf()
+- Can connect two microcontroller together with the same setup on their UART speeds, start stop bit, parity bits, Parity, verify data, correct interference. RAID, replace disk death. Error Correction, for UART interference. 
+- Minimum 2 lines for bidirectional transmit and receive.
+- Connects 2 devices together, no more
+I2C - Inter-iintegrated circuit bus / TWI - Two Wire Interface Bus
+- often used by sensors (temperature, pressure etc, humidity)
+- Only uses 2 lines independent of the number of devices (data, clock)
+- All devices are connected to the same wires thus the name.
+![[Pasted image 20250214085201.png]]
+Serial data and serial clock.
+mikrokontrollere er master og enhetene er slaver.
+
+SPI - Serial Peripheral Interface Bus
+- Used to connect to peripherals
