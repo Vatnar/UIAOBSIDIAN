@@ -39,3 +39,5 @@ Its faster, but alot more connections.
 High frequency means less distance. DDR5 RAM is 64 lines. 
 
 *Serial*
+USB, serial port.
+Universal Serial Bus, 
