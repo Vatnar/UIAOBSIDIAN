@@ -1,0 +1,5 @@
+- Serial vs parallel
+- Everyday examples
+- MIcrocontroller communication options
+- What is a bus?
+- UART
