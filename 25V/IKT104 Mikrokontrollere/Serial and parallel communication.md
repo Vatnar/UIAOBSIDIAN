@@ -13,6 +13,8 @@ Serial
 - Clock decides when a new bit is sent
 - Requires smaller PCB
 - Cables can be thinner
+- Baud rate, 
+- 
 
 Parallel 
 - Transmits multiple at once
@@ -20,9 +22,10 @@ Parallel
 - Clock decides when a batch is sent (usually)
 - Bigger PCB
 - Thicker or more wires.
-- Baud rate, 
 ![[Pasted image 20250214082337.png]]
 the sides need to agree on how long one byte is and so on. 
 Need to setup speed.
 Or you can use a clock, goes up and down every other time. Every time it changes, there is red a new bit from the data line
 We need the clock to synchronize
+
+Clock is often used, e.g RAM, 4GHz ddr4
