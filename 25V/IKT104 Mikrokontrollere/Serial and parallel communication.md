@@ -19,7 +19,8 @@ Parallel
 - Like multiple queues 
 - Clock decides when a batch is sent (usually)
 - Bigger PCB
-- THicker or more wires.
+- Thicker or more wires.
+- Baud rate, 
 ![[Pasted image 20250214082337.png]]
 the sides need to agree on how long one byte is and so on. 
 Need to setup speed.
