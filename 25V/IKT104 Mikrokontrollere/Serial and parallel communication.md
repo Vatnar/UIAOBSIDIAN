@@ -88,3 +88,5 @@ Tx transmit
 Rx receive,
 Therefore tx to rx.
 and opposite.
+Buffered Serial, goes to a buffer first, can send faster than it should 
+Unbuffered Seriaal, it goes directly
