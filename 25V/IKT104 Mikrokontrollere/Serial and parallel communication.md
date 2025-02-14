@@ -47,3 +47,7 @@ Usb 3.0 has 4 data signals usb c is more complex.
 *Parallel*
 Paralell port, or RAM.
 Ack busy so on.
+
+*Microcontroller communication options*
+UART - Univerasal asynchronous receiver tranceiver
+- WE have used this already with std:printf()
