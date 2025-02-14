@@ -29,3 +29,13 @@ Or you can use a clock, goes up and down every other time. Every time it changes
 We need the clock to synchronize
 
 Clock is often used, e.g RAM, 4GHz ddr4
+
+For serial you can have less connections
+Transmit receive Ground Clock standard. 
+
+Parallel is similar, but we use more than one. 8x as fast on same clock frequency.
+Its faster, but alot more connections.
+
+High frequency means less distance. DDR5 RAM is 64 lines. 
+
+*Serial*
