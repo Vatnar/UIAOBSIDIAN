@@ -61,3 +61,13 @@ To account for packet loss. If the coundown timer runs out the packets gets retr
 	20 bytes
 2. **Suppose that the first segment is lost but the second segment arrives at B. In the acknowledgment that Host B sends to Host A, what will be the acknowledgment number?**
 	90
+## Exercise 6 (P15)
+
+**Consider the cross-country example shown in Figure 3.17. Suppose that the round-trip time RTT is 33 milliseconds, the channel transmission rate _R_ is 1.2 Gbps, and the size of a packet is 1500 bytes, including both header fields and data. ACK packets are small, and their transmission delay can be ignored.**
+![[Pasted image 20250221110333.png]]
+
+
+1. **How big is channel utilization (in percent) when a *stop-and-wait* protocol is used?**
+	
+2. **How many unacknowledged segments in transit are permissible to achieve a channel-utilization greater than 98 percent when a *pipelined protocol* is used?**
+3. **What is this in terms of window size, i.e., the range of permissible sequence numbers for transmitted but not yet acknowledged packets?**
