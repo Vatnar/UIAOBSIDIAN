@@ -24,3 +24,4 @@ The solution used in most of these protocols including TCP is to add a *sequence
 ![[Pasted image 20250221102101.png]]
 Instead of sending NAK we send ACK for the last correctly received packet. **Duplicate ACKs** then the sender knows then the sender knows that the packet following the duplicate ACKs was not received properly. 
 ![[Pasted image 20250221102354.png]]
+*How to detect packet loss and what to do*
