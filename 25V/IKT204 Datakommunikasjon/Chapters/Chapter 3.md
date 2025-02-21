@@ -24,4 +24,23 @@ The solution used in most of these protocols including TCP is to add a *sequence
 ![[Pasted image 20250221102101.png]]
 Instead of sending NAK we send ACK for the last correctly received packet. **Duplicate ACKs** then the sender knows then the sender knows that the packet following the duplicate ACKs was not received properly. 
 ![[Pasted image 20250221102354.png]]
+![[Pasted image 20250221102656.png]]
+
 *How to detect packet loss and what to do*
+Use a *countdown timer* to retransmit a packet if not received ACK within so so long. 
+![[Pasted image 20250221102819.png]]
+	Rdt3.0 is sometiems know as the alternating-bit-protocl since packet sequence nubmers alternate between 0 and 1. 
+## Pipelining
+Because rdt3.0 is a stop and wait protocol people would be unhappy about performance.ø 
+![[Pasted image 20250221103003.png]]
+![[Pasted image 20250221103034.png]]
+![[Pasted image 20250221103040.png]]
+
+Consider RTT of 30ms.  with transmission rate R of 1 Gbps, packet size 1 KB, including header and data, the tiem to transmit woudl be 8 microseconds. 
+
+t=RTT/2+L/R = 15.008 msec, ack gets back to sender at 30msec. The sender sends at 30.008 msec. we define the *utilization* of the sender as the fraction of time the sender is actually busy which gives us. $U_{sender}=\frac{L}{R} * RTT + \frac{L}{R} = 0.00027$ or 0.027%. I.e using 267kbs on a Gbps link. 
+
+Rather pipeline
+- Sequence numbers must be increased, since each in transit packet  (not counting retransmissions) must have a unique sequence  number and there may be multiple unacknowlegded packets. 
+
+![[Pasted image 20250221103239.png]]
