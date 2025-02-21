@@ -47,5 +47,7 @@ Rather pipeline
 
 ### Go-Back-N
 The sender can send multiple packets before getting ACKS. but is constrained to  max N of unACKed packets in the pipeline. 
+Sliding window protocol
+
 
 ![[Pasted image 20250221103239.png]]

@@ -48,3 +48,16 @@ The TCP server would need N+1 sockets, one for each ongoing connection, and one 
 ## Exercise 4 (R10)
 
 **What is the purpose of timers in TCP?**
+To account for packet loss. If the coundown timer runs out the packets gets retransmitted. This timer can run out either if the packet itself is lost or the ACk packet.
+- **Retransmission Timer:** Used to retransmit lost packets after a timeout.
+- **Persistence Timer:** Prevents deadlock when the receiver’s window size is zero.
+- **Keepalive Timer:** Detects if a connection is still active.
+- **Time-Wait Timer:** Ensures the connection is closed properly before reusing ports.
+## Exercise 5 (R15)
+
+**Suppose Host A sends two TCP segments back-to-back to Host B over a TCP connection. The first segment has sequence number 90; the second has sequence number 110.**
+
+1. **How much data is in the first segment?**
+	20 bytes
+2. **Suppose that the first segment is lost but the second segment arrives at B. In the acknowledgment that Host B sends to Host A, what will be the acknowledgment number?**
+	90
