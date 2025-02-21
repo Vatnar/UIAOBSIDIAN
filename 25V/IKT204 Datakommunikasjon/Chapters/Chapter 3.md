@@ -44,6 +44,7 @@ Rather pipeline
 - Sequence numbers must be increased, since each in transit packet  (not counting retransmissions) must have a unique sequence  number and there may be multiple unacknowlegded packets.
 - Sender and receiver must buffer packets. Sender must at least buffer unacknowledged packets. Bufferinc correctly received packets may be needed by receiver. 
 - Sequence and buffering needs is decided by which pipelined error recovery approach: *Go-Back-N* and *Selective repeat*.
+
 ### Go-Back-N
 The sender can send multiple packets before getting ACKS. but is constrained to  max N of unACKed packets in the pipeline. 
 
