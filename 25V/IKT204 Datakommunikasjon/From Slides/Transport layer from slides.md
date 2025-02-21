@@ -30,3 +30,21 @@ Yes, but it requires the application to manually validate the payloads since the
 	HTTP1.1
 	HTTP/2
 	HTTP/3
+# Exercises Chapter 3 TCP
+## Exercise 1
+
+**How many sockets does a UDP server need to serve N clients?**
+A UDP server only require one socket to server an arbitrary amount of clients. UDP is connectionless, it instead listens on a single socket and distinguishes clients based on senders IP and PORT.
+## Exercise 2 (R3)
+
+**How is a UDP socket fully identified? What about a TCP socket? What is the difference between the full identification of both sockets?**
+A UDP socket is fully identified by the IP-address and port. The TCP socket is identified by the servers (destination) iP-address and port and the clients ip address and port. The difference is due to UDP being connectionless and TCP requiring a connection (individual socket per connection). 4 tuple.
+
+## Exercise 3 (Ch. 2.7, R26)
+
+**If a TCP server were to support N simultaneous connections, each from a different client, how many sockets would the TCP server need?**
+The TCP server would need N+1 sockets, one for each ongoing connection, and one for initial contact (listening socket). 
+
+## Exercise 4 (R10)
+
+**What is the purpose of timers in TCP?**
