@@ -41,6 +41,10 @@ Consider RTT of 30ms.  with transmission rate R of 1 Gbps, packet size 1 KB, inc
 t=RTT/2+L/R = 15.008 msec, ack gets back to sender at 30msec. The sender sends at 30.008 msec. we define the *utilization* of the sender as the fraction of time the sender is actually busy which gives us. $U_{sender}=\frac{L}{R} * RTT + \frac{L}{R} = 0.00027$ or 0.027%. I.e using 267kbs on a Gbps link. 
 
 Rather pipeline
-- Sequence numbers must be increased, since each in transit packet  (not counting retransmissions) must have a unique sequence  number and there may be multiple unacknowlegded packets. 
+- Sequence numbers must be increased, since each in transit packet  (not counting retransmissions) must have a unique sequence  number and there may be multiple unacknowlegded packets.
+- Sender and receiver must buffer packets. Sender must at least buffer unacknowledged packets. Bufferinc correctly received packets may be needed by receiver. 
+- Sequence and buffering needs is decided by which pipelined error recovery approach: *Go-Back-N* and *Selective repeat*.
+### Go-Back-N
+The sender can send multiple packets before getting ACKS. but is constrained to  max N of unACKed packets in the pipeline. 
 
 ![[Pasted image 20250221103239.png]]
