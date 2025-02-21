@@ -140,3 +140,25 @@ $$
 $$
 
 Thus, the required window size is **at least 3235** to achieve the desired utilization.
+
+
+## Exercise 7 (P27)
+
+**Host A and B are communicating over a TCP connection. Host B has already received from Host A all bytes up through byte 96. Suppose Host A then sends two segments to Host B. The first and the second segments contain 40 and 80 bytes of data, respectively. In the first segment, the sequence number is 97, the source port number is 302, and the destination port number is 80. Host B sends an acknowledgment whenever it receives a segment from Host A.**
+
+ 1. **In the second segment sent from Host A to B, what are the sequence number, source port number, and destination port number?**
+- **Sequence number:** $97 + 40 = 137$
+- **Source port number:** 302
+- **Destination port number:** 80
+
+ 2. **If the first segment arrives before the second segment, in the acknowledgment of the first arriving segment, what is the acknowledgment number, the source port number, and the destination port number?**
+- **Acknowledgment number:** $97 + 40 = 137$
+- **Source port number:** 80
+- **Destination port number:** 302
+
+ 3. **If the second segment arrives before the first segment, in the acknowledgment of the first arriving segment, what is the acknowledgment number?**
+- **Acknowledgment number:** 97 (since byte 97 has not yet arrived, Host B is still expecting it)
+
+ **4. Suppose the two segments sent by A arrive in order at B. The first acknowledgment arrives after the first timeout interval. What is the sequence number of the next segment that A will transmit?**
+- Since both segments are acknowledged together, the next expected byte is $97 + 40 + 80 = 217$.
+- **Next sequence number to be transmitted:** 217
