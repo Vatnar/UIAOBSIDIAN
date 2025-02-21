@@ -19,4 +19,4 @@ Three possibilituies to handle corrujpted ACKs or NAKs:
 - add enough cheksum bits that the sender can not only detect but also recover errors.
 - Just make the sender resend the current data packet when it receives a garbled ACK or NAK. It does introduce *duplicate packets*. But then the receiver wont know if its a retransmission or new data. 
 
-The solution used in most of these protocols including TCP is to add a *sequence number*. If the receiver get an already used sequence num,ber
+The solution used in most of these protocols including TCP is to add a *sequence number*. If the receiver get an already used sequence number, 
