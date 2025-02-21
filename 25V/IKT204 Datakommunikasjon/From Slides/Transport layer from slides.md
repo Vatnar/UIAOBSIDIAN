@@ -71,3 +71,72 @@ To account for packet loss. If the coundown timer runs out the packets gets retr
 	
 2. **How many unacknowledged segments in transit are permissible to achieve a channel-utilization greater than 98 percent when a *pipelined protocol* is used?**
 3. **What is this in terms of window size, i.e., the range of permissible sequence numbers for transmitted but not yet acknowledged packets?**
+## **Exercise 6 (P15) Solution**
+
+### **1. Channel Utilization with Stop-and-Wait**
+The channel utilization for a stop-and-wait protocol is given by:
+
+$$
+U = \frac{T_{\text{trans}}}{T_{\text{trans}} + RTT} \times 100
+$$
+
+Where:
+ $T_{\text{trans}}$ is the transmission time:
+
+$$
+T_{\text{trans}} = \frac{\text{Packet Size}}{\text{Channel Rate}} = \frac{12000}{1.2 \times 10^9} \text{ seconds}
+$$
+
+- \( RTT = 33 \) ms \( = 0.033 \) seconds
+
+Computing:
+
+$$
+U = \frac{\frac{12000}{1.2 \times 10^9}}{\frac{12000}{1.2 \times 10^9} + 0.033} \times 100 \approx 0.0303\%
+$$
+
+Thus, the channel utilization for stop-and-wait is **0.0303%**, which is extremely low.
+
+---
+
+### **2. Number of Unacknowledged Segments for >98% Utilization**
+For a pipelined protocol, we use:
+
+$$
+N = \frac{RTT}{T_{\text{trans}}}
+$$
+
+To achieve more than 98% utilization:
+
+$$
+U = \frac{N \times T_{\text{trans}}}{RTT + T_{\text{trans}}} > 0.98
+$$
+
+Rearranging for \( N \):
+
+$$
+N > \frac{0.98 \times (RTT + T_{\text{trans}})}{T_{\text{trans}}}
+$$
+
+Substituting values:
+
+$$
+N > \frac{0.98 \times (0.033 + \frac{12000}{1.2 \times 10^9})}{\frac{12000}{1.2 \times 10^9}}
+$$
+
+$$
+N \approx 3235
+$$
+
+Thus, at least **3235 unacknowledged segments** are required.
+
+---
+
+### **3. Window Size**
+The window size in a pipelined protocol corresponds to the number of unacknowledged segments in transit:  
+
+$$
+\text{Window Size} \geq 3235
+$$
+
+Thus, the required window size is **at least 3235** to achieve the desired utilization.
