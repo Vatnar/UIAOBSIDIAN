@@ -69,9 +69,14 @@ Consider an IP network using 32-bit host addresses. Suppose a router has four li
 
 1. Rewrite this routing table using the CIDR a.b.c.d/x notation instead of the binary string notation.
 
-|              |     |
-| ------------ | --- |
-| 208.0.0.0/18 |     |
+|                 |     |
+| --------------- | --- |
+| 208.0.0.0/10    | 0   |
+| 208.64.0.0/17   | 1   |
+| 208.130.0.0./16 | 2   |
+| 208.192.0.0./11 | 2   |
+| 0.0.0.0./0      | 3   |
+|                 |     |
 
 1. Describe how your forwarding table determines the appropriate link interface for datagrams with destination addresses:
 
@@ -81,3 +86,16 @@ Consider an IP network using 32-bit host addresses. Suppose a router has four li
 | 11010000  00001100  10101101  11100100 |
 | 11010000  01000000  11000011  01110010 |
 | 11010001  10001111  01100111  00011111 |
+3
+0
+1
+3
+
+**Exercise 9 (P14)**
+
+Consider a subnet with prefix 128.119.40.128/26.
+
+1. a) How many IP addresses does this prefix represent?
+	32-26 = 6, 2^6 = 64
+2. b) What are the starting and ending IP addresses of the address block represented by this prefix? 
+128.119.40.128 -> 128.119.40.128
