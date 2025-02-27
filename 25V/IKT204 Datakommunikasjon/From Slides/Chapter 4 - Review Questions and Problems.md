@@ -103,3 +103,7 @@ Consider a subnet with prefix 128.119.40.128/26.
 **Exercise 10 (P14)**
 
 Suppose an ISP owns the block of addresses of the form 128.119.40.64/26. Suppose it wants to create four subnets from this block, with each block having the same number of IP addresses. What are the prefixes (of form a.b.c.d/x) for the four subnets?
+6 bits for addresses.
+need 3 bits for 4 subnets.
+128.119.40.64
+128.119.40
