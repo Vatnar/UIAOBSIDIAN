@@ -99,3 +99,7 @@ Consider a subnet with prefix 128.119.40.128/26.
 	32-26 = 6, 2^6 = 64
 2. b) What are the starting and ending IP addresses of the address block represented by this prefix? 
 128.119.40.128 -> 128.119.40.191
+
+**Exercise 10 (P14)**
+
+Suppose an ISP owns the block of addresses of the form 128.119.40.64/26. Suppose it wants to create four subnets from this block, with each block having the same number of IP addresses. What are the prefixes (of form a.b.c.d/x) for the four subnets?
