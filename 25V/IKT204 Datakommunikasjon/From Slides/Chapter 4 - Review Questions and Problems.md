@@ -58,17 +58,22 @@ Consider an IP network using 32-bit host addresses. Suppose a router has four li
 1. Provide a routing table that has five entries, uses longest prefix matching, and forwards packets to the correct link interfaces.  
     (Hint. The third entry needs to be split to cover the given address range.)
 
-| Prefix matching                                         | Link interface |
-| ------------------------------------------------------- | -------------- |
-| **11010000 00______ ______ ______ /10** (208.0.0.0/18)  | 0              |
-| **11010000 01000000 0_____ ______ /23** (208.64.0.0/23) | 1              |
-| **11010000 01000010 ______ ______ /15** (208.66.0.0/15) | 2              |
-| **11010000 1000____ ______ ______ /14** (208.68.0.0/14) | 2              |
-| Default (0.0.0.0/0)                                     | 3              |
-|                                                         |                |
+| Prefix matching                      | Link interface |
+| ------------------------------------ | -------------- |
+| **11010000 00______ ______ ______ ** | 0              |
+| **11010000 01000000 0_____ ______ ** | 1              |
+| **11010000 01000010 ______ ______ ** | 2              |
+| **11010000 110____ ______ ______ **  | 2              |
+| __ _ ___ _____  ____ _  _____ ___ __ | 3              |
+
 
 1. Rewrite this routing table using the CIDR a.b.c.d/x notation instead of the binary string notation.
-2. Describe how your forwarding table determines the appropriate link interface for datagrams with destination addresses:
+
+|              |     |
+| ------------ | --- |
+| 208.0.0.0/18 |     |
+
+1. Describe how your forwarding table determines the appropriate link interface for datagrams with destination addresses:
 
 |                                        |
 | -------------------------------------- |
