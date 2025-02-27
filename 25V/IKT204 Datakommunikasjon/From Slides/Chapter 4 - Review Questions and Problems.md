@@ -119,3 +119,8 @@ Consider the packet flow with NAT in the figure below
 1. Provide the corresponding entry in the NAT translation table.
 2. Suppose that the ISP instead assigns the router the address 143.43.131.225 and that the subnet address of the home network is 192.168.0/24. Assign addresses to all interfaces in the home network.
 ![[image-126fe018-196d-4c64-ba09-2de64e4106ab.png]]
+
+|                      |                |
+| -------------------- | -------------- |
+| WAN SIDE             | LAN SIDE       |
+| 24.34.101.225, 57601 | 10.0.0.1, 3835 |
