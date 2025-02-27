@@ -47,13 +47,13 @@ Tunnelling encapsulates a IPV6 datagram within the IPv4 payload field. The proto
 
 Consider an IP network using 32-bit host addresses. Suppose a router has four links, numbered 0 through 3, and packets are to be forwarded to the link interfaces as follows:
 
-|   |   |
-|---|---|
-|**Destination Address Range**|**Link Interface**|
-|11010000  00000000  00000000  00000000  <br>through  <br>11010000  00111111  11111111  11111111|0|
-|11010000  01000000  00000000  00000000  <br>through  <br>11010000  01000001  11111111  11111111|1|
-|11010000  01000010  00000000  00000000  <br>through  <br>11010001  11011111  11111111  11111111|2|
-|otherwise|3|
+|                                                                                                 |                    |
+| ----------------------------------------------------------------------------------------------- | ------------------ |
+| **Destination Address Range**                                                                   | **Link Interface** |
+| 11010000  00000000  00000000  00000000  <br>through  <br>11010000  00111111  11111111  11111111 | 0                  |
+| 11010000  01000000  00000000  00000000  <br>through  <br>11010000  01000001  11111111  11111111 | 1                  |
+| 11010000  01000010  00000000  00000000  <br>through  <br>11010001  11011111  11111111  11111111 | 2                  |
+| otherwise                                                                                       | 3                  |
 
 1. Provide a routing table that has five entries, uses longest prefix matching, and forwards packets to the correct link interfaces.  
     (Hint. The third entry needs to be split to cover the given address range.)
