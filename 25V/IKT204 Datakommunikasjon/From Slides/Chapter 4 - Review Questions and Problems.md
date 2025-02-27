@@ -98,4 +98,4 @@ Consider a subnet with prefix 128.119.40.128/26.
 1. a) How many IP addresses does this prefix represent?
 	32-26 = 6, 2^6 = 64
 2. b) What are the starting and ending IP addresses of the address block represented by this prefix? 
-128.119.40.128 -> 128.119.40.128
+128.119.40.128 -> 128.119.40.191
