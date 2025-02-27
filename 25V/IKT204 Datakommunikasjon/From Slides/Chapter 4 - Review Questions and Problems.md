@@ -124,3 +124,5 @@ Consider the packet flow with NAT in the figure below
 | -------------------- | -------------- |
 | WAN SIDE             | LAN SIDE       |
 | 24.34.101.225, 57601 | 10.0.0.1, 3835 |
+
+Router address: 143.43.131.225. Subnet address of home network: 192.168.0/24
