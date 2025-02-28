@@ -143,7 +143,7 @@ int main() {
   while (true) {
     ThisThread::sleep_for(1000ms);
     // "Pet", "kick" or "feed" the dog to reset the watchdog timer
-    watchdog.pet()
+    watchdog.pet();
 
   }
 ```
@@ -204,7 +204,7 @@ About
 - The example code uses the HAL* library which is STs** own library
 - The HAL library is a C library where configuration is done by filling out structs
 - The HAL library is used by the Mbed OS library internally, that’s why it’s available for us
-- 
+
 Data types
 
 - IWDG_HandleTypeDef is a structure defined in the HAL library
