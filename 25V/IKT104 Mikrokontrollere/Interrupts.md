@@ -34,7 +34,7 @@ Triggers when data has been copied.
 #### Watchdog Interrupt
 - Used to handle code that hangs or crashes.
 - Triggers when the system becomes unresponsive.
-## Mbed
+## MBed-os interrupts
 #### External interrupts on inputs
 
 #### External interrupt types
