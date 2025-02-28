@@ -14,3 +14,8 @@ Interrupts
 - Interrupts allow you to more easily handle urgent events
 - Whatever code is running is paused when an interrupt occurs, exceot ongoing handling of higher priority interrupt
 - The paused code resumes when interrupt ends.
+
+## Types of interrupt
+#### External Interrupt
+- Can be used for passive (button) or active (microcontroller) components. 
+- Triggers on an external signal, e.g. digital input.
