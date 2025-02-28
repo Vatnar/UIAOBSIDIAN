@@ -39,6 +39,32 @@ Triggers when data has been copied.
 - Watchdog has a sequence to turn on and off, so it is protected. e.g. cosmic rays. ecc. 
 ## MBed-os interrupts
 #### External interrupts on inputs
-- 
-
+- Useful for buttons and other triggers
+- All inputs on our board support interrupts
+- External interrupts are directly supported by the MBed OS library.
 #### External interrupt types
+- LOW / HIGH: Trigger as long as the input is LOW / HIGH.
+- CHANGE: Trigger when it changes
+- RISING: Trigger when it goes from LOW to HIGH
+- Falling: Trigger when it goes from HIGH to LOW
+![[Pasted image 20250228104813.png]]
+```cpp
+#include "mbed.h"
+#define DISCO_BLUE_BUTTON PC_13 // UM2153: HIGH to LOW transition when pressed
+volatile int state = 0; // Keyword volatile ensures variable is read from memory before evaluated
+
+void button_interrupt_cb(void) {
+  state = !state; // Toggle state; 0=>1 or 1=>0
+}
+int main() {
+  DigitalOut led1(LED1);
+  InterruptIn button(DISCO_BLUE_BUTTON, PullNone); // Blue button has pullup
+
+  // Configure callback function for falling edge interrupt from blue button
+  button.fall(&button_interrupt_cb);
+
+  while (true) {
+    led1.write(state);
+    thread_sleep_for(100);
+  }
+```
