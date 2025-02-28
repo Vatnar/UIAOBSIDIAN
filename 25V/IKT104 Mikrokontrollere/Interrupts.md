@@ -69,3 +69,24 @@ int main() {
   }
 ```
 
+`volatile` tvinger kompilatoren til å ikke optimalisere ut variabelen.
+
+For denne while loopen vil aldri state endre seg, siden det endres utenfor.
+Kompilator prøver å lage rask kode. 
+
+```cpp
+int state = 0;
+while (state == 0) { } // Wait until state is changed by an interrupt
+```
+I while loopen endres ikke state, så den vill erstatta state med 0.
+`while (true) { }`
+
+#### Do's and dont's
+<span style="color:rgb(0, 176, 80)">What to do</span>:
+- Code in interrupt should be short and fast.
+- Better to set some values that are handled in the loop
+- Keep interrupt handlers simple
+<span style="color:rgb(255, 0, 0)">What <span style="color:rgb(255, 0, 0)">not</span> to do</span>:
+- A long interrupt can delay other interrupts and the loop
+- Don't use code that relies on other interrupts like std::printf().
+- Don't wait for something or block.
