@@ -90,3 +90,6 @@ I while loopen endres ikke state, så den vill erstatta state med 0.
 - A long interrupt can delay other interrupts and the loop
 - Don't use code that relies on other interrupts like std::printf().
 - Don't wait for something or block.
+
+## Watchdog Interrupts
+
