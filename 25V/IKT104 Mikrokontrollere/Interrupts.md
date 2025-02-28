@@ -34,6 +34,8 @@ Triggers when data has been copied.
 #### Watchdog Interrupt
 - Used to handle code that hangs or crashes.
 - Triggers when the system becomes unresponsive.
+
+- Unstable power can cause problems.
 ## MBed-os interrupts
 #### External interrupts on inputs
 
