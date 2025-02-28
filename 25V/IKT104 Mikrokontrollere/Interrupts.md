@@ -81,7 +81,7 @@ while (state == 0) { } // Wait until state is changed by an interrupt
 I while loopen endres ikke state, så den vill erstatta state med 0.
 `while (true) { }`
 
-#### Do's and dont's
+#### Do's and don'ts
 <span style="color:rgb(0, 176, 80)">What to do</span>:
 - Code in interrupt should be short and fast.
 - Better to set some values that are handled in the loop
@@ -89,7 +89,18 @@ I while loopen endres ikke state, så den vill erstatta state med 0.
 <span style="color:rgb(255, 0, 0)">What <span style="color:rgb(255, 0, 0)">not</span> to do</span>:
 - A long interrupt can delay other interrupts and the loop
 - Don't use code that relies on other interrupts like std::printf().
-- Don't wait for something or block.
+- Don't wait for something or block. No polling e.g.
 
 ## Watchdog Interrupts
+What it is:
+- A watchdog is a timer used to monitor your application or device
+- It can detect if code is hanging (stuck forever)
+- On a timeout an interrupt occurs.
+- This interrupts resets the system usuallly. (because there can be alot of things causing it.)
+- very high priority. 
 
+Normal mode:
+- Watchdog triggers if it hasn't been refreshed after a given period of time
+- You can refresh it as often as you like
+- How long it takes to trigger can be configured.
+- 
