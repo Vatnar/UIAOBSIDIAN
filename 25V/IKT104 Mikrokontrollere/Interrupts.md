@@ -129,6 +129,8 @@ While the application is running
 	// Watchdog timeout in milliseconds
 constexpr uint32_t WATCHDOG_TIMEOUT_MS = 2000;
 
+// ikke snilt å sparke hunden
+#define watchdog.pet() watchdog.kick()
 int main() {
 
   printf("Out of reset and starting watchdog timer...\n");
@@ -141,7 +143,7 @@ int main() {
   while (true) {
     ThisThread::sleep_for(1000ms);
     // "Pet", "kick" or "feed" the dog to reset the watchdog timer
-    watchdog.kick();
+    watchdog.pet()
 
   }
 ```
