@@ -35,7 +35,8 @@ Triggers when data has been copied.
 - Used to handle code that hangs or crashes.
 - Triggers when the system becomes unresponsive.
 
-- Unstable power can cause problems.
+- Unstable power can cause problems. Memory corruption.
+- Watchdog has a sequence to turn on and off, so it is protected. e.g. cosmic rays. ecc. 
 ## MBed-os interrupts
 #### External interrupts on inputs
 
