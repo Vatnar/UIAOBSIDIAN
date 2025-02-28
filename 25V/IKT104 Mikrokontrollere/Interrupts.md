@@ -110,3 +110,10 @@ Window mode:
 - If the watchdog is refreshed outside the window it will trigger.
 - This will also detect if the code is stuck clearing the watchdog continuously.
 - How long it takes to trigger can be configured.
+### Normal mode with system reset
+1. Set which watchdog instance is being configured
+2. Configure the prescaler value.  
+    This sets how fast the internal timer runs
+3. Set the reload value.  
+    This is the value the watchdog starts counting down from on refresh
+4. Init the watchdog
