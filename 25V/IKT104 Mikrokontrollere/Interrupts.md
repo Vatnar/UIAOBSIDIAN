@@ -103,4 +103,10 @@ Normal mode:
 - Watchdog triggers if it hasn't been refreshed after a given period of time
 - You can refresh it as often as you like
 - How long it takes to trigger can be configured.
-- 
+
+Window mode:
+- The watchdog must be refreshed during a specific window of the configured period
+- A *window* is a specific time range, that has an earliest and latest time.
+- If the watchdog is refreshed outside the window it will trigger.
+- This will also detect if the code is stuck clearing the watchdog continuously.
+- How long it takes to trigger can be configured.
