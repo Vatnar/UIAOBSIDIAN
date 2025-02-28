@@ -39,5 +39,6 @@ Triggers when data has been copied.
 - Watchdog has a sequence to turn on and off, so it is protected. e.g. cosmic rays. ecc. 
 ## MBed-os interrupts
 #### External interrupts on inputs
+- 
 
 #### External interrupt types
