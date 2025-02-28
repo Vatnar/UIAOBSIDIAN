@@ -117,3 +117,34 @@ Window mode:
 3. Set the reload value.  
     This is the value the watchdog starts counting down from on refresh
 4. Init the watchdog
+While the application is running
+- Refresh the watchdog at least once per time-out period
+- This ensures the watchdog doesn’t trigger during normal operation
+- If your code hangs the watchdog will reset your device
+![](https://lh7-rt.googleusercontent.com/slidesz/AGV_vUeI3qPV2wizVXTBpJ7EK3CHtAKRR19qhNcXWaT2P0FLsRFrSJFMGL_8wjrvOsBxWl3TN8W6uPLY1OM3FezGsloRCfB7MhJQVSCoZpmLwV0YkF3LU45HxYasv8iojIHXxR4m51PxFg=s2048?key=pBek73sTr0EXaURXce6bauEG)
+
+```cpp
+#include "mbed.h"
+IWDG_HandleTypeDef wdog;
+void watchdog_setup() {
+
+  wdog.Instance = IWDG;
+  // Low Speed Internal (LSI) oscillator ~32 000 / prescaler 256 = 125 downcounts per second
+  wdog.Init.Prescaler = IWDG_PRESCALER_256;
+
+  wdog.Init.Reload = 250; // 125 count per second, thus 250 = 2 seconds
+  // To prevent a watchdog reset, the refresh must occur when the down counter value is higher than  
+  // zero, and lower than the window value (i.e, when window value set lower than the reload value)
+  wdog.Init.Window = 0xFFF; // 0xFFF (4095) to disable window mode
+  HAL_IWDG_Init(&wdog);
+}
+  
+int main() {
+  printf("Out of reset and starting watchdog timer...\n");
+  watchdog_setup();
+  
+  while (true) {
+    ThisThread::sleep_for(1000ms);
+    // "Pet", "kick" or "feed" the dog to reset the watchdog timer
+    HAL_IWDG_Refresh(&wdog);
+```
