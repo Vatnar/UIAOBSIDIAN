@@ -125,6 +125,54 @@ While the application is running
 
 ```cpp
 #include "mbed.h"
+
+	// Watchdog timeout in milliseconds
+constexpr uint32_t WATCHDOG_TIMEOUT_MS = 2000;
+
+int main() {
+
+  printf("Out of reset and starting watchdog timer...\n");
+  // Get reference to the single Watchdog instance in the system
+  Watchdog &watchdog = Watchdog::get_instance();
+
+  // Start the watchdog timer
+  watchdog.start(WATCHDOG_TIMEOUT_MS);
+
+  while (true) {
+    ThisThread::sleep_for(1000ms);
+    // "Pet", "kick" or "feed" the dog to reset the watchdog timer
+    watchdog.kick();
+
+  }
+```
+```cpp```
+
+
+
+```cpp
+void loop()
+
+{
+    displayBacklight();
+
+    displayStatuses(&counters, interrupts);
+    HAL_IWDG_Refresh(&watchdog);
+
+    wifiCheck();
+    HAL_IWDG_Refresh(&watchdog);
+
+    wifiPing();
+    HAL_IWDG_Refresh(&watchdog);
+
+    readSerial(&settings, &counters);
+    HAL_IWDG_Refresh(&watchdog);
+
+    delay(100);
+}
+```
+![[Pasted image 20250228114337.png]]
+```cpp
+#include "mbed.h"
 IWDG_HandleTypeDef wdog;
 void watchdog_setup() {
 
@@ -138,7 +186,7 @@ void watchdog_setup() {
   wdog.Init.Window = 0xFFF; // 0xFFF (4095) to disable window mode
   HAL_IWDG_Init(&wdog);
 }
-  
+	  
 int main() {
   printf("Out of reset and starting watchdog timer...\n");
   watchdog_setup();
@@ -148,3 +196,25 @@ int main() {
     // "Pet", "kick" or "feed" the dog to reset the watchdog timer
     HAL_IWDG_Refresh(&wdog);
 ```
+### HAL hardware abstraction layer
+
+About
+- The example code uses the HAL* library which is STs** own library
+- The HAL library is a C library where configuration is done by filling out structs
+- The HAL library is used by the Mbed OS library internally, that’s why it’s available for us
+- 
+Data types
+
+- IWDG_HandleTypeDef is a structure defined in the HAL library
+- It is used to configure the watchdog and contains fields for various settings:
+- Instance is what watchdog we are configuring. There is only one, IWDG
+- Prescaler sets the speed of the timer used to count down the watchdog timeout  
+    Higher prescaler = slower, as the prescaler value is used to divide the clock***
+- Reload is what value the watchdog should start counting down from on refresh  
+    Higher reload = longer time before the watchdog triggers. Max = 0xFFF
+- Window is used to configure window mode. Disable it with 0xFFF
+
+Functions
+
+- HAL_IWDG_Init() configures the watchdog using the IWDG_HandleTypeDef struct
+- HAL_IWDG_Refresh() resets the timer, thus preventing the watchdog triggering
