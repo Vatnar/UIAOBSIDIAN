@@ -126,3 +126,23 @@ Consider the packet flow with NAT in the figure below
 | 24.34.101.225, 57601 | 10.0.0.1, 3835 |
 
 Router address: 143.43.131.225. Subnet address of home network: 192.168.0/24
+
+|   |   |   |
+|---|---|---|
+|**Router (NAT)**|WAN (ISP)|`143.43.131.225`|
+
+|   |   |   |
+|---|---|---|
+|**Router (NAT)**|LAN (Gateway)|`192.168.0.1`|
+
+|   |   |   |
+|---|---|---|
+|**PC 1**|LAN|`192.168.0.2`|
+
+|   |   |   |
+|---|---|---|
+|**PC 2**|LAN|`192.168.0.3`|
+
+|   |   |   |
+|---|---|---|
+|**PC 3**|LAN|`192.168.0.4`|
