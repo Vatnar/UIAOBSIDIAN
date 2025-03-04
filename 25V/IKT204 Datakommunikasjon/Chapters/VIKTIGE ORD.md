@@ -1,12 +1,38 @@
 
 ## Dataplane
-Subnet mask
-CIDR 
-BGP 
-address aggregation, route aggregation
-broadcast subnet address 255.255.255.255
-ICANN 
-DHCP  port 67
-DHCP doesnt allow retaining TCP connections
-NAT 
-NAT Traversal tools
+- Data plane
+- SDN
+- forwarding
+- routing
+- forwarding table
+- best-effort-service
+- longest prefix matching
+- packet loss
+- HOL blocking
+- drop-tail
+- AQM
+- RED 
+- Bufferbloat
+- FIFO FCFS
+- Priority Queuing
+- Net Neutrality
+- RR-schedule
+- WFQ
+- TOS
+- TTL
+- CHECKSUM
+- IP
+- ICMP
+- interface
+- dotted-decimal notation
+- Subnet
+- Subnet mask
+- CIDR 
+- BGP 
+- address aggregation, route aggregation
+- broadcast subnet address 255.255.255.255
+- ICANN 
+- DHCP  port 67
+- DHCP doesnt allow retaining TCP connections
+- NAT 
+- NAT Traversal tools
