@@ -1,8 +1,10 @@
 
 ## Dataplane
-CIDR Classless interdomain routing
-BGP Border gateway protocol
+CIDR 
+BGP 
 address aggregation, route aggregation
 broadcast subnet address 255.255.255.255
-ICANN Internet Corporation for Assigned Names and Numbers
-DHCP Dynamic Host Configuration Protocol port 67
+ICANN 
+DHCP  port 67
+DHCP doesnt allow retaining TCP connections
+NAT 
