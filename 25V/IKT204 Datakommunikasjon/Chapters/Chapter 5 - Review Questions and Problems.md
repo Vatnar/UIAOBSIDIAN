@@ -45,9 +45,21 @@ BGP is border gateway protocol and defines rules for traffic within the AS IBGP 
 
 These concepts work in conjunction to make hierarchical network structure function.
 
+
+| Term          | Definition                                                                | Key Use Case                                                        | Example                     |
+| ------------- | ------------------------------------------------------------------------- | ------------------------------------------------------------------- | --------------------------- |
+| **Subnet**    | A subdivision of a larger network into smaller segments.                  | Efficient IP address allocation and routing within an organization. | 193.32.42.0/26              |
+| **Prefix**    | A network identifier used in routing, often represented in CIDR notation. | Routing decisions (e.g., longest prefix match).                     | 193.32.42.0/24              |
+| **BGP Route** | A path advertisement used in Border Gateway Protocol.                     | Internet-wide routing between Autonomous Systems.                   | 193.32.42.0/24 via AS 65001 |
+
+
+
+
+
 **Exercise 6 (R11)**
 
 How does BGP use the NEXT-HOP attribute? How does it use the AS-PATH attribute?
+READ IN BOOK FRST>
 
 **Exercise 7 (P14)**
 
