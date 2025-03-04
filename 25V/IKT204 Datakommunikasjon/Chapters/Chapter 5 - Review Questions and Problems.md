@@ -19,20 +19,29 @@ Consider the following network.
    ![[Pasted image 20250304132319.png]]
 
 2. Use Dijkstra’s shortest-path algorithm to compute the shortest path from **node** **t** to all network nodes.
-
+![[Pasted image 20250304133506.png]]
 
 
 **Exercise 3 (R7)**
 
 Why are different inter-AS and intra-AS protocols used in the Internet?
+Intra-AS intra-autonomous systems are often a lot smaller than inter-as which connects autonomous systems. In a smaller intra-as a centralized routing algorithm could work fine since its finds the optimal path and is not too big so that it takes to long or too much space. For inter-as it is often too big which leads to the use of distributed algorithms being better. 
 
+Intra-as often use OSPF (Open Shortest Path First) and RIP Routing information protocol
+Inter-as often use BGP border gateway protocol
 **Exercise 4 (R8)**
 
-When an OSPF router sends its link state information, it is sent only to those routers that are directly attached neighbors or to all routers in the same autonomous system? Justify your answer.
+When an OSPF router sends its link state information, it is sent only to those routers that are directly attached neighbors or to all routers in the same autonomous system? Justify your answer. The link state information is only sent to the neigbhours during OSPF but the neighbours will propegate (parrot) the information onwards to every connection except from the one who sent it. This is sometimes called flooding.
 
 **Exercise 5 (R10)**
 
 Define and contrast the following terms: subnet, prefix, and BGP route.
+
+A subnet is a network that has been dividided into further smaller groups of networks. For instance a network that contains Ips from 193.32.42.0 to 193.32.42.255 can "borrow" some host bits, and add to the network bits so different subnets can be specified, this will then be called the subnet mask. When using dotted decimal notation it is often denoted using 0-255.0-255.0-255.0\(bitcount). Borrowing host bits to the network gives the advantage of being able to have more networks in the same block of IP addresses at the cost of each subnetwork not being able to distribute as many ip addresses to hosts.
+
+Prefix is something that is common between for instance an IP address and a filter. In a NAT network address translator a prefix is used to differentiate what IP addresses should go to which interface based on the longest common prefix.
+
+A BGP route is 
 
 **Exercise 6 (R11)**
 
