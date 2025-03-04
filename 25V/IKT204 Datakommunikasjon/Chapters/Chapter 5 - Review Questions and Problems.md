@@ -16,9 +16,11 @@ Consider the following network.
 ![[image-a9aeb3f9-4eb4-46e6-94ef-119e269187bc.png]]
 
 1. Use Dijkstra’s shortest-path algorithm to compute the shortest path from **node** **x** to all network nodes. Show how the algorithm works by computing a table below.
+   ![[Pasted image 20250304132319.png]]
+
 2. Use Dijkstra’s shortest-path algorithm to compute the shortest path from **node** **t** to all network nodes.
 
-![[image-030eae97-fc83-4f6a-b1d6-dbe1aa425038.png]]
+
 
 **Exercise 3 (R7)**
 
