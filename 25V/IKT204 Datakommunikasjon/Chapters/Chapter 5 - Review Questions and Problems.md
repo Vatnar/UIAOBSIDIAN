@@ -41,7 +41,9 @@ A subnet is a network that has been dividided into further smaller groups of net
 
 Prefix is something that is common between for instance an IP address and a filter. In a NAT network address translator a prefix is used to differentiate what IP addresses should go to which interface based on the longest common prefix.
 
-A BGP route is 
+BGP is border gateway protocol and defines rules for traffic within the AS IBGP and between ASes EGBP (external and internal).
+
+These concepts work in conjunction to make hierarchical network structure function.
 
 **Exercise 6 (R11)**
 
