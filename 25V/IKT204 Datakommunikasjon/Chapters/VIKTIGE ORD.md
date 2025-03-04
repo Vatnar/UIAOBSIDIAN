@@ -1,5 +1,6 @@
 
 ## Dataplane
+Subnet mask
 CIDR 
 BGP 
 address aggregation, route aggregation
@@ -8,3 +9,4 @@ ICANN
 DHCP  port 67
 DHCP doesnt allow retaining TCP connections
 NAT 
+NAT Traversal tools
