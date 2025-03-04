@@ -2,10 +2,13 @@
 
 Compare and contrast the properties of a centralized (global) and a distributed _routing **algorithm**_. Give an example of a _routing **protocol**_ that takes a centralized and a decentralized approach.
 
-A centralized or global routing algorithm requires the full topology of the network. The shortest path algorithm canbe run either at one site (centralized controller) or replicated for every routing component. This way of doing routing requires information about link costs or link state hence it often being called link-state algorithms (LS). A centralized routing algorithm is often easier to implement than a distributed routing algorithm. 
+A centralized or global routing algorithm requires the full topology of the network. The shortest path algorithm can be run either at one site (centralized controller) or replicated for every routing component. This way of doing routing requires information about link costs or link state hence it often being called link-state algorithms (LS). A centralized routing algorithm is often easier to implement than a distributed routing algorithm.  SDN with OpenFlow is centralized.
 
-A decentralized algorithm, regards calculating paths iterative distributed manner. None of the routers contain the entire network topology. Each router knows the cost of its directly attached links, then through iteration and exchange of information with neighbors it gradually calculates least cost path. Example is distance-vector algorithm.  
+A decentralized algorithm, regards calculating paths iterative distributed manner. None of the routers contain the entire network topology. Each router knows the cost of its directly attached links, then through iteration and exchange of information with neighbours it gradually calculates least cost path. Example is distance-vector algorithm.  , RIP or BGP protocols use distance vector
 
+Centralized algorithm guarantees the optimal paths, easier to debug and manage, and converges faster on change in topology. However its very expensive to collect and process all the routing information when the network grows, and it needs to constantly send updates. Additionally given that the algorithm is centralized there will be a single point of failure. A decentralized routing algorithm is more scalable, can still work even if routers fail, and doesnt need to recalculate everything if there are small changes. However it takes longer to react to changes in the topology, and there is a possibility of loops. Since there is no centralized part with the full topology the optimal route cannot be guaranteed. 
+
+Regarding time the centralized algorithms often have around a O(n^2) or O(nlogn) (priority cqueues) based on implementation. Decentralised algorithsm run n times.
 **Exercise 2 (P1, P2 variant)**
 
 Consider the following network.
