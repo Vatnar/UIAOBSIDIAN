@@ -2,7 +2,9 @@
 
 Compare and contrast the properties of a centralized (global) and a distributed _routing **algorithm**_. Give an example of a _routing **protocol**_ that takes a centralized and a decentralized approach.
 
-A centralized or global routing algorithm requires the full topology of the network. The shortest path algorithm canbe run either at one site (centralized controller) or replicated for every routing component. This way of doing routing requires information about link costs or link state hence it often being called link-state algorithms (LS). A centralized routing algorithm is often easier to implement than a distributed routing algorithm. One example of a centralized routing algorithm is 
+A centralized or global routing algorithm requires the full topology of the network. The shortest path algorithm canbe run either at one site (centralized controller) or replicated for every routing component. This way of doing routing requires information about link costs or link state hence it often being called link-state algorithms (LS). A centralized routing algorithm is often easier to implement than a distributed routing algorithm. 
+
+A decentralized algorithm, regards calculating paths iterative distributed manner. None of the routers contain the entire network topology. Each router knows the cost of its directly attached links, then through iteration and exchange of information with neighbors it gradually calculates least cost path. Example is distance-vector algorithm.  
 
 **Exercise 2 (P1, P2 variant)**
 

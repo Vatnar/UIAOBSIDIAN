@@ -4,6 +4,10 @@
 - SDN
 - forwarding
 - routing
+- Centralized and decentralized routing algorithms
+- LS algorithms
+- Static rou ting, dynamic routing
+- DV routing
 - forwarding table
 - best-effort-service
 - longest prefix matching
