@@ -74,7 +74,9 @@ Consider the network shown below. Suppose that AS1, AS2, AS3 and AS4 are running
 3. Router **1c** learns about **_x_** from which routing protocol?
    eBGP
 4. Router **1d** learns about **_x_** from which routing protocol?
+   iBGP
 5. Once router **1d** learns about prefix **_x_**, it will put an entry _(**x,I**)_ in its forwarding table, where **_I_** is either interface **_I1_** or **_I2_**. Will **_I_** be equal to **_I1_** or **_I2_** ? Explain why in one sentence.
-6. Now suppose that a link between AS2 and AS4 (shown by the dotted line) is established, and that router **1d** learns that prefix **_x_** is accessible via AS2 as well as via AS3. Will **_I_** be set to **_I1_** or **_I2_** ? Explain why in one sentence.
+   If we assume that the cost of the links are equal it will put l1, but if l1 cost is greater than 1a to 1b + l2, then l2.
+6. Now suppose that a link between AS2 and AS4 (shown by the dotted line) is established, and that router **1d** learns that prefix **_x_** is accessible via AS2 as well as via AS3. Will **_I_** be set to **_I1_** or **_I2_** ? Explain why in one sentence. Same as previous, but l2, if the cost is as assumed.. and if AS-path through As2 is shorter or has a higher LOCAL_PREF.
 
 ![[image-0d3a5714-a1f5-48d0-89b7-acb675bfbe4f.png]]
