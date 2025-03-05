@@ -40,3 +40,10 @@
 - DHCP doesnt allow retaining TCP connections
 - NAT 
 - NAT Traversal tools
+
+## 5
+BGP
+Gateway router, internal router
+BGP port 179 TCP
+eBGP
+iBGP
