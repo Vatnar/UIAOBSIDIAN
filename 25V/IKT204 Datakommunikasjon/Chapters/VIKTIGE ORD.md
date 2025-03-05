@@ -55,3 +55,5 @@ AS-PATH
 	Reject if its already added
 NEXT-HOP
 	IP address of the router interface that begins the AS-PATH
+Hot potato routing
+	

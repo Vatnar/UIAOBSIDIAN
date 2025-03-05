@@ -59,15 +59,20 @@ These concepts work in conjunction to make hierarchical network structure functi
 **Exercise 6 (R11)**
 
 How does BGP use the NEXT-HOP attribute? How does it use the AS-PATH attribute?
-READ IN BOOK FRST>
+The next-hop attribute holds the IP address of the router that starts the AS-PATH or is needed to reach a network. The NEXT_HOP is the ip address of the eBGP peer that advertised the route. not changed in iBGP
+
+The AS-PATH attribute holds the list of all the AS which the advertiosement has passed. When a prefix is passed to an AS the AS adds its ASN to the exisiting list. Its used for loop prevention, and discards adding itself if it finds tselfs.
 
 **Exercise 7 (P14)**
 
 Consider the network shown below. Suppose that AS1, AS2, AS3 and AS4 are running OSPF for their intra-AS routing protocol. Suppose eBGP and iBGP are used for the inter-AS routing protocol. Initially suppose there is no physical link between AS2 and AS4.
 
 1. Router **3c** learns about prefix **_x_** from which routing protocol: OSPF, eBGP, or iBGP?
+   eBGP
 2. Router **3a** learns about **_x_** from which routing protocol?
+	iBGP
 3. Router **1c** learns about **_x_** from which routing protocol?
+   eBGP
 4. Router **1d** learns about **_x_** from which routing protocol?
 5. Once router **1d** learns about prefix **_x_**, it will put an entry _(**x,I**)_ in its forwarding table, where **_I_** is either interface **_I1_** or **_I2_**. Will **_I_** be equal to **_I1_** or **_I2_** ? Explain why in one sentence.
 6. Now suppose that a link between AS2 and AS4 (shown by the dotted line) is established, and that router **1d** learns that prefix **_x_** is accessible via AS2 as well as via AS3. Will **_I_** be set to **_I1_** or **_I2_** ? Explain why in one sentence.
