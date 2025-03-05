@@ -47,3 +47,11 @@ Gateway router, internal router
 BGP port 179 TCP
 eBGP
 iBGP
+BGP attritubtes
+route, prefix along with attribute
+AS-PATH
+	List of AS the advertisement has passed through
+	When prefix is passed, AS adds its ASN to existing list.
+	Reject if its already added
+NEXT-HOP
+	IP address of the router interface that begins the AS-PATH
