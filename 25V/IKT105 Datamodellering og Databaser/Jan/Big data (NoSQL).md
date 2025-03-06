@@ -30,3 +30,6 @@ Value
 	Data into Money
 		Business models can be mapped to the data.
 
+![[Pasted image 20250306144428.png]]
+Applications
+Analytics engines.
