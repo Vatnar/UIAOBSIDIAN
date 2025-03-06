@@ -70,3 +70,22 @@ Cons
 - Traditional design for big boxes, not many boxes
 - Slice and dice
 	- Måten man putter inn data er uavhengig av måten man henter ut data.
+
+- Conceptt that include
+	- non relational
+	- open source
+	- cluster firendly
+	- share nothing approach, dont share unecessari informatiuon about user
+	- stateless, about other computers or clients.
+	- schema-less
+	- 21st century web enabled.
+		often use JSon or URL strings, not SQL.
+
+NoSQL/BigData Exceptations.
+Must support partial failure.
+	not one server destroy for every other server, could be thousands of servers.
+- No loss of data due to failure
+- System must deliver even if one component fails.
+- Hot swapping components
+- End result shall not be affected by partial failure.
+- Must yield results during overloading.
