@@ -33,3 +33,4 @@ Value
 ![[Pasted image 20250306144428.png]]
 Applications
 Analytics engines.
+Netflix used to know what would be a banger.*
