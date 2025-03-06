@@ -36,3 +36,13 @@ Analytics engines.
 Netflix used to know what would be a banger.
 
 Denormalisere for å speede opp, siden kartesisk produkt er dyrt. JOINS
+- NOSQL
+	- MongoDB; CouchDB, Cassandra, Redis, BigTable, Hbase, Hypertable, Voldermort, Riak, Zookeeper.
+- MapReuce
+	- Hadoop, Hive, Pig, Cascading, Cascalog, mrJob, Caffeie, S2, MapR, Acunum, Flume, kafka, Azkaban, Oozie, Greenplum
+- Storage
+	- S3, HDFS, IBM, GPFS, EMC's Isilon OneFS, MapR FS.
+- Platform (as a service)
+	- Ec2, Google app engine, aws, bluemix
+- Bluemix
+	- Spark, R, Yahoo!, Mecanical Turl, Solr-Lucne, Elastic Search, Datameer, BigSheets, TinkerPop, AI
