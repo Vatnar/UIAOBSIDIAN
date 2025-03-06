@@ -167,3 +167,18 @@ How would you store this in key value.
 OPC, or historian. Dependent on the frequency of the data insertions.
 ![[Pasted image 20250306155301.png]]
 
+# ODATA
+Open Data protocol
+	Counterpart of RDF, sparQL
+- HTTP/REST
+- Human readable
+- finnes biblioteker for de fleste språk
+- HTTP/GET metoden for å spørre etter data.
+- HTTP-POST for å legge til data.
+- HTTP-DELETE for å slippe data
+
+# REpresentational State Transfer
+- Lightweight Architectural style for providing standards bteween computer systems on the web.
+
+
+- 
