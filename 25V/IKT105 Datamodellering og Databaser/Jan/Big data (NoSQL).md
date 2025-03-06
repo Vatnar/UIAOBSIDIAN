@@ -89,3 +89,14 @@ Must support partial failure.
 - Hot swapping components
 - End result shall not be affected by partial failure.
 - Must yield results during overloading.
+
+Why so failure tolerant.
+1000 servers and 5% failure means 50 servers a year.
+Therefore often better two have a lot of low end servers instead of a few high end.
+
+- Large scale data
+	- Support multi cluster
+- Support the development process
+	- Better support for domain models
+	- Aggregates 
+	- Easier to use (might be complex to set up)
