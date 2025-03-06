@@ -12,4 +12,19 @@ Musikken i seg selv eller teksten er ikke strukturert.
 - Requires new tools and techniques. 
 - Solves new problems.. and old problems differently
 
-
+3V, 4V, 5V,
+Volume
+	Data at rest
+		terabytes to exobytes of existing data to process
+Velocity
+	Data in motion
+		Streaming data quick response
+Variety
+	Data in many forms
+		Structured, unstructured, text , multimedia.
+Veracity
+	Data in Doubt
+		Data inconsistency, incompleteness, ambiguity, latency
+Value
+	Data into Money
+		Business models can be mapped to the data.
