@@ -46,3 +46,27 @@ Denormalisere for å speede opp, siden kartesisk produkt er dyrt. JOINS
 	- Ec2, Google app engine, aws, bluemix
 - Bluemix
 	- Spark, R, Yahoo!, Mecanical Turl, Solr-Lucne, Elastic Search, Datameer, BigSheets, TinkerPop, AI
+
+*Relational databases*
+Pros
+	Persitence/Consistence
+	SQL
+		Most people in the field know it.
+	Integration
+		Every programming language had a module for interacting with SQL. 
+	Transactions
+	Reporting
+		A lot of tools for reporting. Autogenerate reports.
+Cons
+	Programming objects are in-memory structures.
+		Stripped down to fit columns and rows
+		Impedance mismatch problems
+		Mismatch related to OO concepts
+		Missing datatypes (e.g. pointers)
+- Scale up vs scale out.
+- More expensive vs more.
+- Volume vs cost ratio too high
+- Traditional RDBMS not designed for scale out. Its designed for scale up
+- Traditional design for big boxes, not many boxes
+- Slice and dice
+	- Måten man putter inn data er uavhengig av måten man henter ut data.
