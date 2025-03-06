@@ -25,6 +25,7 @@ Variety
 Veracity | trustworthyness
 	Data in Doubt
 		Data inconsistency, incompleteness, ambiguity, latency
+		Interpolation. Hvis noe er generert, hva kan man stole på. 
 Value
 	Data into Money
 		Business models can be mapped to the data.
