@@ -29,3 +29,4 @@ Veracity | trustworthyness
 Value
 	Data into Money
 		Business models can be mapped to the data.
+
