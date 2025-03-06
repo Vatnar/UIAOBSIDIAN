@@ -98,5 +98,72 @@ Therefore often better two have a lot of low end servers instead of a few high e
 	- Support multi cluster
 - Support the development process
 	- Better support for domain models
-	- Aggregates 
+	- Aggregates, Aggregerer data.
 	- Easier to use (might be complex to set up)
+- Database is no longer an integration platform.
+	- Retain data instead of processing it.
+
+- NoSQL
+	- Document stores
+	- Column family
+	- Key value store
+	- Graph
+![[Pasted image 20250306154116.png]]
+
+# Document store
+- structure: key value
+	- Value can be a searchable field
+- Can retrieve partial values
+- Uses implicit schema, XML json bson
+-  + event logs, contentmanagement
+- - complex transactions, no acid support, queries may vary.
+MongoDB, RavenDB, CouchDB
+![[Pasted image 20250306154343.png]]
+# Column family
+- structure: key value
+- key is a set of columns
+- more complex but greater flexilibility
+- + Eventlogging, real, time analytics, CMS, user experience
+- - no ACID, SUM, AVG
+- Cassandra.
+![[Pasted image 20250306154537.png]]
+• Column – simples storage unit  
+• Super Column – smallest  
+collection of combined columns  
+• Column family – row that contain  
+only one super column  
+• Super Column family – a row that  
+contain multiple super column.
+
+# Key Value store
+- structure: key value
+- + session information, shopping cart, user porfile, sensor data aquisition
+- - relation between data, multi key and transactions, set operations (no more than one key), value based queries.
+- RIAK Redis MemCache (not persistent
+![[Pasted image 20250306154731.png]]
+# Graph Stores
+- structure: simple (atomic) nodes that are connected
+- + handle relations between nodes and moves between the nodes, uber on relations, may support ACID
+- - aggregated DATA
+- Neo4J, Caylay, Apache JENA.
+
+
+# A lot of data timestamps
+id, blob, binary large object.
+2025.03.06,  >....................>
+
+
+# Aggregate oriented stores
+- supported by 
+	- Document store
+	- Column store
+	- key value store
+- works wewll when the root node is always the same
+- if you want to slice and ddice the data, stick with relational databases -> change query.
+
+![[Pasted image 20250306155215.png]]
+How would you store this in key value.
+
+OPC, or historian. Dependent on the frequency of the data insertions.
+![[Pasted image 20250306155301.png]]
+
