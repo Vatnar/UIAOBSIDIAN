@@ -11,4 +11,5 @@ Musikken i seg selv eller teksten er ikke strukturert.
 - Bigger problems, and solutions.
 - Requires new tools and techniques. 
 - Solves new problems.. and old problems differently
-- 
+
+
