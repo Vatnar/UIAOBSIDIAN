@@ -22,7 +22,7 @@ Velocity
 Variety
 	Data in many forms
 		Structured, unstructured, text , multimedia.
-Veracity
+Veracity | trustworthyness
 	Data in Doubt
 		Data inconsistency, incompleteness, ambiguity, latency
 Value
