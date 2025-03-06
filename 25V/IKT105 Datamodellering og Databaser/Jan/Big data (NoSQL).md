@@ -33,6 +33,6 @@ Value
 ![[Pasted image 20250306144428.png]]
 Applications
 Analytics engines.
-Netflix used to know what would be a banger.*
+Netflix used to know what would be a banger.
 
 Denormalisere for å speede opp, siden kartesisk produkt er dyrt. JOINS
