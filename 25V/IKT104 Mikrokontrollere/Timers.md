@@ -19,4 +19,7 @@
 - Usually grouped, and called just Timers or Timers/Counters.
 - Usage
 - functions like delay, printf, or pwm, use timers internally.
+- accuratly measure time
+- Can schedule recurring events., (timer interrupts)
+- more accurate
 - 
