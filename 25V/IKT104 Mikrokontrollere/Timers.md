@@ -10,3 +10,11 @@
 - Used to control the speed of hardware.
 - The speed of a CPU is set by a clock
 - Control time sensitive functionality like i2c, SPI etc.
+- Microcontrollers have multiple clock sources at different speeds and accuracies.
+
+# Timers
+![[Pasted image 20250307102555.png]]
+- A hardware component that takes a clock and modifies it.
+- A counter is a piece of hardware that receives these signals and counts them.
+- Usually grouped, and called just Timers or Timers/Counters.
+- 
