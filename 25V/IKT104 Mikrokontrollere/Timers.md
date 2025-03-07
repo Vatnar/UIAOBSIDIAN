@@ -17,4 +17,6 @@
 - A hardware component that takes a clock and modifies it.
 - A counter is a piece of hardware that receives these signals and counts them.
 - Usually grouped, and called just Timers or Timers/Counters.
+- Usage
+- functions like delay, printf, or pwm, use timers internally.
 - 
