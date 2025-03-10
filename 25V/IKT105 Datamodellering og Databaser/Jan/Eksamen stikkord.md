@@ -11,7 +11,7 @@ Relasjoner(1:1, 1:m, n:m)
 (Funksjonell avhengighet/transisativ avhengighet )  
 Tabell fra 1NF til 2 og eller 3 NF  
 Ingen normalform  
-Skjønne PilOppgaver  
+Skjønne PilOppgaver  d
 Tekst til normalform Tekst til tabell?  
 Kandidatnøkkel  
 Surrogatnøkkel(løpenummer?)  
