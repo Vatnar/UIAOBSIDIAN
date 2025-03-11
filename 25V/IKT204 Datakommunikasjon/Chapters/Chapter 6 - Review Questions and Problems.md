@@ -26,7 +26,7 @@ If so yes
 1. Why is an ARP query sent within a broadcast frame?
 	The physical addresses might not be known on before hand
 2. Why is an ARP response sent within a frame with a specific destination MAC address?
-	
+	Because the response should be returned to the original sender who requested it and not to all other devices.
 
 ---
 
@@ -34,8 +34,11 @@ If so yes
 Each host and router have an ARP table in its memory (an ARP cache).
 
 A. What is the content of this table?  
+This table holds the mappings between known IP-addresses to MAC addresses. If the device in question is not adjecent to the device (meaning one switch seperating) the MAC address consists of the MAC of the router.
 B. What is the main reason for having such a table?  
-
+	Switches are link-layer devices and cannot read IP headers, it rather works based on physical addresses.
+A. The ARP table (or ARP cache) holds mappings between **IP addresses and MAC addresses**. These mappings are for devices on the **same local network segment** (i.e., the same broadcast domain). If the destination IP address is not on the same local network (e.g., on another subnet), the MAC address in the ARP table will be the **MAC address of the router’s interface** (default gateway) that connects to the next hop.
+ B. The main reason for having an ARP table is to **efficiently map IP addresses to MAC addresses** to enable communication at the data link layer. Since switches are link-layer devices and do not read IP headers, the ARP table allows hosts and routers to **quickly resolve IP addresses to physical MAC addresses** without needing to send an ARP request every time.
 ---
 
 ## Exercise 5 (R14 variant)
