@@ -3,6 +3,13 @@
 ## Exercise 1 (R2)
 If all the links on the Internet were to provide reliable delivery service, would the TCP reliable delivery service be redundant? Why or why not?
 
+No due to congestion the packets could still be reordered which could cause problems.
+
+- **Packet Ordering:** Even if all links reliably delivered packets, they might not necessarily deliver them in the same order they were sent. TCP handles reordering by numbering packets and reassembling them in the correct order at the destination.
+    
+- **Congestion Control:** Reliable links do not necessarily handle congestion control. Without TCP's congestion control mechanisms (like slow start and congestion avoidance), networks could easily become overloaded, leading to severe performance degradation.
+    
+- **Flow Control:** TCP also manages flow control to ensure that the sender does not overwhelm the receiver's buffer capacity.
 ---
 
 ## Exercise 2 (R10)
