@@ -16,13 +16,17 @@ No due to congestion the packets could still be reordered which could cause prob
 Suppose nodes A, B, and C each attach to the same broadcast LAN (through their adapters).
 
 1. If A sends thousands of IP datagrams to B with each encapsulating frame addressed to the MAC address of B, will C’s adapter process these frames? If so, will C’s adapter pass the IP datagrams in these frames to C’s network layer?
+C will ignore these frames.
 2. How would your answers change if A sends frames with the MAC broadcast address?
+If so yes
 
 ---
 
 ## Exercise 3
 1. Why is an ARP query sent within a broadcast frame?
+	The physical addresses might not be known on before hand
 2. Why is an ARP response sent within a frame with a specific destination MAC address?
+	
 
 ---
 
