@@ -47,7 +47,7 @@ Consider three LANs interconnected by two routers, as shown in the figure below.
 ![[image-fbfc5242-ca74-4de2-be4a-bef8a1a83168.png]]  
 
 A. Host F is sending an IP datagram to Host A. Suppose all ARP tables are up to date. Describe and enumerate all the steps, as done for the single-router example in Section 6.4.1.  
-	
+	Host F populates the destination field of the IP header with the IP of Host A. In its ARP table the physical address correlated with the IP address of Host A is the physical address of router R2 with phyiscal address 33-33-33-33-33-01. The router deencapsulates the frame and modifies the frame header to address the physical address of router R1, since this is the physical address that R1 correlates with Host A. When the datagram reaches R1 the router analyses the header and figures out that the correlated IP correlates to the physical address 11-11-11-11-11-10 which is connected on the interface eth0. The switch forwards the message, and finally it arrives at Host A.
 B. Assume that the ARP table in the sending host F is empty (and the other tables are up to date). Describe and enumerate all the steps.  
 C. Subnet 2 is interconnected with other networks via two routers. Can the hosts in this subnet have two default gateway routers? Discuss how traffic out of this subnet is handled. (Hint: Can DHCP provide some options?)  
 
