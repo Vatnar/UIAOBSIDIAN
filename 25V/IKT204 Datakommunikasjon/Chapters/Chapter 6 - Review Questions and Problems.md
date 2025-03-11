@@ -80,7 +80,7 @@ A. Host F is sending an IP datagram to Host A. Suppose all ARP tables are up to 
     - The adapter **de-encapsulates the IP datagram** and passes it to the **network layer** for processing.
 
 B. Assume that the ARP table in the sending host F is empty (and the other tables are up to date). Describe and enumerate all the steps.  
-
+Host F will send a ARP broadcast
 C. Subnet 2 is interconnected with other networks via two routers. Can the hosts in this subnet have two default gateway routers? Discuss how traffic out of this subnet is handled. (Hint: Can DHCP provide some options?)  
 
 ---
