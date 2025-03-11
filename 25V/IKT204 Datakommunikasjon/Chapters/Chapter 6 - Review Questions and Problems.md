@@ -47,9 +47,8 @@ Consider three LANs interconnected by two routers, as shown in the figure below.
 ![[image-fbfc5242-ca74-4de2-be4a-bef8a1a83168.png]]  
 
 A. Host F is sending an IP datagram to Host A. Suppose all ARP tables are up to date. Describe and enumerate all the steps, as done for the single-router example in Section 6.4.1.  
-	Host F populates the destination field of the IP header with the IP of Host A. In its ARP table the physical address correlated with the IP address of Host A is the physical address of router R2 with phyiscal address 33-33-33-33-33-01. The router deencapsulates the frame and modifies the frame header to address the physical address of router R1, since this is the physical address that R1 correlates with Host A. When the datagram reaches R1 the router analyses the header and figures out that the correlated IP correlates to the physical address 11-11-11-11-11-10 which is connected on the interface eth0. The switch forwards the message, and finally it arrives at Host A.
 
-	- **Host F Constructs the IP Datagram:**
+1. **Host F Constructs the IP Datagram:**
     
     - Host F sets the **destination IP address** in the IP header to **192.168.10.10** (Host A's IP).
     - It checks its ARP table for the **MAC address corresponding to the default gateway (R2)** since Host A is on a different subnet.
@@ -58,7 +57,7 @@ A. Host F is sending an IP datagram to Host A. Suppose all ARP tables are up to 
         - **Source MAC:** 33-33-33-33-33-10 (Host F)
         - **Destination MAC:** 33-33-33-33-33-01 (R2 eth1)
     - The frame is sent to **Switch3**, which forwards it to **R2**.
-- **Router R2 Receives the Frame:**
+2. **Router R2 Receives the Frame:**
     
     - R2 **de-encapsulates the frame**, extracts the IP datagram, and inspects the **destination IP address (192.168.10.10)**.
     - R2 uses its **routing table** to determine the next hop and finds that the destination is reachable via **R1**.
@@ -66,7 +65,7 @@ A. Host F is sending an IP datagram to Host A. Suppose all ARP tables are up to 
         - **Source MAC:** 22-22-22-22-22-02 (R2 eth0)
         - **Destination MAC:** 22-22-22-22-22-01 (R1 eth1)
     - The frame is sent to **Switch2**, which forwards it to **R1**.
-- **Router R1 Receives the Frame:**
+3. **Router R1 Receives the Frame:**
     
     - R1 **de-encapsulates the frame**, checks the **destination IP (192.168.10.10)**, and determines that the destination is on its **eth0 interface** (Subnet 1).
     - R1 uses its ARP table to find Host A’s MAC address (**11-11-11-11-11-10**).
@@ -74,14 +73,22 @@ A. Host F is sending an IP datagram to Host A. Suppose all ARP tables are up to 
         - **Source MAC:** 11-11-11-11-11-01 (R1 eth0)
         - **Destination MAC:** 11-11-11-11-11-10 (Host A)
     - The frame is sent to **Switch1**, which forwards it to **Host A**.
-- **Host A Receives the Frame:**
-    
-    - Host A’s adapter **processes the frame**, recognizing its own MAC address as the destination.
-    - The adapter **de-encapsulates the IP datagram** and passes it to the **network layer** for processing.
+4. **Host A Receives the Frame:**
+	    Processes the frame recognizing its own MAC address and de-encapsulates the IP datagram and passes it to network layer.
 
 B. Assume that the ARP table in the sending host F is empty (and the other tables are up to date). Describe and enumerate all the steps.  
-Host F will send a ARP broadcast
+1. **Constructs ip datagram with destination IP of Host A.**
+	Host A is on a different subnet so F sends datagram to default getaway (R2).
+2. **ARP request created with broadcast address FFFFFFFFFFFFFFFF.**
+	The arp request gets broadcasted by the switch Switch3. to the entire subnet.
+3. **Router recieves the broadcast and recognizes its IP address and replies with an ARP reply.**
+	It is sent directly (uni-cast) and not broadcasted
+4. **Host F updates its  ARP cache.**
+5. **The rest of the steps are the same as in A.**
 C. Subnet 2 is interconnected with other networks via two routers. Can the hosts in this subnet have two default gateway routers? Discuss how traffic out of this subnet is handled. (Hint: Can DHCP provide some options?)  
+
+It is theoretically possible to be configured with two getaway routers but it can lead to issues.
+The best approach is to use one default getaway with a dynamic routing protocol between like OSPF or BGP.
 
 ---
 
@@ -94,6 +101,27 @@ Suppose that:
 - (iv) B replies with a frame to A  
 
 The switch table is initially empty. Show the state of the switch table before and after each of these events. For each of these events, identify the link(s) on which the transmitted frame will be forwarded, and briefly justify your answers.  
+
+i)
+Host E doesn't necessarily need to respond to B and therefore only host B's address is learned
+& denotes address of (MAC)
+
+| Host | Interface |
+| ---- | --------- |
+| &B   | 1         |
+ii)
+
+| Host | Interface |
+| ---- | --------- |
+| &B   | 1         |
+| &E   | 2         |
+iii)
+
+| Host | Interface |     |
+| ---- | --------- | --- |
+| &B   | 1         |     |
+| &E   | 2         |     |
+| &A   | 3         |     |
 
 ---
 
