@@ -106,24 +106,28 @@ i)
 Host E doesn't necessarily need to respond to B and therefore only host B's address is learned
 & denotes address of (MAC). The interfaces number are arbitrary.
 
-| Host | Interface |
-| ---- | --------- |
-| &B   | 1         |
+| Host  | Interface |
+| ----- | --------- |
+| $\&B$ | 1         |
+Since the switch doesnt know the interface of E, it floods the network (multiplexes the frame) to all devices except from B. 
+
 ii)
 Now the switch learns E's address since it can read the address from the header field of the frame.
 
-| Host | Interface |
-| ---- | --------- |
-| &B   | 1         |
-| &E   | 2         |
+| Host  | Interface |
+| ----- | --------- |
+| $\&B$ | 1         |
+| $\&E$ | 2         |
 iii)
 The switch learns what interface A resigns on.
 
-| Host | Interface |     |
-| ---- | --------- | --- |
-| &B   | 1         |     |
-| &E   | 2         |     |
-| &A   | 3         |     |
+| Host  | Interface |     |
+| ----- | --------- | --- |
+| $\&B$ | 1         |     |
+| $\&$E | 2         |     |
+| $\&A$ | 3         |     |
+iii)
+Nothing new happened.
 
 ---
 
@@ -134,10 +138,10 @@ For the e-mail application, suppose that for 99.9 percent of the time only three
 
 A. For what fraction of time does the e-mail application need to use a fourth rack? How about for the video application?  
 
-3 racks for 99.9% of time. and 1 rack for 0.1%.
+Each application have 4 dedicated racks. Since they use 3 of them 99.9% of the time it uses the 4th rack for $1-99.9\% = 0.1\%$ of the time.
 
 B. Assuming e-mail usage and video usage are independent, for what fraction of time do both applications need their fourth rack?  
 
-0.1%x0.1%= 0.0001% of the time.
+The time where both of them use the same time is the intersection of these events meaning$0.1\% \cdot 0.1\% =0.0001\%$ 
 
 ![[image-dcd75e26-8b85-45af-aa57-050aa2306ae1.png]]
