@@ -47,6 +47,7 @@ Consider three LANs interconnected by two routers, as shown in the figure below.
 ![[image-fbfc5242-ca74-4de2-be4a-bef8a1a83168.png]]  
 
 A. Host F is sending an IP datagram to Host A. Suppose all ARP tables are up to date. Describe and enumerate all the steps, as done for the single-router example in Section 6.4.1.  
+	
 B. Assume that the ARP table in the sending host F is empty (and the other tables are up to date). Describe and enumerate all the steps.  
 C. Subnet 2 is interconnected with other networks via two routers. Can the hosts in this subnet have two default gateway routers? Discuss how traffic out of this subnet is handled. (Hint: Can DHCP provide some options?)  
 
