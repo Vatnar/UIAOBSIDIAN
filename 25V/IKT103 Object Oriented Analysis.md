@@ -24,9 +24,14 @@ Specification is the "drawing" which is the base of the program.
 - Forstå domenet. kan ikke designe universitet som et sykehus med mange små rom.
 
 - En relasjon mellom en pasient og et sykehus.
-- Abstraksjonsnivå,
+- Abstraksjonsnivå, Level of granularity
 ```plantuml
 @startuml
 Pasient -- Sykehus
 ```
+Klikker nivå
+USB, HHE nivå.
+IR.
+OSV.
+
 
