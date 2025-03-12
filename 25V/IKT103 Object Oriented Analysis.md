@@ -98,3 +98,6 @@ Notation for UML classes
 <span style="color:rgb(255, 0, 0)">Information hiding</span> 
 Sett alt til private, vurder om noe skal være public.
 Private gir modifiability
+
+Streker mellom to klasser kallen en assosiasjon.
+Arv er en type.
