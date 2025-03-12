@@ -65,3 +65,4 @@ Doing verb - Association - creates, drives, submits
 being verb - special form, inheritence, specialization - is kind of 
 Havin/owrning verb - aggregation, composition, has, includes
 adjective  - atrtributes.
+
