@@ -34,6 +34,34 @@ USB, HHE nivå.
 IR.
 OSV.
 
-Abstraction gjør at vi kan lage overordnede prinsipper.
+<span style="color:rgb(255, 0, 0)">Abstraction</span> gjør at vi kan lage overordnede prinsipper.
+
+# Hvordan
+Vi bruker OOA.
++ Finne Klasser
++ Beskrive relasjoner mellom klasser
++ Beskrive ansvarsområdene til hver klasse
++ Entity klasser lærer vi.
 
 
+Klasser
+- Entitet
+	- tenk databasetabell
+- Kontrollerklasser
+
+Tasklist
+1. Obtain or prepare a textual desscription
+2. Underline the nouns
+3. Organize the nouns into groups to become candidate classes.
+4. Underline all the adjectives
+5. Assign the adjectives as attributes ot the candidate classes
+6. Underline the verb, differentiate action from stative verb.
+7. Assign the action verbs to operation of classes.
+8. Assign the stative verbs as attributes of classes or relationship.
+
+Proper noun - Object instantiation - alice
+Common noun - class Customer
+Doing verb - Association - creates, drives, submits
+being verb - special form, inheritence, specialization - is kind of 
+Havin/owrning verb - aggregation, composition, has, includes
+adjective  - atrtributes.
