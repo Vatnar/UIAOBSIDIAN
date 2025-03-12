@@ -110,3 +110,19 @@ Multiplicicitetspesifikator.
 i...u
 i
 0...*
+
+Assosiasjon til seg telv 0..*
+
+Aggergation er en sterkere form for assosiasjon
+Vi kalle rdenne has a eller parth whole relasjon
+![[08-uml-aggregation-example.webp]]
+Åpen diamant.
+Den forteller ikke noe om livslengde, part kan eksistere uten whole.
+
+Composition
+sterkere versjon av aggregation
+Eksklusivt eierskap mellom whole og part.
+Livssyklusen til part er bestemt av whole
+
+![[Untitled.png]]
+![[UML_association,_aggregation_and_composition_examples_for_a_bicycle.png]]
