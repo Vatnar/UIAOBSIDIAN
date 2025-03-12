@@ -10,3 +10,5 @@ Analyse er å forstå. Design å løse.
 - produce object analysis modelling
 - pays primary attention to the objects with which the problem is concerned.
 - Ignore other objects.
+Specification is the "drawing" which is the base of the program.
+
