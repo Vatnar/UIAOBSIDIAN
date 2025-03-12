@@ -63,6 +63,35 @@ Proper noun - Object instantiation - alice
 Common noun - class Customer
 Doing verb - Association - creates, drives, submits
 being verb - special form, inheritence, specialization - is kind of 
-Havin/owrning verb - aggregation, composition, has, includes
+Havin/owrning verb - aggregation, com But some tools are better than others. position, has, includes
 adjective  - atrtributes.
 
+UML
+Unified Modeling Language
+
+Modeling syntax aimed primarily at creating models of software-based systems.
+
+- UML Defines rules, not what diagrams to create.
+- Comprehensive - it can be used to model anything. It is deisgned to be user extended.
+- Language-independent. Doesnt matter what hi leel language is to be used in the code. Mapping into  code is a matter of the tool you use.
+- Process-independent, Seperate from the process.
+- Can be defined in xml, tool independent.
+- Well documented - the UML notatioon guide is available.
+- ITs application is not well understood - the UML notation guide is not sufficient to use the language. 
+- Originally for jsystem, but is used for other sthings too.
+
+# UML diagrams
+- structure diagrams:
+	- Describes static structure and relations
+		- Class diagram
+		- package diagram
+		- component diagram
+		- deployment diagram
+- behavioral diagrams
+	- describers dynamic behavoir or change over time.
+		- Usercase diagram
+		- Interaction diagram
+			- Sequence diagram
+
+Notation for UML classes
+![[Class-Notation.webp]]
