@@ -95,3 +95,5 @@ Modeling syntax aimed primarily at creating models of software-based systems.
 
 Notation for UML classes
 ![[Class-Notation.webp]]
+<span style="color:rgb(255, 0, 0)">Information hiding</span> 
+Sett alt til private, vurder om noe skal være public.
