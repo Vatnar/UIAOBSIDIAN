@@ -102,3 +102,11 @@ Private gir modifiability
 Streker mellom to klasser kallen en assosiasjon.
 Arv er en type.
 Assosiasjon har ofte ett navn eller en rolle.
+Retning
+Retningen pilen går indikerer retningen på assosiasjonen. 
+
+Roller og multiplicet.
+Multiplicicitetspesifikator.
+i...u
+i
+0...*
