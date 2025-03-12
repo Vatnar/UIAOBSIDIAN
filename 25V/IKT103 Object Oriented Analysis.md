@@ -34,4 +34,6 @@ USB, HHE nivå.
 IR.
 OSV.
 
+Abstraction gjør at vi kan lage overordnede prinsipper.
+
 
