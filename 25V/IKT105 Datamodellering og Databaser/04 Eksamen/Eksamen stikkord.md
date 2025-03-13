@@ -25,7 +25,7 @@ Tabeller
 Ta forutsetninger hvis du føler det er nyttig  
 Objektifisering(Koblingsobjekt(tabell))  
 SQL  
-Select*, From*, Where, Group By, Having, order By *Må være med  
+Select*, From*, Where, Group By, Having, order By Må være med  
 Create/insert Into Kanksje generelt i et flervalgsspørsmål  
 Insert/Delete/Update kan være aktuelt i forhold til flervalg sannsynligvis  
 Insert/Delete/Update uten en where gjelder dette alle rader i tabellen  
