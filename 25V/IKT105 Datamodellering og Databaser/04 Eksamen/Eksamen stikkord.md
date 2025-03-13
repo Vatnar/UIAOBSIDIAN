@@ -62,3 +62,8 @@ Prosedyre
 View  
 Er noe mer, men kom ikke lenger nå... Hvis dere har kontroll på dette så bør det  
 holde til minimum en C sannsynligvis en B. A bør ha enda litt brede kunnska
+
+<span style="color:rgb(255, 0, 0)">TRIGGER</span> 
+Hva er en trigger i databasesammenheng, hvorfor og hvordan kan man bruke triggere i databaser?
+<span style="color:rgb(255, 0, 0)">UNDO/REDO</span>  
+FOrklar Recovery, algoritmen Undo/Redo, hvorfor den er mest brukt?
