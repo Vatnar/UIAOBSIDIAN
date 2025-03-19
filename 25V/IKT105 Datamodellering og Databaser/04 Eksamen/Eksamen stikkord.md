@@ -67,3 +67,73 @@ holde til minimum en C sannsynligvis en B. A bør ha enda litt brede kunnskap
 Hva er en trigger i databasesammenheng, hvorfor og hvordan kan man bruke triggere i databaser?
 <span style="color:rgb(255, 0, 0)">UNDO/REDO</span>  
 FOrklar Recovery, algoritmen Undo/Redo, hvorfor den er mest brukt?
+
+B+
+# Prinsipper for oppbygging av et B+ tre
+
+Et **B+ tre** er en selvbalanserende trestruktur som brukes primært i databasesystemer og filsystemer for effektiv lagring og søking i store datamengder. Det er en variant av B-trær, men skiller seg fra disse ved at alle faktiske dataverdier er lagret i bladnodene, mens interne noder kun lagrer søkenøkler. Denne strukturen gjør B+ trær spesielt godt egnet for systemer med høy I/O-belastning, som disklagring.
+
+---
+
+## Grunnprinsipper
+
+### Orden og Kapasitet
+
+- Et B+ tre av orden mmm har maksimalt m−1m-1m−1 nøkler i hver node og opptil mmm pekere til undernoder.
+- Minimum antall nøkler i en ikke-rot-node er ⌈m/2⌉−1\lceil m/2 \rceil - 1⌈m/2⌉−1, og minimum antall pekere er ⌈m/2⌉\lceil m/2 \rceil⌈m/2⌉.
+- Roten kan ha færre nøkler, men skal alltid ha minst to pekere dersom den ikke er en bladnode.
+
+### Hierarkisk Struktur
+
+- Treet består av interne noder og bladnoder.
+    - **Interne noder:** Inneholder kun søkenøkler og pekere til undernoder, men ingen faktiske data.
+    - **Bladnoder:** Inneholder alle dataelementer eller pekere til data, samt en peker til neste bladnode, noe som muliggjør effektiv sekvensiell traversering.
+
+### Balansert Struktur
+
+- Treet er alltid balansert, noe som betyr at alle bladnoder er på samme nivå.
+- Høyden på treet er derfor lav, selv for store datamengder, som gir rask tilgang med en tidskompleksitet på O(log⁡n)O(\log n)O(logn).
+
+---
+
+## Oppbygging av B+ tre
+
+### Innsetting
+
+1. Finn riktig bladnode ved hjelp av søkealgoritmen.
+2. Sett nøkkelen inn i sortert rekkefølge.
+3. Hvis bladnoden er full, splittes den:
+    - Midtnøkkelen flyttes opp til foreldrenoden.
+    - To nye bladnoder opprettes med jevn fordeling av nøklene.
+4. Hvis foreldrenoden også er full, repeteres splittingen oppover i treet.
+
+### Sletting
+
+1. Finn nøkkelen i riktig bladnode.
+2. Slett nøkkelen og oppdater pekere.
+3. Hvis slettingen fører til for få nøkler:
+    - **Låne fra nabonode:** Flytt en nøkkel fra en nabonode til den underfylte noden.
+    - **Fusjon:** Slå sammen noden med en nabonode og trekk en nøkkel fra foreldrenoden.
+4. Hvis roten tømmes, kan trehøyden reduseres ved å fjerne roten.
+
+### Søking
+
+- Start i rotnoden og følg pekere til riktig undernode basert på søkenøkkelen.
+- Gjenta prosessen nedover til en bladnode er nådd.
+- Søk i bladnoden for å finne nøkkelen.
+- Tidskompleksiteten er O(log⁡n)O(\log n)O(logn).
+
+---
+
+## Fordeler med B+ trær
+
+- **Høy ytelse:** Søking, innsetting og sletting har kompleksiteten O(log⁡n)O(\log n)O(logn).
+- **Effektiv sekvensiell tilgang:** Bladnodene er koblet som en lenket liste for rask iterering.
+- **God diskoptimalisering:** Store noder reduserer antall disktilganger.
+- **Balansert tre:** Alle bladnoder er på samme nivå, noe som gir rask tilgang.
+
+---
+
+## Konklusjon
+
+B+ trær er en robust og effektiv struktur som er ideell for databasesystemer hvor store datamengder må lagres og hentes raskt. Den balanserte naturen, sammen med en struktur som er optimalisert for disktilgang, gjør at B+ trær er det foretrukne valget i mange moderne databasesystemer, som for eksempel MySQL og PostgreSQL.
