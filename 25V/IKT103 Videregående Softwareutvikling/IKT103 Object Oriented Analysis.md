@@ -113,13 +113,13 @@ i
 
 Assosiasjon til seg telv 0..*
 
-Aggergation er en sterkere form for assosiasjon
+# Aggregation er en sterkere form for assosiasjon
 Vi kalle rdenne has a eller parth whole relasjon
 ![[08-uml-aggregation-example.webp]]
 Åpen diamant.
 Den forteller ikke noe om livslengde, part kan eksistere uten whole.
 
-Composition
+# Composition
 sterkere versjon av aggregation
 Eksklusivt eierskap mellom whole og part.
 Livssyklusen til part er bestemt av whole
