@@ -168,3 +168,9 @@ Circle with line under entity class
 ![[image013.jpg]]
 Interface "knapp" linje til venstre, knapp. 
 Boundery heter det. 
+
+Timing diagram.
+![[timing-diagrams-overview.png]]
+
+
+Class diagram viktigste.
