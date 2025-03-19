@@ -133,4 +133,7 @@ Livssyklusen til part er bestemt av whole
 A dependency from A from B is a relationship, where A depends on the presence of B, and changes in B would affect A.
 
 # Class Diagram example
-![[Class-Diagram-Sales-Order-System.webp]]
+![[Pasted image 20250319143008.png]]
+Payment i kursiv betyr at den er abstract.
+Med interface er arvepila stiplet.
+Klasse
