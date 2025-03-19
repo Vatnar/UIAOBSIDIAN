@@ -137,3 +137,6 @@ A dependency from A from B is a relationship, where A depends on the presence of
 Payment i kursiv betyr at den er abstract.
 Med interface er arvepila stiplet.
 Klasse
+
+Objekt diagram har med flere instanser av samme klasse. Debugging, 
+Package diagram. Tegne avhengigheter, og importeringer, og subpakker.
