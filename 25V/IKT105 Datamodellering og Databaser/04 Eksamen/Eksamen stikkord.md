@@ -136,10 +136,12 @@ Et **B+ tre** er en selvbalanserende trestruktur som brukes primært i databases
 
 ## Konklusjon
 
-B+ trær er en robust og effektiv struktur som er ideell for databasesystemer hvor store datamengder må lagres og hentes raskt. Den balanserte naturen, sammen med en struktur som er optimalisert for disktilgang, gjør at B+ trær er det foretrukne valget i mange moderne databasesystemer, som for eksempel MySQL og PostgreSQL.
-
-
-
-
-
+B+ trær er en robust og effektiv struktur som er ideell for databasesystemer hvor store 
+datamengder må lagres og hentes raskt. Den balanserte naturen, sammen med en struktur som er 
+optimalisert for disktilgang, gjør at B+ trær er det foretrukne valget i mange modern
+databasesystemer, som for eksempel MySQL og PostgreSQL.
 ![[B+-tree-remove-61.png]]
+
+
+
+# 
