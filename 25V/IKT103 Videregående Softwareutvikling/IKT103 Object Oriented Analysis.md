@@ -126,6 +126,8 @@ Livssyklusen til part er bestemt av whole
 
 ![[Untitled.png]]
 ![[UML_association,_aggregation_and_composition_examples_for_a_bicycle.png]]
+![[bfBSY.png]]
 
 ---
+
 
