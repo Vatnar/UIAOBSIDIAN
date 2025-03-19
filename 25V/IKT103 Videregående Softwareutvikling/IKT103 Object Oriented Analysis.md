@@ -143,3 +143,10 @@ Package diagram. Tegne avhengigheter, og importeringer, og subpakker.
 Component diagram: Software Moduler, 
 ![[02-component-diagram-overview.webp]]
 ![[composite-internal-structure-diagram-elements.png]]
+![[1200px-Deployment_Diagram.png]]
+Communication links, innside utside brannmur, depdendencies.
+
+Behavioral: Use case diagram
+![[qyifsQP5F8lKOlubqspyoQ.jpg]]
+Describe use cases, subject can perform. 
+Usually a full textual description
