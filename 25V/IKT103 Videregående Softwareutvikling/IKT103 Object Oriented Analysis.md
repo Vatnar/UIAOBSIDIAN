@@ -144,9 +144,27 @@ Component diagram: Software Moduler,
 ![[02-component-diagram-overview.webp]]
 ![[composite-internal-structure-diagram-elements.png]]
 ![[1200px-Deployment_Diagram.png]]
-Communication links, innside utside brannmur, depdendencies.
+Communication links, innside utside brannmur, dependencies.
 
-Behavioral: Use case diagram
+Behavioural: Use case diagram
 ![[qyifsQP5F8lKOlubqspyoQ.jpg]]
 Describe use cases, subject can perform. 
 Usually a full textual description
+Allows tester to write tests early
+Developer and tester work at the same time.
+Only describe what is public to the suer.
+
+Behavioural: Activity Diagram
+- shows sequence and conditions for coordinating lower/level behaviours, rather than which classifisers own those behavoirs. Control flow and object flow
+- ![[08-activity-diagram-with-swimlane-version.webp]]
+
+Behavioural: state machines
+
+Behaviourl: Interaction->Sequence
+![[Example-sequence-diagram-2.jpg]]
+
+Entity klasse holder informasjo
+Circle with line under entity class
+![[image013.jpg]]
+Interface "knapp" linje til venstre, knapp. 
+Boundery heter det. 
