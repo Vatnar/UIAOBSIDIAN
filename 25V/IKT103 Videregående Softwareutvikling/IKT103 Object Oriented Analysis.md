@@ -140,3 +140,4 @@ Klasse
 
 Objekt diagram har med flere instanser av samme klasse. Debugging, 
 Package diagram. Tegne avhengigheter, og importeringer, og subpakker.
+Component diagram: Software Moduler, 
