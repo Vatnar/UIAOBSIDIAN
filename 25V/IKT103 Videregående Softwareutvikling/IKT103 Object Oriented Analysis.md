@@ -129,5 +129,6 @@ Livssyklusen til part er bestemt av whole
 ![[bfBSY.png]]
 
 ---
-
+# Dependency
+A dependency from A from B is a relationship, where A depends on the presence of B, and changes in B would affect A.
 
