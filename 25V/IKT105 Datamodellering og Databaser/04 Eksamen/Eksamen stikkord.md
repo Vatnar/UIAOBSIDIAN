@@ -68,7 +68,6 @@ Hva er en trigger i databasesammenheng, hvorfor og hvordan kan man bruke trigger
 <span style="color:rgb(255, 0, 0)">UNDO/REDO</span>  
 FOrklar Recovery, algoritmen Undo/Redo, hvorfor den er mest brukt?
 
-B+
 # Prinsipper for oppbygging av et B+ tre
 
 Et **B+ tre** er en selvbalanserende trestruktur som brukes primært i databasesystemer og filsystemer for effektiv lagring og søking i store datamengder. Det er en variant av B-trær, men skiller seg fra disse ved at alle faktiske dataverdier er lagret i bladnodene, mens interne noder kun lagrer søkenøkler. Denne strukturen gjør B+ trær spesielt godt egnet for systemer med høy I/O-belastning, som disklagring.
@@ -321,4 +320,88 @@ Denne spørringen henter navn og produkter fra begge tabellene ved å bruke rela
 ### 📝 **Konklusjon:**
 
 Relasjonsdatabaser er svært effektive når det gjelder å lagre strukturerte data med komplekse relasjoner og opprettholde dataintegritet. De brukes ofte i kritiske applikasjoner som bank- og forretningssystemer, der pålitelighet og datakonsistens er avgjørende.
+
+# Recovery
+**Recovery** i databasesammenheng refererer til prosessen med å gjenopprette databasen til en konsistent tilstand etter en feil eller krasj. Målet er å sikre at dataene er korrekte og fullstendige, selv etter uforutsette hendelser som strømbrudd, systemkrasj eller programvarefeil.
+
+---
+
+### 💡 **Hvorfor er recovery nødvendig?**
+
+Recovery er avgjørende for å opprettholde ACID-egenskapene, spesielt:
+
+- **Atomicity:** Alle operasjoner i en transaksjon fullføres eller rulles tilbake.
+- **Durability:** Dataene forblir permanente etter en commit, selv ved systemfeil.
+
+---
+
+### ⚙️ **Typer feil som krever recovery:**
+
+1. **Systemfeil:** F.eks. strømbrudd eller maskinvarefeil som fører til at databasen krasjer.
+2. **Diskfeil:** Fysiske feil på lagringsmediet som fører til tap av data.
+3. **Transaksjonsfeil:** Feil under utførelse av en transaksjon, f.eks. på grunn av brudd på integritetsregler.
+4. **Programvarefeil:** Feil i databasesystemet eller applikasjonsprogrammet.
+
+---
+
+### 🔄 **Recovery-teknikker:**
+
+Det finnes flere teknikker for å sikre at dataene kan gjenopprettes på en pålitelig måte.
+
+#### 1. **Loggbasert recovery:**
+
+- Systemet holder en **transaksjonslogg** (Write-Ahead Logging, WAL) som lagrer alle operasjoner før de utføres.
+- Ved en krasj brukes loggen til å gjøre følgende:
+    - **Redo:** Gjenoppretter committed transaksjoner som ikke ble fullført.
+    - **Undo:** Tilbakestiller ikke-committed transaksjoner for å sikre konsistens.
+
+💡 _Eksempel:_
+
+```
+<START T1>
+<WRITE T1, A, 100>
+<COMMIT T1>
+```
+
+- Hvis T1 er committed før krasj, vil systemet bruke **redo** for å anvende endringen på nytt.
+- Hvis T1 ikke er committed, vil systemet bruke **undo** for å tilbakestille verdien.
+
+---
+
+#### 2. **Checkpointing:**
+
+- Et **checkpoint** er en sikkerhetskopi av hele databasen på et gitt tidspunkt.
+- Ved gjenoppretting starter systemet fra det siste checkpointet og bruker transaksjonsloggen for å fullføre eventuelle manglende oppdateringer.
+- Dette reduserer gjenopprettingstiden betydelig, da eldre transaksjoner ikke trenger å gjøres om på nytt.
+
+---
+
+#### 3. **Shadow Paging:**
+
+- Bruker to sider (shadow og current) for å holde styr på dataendringer.
+- Endringer blir gjort på en **kopi (shadow page)**, og når transaksjonen er ferdig, byttes sidene om.
+- Fordel: Ingen behov for loggbasert recovery.
+- Ulempe: Høyt lagringsforbruk på grunn av kopi av sider.
+
+---
+
+#### 4. **RAID og speiling:**
+
+- Maskinvarebaserte løsninger som sikrer at data er tilgjengelig selv ved diskfeil.
+- RAID (Redundant Array of Independent Disks) lagrer data over flere disker, slik at en krasj på én disk ikke fører til tap.
+
+---
+
+### 📝 **Eksempel på recovery-prosess:**
+
+1. **Systemet krasjer midt i en transaksjon.**
+2. **Ved oppstart skannes transaksjonsloggen.**
+3. **Identifiserer committed og ikke-committed transaksjoner.**
+4. **Utfører REDO for committed transaksjoner og UNDO for ikke-committed transaksjoner.**
+
+---
+
+### 🚀 **Oppsummering:**
+
+Recovery er essensielt for å sikre at databasen alltid er i en konsistent tilstand, selv etter feil. Gjennom bruk av loggbasert recovery, checkpointing, shadow paging og maskinvareløsninger som RAID, kan databaser håndtere en rekke feilscenarier uten å miste data.
 
