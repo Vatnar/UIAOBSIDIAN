@@ -2,17 +2,16 @@
 title: Viktig for eksamen
 style: nestedList # TOC style (nestedList|nestedOrderedList|inlineFirstLevel)
 minLevel: 0 # Include headings from the specified level
-maxLevel: 0 # Include headings up to the specified level
+maxLevel: 2 # Include headings up to the specified level
 includeLinks: true # Make headings clickable
 hideWhenEmpty: false # Hide TOC if no headings are found
 debugInConsole: false # Print debug info in Obsidian console
 ```
-# Avhengigheter
-### 🔗 **Funksjonell avhengighet (Functional Dependency)**
+#  Funksjonell avhengighet (Functional Dependency)
 
 En funksjonell avhengighet mellom to attributter i en relasjonsdatabase uttrykker et forhold der verdien av ett attributt **entydig bestemmer** verdien av et annet attributt.
 
-#### 💡 **Notasjon:**
+####  Notasjon:
 
 Hvis attributtet `B` er funksjonelt avhengig av attributtet `A`, skrives det slik:
 
@@ -22,7 +21,7 @@ Dette betyr at verdien av `A` **bestemmer** verdien av `B`.
 
 ---
 
-#### 📝 **Eksempel på funksjonell avhengighet:**
+####  Eksempel på funksjonell avhengighet:
 
 |StudentID|Navn|Alder|
 |---|---|---|
@@ -37,21 +36,21 @@ I denne tabellen har vi følgende funksjonelle avhengigheter:
 
 ---
 
-### 🔁 **Transitiv avhengighet (Transitive Dependency)**
+# Transitiv avhengighet (Transitive Dependency)
 
 En transitiv avhengighet oppstår når en attributt er **indirekte avhengig** av en annen attributt via en tredje attributt.
 
-#### 💡 **Definisjon:**
+####  Definisjon:
 
 Hvis:
 
-1. A→BA \rightarrow B (B er avhengig av A)
-2. B→CB \rightarrow C (C er avhengig av B)
-3. A→CA \rightarrow C (C er **transitivt** avhengig av A)
+1. A $\rightarrow$ B (B er avhengig av A)
+2. B $\rightarrow$ C (C er avhengig av B)
+3. A $\rightarrow$ C (C er **transitivt** avhengig av A)
 
 ---
 
-#### 📝 **Eksempel på transitiv avhengighet:**
+####  Eksempel på transitiv avhengighet:
 
 |PersonID|Fødselsnummer|Fødselsdato|
 |---|---|---|
@@ -66,7 +65,7 @@ Her har vi følgende avhengigheter:
 
 ---
 
-### 🚩 **Hvorfor er transitiv avhengighet problematisk?**
+###  Hvorfor er transitiv avhengighet problematisk?
 
 Transitiv avhengighet er et problem når vi snakker om **3. normalform (3NF)** i databasesystemer, fordi:
 
@@ -75,7 +74,7 @@ Transitiv avhengighet er et problem når vi snakker om **3. normalform (3NF)** i
 
 ---
 
-### 📝 **Eksempel på å fjerne transitiv avhengighet:**
+###  Eksempel på å fjerne transitiv avhengighet:
 
 Forrige tabell kan deles opp slik:
 
@@ -97,18 +96,19 @@ Nå er transitive avhengigheter fjernet, og vi unngår **oppdateringsanomalier**
 
 ---
 
-### 🚀 **Oppsummering:**
+###  Oppsummering:
 
 - **Funksjonell avhengighet:** En attributt avhenger direkte av en annen.
 - **Transitiv avhengighet:** En indirekte avhengighet mellom attributter via en tredje attributt.
 - Transitive avhengigheter bryter med **3NF** og bør fjernes ved normalisering.
-# **Views i databaser**
+  
+# Views i databaser
 
 En **view** er en virtuell tabell i en database som er basert på resultatet av en **SQL-spørring**. Den lagrer ikke dataene selv, men viser data hentet fra én eller flere underliggende tabeller.
 
 ---
 
-#### 💡 **Egenskaper ved views:**
+####  Egenskaper ved views:
 
 1. **Virtuelle tabeller:** Ingen fysisk lagring av data.
 2. **Dynamisk oppdatering:** Data i viewet oppdateres når de underliggende tabellene endres.
@@ -117,7 +117,7 @@ En **view** er en virtuell tabell i en database som er basert på resultatet av 
 
 ---
 
-### 📝 **Syntaks for å opprette et view:**
+###  Syntaks for å opprette et view:
 
 ```sql
 CREATE VIEW view_navn AS
@@ -128,7 +128,7 @@ WHERE betingelse;
 
 ---
 
-### 🔍 **Eksempel:**
+###  Eksempel:
 
 Anta at vi har en tabell med ansatte:
 
@@ -140,7 +140,7 @@ Anta at vi har en tabell med ansatte:
 |2|Kari|Utvikler|60000|
 |3|Per|Designer|55000|
 
-#### **Opprette et view for bare ledere:**
+#### Opprette et view for bare ledere:
 
 ```sql
 CREATE VIEW LederView AS
@@ -149,7 +149,7 @@ FROM Ansatte
 WHERE Stilling = 'Leder';
 ```
 
-#### **Bruke viewet:**
+#### Bruke viewet:
 
 ```sql
 SELECT * FROM LederView;
@@ -163,7 +163,7 @@ SELECT * FROM LederView;
 
 ---
 
-### 🛠️ **Fordeler med views:**
+###  Fordeler med views:
 
 1. **Sikkerhet:** Begrense tilgangen til sensitive data.
 2. **Forenkling:** Samle komplekse spørringer i én enkel visning.
@@ -172,7 +172,7 @@ SELECT * FROM LederView;
 
 ---
 
-### ⚠️ **Ulemper med views:**
+###  Ulemper med views:
 
 1. **Ytelse:** Komplekse views kan bli trege, spesielt hvis de er basert på flere tabeller.
 2. **Ikke alltid oppdaterbare:** Noen views kan ikke oppdateres direkte hvis de inneholder aggregeringer, joins eller subspørringer.
@@ -180,7 +180,7 @@ SELECT * FROM LederView;
 
 ---
 
-### 🚀 **Oppdaterbare vs. ikke-oppdaterbare views:**
+###  Oppdaterbare vs. ikke-oppdaterbare views:
 
 - **Oppdaterbare views:** Endringer i viewet reflekteres i den underliggende tabellen.
 - **Ikke-oppdaterbare views:** Viewet er basert på en kompleks spørring som hindrer direkte oppdatering.
@@ -200,18 +200,18 @@ WHERE Navn = 'Kari';
 
 ---
 
-### 💡 **Oppsummering:**
+###  Oppsummering:
 
 Views er et kraftig verktøy for å forenkle datatilgang, øke sikkerheten og gi et abstraksjonslag over komplekse spørringer. Samtidig må man være oppmerksom på ytelsesproblemer og begrensninger knyttet til oppdaterbarhet.
 
 
-#  **Transaksjon i databasesammenheng**
+#  Transaksjon i databasesammenheng
 
 En **transaksjon** er en sekvens av én eller flere databaseoperasjoner som utføres som en **enhet**. Enten utføres alle operasjonene, eller ingen av dem – dette sikrer **dataintegritet**.
 
 ---
 
-#### 💡 **Egenskaper (ACID):**
+#### Egenskaper (ACID):
 
 En transaksjon må oppfylle følgende egenskaper:
 
@@ -222,7 +222,7 @@ En transaksjon må oppfylle følgende egenskaper:
 
 ---
 
-#### 📝 **Eksempel:**
+####  Eksempel:
 
 Tenk deg en bankoverføring fra konto A til konto B:
 
@@ -232,7 +232,7 @@ Tenk deg en bankoverføring fra konto A til konto B:
 
 ---
 
-#### 🗃️ **SQL-eksempel:**
+####  SQL-eksempel:
 
 ```sql
 BEGIN TRANSACTION;
@@ -246,20 +246,20 @@ COMMIT; -- Lagre endringene permanent
 
 ---
 
-### 🚩 **Hvorfor er transaksjoner viktige?**
+###  Hvorfor er transaksjoner viktige?
 
 - Hindrer **inkonsistente data** ved feil.
 - Sikrer **dataholdbarhet** ved krasj.
 - Gir **isolasjonsgarantier** mellom samtidige prosesser.
 
-# **Triggers og prosedyrer i databaser**
+# Triggers og prosedyrer i databaser
 
 Både **triggers** og **lagrede prosedyrer** (stored procedures) er verktøy i en database for å automatisere oppgaver og håndtere data.  
 Selv om de begge utfører forhåndsdefinerte handlinger, brukes de i ulike sammenhenger.
 
 ---
 
-#### 💡 **Triggers:**
+####  Triggers:
 
 En **trigger** er en automatisk handling som utføres når en bestemt hendelse oppstår i databasen (for eksempel **INSERT**, **UPDATE** eller **DELETE**).
 
@@ -267,7 +267,7 @@ En **trigger** er en automatisk handling som utføres når en bestemt hendelse o
 - Brukes til **validering**, **logging**, **sikkerhet** og **historikk**.
 - Kan ikke kalles direkte av brukeren.
 
-##### 📝 **Eksempel på en trigger:**
+#####  Eksempel på en trigger:
 
 Logge alle oppdateringer i en ansatt-tabell:
 
@@ -283,7 +283,7 @@ END;
 
 ---
 
-#### 🛠️ **Lagrede prosedyrer (Stored Procedures):**
+####  Lagrede prosedyrer (Stored Procedures):
 
 En **lagret prosedyre** er en samling SQL-kommandoer som er lagret i databasen og kan utføres ved behov.
 
@@ -291,7 +291,7 @@ En **lagret prosedyre** er en samling SQL-kommandoer som er lagret i databasen o
 - Brukes til **datahåndtering**, **batch-operasjoner**, **beregninger** og **rapporter**.
 - Kan ta inn **parametere** og returnere verdier.
 
-##### 📝 **Eksempel på en lagret prosedyre:**
+#####  Eksempel på en lagret prosedyre:
 
 Beregne gjennomsnittslønn i en avdeling:
 
@@ -312,7 +312,7 @@ CALL Gjennomsnittslønn('IT');
 
 ---
 
-### 🔑 **Forskjeller mellom trigger og prosedyre:**
+###  Forskjeller mellom trigger og prosedyre:
 
 |Egenskap|Trigger|Lagret prosedyre|
 |---|---|---|
@@ -323,7 +323,7 @@ CALL Gjennomsnittslønn('IT');
 
 ---
 
-### ✅ **Oppsummering:**
+###  Oppsummering:
 
 - **Triggers** brukes til å utføre handlinger automatisk når spesifikke hendelser inntreffer.
 - **Lagrede prosedyrer** er forhåndsdefinerte SQL-funksjoner som kan kalles manuelt.
@@ -419,7 +419,7 @@ Så forskjellen er:
 
 ---
 
-### 🔒 **Pessimistisk låsing**
+###  Pessimistisk låsing
 
 - **Filosofi:** "Forhindre konflikter før de skjer."
 - **Hvordan:** En transaksjon låser data før lesing eller skriving, og andre transaksjoner må vente.
@@ -428,19 +428,19 @@ Så forskjellen er:
     - _Eksklusiv lås (WRITE LOCK)_: Ingen andre kan lese eller skrive.
     - _Delt lås (READ LOCK)_: Andre kan lese, men ikke skrive.
 
-#### ✅ Fordeler:
+####  Fordeler:
 
 - Forhindrer _tapt oppdatering_ og _skittent lesing_.
 - Garanterer sterk isolasjon.
 
-#### ❌ Ulemper:
+####  Ulemper:
 
 - Kan føre til _dødlock_ (to transaksjoner venter på hverandre).
 - Reduserer ytelsen ved høy samtidighet.
 
 ---
 
-### 🚀 **Optimistisk låsing**
+###  Optimistisk låsing
 
 - **Filosofi:** "Anta at konflikter er sjeldne."
 - **Hvordan:** Ingen lås ved lesing. Før oppdatering sjekkes det om dataene har blitt endret siden de ble lest.
@@ -448,19 +448,19 @@ Så forskjellen er:
 - **Eksempel:**
     - _Versjonskontroll (MVCC)_: Hver transaksjon får sin egen kopi av dataene. Ved oppdatering sjekkes om originalen har endret seg.
 
-#### ✅ Fordeler:
+#### Fordeler:
 
 - Høy ytelse i miljøer med mange lesere og få skrivere.
 - Ingen dødlock.
 
-#### ❌ Ulemper:
+#### Ulemper:
 
 - Kan føre til _rollback_ hvis en konflikt oppdages ved oppdatering.
 - Kostnad ved konfliktløsning kan være høy.
 
 ---
 
-### 🥊 **Oppsummering: Optimistisk vs. Pessimistisk låsing**
+###  Oppsummering: Optimistisk vs. Pessimistisk låsing
 
 |Kjennetegn|Pessimistisk låsing|Optimistisk låsing|
 |---|---|---|
@@ -480,7 +480,7 @@ For å gi et A-svar, må vi være mer grundige og presise. La oss gå litt dyper
 
 ---
 
-### 📚 **Definisjon av relasjonsdatabase:**
+### 📚 Definisjon av relasjonsdatabase:
 
 En **relasjonsdatabase** er en strukturert samling av data som organiseres i relasjoner (tabeller), hvor dataene er logisk sammenkoblet ved hjelp av nøkler. Den følger det relasjonelle datamodellen, som ble foreslått av Edgar F. Codd i 1970.
 
