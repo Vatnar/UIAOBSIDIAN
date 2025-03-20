@@ -387,7 +387,7 @@ Et **B+ tre** er en selvbalanserende trestruktur som brukes primært i databases
 
 ## Fordeler med B+ trær
 
-- **Høy ytelse:** Søking, innsetting og sletting har kompleksiteten O(log⁡n)O(\log n)O(logn).
+- **Høy ytelse:** Søking, innsetting og sletting har kompleksiteten $O(\log⁡n)$).
 - **Effektiv sekvensiell tilgang:** Bladnodene er koblet som en lenket liste for rask iterering.
 - **God diskoptimalisering:** Store noder reduserer antall disktilganger.
 - **Balansert tre:** Alle bladnoder er på samme nivå, noe som gir rask tilgang.
@@ -403,9 +403,9 @@ databasesystemer, som for eksempel MySQL og PostgreSQL.
 ![[B+-tree-remove-61.png]]
 
 
-
+# Tapt oppdatering
 **Tapt oppdatering** skjer når to eller flere transaksjoner leser samme data og deretter oppdaterer det, men den ene oppdateringen overskriver den andre. Dette skjer ofte i miljøer uten skikkelig transaksjonskontroll eller låsing.
-
+# Inkonsistent analyse
 **Inkonsistent analyse** oppstår når en transaksjon leser data som er midlertidig inkonsistente på grunn av en annen pågående transaksjon som endrer dataene samtidig. Dette kan føre til at en transaksjon får et feil bilde av dataene.
 
 Så forskjellen er:
