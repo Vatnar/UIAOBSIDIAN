@@ -153,3 +153,66 @@ Så forskjellen er:
 - Tapt oppdatering: En oppdatering blir overskrevet av en annen.
 - Inkonsistent analyse: En transaksjon leser inkonsistente data mens en annen transaksjon pågår.
 ![[btree-6.png]]
+
+# Locks
+**Optimistisk låsing** og **pessimistisk låsing** er to strategier for å håndtere samtidighet i databaser.
+
+---
+
+### 🔒 **Pessimistisk låsing**
+
+- **Filosofi:** "Forhindre konflikter før de skjer."
+- **Hvordan:** En transaksjon låser data før lesing eller skriving, og andre transaksjoner må vente.
+- **Brukes når:** Det er høy sannsynlighet for konflikt mellom samtidige transaksjoner.
+- **Eksempler:**
+    - _Eksklusiv lås (WRITE LOCK)_: Ingen andre kan lese eller skrive.
+    - _Delt lås (READ LOCK)_: Andre kan lese, men ikke skrive.
+
+#### ✅ Fordeler:
+
+- Forhindrer _tapt oppdatering_ og _skittent lesing_.
+- Garanterer sterk isolasjon.
+
+#### ❌ Ulemper:
+
+- Kan føre til _dødlock_ (to transaksjoner venter på hverandre).
+- Reduserer ytelsen ved høy samtidighet.
+
+---
+
+### 🚀 **Optimistisk låsing**
+
+- **Filosofi:** "Anta at konflikter er sjeldne."
+- **Hvordan:** Ingen lås ved lesing. Før oppdatering sjekkes det om dataene har blitt endret siden de ble lest.
+- **Brukes når:** Det er lav sannsynlighet for konflikt og høy leseytelse er viktig.
+- **Eksempel:**
+    - _Versjonskontroll (MVCC)_: Hver transaksjon får sin egen kopi av dataene. Ved oppdatering sjekkes om originalen har endret seg.
+
+#### ✅ Fordeler:
+
+- Høy ytelse i miljøer med mange lesere og få skrivere.
+- Ingen dødlock.
+
+#### ❌ Ulemper:
+
+- Kan føre til _rollback_ hvis en konflikt oppdages ved oppdatering.
+- Kostnad ved konfliktløsning kan være høy.
+
+---
+
+### 🥊 **Oppsummering: Optimistisk vs. Pessimistisk låsing**
+
+|Kjennetegn|Pessimistisk låsing|Optimistisk låsing|
+|---|---|---|
+|Konflikthåndtering|Forhindre på forhånd|Oppdage og håndtere etterpå|
+|Ytelse (høy samtidighet)|Lavere|Høyere|
+|Risiko for dødlock|Høy|Ingen|
+|Typisk bruk|Skriveintensive apper|Lesetunge apper|
+
+---
+
+**Valg av strategi:**
+
+- Bruk pessimistisk låsing når konflikter er vanlige og konsekvensene er alvorlige.
+- Bruk optimistisk låsing når konflikter er sjeldne og ytelse er viktigere enn konfliktbehandling.
+
