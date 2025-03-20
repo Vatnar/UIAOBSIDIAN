@@ -9,6 +9,7 @@ debugInConsole: false # Print debug info in Obsidian console
 ```
 # DBMS
 
+
 #  Funksjonell avhengighet (Functional Dependency)
 
 En funksjonell avhengighet mellom to attributter i en relasjonsdatabase uttrykker et forhold der verdien av ett attributt **entydig bestemmer** verdien av et annet attributt.
