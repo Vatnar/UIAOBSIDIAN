@@ -9,8 +9,8 @@ debugInConsole: false # Print debug info in Obsidian console
 ```
 # DBMS
 Tar imot forespørsel fra brukeren, f.eks MySQL. 
-Har en DD, Data Dictionary, systemtabell. Metatabell, hvor store tabeller osv.
-
+Har en DD, Data Dictionary, system tabell. **Meta tabell**,  informasjon om hvor store tabeller, hvilke datatyper osv.
+**bare å yappe.**
 
 #  Funksjonell avhengighet (Functional Dependency)
 
