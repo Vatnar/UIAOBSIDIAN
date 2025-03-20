@@ -1,20 +1,4 @@
 Generell  
-<span style="color:rgb(255, 0, 0)">(Projection (Rader))  
-(Selection (Kolonner))  </span>
-(Kryssprodukt Tabeller + betingelse for rader)  
-(Algebra (nei det kommer ikke på eksamen))  
-Normalisering:  
-1, 2 og 3 NF  
-Normaliser til du blør denormaliser til det virker  
-Primærnøkkel Foreign Key  
-Relasjoner(1:1, 1:m, n:m)  
-(Funksjonell avhengighet/transisativ avhengighet )  
-Tabell fra 1NF til 2 og eller 3 NF  
-Ingen normalform  
-Skjønne PilOppgaver  d
-Tekst til normalform Tekst til tabell?  
-<span style="color:rgb(255, 0, 0)">Kandidatnøkkel  ( MINIMAL SUPERNØKKEL)</span>
-Surrogatnøkkel(løpenummer?)  
 <span style="color:rgb(255, 0, 0)">View  </span>
 Modellering  
 Notasjon(Kråkefot (<span style="color:rgb(255, 0, 0)">NIAM)</span> Maksimum/minimum Relasjoner(1:1, 1:m, n:m)  
@@ -68,11 +52,106 @@ Hva er en trigger i databasesammenheng, hvorfor og hvordan kan man bruke trigger
 <span style="color:rgb(255, 0, 0)">UNDO/REDO</span>  
 FOrklar Recovery, algoritmen Undo/Redo, hvorfor den er mest brukt?
 
+# Avhengigheter
+### 🔗 **Funksjonell avhengighet (Functional Dependency)**
+
+En funksjonell avhengighet mellom to attributter i en relasjonsdatabase uttrykker et forhold der verdien av ett attributt **entydig bestemmer** verdien av et annet attributt.
+
+#### 💡 **Notasjon:**
+
+Hvis attributtet `B` er funksjonelt avhengig av attributtet `A`, skrives det slik:
+
+A→BA \rightarrow B
+
+Dette betyr at verdien av `A` **bestemmer** verdien av `B`.
+
+---
+
+#### 📝 **Eksempel på funksjonell avhengighet:**
+
+|StudentID|Navn|Alder|
+|---|---|---|
+|1|Ola|20|
+|2|Kari|22|
+|3|Per|21|
+
+I denne tabellen har vi følgende funksjonelle avhengigheter:
+
+1. `StudentID → Navn` (StudentID bestemmer navnet)
+2. `StudentID → Alder` (StudentID bestemmer alderen)
+
+---
+
+### 🔁 **Transitiv avhengighet (Transitive Dependency)**
+
+En transitiv avhengighet oppstår når en attributt er **indirekte avhengig** av en annen attributt via en tredje attributt.
+
+#### 💡 **Definisjon:**
+
+Hvis:
+
+1. A→BA \rightarrow B (B er avhengig av A)
+2. B→CB \rightarrow C (C er avhengig av B)
+3. A→CA \rightarrow C (C er **transitivt** avhengig av A)
+
+---
+
+#### 📝 **Eksempel på transitiv avhengighet:**
+
+|PersonID|Fødselsnummer|Fødselsdato|
+|---|---|---|
+|1|12345678901|12.03.1995|
+|2|23456789012|08.07.1998|
+
+Her har vi følgende avhengigheter:
+
+1. `PersonID → Fødselsnummer` (direkte avhengighet)
+2. `Fødselsnummer → Fødselsdato` (direkte avhengighet)
+3. **Transitiv avhengighet:** `PersonID → Fødselsdato`
+
+---
+
+### 🚩 **Hvorfor er transitiv avhengighet problematisk?**
+
+Transitiv avhengighet er et problem når vi snakker om **3. normalform (3NF)** i databasesystemer, fordi:
+
+- Det kan føre til **redundans** og **anomali** ved oppdatering, innsetting eller sletting.
+- Normalisering til 3NF krever at vi **fjerner transitive avhengigheter** ved å dele opp tabellen.
+
+---
+
+### 📝 **Eksempel på å fjerne transitiv avhengighet:**
+
+Forrige tabell kan deles opp slik:
+
+**PersonTabell:**
+
+|PersonID|Fødselsnummer|
+|---|---|
+|1|12345678901|
+|2|23456789012|
+
+**FødselsnummerTabell:**
+
+|Fødselsnummer|Fødselsdato|
+|---|---|
+|12345678901|12.03.1995|
+|23456789012|08.07.1998|
+
+Nå er transitive avhengigheter fjernet, og vi unngår **oppdateringsanomalier**.
+
+---
+
+### 🚀 **Oppsummering:**
+
+- **Funksjonell avhengighet:** En attributt avhenger direkte av en annen.
+- **Transitiv avhengighet:** En indirekte avhengighet mellom attributter via en tredje attributt.
+- Transitive avhengigheter bryter med **3NF** og bør fjernes ved normalisering.
+
 # Prinsipper for oppbygging av et B+ tre
 
 Et **B+ tre** er en selvbalanserende trestruktur som brukes primært i databasesystemer og filsystemer for effektiv lagring og søking i store datamengder. Det er en variant av B-trær, men skiller seg fra disse ved at alle faktiske dataverdier er lagret i bladnodene, mens interne noder kun lagrer søkenøkler. Denne strukturen gjør B+ trær spesielt godt egnet for systemer med høy I/O-belastning, som disklagring.
 
----
 
 ## Grunnprinsipper
 
@@ -404,4 +483,99 @@ Det finnes flere teknikker for å sikre at dataene kan gjenopprettes på en pål
 ### 🚀 **Oppsummering:**
 
 Recovery er essensielt for å sikre at databasen alltid er i en konsistent tilstand, selv etter feil. Gjennom bruk av loggbasert recovery, checkpointing, shadow paging og maskinvareløsninger som RAID, kan databaser håndtere en rekke feilscenarier uten å miste data.
+
+# Undo Redo
+### 🔄 **Recovery i databaser**
+
+Recovery i databaser handler om å gjenopprette databasen til en **konsistent tilstand** etter en feil, som strømbrudd, systemkrasj eller programvarefeil. Målet er å sikre at dataene oppfyller **ACID-egenskapene**, spesielt **Atomicity** og **Durability**.
+
+---
+
+### 💡 **Undo/Redo-algoritmen**
+
+Undo/Redo-algoritmen er en av de mest brukte metodene for databasegjenoppretting. Den baserer seg på en **transaksjonslogg** (oftest med **Write-Ahead Logging (WAL)**) for å spore alle operasjoner som utføres.
+
+---
+
+#### 📝 **Hvordan fungerer Undo/Redo?**
+
+1. **Loggføring før utførelse (WAL-prinsippet):**
+    - Hver databaseoperasjon loggføres _før_ endringen utføres på databasen.
+    - Loggen inneholder informasjon som:
+        
+        ```
+        <START T1>
+        <WRITE T1, A, old_value, new_value>
+        <COMMIT T1>
+        ```
+        
+    - Dette sikrer at loggen kan brukes til gjenoppretting selv om systemet krasjer midt i en transaksjon.
+
+---
+
+#### ⚙️ **Gjenopprettingsprosessen (Recovery):**
+
+1. **Analyse:**
+    
+    - Skann loggen fra begynnelse til slutt for å identifisere hvilke transaksjoner som var **committed** og hvilke som var **ikke-committed** da krasjet skjedde.
+2. **Redo (gjør om igjen):**
+    
+    - For alle transaksjoner som er **committed**, utfør alle handlinger på nytt for å sikre at oppdateringene er på plass.
+    - Dette er nødvendig fordi en transaksjon som er committed kanskje ikke rakk å bli lagret på disk før krasjet.
+3. **Undo (rull tilbake):**
+    
+    - For alle **ikke-committed** transaksjoner, reverser endringene for å gjenopprette den konsistente tilstanden før transaksjonen startet.
+    - Dette forhindrer at uferdige operasjoner forblir i databasen.
+
+---
+
+### 📝 **Eksempel:**
+
+Anta at loggen ser slik ut når systemet krasjer:
+
+```
+<START T1>
+<WRITE T1, A, 100, 200>
+<START T2>
+<WRITE T2, B, 300, 400>
+<COMMIT T1>
+<START T3>
+<WRITE T3, C, 500, 600>
+```
+
+#### **Recovery:**
+
+1. **Analyse:**
+    
+    - T1 er **committed**.
+    - T2 og T3 er **ikke-committed**.
+2. **Redo:**
+    
+    - Utfør om igjen alle oppdateringer fra **T1** (siden den er committed).
+3. **Undo:**
+    
+    - Rull tilbake endringer gjort av **T2** og **T3**.
+
+---
+
+### 🚀 **Hvorfor er Undo/Redo mest brukt?**
+
+- **Effektivitet:**
+    
+    - Gjenoppretter bare de nødvendige transaksjonene, i stedet for å gå gjennom hele databasen.
+- **Sikkerhet:**
+    
+    - Takket være WAL-prinsippet kan systemet være sikker på at alle endringer enten blir fullført eller rullet tilbake.
+- **Fleksibilitet:**
+    
+    - Håndterer både **systemfeil** (f.eks. strømbrudd) og **transaksjonsfeil** (f.eks. integritetsbrudd).
+- **Minimal tap av data:**
+    
+    - Fordi loggen skrives før selve dataene endres, kan systemet alltid finne tilbake til en konsistent tilstand.
+
+---
+
+### 💡 **Oppsummering:**
+
+Undo/Redo-algoritmen er en robust og effektiv metode for databasegjenoppretting. Ved å bruke transaksjonslogger og WAL-prinsippet sikres både atomicity og konsistens, samtidig som prosessen er rask og pålitelig. Dette gjør algoritmen til et naturlig valg i de fleste relasjonsdatabaser.
 
