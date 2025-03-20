@@ -339,8 +339,8 @@ Et **B+ tre** er en selvbalanserende trestruktur som brukes primært i databases
 
 ### Orden og Kapasitet
 
-- Et B+ tre av orden mmm har maksimalt m−1m-1m−1 nøkler i hver node og opptil mmm pekere til undernoder.
-- Minimum antall nøkler i en ikke-rot-node er ⌈m/2⌉−1\lceil m/2 \rceil - 1⌈m/2⌉−1, og minimum antall pekere er ⌈m/2⌉\lceil m/2 \rceil⌈m/2⌉.
+- Et B+ tre av orden $m$ har maksimalt $m−1$ nøkler i hver node og opptil $m$ pekere til undernoder.
+- Minimum antall nøkler i en ikke-rot-node er $\lceil m/2 \rceil-1  \rceil$, og minimum antall pekere er $\lceil m/2 \rceil$. 
 - Roten kan ha færre nøkler, men skal alltid ha minst to pekere dersom den ikke er en bladnode.
 
 ### Hierarkisk Struktur
@@ -352,7 +352,7 @@ Et **B+ tre** er en selvbalanserende trestruktur som brukes primært i databases
 ### Balansert Struktur
 
 - Treet er alltid balansert, noe som betyr at alle bladnoder er på samme nivå.
-- Høyden på treet er derfor lav, selv for store datamengder, som gir rask tilgang med en tidskompleksitet på O(log⁡n)O(\log n)O(logn).
+- Høyden på treet er derfor lav, selv for store datamengder, som gir rask tilgang med en tidskompleksitet på $O(\log n)$.
 
 ---
 
@@ -381,7 +381,7 @@ Et **B+ tre** er en selvbalanserende trestruktur som brukes primært i databases
 - Start i rotnoden og følg pekere til riktig undernode basert på søkenøkkelen.
 - Gjenta prosessen nedover til en bladnode er nådd.
 - Søk i bladnoden for å finne nøkkelen.
-- Tidskompleksiteten er O(log⁡n)O(\log n)O(logn).
+- Tidskompleksiteten er $O(\log n)$.
 
 ---
 
