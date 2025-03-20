@@ -8,7 +8,7 @@ hideWhenEmpty: false # Hide TOC if no headings are found
 debugInConsole: false # Print debug info in Obsidian console
 ```
 # Timestamp
-Brukes for å vedlikeholde consistency. Hvis T1 kommer til systemet  først får den et lavere timestamp en t2, og burde utføres først.
+Brukes for å vedlikeholde <u>consistency</u> . Hvis T1 kommer til systemet  først får den et lavere timestamp en t2, og burde utføres først.
 ## Fordeler
 - Serialiserbar.
 - Ingen deadlocks.
