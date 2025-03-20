@@ -7,10 +7,21 @@ includeLinks: true # Make headings clickable
 hideWhenEmpty: false # Hide TOC if no headings are found
 debugInConsole: false # Print debug info in Obsidian console
 ```
+# Timestamp
+Brukes for å vedlikeholde consistency. Hvis T1 kommer til systemet  først får den et lavere timestamp en t2, og burde utføres først.
+## Fordeler
+- Serialiserbar.
+- Ingen deadlocks.
+## Ulemper
+- Kaskaderende rollbacks
+- Starvation av nyere transaksjoner.
+- Reduserer throughput i systemer med mange samtidige transaksjoner.
+
+[Mer...](https://www.geeksforgeeks.org/timestamp-based-concurrency-control/)
 # DBMS
 Tar imot forespørsel fra brukeren, f.eks MySQL. 
 Har en DD, Data Dictionary, system tabell. **Meta tabell**,  informasjon om hvor store tabeller, hvilke datatyper osv.
-**bare å yappe.**
+**Bare å yappe.**
 
 #  Funksjonell avhengighet (Functional Dependency)
 
@@ -20,7 +31,7 @@ En funksjonell avhengighet mellom to attributter i en relasjonsdatabase uttrykke
 
 Hvis attributtet `B` er funksjonelt avhengig av attributtet `A`, skrives det slik:
 
-A→B
+$A\rightarrow B$
 
 Dette betyr at verdien av `A` **bestemmer** verdien av `B`.
 
@@ -671,6 +682,19 @@ Det finnes flere teknikker for å sikre at dataene kan gjenopprettes på en pål
 
 Recovery er essensielt for å sikre at databasen alltid er i en konsistent tilstand, selv etter feil. Gjennom bruk av loggbasert recovery, checkpointing, shadow paging og maskinvareløsninger som RAID, kan databaser håndtere en rekke feilscenarier uten å miste data.
 
+
+# Recovery med halvard.
+Ta en backup av dataen, en kopi. Gjenopprette tilbake til tidspunktet før ødelagt. Hvis harddisk er fysisk ødelagt, er det fint å ha en ekstern backup. 
+Backup hver dag på natten. Ta backupen fra 24h siden, også sjekker alle transaksjonene de siste 24h, fra transaksjonsloggen. Kontinuerlig backup av loggen. Kjøre samem transaksjoner på nytt. 
+
+Da kan man bruke undo/redo, redo, hele på nytt. Start og slutt. Da vet man at hele ble utført.
+Hvis det bare står start men ikke slutt, da vet man ikke om den ble utført.
+
+Hvis man vet at man har leggger man inn alle nye verdier. Hvis man ikke vet, fører in gamle verdier Undo. 
+
+Rollback, litt det samme som Undo, transaskjon som kjører, også stopper den, så må rulles tilbake, ikke med recovery, men med transaksjoner. Timestamp da er rollback aktuelt. Optimistisk.
+
+Checkpoint, da vet man er greit fram til checkpoint. kjøre undo redo på resten. 
 # Undo Redo
 ###  Recovery i databaser
 
@@ -678,7 +702,7 @@ Recovery i databaser handler om å gjenopprette databasen til en **konsistent ti
 
 ---
 
-###  Undo/bRedo-algoritmen
+###  Undo/Redo-algoritmen
 
 Undo/Redo-algoritmen er en av de mest brukte metodene for databasegjenoppretting. Den baserer seg på en **transaksjonslogg** (oftest med **Write-Ahead Logging (WAL)**) for å spore alle operasjoner som utføres.
 
