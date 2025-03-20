@@ -1,3 +1,4 @@
 ```sql
-SELECT 
+SELECT Hockeylag
+
 ```
