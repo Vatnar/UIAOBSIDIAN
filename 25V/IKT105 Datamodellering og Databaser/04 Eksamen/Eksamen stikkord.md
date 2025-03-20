@@ -480,11 +480,11 @@ For å gi et A-svar, må vi være mer grundige og presise. La oss gå litt dyper
 
 ---
 
-### 📚 Definisjon av relasjonsdatabase:
+### Definisjon av relasjonsdatabase:
 
 En **relasjonsdatabase** er en strukturert samling av data som organiseres i relasjoner (tabeller), hvor dataene er logisk sammenkoblet ved hjelp av nøkler. Den følger det relasjonelle datamodellen, som ble foreslått av Edgar F. Codd i 1970.
 
-#### 🎯 **Hovedprinsipper i en relasjonsdatabase:**
+####  Hovedprinsipper i en relasjonsdatabase:
 
 1. **Data lagres i tabeller (relasjoner)** som består av rader og kolonner.
 2. **Relasjoner mellom tabeller** opprettes gjennom nøkler, vanligvis primær- og fremmednøkler.
@@ -493,21 +493,21 @@ En **relasjonsdatabase** er en strukturert samling av data som organiseres i rel
 
 ---
 
-### 🗺️ **Relasjonell modell:**
+###  Relasjonell modell:
 
 En relasjonsdatabase er bygget på følgende grunnprinsipper:
 
-#### 1. **Relasjoner (Tabeller):**
+#### 1. Relasjoner (Tabeller):
 
 - Hver tabell representerer en entitet eller en relasjon mellom entiteter.
 - Rader representerer **forekomster** (tupler), mens kolonner representerer **attributter**.
 
-#### 2. **Nøkler:**
+#### 2. Nøkler:
 
 - **Primærnøkkel (PK):** Unik identifikator for en rad. Ingen duplikater eller NULL-verdier er tillatt.
 - **Fremmednøkkel (FK):** En attributt som refererer til en primærnøkkel i en annen tabell for å etablere en relasjon.
 
-#### 3. **Integritetsregler:**
+#### 3. Integbritetsregler:
 
 - **Entitetsintegritet:** Ingen primærnøkkelverdi kan være NULL.
 - **Referanseintegritet:** Fremmednøkler må enten være NULL eller matche en eksisterende primærnøkkel.
@@ -516,7 +516,7 @@ En relasjonsdatabase er bygget på følgende grunnprinsipper:
 
 ---
 
-### 💡 **Egenskaper ved relasjonsdatabaser:**
+###  Egenskaper ved relasjonsdatabaser:
 
 1. **Normalisering:**
     
@@ -534,7 +534,7 @@ En relasjonsdatabase er bygget på følgende grunnprinsipper:
 
 ---
 
-### 💾 **Eksempel: Relasjon mellom Kunder og Bestillinger**
+### Eksempel: Relasjon mellom Kunder og Bestillinger
 
 **Kunder (Customer)**
 
@@ -550,7 +550,7 @@ En relasjonsdatabase er bygget på følgende grunnprinsipper:
 |101|1|Laptop|
 |102|2|Mobiltelefon|
 
-#### 📝 **SQL-spørring:**
+####  SQL-spørring:
 
 ```sql
 SELECT Name, Product
@@ -562,7 +562,7 @@ Denne spørringen henter navn og produkter fra begge tabellene ved å bruke rela
 
 ---
 
-### 🌐 **Fordeler med relasjonsdatabaser:**
+###  Fordeler med relasjonsdatabaser:
 
 - **Høy dataintegritet og konsistens:** Ved hjelp av nøkler og integritetsregler.
 - **Effektiv datahåndtering:** SQL gjør det enkelt å manipulere og hente data.
@@ -571,14 +571,14 @@ Denne spørringen henter navn og produkter fra begge tabellene ved å bruke rela
 
 ---
 
-### 🚀 **Ulemper:**
+###  Ulemper:
 
 - **Ytelsesproblemer ved store datamengder:** Kan bli tregt med mange JOIN-operasjoner.
 - **Kompleks skjemahåndtering:** Endringer i skjemadesign kan være tidkrevende.
 
 ---
 
-### 📝 **Konklusjon:**
+###  Konklusjon:
 
 Relasjonsdatabaser er svært effektive når det gjelder å lagre strukturerte data med komplekse relasjoner og opprettholde dataintegritet. De brukes ofte i kritiske applikasjoner som bank- og forretningssystemer, der pålitelighet og datakonsistens er avgjørende.
 
@@ -587,7 +587,7 @@ Relasjonsdatabaser er svært effektive når det gjelder å lagre strukturerte da
 
 ---
 
-### 💡 **Hvorfor er recovery nødvendig?**
+###  Hvorfor er recovery nødvendig?
 
 Recovery er avgjørende for å opprettholde ACID-egenskapene, spesielt:
 
@@ -596,7 +596,7 @@ Recovery er avgjørende for å opprettholde ACID-egenskapene, spesielt:
 
 ---
 
-### ⚙️ **Typer feil som krever recovery:**
+###  Typer feil som krever recovery:
 
 1. **Systemfeil:** F.eks. strømbrudd eller maskinvarefeil som fører til at databasen krasjer.
 2. **Diskfeil:** Fysiske feil på lagringsmediet som fører til tap av data.
@@ -605,11 +605,11 @@ Recovery er avgjørende for å opprettholde ACID-egenskapene, spesielt:
 
 ---
 
-### 🔄 **Recovery-teknikker:**
+###  Recovery-teknikker:
 
 Det finnes flere teknikker for å sikre at dataene kan gjenopprettes på en pålitelig måte.
 
-#### 1. **Loggbasert recovery:**
+#### 1. Loggbasert recovery:
 
 - Systemet holder en **transaksjonslogg** (Write-Ahead Logging, WAL) som lagrer alle operasjoner før de utføres.
 - Ved en krasj brukes loggen til å gjøre følgende:
@@ -629,7 +629,7 @@ Det finnes flere teknikker for å sikre at dataene kan gjenopprettes på en pål
 
 ---
 
-#### 2. **Checkpointing:**
+#### 2. Checkpointing:
 
 - Et **checkpoint** er en sikkerhetskopi av hele databasen på et gitt tidspunkt.
 - Ved gjenoppretting starter systemet fra det siste checkpointet og bruker transaksjonsloggen for å fullføre eventuelle manglende oppdateringer.
@@ -637,7 +637,7 @@ Det finnes flere teknikker for å sikre at dataene kan gjenopprettes på en pål
 
 ---
 
-#### 3. **Shadow Paging:**
+#### 3. Shadow Paging:
 
 - Bruker to sider (shadow og current) for å holde styr på dataendringer.
 - Endringer blir gjort på en **kopi (shadow page)**, og når transaksjonen er ferdig, byttes sidene om.
@@ -646,14 +646,14 @@ Det finnes flere teknikker for å sikre at dataene kan gjenopprettes på en pål
 
 ---
 
-#### 4. **RAID og speiling:**
+#### 4. RAID og speiling:
 
 - Maskinvarebaserte løsninger som sikrer at data er tilgjengelig selv ved diskfeil.
 - RAID (Redundant Array of Independent Disks) lagrer data over flere disker, slik at en krasj på én disk ikke fører til tap.
 
 ---
 
-### 📝 **Eksempel på recovery-prosess:**
+###  Eksempel på recovery-prosess:
 
 1. **Systemet krasjer midt i en transaksjon.**
 2. **Ved oppstart skannes transaksjonsloggen.**
@@ -662,24 +662,24 @@ Det finnes flere teknikker for å sikre at dataene kan gjenopprettes på en pål
 
 ---
 
-### 🚀 **Oppsummering:**
+###  Oppsummering:
 
 Recovery er essensielt for å sikre at databasen alltid er i en konsistent tilstand, selv etter feil. Gjennom bruk av loggbasert recovery, checkpointing, shadow paging og maskinvareløsninger som RAID, kan databaser håndtere en rekke feilscenarier uten å miste data.
 
 # Undo Redo
-### 🔄 **Recovery i databaser**
+###  Recovery i databaser
 
 Recovery i databaser handler om å gjenopprette databasen til en **konsistent tilstand** etter en feil, som strømbrudd, systemkrasj eller programvarefeil. Målet er å sikre at dataene oppfyller **ACID-egenskapene**, spesielt **Atomicity** og **Durability**.
 
 ---
 
-### 💡 **Undo/Redo-algoritmen**
+###  Undo/bRedo-algoritmen
 
 Undo/Redo-algoritmen er en av de mest brukte metodene for databasegjenoppretting. Den baserer seg på en **transaksjonslogg** (oftest med **Write-Ahead Logging (WAL)**) for å spore alle operasjoner som utføres.
 
 ---
 
-#### 📝 **Hvordan fungerer Undo/Redo?**
+####  Hvordan fungerer Undo/Redo?
 
 1. **Loggføring før utførelse (WAL-prinsippet):**
     - Hver databaseoperasjon loggføres _før_ endringen utføres på databasen.
@@ -695,7 +695,7 @@ Undo/Redo-algoritmen er en av de mest brukte metodene for databasegjenoppretting
 
 ---
 
-#### ⚙️ **Gjenopprettingsprosessen (Recovery):**
+####  Gjenopprettingsprosessen (Recovery):
 
 1. **Analyse:**
     
@@ -711,7 +711,7 @@ Undo/Redo-algoritmen er en av de mest brukte metodene for databasegjenoppretting
 
 ---
 
-### 📝 **Eksempel:**
+###  Eksempel:
 
 Anta at loggen ser slik ut når systemet krasjer:
 
@@ -725,7 +725,7 @@ Anta at loggen ser slik ut når systemet krasjer:
 <WRITE T3, C, 500, 600>
 ```
 
-#### **Recovery:**
+#### Recovery:
 
 1. **Analyse:**
     
@@ -740,7 +740,7 @@ Anta at loggen ser slik ut når systemet krasjer:
 
 ---
 
-### 🚀 **Hvorfor er Undo/Redo mest brukt?**
+###  Hvorfor er Undo/Redo mest brukt?
 
 - **Effektivitet:**
     
@@ -757,7 +757,7 @@ Anta at loggen ser slik ut når systemet krasjer:
 
 ---
 
-### 💡 **Oppsummering:**
+###  Oppsummering:
 
 Undo/Redo-algoritmen er en robust og effektiv metode for databasegjenoppretting. Ved å bruke transaksjonslogger og WAL-prinsippet sikres både atomicity og konsistens, samtidig som prosessen er rask og pålitelig. Dette gjør algoritmen til et naturlig valg i de fleste relasjonsdatabaser.
 
