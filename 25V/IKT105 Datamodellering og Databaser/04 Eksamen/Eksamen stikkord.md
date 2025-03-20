@@ -216,3 +216,109 @@ Så forskjellen er:
 - Bruk pessimistisk låsing når konflikter er vanlige og konsekvensene er alvorlige.
 - Bruk optimistisk låsing når konflikter er sjeldne og ytelse er viktigere enn konfliktbehandling.
 
+For å gi et A-svar, må vi være mer grundige og presise. La oss gå litt dypere og dekke relasjonsdatabaser mer akademisk og omfattende:
+
+---
+
+### 📚 **Definisjon av relasjonsdatabase:**
+
+En **relasjonsdatabase** er en strukturert samling av data som organiseres i relasjoner (tabeller), hvor dataene er logisk sammenkoblet ved hjelp av nøkler. Den følger det relasjonelle datamodellen, som ble foreslått av Edgar F. Codd i 1970.
+
+#### 🎯 **Hovedprinsipper i en relasjonsdatabase:**
+
+1. **Data lagres i tabeller (relasjoner)** som består av rader og kolonner.
+2. **Relasjoner mellom tabeller** opprettes gjennom nøkler, vanligvis primær- og fremmednøkler.
+3. **Dataintegritet** sikres ved bruk av integritetsbegrensninger (constraints), som sikrer at dataene oppfyller forretningsreglene.
+4. **SQL (Structured Query Language)** brukes som grensesnitt for datahåndtering og spørringer.
+
+---
+
+### 🗺️ **Relasjonell modell:**
+
+En relasjonsdatabase er bygget på følgende grunnprinsipper:
+
+#### 1. **Relasjoner (Tabeller):**
+
+- Hver tabell representerer en entitet eller en relasjon mellom entiteter.
+- Rader representerer **forekomster** (tupler), mens kolonner representerer **attributter**.
+
+#### 2. **Nøkler:**
+
+- **Primærnøkkel (PK):** Unik identifikator for en rad. Ingen duplikater eller NULL-verdier er tillatt.
+- **Fremmednøkkel (FK):** En attributt som refererer til en primærnøkkel i en annen tabell for å etablere en relasjon.
+
+#### 3. **Integritetsregler:**
+
+- **Entitetsintegritet:** Ingen primærnøkkelverdi kan være NULL.
+- **Referanseintegritet:** Fremmednøkler må enten være NULL eller matche en eksisterende primærnøkkel.
+- **Domeneintegritet:** Attributter må inneholde gyldige verdier i henhold til datatypen.
+- **Brukerdefinert integritet:** Forretningsregler som pålegges gjennom constraints eller triggere.
+
+---
+
+### 💡 **Egenskaper ved relasjonsdatabaser:**
+
+1. **Normalisering:**
+    
+    - Prosessen med å strukturere data for å minimere redundans og unngå uønskede avhengigheter.
+    - Vanlige normalformer inkluderer:
+        - 1NF (Første normalform): Ingen gjentatte grupper eller multiverdier.
+        - 2NF (Andre normalform): Full funksjonell avhengighet.
+        - 3NF (Tredje normalform): Fjerner transitive avhengigheter.
+2. **ACID-egenskaper:**
+    
+    - **Atomicity:** Alt eller ingenting-prinsippet.
+    - **Consistency:** Opprettholder konsistente tilstander.
+    - **Isolation:** Sikrer at samtidige transaksjoner ikke påvirker hverandre.
+    - **Durability:** Data forblir permanente etter en commit, selv ved krasj.
+
+---
+
+### 💾 **Eksempel: Relasjon mellom Kunder og Bestillinger**
+
+**Kunder (Customer)**
+
+|CustomerID (PK)|Name|City|
+|---|---|---|
+|1|Ola Hansen|Oslo|
+|2|Kari Nord|Bergen|
+
+**Bestillinger (Order)**
+
+|OrderID (PK)|CustomerID (FK)|Product|
+|---|---|---|
+|101|1|Laptop|
+|102|2|Mobiltelefon|
+
+#### 📝 **SQL-spørring:**
+
+```sql
+SELECT Name, Product
+FROM Kunder
+JOIN Bestillinger ON Kunder.CustomerID = Bestillinger.CustomerID;
+```
+
+Denne spørringen henter navn og produkter fra begge tabellene ved å bruke relasjonen mellom `CustomerID`-feltene.
+
+---
+
+### 🌐 **Fordeler med relasjonsdatabaser:**
+
+- **Høy dataintegritet og konsistens:** Ved hjelp av nøkler og integritetsregler.
+- **Effektiv datahåndtering:** SQL gjør det enkelt å manipulere og hente data.
+- **Skalerbarhet:** Støtter store datamengder med kompleks relasjonsstruktur.
+- **Transaksjonsstøtte:** Garanterer ACID-egenskaper.
+
+---
+
+### 🚀 **Ulemper:**
+
+- **Ytelsesproblemer ved store datamengder:** Kan bli tregt med mange JOIN-operasjoner.
+- **Kompleks skjemahåndtering:** Endringer i skjemadesign kan være tidkrevende.
+
+---
+
+### 📝 **Konklusjon:**
+
+Relasjonsdatabaser er svært effektive når det gjelder å lagre strukturerte data med komplekse relasjoner og opprettholde dataintegritet. De brukes ofte i kritiske applikasjoner som bank- og forretningssystemer, der pålitelighet og datakonsistens er avgjørende.
+
