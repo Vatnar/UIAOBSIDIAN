@@ -152,3 +152,4 @@ Så forskjellen er:
 
 - Tapt oppdatering: En oppdatering blir overskrevet av en annen.
 - Inkonsistent analyse: En transaksjon leser inkonsistente data mens en annen transaksjon pågår.
+![[btree-6.png]]
