@@ -144,4 +144,11 @@ databasesystemer, som for eksempel MySQL og PostgreSQL.
 
 
 
-# 
+**Tapt oppdatering** skjer når to eller flere transaksjoner leser samme data og deretter oppdaterer det, men den ene oppdateringen overskriver den andre. Dette skjer ofte i miljøer uten skikkelig transaksjonskontroll eller låsing.
+
+**Inkonsistent analyse** oppstår når en transaksjon leser data som er midlertidig inkonsistente på grunn av en annen pågående transaksjon som endrer dataene samtidig. Dette kan føre til at en transaksjon får et feil bilde av dataene.
+
+Så forskjellen er:
+
+- Tapt oppdatering: En oppdatering blir overskrevet av en annen.
+- Inkonsistent analyse: En transaksjon leser inkonsistente data mens en annen transaksjon pågår.
