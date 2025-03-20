@@ -1,57 +1,12 @@
-Generell  
-<span style="color:rgb(255, 0, 0)">View  </span>
-Modellering  
-Notasjon(Kråkefot (<span style="color:rgb(255, 0, 0)">NIAM)</span> Maksimum/minimum Relasjoner(1:1, 1:m, n:m)  
-Objekt(entitetet/MySQL entitet) modell  
-Lage datamodell(fra tekst) - 1 Objekter 2 Relasjoner 3 Attributter  
-Bestemmer nøkler  
-Tabeller  
-Ta forutsetninger hvis du føler det er nyttig  
-Objektifisering(Koblingsobjekt(tabell))  
-SQL  
-Select*, From*, Where, Group By, Having, order By Må være med  
-Create/insert Into Kanksje generelt i et flervalgsspørsmål  
-Insert/Delete/Update kan være aktuelt i forhold til flervalg sannsynligvis  
-Insert/Delete/Update uten en where gjelder dette alle rader i tabellen  
-Tabell med spørsmål om resultat (select(/delete/update))  
-SUM/MIN/MAX/COUNT/AVG aggregatfunksjoner gjerne i sammenheng med Group By  
-Group By (typisk for hver enkelt et eller anne eller lignende + aggregatfunksjon)  
-Koble flere tabeller (Tabel1 + tabell 2 = Where fremmednøkkel + Primærnøkkel som  
-oftest)  
-Natural join/innerjoin bruk Where på eksamen!!! (dere som er 100% sikke rpå join er  
-det ok)  
-Betingelser for rader WHERE  
-Bruke tabell navn hvis flere tabeller  
-Group By Brukes ALLTID hvis man skal ha HAVING  
-HAVING Betingelse for gruppe. Det som det grupperes på.  
-<span style="color:rgb(255, 0, 0)">Generell teori  </span>
-Tabeller, rader, <span style="color:rgb(255, 0, 0)">kolonner med assosiasjoner  </span>
-Relasjoner(1:1, 1:m, n:M)  
-<span style="color:rgb(255, 0, 0)">Relasjonesdatabase definisjon  </span>
-<span style="color:rgb(255, 0, 0)">Andre ord og uttrykk for Databaser  </span>
-Transaksjoner  
-Operasjon  
-<span style="color:rgb(255, 0, 0)">Tilstand  </span>
-<span style="color:rgb(255, 0, 0)">Transaksjon(definisjon)</span>
-
-Logg  
-<span style="color:rgb(255, 0, 0)">ACID</span>  
-<span style="color:rgb(255, 0, 0)">Serialiserbar  </span>
-<span style="color:rgb(255, 0, 0)">Recovery  </span>
-<span style="color:rgb(255, 0, 0)">Undo/Redo  </span>
-<span style="color:rgb(255, 0, 0)">Logg  </span>
-Andre  
-<span style="color:rgb(255, 0, 0)">trigger  </span>
-<span style="color:rgb(255, 0, 0)">Prosedyre  </span>
-<span style="color:rgb(255, 0, 0)">View  </span>
-Er noe mer, men kom ikke lenger nå... Hvis dere har kontroll på dette så bør det  
-holde til minimum en C sannsynligvis en B. A bør ha enda litt brede kunnskap
- 
-<span style="color:rgb(255, 0, 0)">TRIGGER</span> 
-Hva er en trigger i databasesammenheng, hvorfor og hvordan kan man bruke triggere i databaser?
-<span style="color:rgb(255, 0, 0)">UNDO/REDO</span>  
-FOrklar Recovery, algoritmen Undo/Redo, hvorfor den er mest brukt?
-
+```table-of-contents
+title: Viktig for eksamen
+style: nestedList # TOC style (nestedList|nestedOrderedList|inlineFirstLevel)
+minLevel: 0 # Include headings from the specified level
+maxLevel: 0 # Include headings up to the specified level
+includeLinks: true # Make headings clickable
+hideWhenEmpty: false # Hide TOC if no headings are found
+debugInConsole: false # Print debug info in Obsidian console
+```
 # Avhengigheter
 ### 🔗 **Funksjonell avhengighet (Functional Dependency)**
 
@@ -147,7 +102,234 @@ Nå er transitive avhengigheter fjernet, og vi unngår **oppdateringsanomalier**
 - **Funksjonell avhengighet:** En attributt avhenger direkte av en annen.
 - **Transitiv avhengighet:** En indirekte avhengighet mellom attributter via en tredje attributt.
 - Transitive avhengigheter bryter med **3NF** og bør fjernes ved normalisering.
+# **Views i databaser**
 
+En **view** er en virtuell tabell i en database som er basert på resultatet av en **SQL-spørring**. Den lagrer ikke dataene selv, men viser data hentet fra én eller flere underliggende tabeller.
+
+---
+
+#### 💡 **Egenskaper ved views:**
+
+1. **Virtuelle tabeller:** Ingen fysisk lagring av data.
+2. **Dynamisk oppdatering:** Data i viewet oppdateres når de underliggende tabellene endres.
+3. **Sikkerhet:** Kan brukes til å begrense tilgangen til sensitive data.
+4. **Forenkling:** Gjør komplekse spørringer enklere ved å skjule kompleksiteten.
+
+---
+
+### 📝 **Syntaks for å opprette et view:**
+
+```sql
+CREATE VIEW view_navn AS
+SELECT kolonne1, kolonne2, ...
+FROM tabell
+WHERE betingelse;
+```
+
+---
+
+### 🔍 **Eksempel:**
+
+Anta at vi har en tabell med ansatte:
+
+**Ansatte-tabell:**
+
+|AnsattID|Navn|Stilling|Lønn|
+|---|---|---|---|
+|1|Ola|Leder|70000|
+|2|Kari|Utvikler|60000|
+|3|Per|Designer|55000|
+
+#### **Opprette et view for bare ledere:**
+
+```sql
+CREATE VIEW LederView AS
+SELECT Navn, Lønn
+FROM Ansatte
+WHERE Stilling = 'Leder';
+```
+
+#### **Bruke viewet:**
+
+```sql
+SELECT * FROM LederView;
+```
+
+**Resultat:**
+
+|Navn|Lønn|
+|---|---|
+|Ola|70000|
+
+---
+
+### 🛠️ **Fordeler med views:**
+
+1. **Sikkerhet:** Begrense tilgangen til sensitive data.
+2. **Forenkling:** Samle komplekse spørringer i én enkel visning.
+3. **Gjenbruk:** Gjenbruk av spørringer uten å skrive dem på nytt.
+4. **Abstraksjon:** Skjuler kompleksiteten til underliggende tabeller.
+
+---
+
+### ⚠️ **Ulemper med views:**
+
+1. **Ytelse:** Komplekse views kan bli trege, spesielt hvis de er basert på flere tabeller.
+2. **Ikke alltid oppdaterbare:** Noen views kan ikke oppdateres direkte hvis de inneholder aggregeringer, joins eller subspørringer.
+3. **Vedlikehold:** Endringer i underliggende tabeller kan kreve at viewet oppdateres.
+
+---
+
+### 🚀 **Oppdaterbare vs. ikke-oppdaterbare views:**
+
+- **Oppdaterbare views:** Endringer i viewet reflekteres i den underliggende tabellen.
+- **Ikke-oppdaterbare views:** Viewet er basert på en kompleks spørring som hindrer direkte oppdatering.
+
+**Eksempel på oppdaterbart view:**
+
+```sql
+CREATE VIEW UtviklerView AS
+SELECT Navn, Lønn
+FROM Ansatte
+WHERE Stilling = 'Utvikler';
+
+UPDATE UtviklerView
+SET Lønn = 65000
+WHERE Navn = 'Kari';
+```
+
+---
+
+### 💡 **Oppsummering:**
+
+Views er et kraftig verktøy for å forenkle datatilgang, øke sikkerheten og gi et abstraksjonslag over komplekse spørringer. Samtidig må man være oppmerksom på ytelsesproblemer og begrensninger knyttet til oppdaterbarhet.
+
+
+#  **Transaksjon i databasesammenheng**
+
+En **transaksjon** er en sekvens av én eller flere databaseoperasjoner som utføres som en **enhet**. Enten utføres alle operasjonene, eller ingen av dem – dette sikrer **dataintegritet**.
+
+---
+
+#### 💡 **Egenskaper (ACID):**
+
+En transaksjon må oppfylle følgende egenskaper:
+
+1. **Atomicity (Atomisitet):** Hele transaksjonen utføres eller ingen del av den.
+2. **Consistency (Konsistens):** Transaksjonen fører databasen fra én konsistent tilstand til en annen.
+3. **Isolation (Isolasjon):** Pågående transaksjoner påvirker ikke hverandre.
+4. **Durability (Holdbarhet):** Når en transaksjon er bekreftet (commit), vil resultatet være permanent, selv om systemet krasjer.
+
+---
+
+#### 📝 **Eksempel:**
+
+Tenk deg en bankoverføring fra konto A til konto B:
+
+1. Trekk 1000 kr fra konto A.
+2. Legg 1000 kr til konto B.
+3. Hvis noen av operasjonene feiler, må hele transaksjonen rulles tilbake (rollback).
+
+---
+
+#### 🗃️ **SQL-eksempel:**
+
+```sql
+BEGIN TRANSACTION;
+
+UPDATE Konto SET Saldo = Saldo - 1000 WHERE KontoID = 1;
+UPDATE Konto SET Saldo = Saldo + 1000 WHERE KontoID = 2;
+
+COMMIT; -- Lagre endringene permanent
+-- ROLLBACK; -- Angre endringene hvis noe går galt
+```
+
+---
+
+### 🚩 **Hvorfor er transaksjoner viktige?**
+
+- Hindrer **inkonsistente data** ved feil.
+- Sikrer **dataholdbarhet** ved krasj.
+- Gir **isolasjonsgarantier** mellom samtidige prosesser.
+
+# **Triggers og prosedyrer i databaser**
+
+Både **triggers** og **lagrede prosedyrer** (stored procedures) er verktøy i en database for å automatisere oppgaver og håndtere data.  
+Selv om de begge utfører forhåndsdefinerte handlinger, brukes de i ulike sammenhenger.
+
+---
+
+#### 💡 **Triggers:**
+
+En **trigger** er en automatisk handling som utføres når en bestemt hendelse oppstår i databasen (for eksempel **INSERT**, **UPDATE** eller **DELETE**).
+
+- **Aktiveres automatisk** når en hendelse inntreffer.
+- Brukes til **validering**, **logging**, **sikkerhet** og **historikk**.
+- Kan ikke kalles direkte av brukeren.
+
+##### 📝 **Eksempel på en trigger:**
+
+Logge alle oppdateringer i en ansatt-tabell:
+
+```sql
+CREATE TRIGGER LoggOppdatering
+AFTER UPDATE ON Ansatte
+FOR EACH ROW
+BEGIN
+    INSERT INTO Logg (AnsattID, Endringstidspunkt)
+    VALUES (NEW.AnsattID, NOW());
+END;
+```
+
+---
+
+#### 🛠️ **Lagrede prosedyrer (Stored Procedures):**
+
+En **lagret prosedyre** er en samling SQL-kommandoer som er lagret i databasen og kan utføres ved behov.
+
+- **Aktiveres manuelt** ved kall.
+- Brukes til **datahåndtering**, **batch-operasjoner**, **beregninger** og **rapporter**.
+- Kan ta inn **parametere** og returnere verdier.
+
+##### 📝 **Eksempel på en lagret prosedyre:**
+
+Beregne gjennomsnittslønn i en avdeling:
+
+```sql
+CREATE PROCEDURE Gjennomsnittslønn (IN avdeling VARCHAR(50))
+BEGIN
+    SELECT AVG(Lønn) AS Gjennomsnitt
+    FROM Ansatte
+    WHERE Avdeling = avdeling;
+END;
+```
+
+**Kall prosedyren:**
+
+```sql
+CALL Gjennomsnittslønn('IT');
+```
+
+---
+
+### 🔑 **Forskjeller mellom trigger og prosedyre:**
+
+|Egenskap|Trigger|Lagret prosedyre|
+|---|---|---|
+|Aktivering|Automatisk (på hendelse)|Manuell (via kall)|
+|Bruksområde|Logging, validering, integritet|Kompleks logikk, rapporter|
+|Kan ta parametere|Nei|Ja|
+|Kan returnere data|Nei|Ja|
+
+---
+
+### ✅ **Oppsummering:**
+
+- **Triggers** brukes til å utføre handlinger automatisk når spesifikke hendelser inntreffer.
+- **Lagrede prosedyrer** er forhåndsdefinerte SQL-funksjoner som kan kalles manuelt.
+- Begge brukes for å gjøre databaseadministrasjon mer effektiv og automatisert.
+
+Gi beskjed om du trenger flere eksempler eller forklaringer! 😄
 # Prinsipper for oppbygging av et B+ tre
 
 Et **B+ tre** er en selvbalanserende trestruktur som brukes primært i databasesystemer og filsystemer for effektiv lagring og søking i store datamengder. Det er en variant av B-trær, men skiller seg fra disse ved at alle faktiske dataverdier er lagret i bladnodene, mens interne noder kun lagrer søkenøkler. Denne strukturen gjør B+ trær spesielt godt egnet for systemer med høy I/O-belastning, som disklagring.
