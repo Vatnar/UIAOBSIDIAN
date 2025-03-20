@@ -8,6 +8,8 @@ hideWhenEmpty: false # Hide TOC if no headings are found
 debugInConsole: false # Print debug info in Obsidian console
 ```
 # DBMS
+Tar imot forespørsel fra brukeren, f.eks MySQL. 
+Har en DD, Data Dictionary, systemtabell. Metatabell, hvor store tabeller osv.
 
 
 #  Funksjonell avhengighet (Functional Dependency)
@@ -18,7 +20,7 @@ En funksjonell avhengighet mellom to attributter i en relasjonsdatabase uttrykke
 
 Hvis attributtet `B` er funksjonelt avhengig av attributtet `A`, skrives det slik:
 
-A→BA \rightarrow B
+A→B
 
 Dette betyr at verdien av `A` **bestemmer** verdien av `B`.
 
