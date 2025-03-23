@@ -345,7 +345,6 @@ CALL Gjennomsnittslønn('IT');
 - **Lagrede prosedyrer** er forhåndsdefinerte SQL-funksjoner som kan kalles manuelt.
 - Begge brukes for å gjøre databaseadministrasjon mer effektiv og automatisert.
 
-Gi beskjed om du trenger flere eksempler eller forklaringer! 😄
 # Prinsipper for oppbygging av et B+ tre
 
 Et **B+ tre** er en selvbalanserende trestruktur som brukes primært i databasesystemer og filsystemer for effektiv lagring og søking i store datamengder. Det er en variant av B-trær, men skiller seg fra disse ved at alle faktiske dataverdier er lagret i bladnodene, mens interne noder kun lagrer søkenøkler. Denne strukturen gjør B+ trær spesielt godt egnet for systemer med høy I/O-belastning, som disklagring.
