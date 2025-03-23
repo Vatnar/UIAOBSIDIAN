@@ -1,3 +1,5 @@
 {
-  "cssTheme": "Obsidian gruvbox"
+  "cssTheme": "Primary",
+  "accentColor": "#439bad",
+  "theme": "moonstone"
 }
