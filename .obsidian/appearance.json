@@ -1,5 +1,6 @@
 {
   "cssTheme": "Primary",
-  "accentColor": "#439bad",
-  "theme": "obsidian"
+  "accentColor": "#da9a1b",
+  "theme": "obsidian",
+  "monospaceFontFamily": "UbuntuMono Nerd Font Mono"
 }

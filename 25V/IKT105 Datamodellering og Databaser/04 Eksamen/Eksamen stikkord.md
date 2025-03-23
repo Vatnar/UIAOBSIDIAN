@@ -427,7 +427,7 @@ Så forskjellen er:
 
 - Tapt oppdatering: En oppdatering blir overskrevet av en annen.
 - Inkonsistent analyse: En transaksjon leser inkonsistente data mens en annen transaksjon pågår.
-![[btree-6.png]]
+
 
 # Locks
 **Optimistisk låsing** og **pessimistisk låsing** er to strategier for å håndtere samtidighet i databaser.
@@ -445,12 +445,12 @@ Så forskjellen er:
 
 ####  Fordeler:
 
-- Forhindrer _tapt oppdatering_ og _skittent lesing_.
+- Forhindrer _tapt oppdatering_ og _dirty reading_.
 - Garanterer sterk isolasjon.
 
 ####  Ulemper:
 
-- Kan føre til _dødlock_ (to transaksjoner venter på hverandre).
+- Kan føre til _deadlock_ (to transaksjoner venter på hverandre).
 - Reduserer ytelsen ved høy samtidighet.
 
 ---
@@ -466,7 +466,7 @@ Så forskjellen er:
 #### Fordeler:
 
 - Høy ytelse i miljøer med mange lesere og få skrivere.
-- Ingen dødlock.
+- Ingen deadlock.
 
 #### Ulemper:
 
@@ -490,8 +490,6 @@ Så forskjellen er:
 
 - Bruk pessimistisk låsing når konflikter er vanlige og konsekvensene er alvorlige.
 - Bruk optimistisk låsing når konflikter er sjeldne og ytelse er viktigere enn konfliktbehandling.
-
-For å gi et A-svar, må vi være mer grundige og presise. La oss gå litt dypere og dekke relasjonsdatabaser mer akademisk og omfattende:
 
 ---
 
