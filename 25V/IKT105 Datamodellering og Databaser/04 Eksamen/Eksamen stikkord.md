@@ -150,11 +150,11 @@ Anta at vi har en tabell med ansatte:
 
 **Ansatte-tabell:**
 
-|AnsattID|Navn|Stilling|Lønn|
-|---|---|---|---|
-|1|Ola|Leder|70000|
-|2|Kari|Utvikler|60000|
-|3|Per|Designer|55000|
+| AnsattID | Navn | Stilling | Lønn  |
+| -------- | ---- | -------- | ----- |
+| 1        | Ola  | Leder    | 70000 |
+| 2        | Kari | Utvikler | 60000 |
+| 3        | Per  | Designer | 55000 |
 
 #### Opprette et view for bare ledere:
 
