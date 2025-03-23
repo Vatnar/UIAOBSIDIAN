@@ -355,7 +355,7 @@ Et **B+ tre** er en selvbalanserende trestruktur som brukes primært i databases
 ### Orden og Kapasitet
 
 - Et B+ tre av orden $m$ har maksimalt $m−1$ nøkler i hver node og opptil $m$ pekere til undernoder.
-- Minimum antall nøkler i en ikke-rot-node er $\lceil m/2 \rceil-1  \rceil$, og minimum antall pekere er $\lceil m/2 \rceil$. 
+- Minimum antall nøkler i en ikke-rot-node er $\lceil m/2 \rceil-1$, og minimum antall pekere er $\lceil m/2 \rceil$. 
 - Roten kan ha færre nøkler, men skal alltid ha minst to pekere dersom den ikke er en bladnode.
 
 ### Hierarkisk Struktur
