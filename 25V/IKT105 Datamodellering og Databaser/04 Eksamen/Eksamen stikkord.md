@@ -526,6 +526,8 @@ En relasjonsdatabase er bygget på følgende grunnprinsipper:
 - **Referanseintegritet:** Fremmednøkler må enten være NULL eller matche en eksisterende primærnøkkel.
 - **Domeneintegritet:** Attributter må inneholde gyldige verdier i henhold til datatypen.
 - **Brukerdefinert integritet:** Forretningsregler som pålegges gjennom constraints eller triggere.
+- **Representasjonsuavhengighet**
+	- Ikke se på rekkefølge av kolonner.
 
 ---
 
