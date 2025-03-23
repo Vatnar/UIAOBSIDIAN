@@ -631,7 +631,7 @@ Det finnes flere teknikker for å sikre at dataene kan gjenopprettes på en pål
 
 💡 _Eksempel:_
 
-```
+```Transaksjonsloggen C
 <START T1>
 <WRITE T1, A, 100>
 <COMMIT T1>
