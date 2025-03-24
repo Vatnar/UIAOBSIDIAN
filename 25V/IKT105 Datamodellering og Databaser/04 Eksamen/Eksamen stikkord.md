@@ -520,7 +520,7 @@ En relasjonsdatabase er bygget på følgende grunnprinsipper:
 - **Primærnøkkel (PK):** Unik identifikator for en rad. Ingen duplikater eller NULL-verdier er tillatt.
 - **Fremmednøkkel (FK):** En attributt som refererer til en primærnøkkel i en annen tabell for å etablere en relasjon.
 
-#### 3. Integbritetsregler:
+#### 3. Integritetsregler:
 
 - **Entitetsintegritet:** Ingen primærnøkkelverdi kan være NULL.
 - **Referanseintegritet:** Fremmednøkler må enten være NULL eller matche en eksisterende primærnøkkel.
@@ -528,7 +528,7 @@ En relasjonsdatabase er bygget på følgende grunnprinsipper:
 - **Brukerdefinert integritet:** Forretningsregler som pålegges gjennom constraints eller triggere.
 - **Representasjonsuavhengighet**
 	- Ikke se på rekkefølge av kolonner.
-
+- **Write-ahead-logging** WAL
 ---
 
 ###  Egenskaper ved relasjonsdatabaser:
