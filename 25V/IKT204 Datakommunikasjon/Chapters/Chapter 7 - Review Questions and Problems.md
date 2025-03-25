@@ -51,12 +51,32 @@ A beacon frame is sent by the an access points in IEEE 802.11, Wi-Fi, to allow d
 
 An access point periodically sends beacon frames. What is the content of the beacon frames? 
 
-[2] The beacon frames contain information about the AP such as **SSID**, transmission  and receiving rates and what security protocols are in used. They also contain a **timestamp** field which allows devices to **synchronize** their operation with the access point. Additionally they provide power management information, allowing devices to enter sleep mode, while waiting for next beacon frame. Finally beacon frames include information about supported channel, security settings, for instance WPA2, and other parameters.
+The beacon frames contain information about the AP such as **SSID**, transmission  and receiving rates and what security protocols are in used. They also contain a **timestamp** field which allows devices to **synchronize** their operation with the access point. Additionally they provide power management information, allowing devices to enter sleep mode, while waiting for next beacon frame. Finally beacon frames include information about supported channel, security settings, for instance WPA2, and other parameters.
+- **SSID (Service Set Identifier)**: Identifies the Wi-Fi network, allowing devices to recognize and connect to the appropriate network.
+    
+- **Timestamp**: A timestamp field that helps synchronize the device's clock with the access point, ensuring proper timing for communication and sleep cycles.
+    
+- **Supported Data Rates**: Lists the transmission and reception rates supported by the access point, which helps the device decide the most efficient rate for communication.
+    
+- **Security Protocols**: Information about the security settings, such as whether **WPA2**, **WPA3**, or **WEP** is used, allowing devices to authenticate and connect securely.
+    
+- **Channel Information**: The specific channel on which the access point operates, so devices can tune into the correct frequency.
+    
+- **Power Management Information**: Instructions for devices to enter **sleep mode** and conserve battery life, especially when they are not actively transmitting or receiving data.
+    
+- **Capabilities**: Information about the capabilities of the access point, such as whether it's supporting **802.11a/b/g/n/ac/ax** and other features like **quality of service (QoS)**.
+    
+- **Beacon Interval**: The time between successive beacon frames, which helps devices know when to wake up and listen for the next beacon.
 
 # **Exercise 6 (R9)**
 
 What are the two main purposes of a CTS frame?
 
+A CTS frame stands for Clear to Send, and is used to avoid collisions in wireless networks. Wireless networks do not support the collision detection methods used in CSMA/CD, since they cannot (commonly) listen to data at the same time as transmitting since the strength of their transmitting signals would overpower the incoming signals. Therefore **RTS** and **CTS**, **Request to send** and **Clear to send** frames are used. RTS frames are very short and does not take up a lot of time, if the device receives a CTS it will send its pending frame in its entirety, which can be quite long.
+
+- **Collision Avoidance**: The primary purpose of the CTS frame is to avoid collisions in a wireless network. Since devices in wireless networks cannot use **CSMA/CD** (Carrier Sense Multiple Access with Collision Detection) due to the **hidden node problem** (where devices may not be able to sense each other's signals), RTS and CTS frames are used as part of a **collision avoidance** mechanism. When a device wants to transmit, it first sends an **RTS** frame, and if the receiver is clear to accept the data, it responds with a **CTS** frame. This tells other devices in the network that the channel is about to be occupied and they should defer their transmissions, preventing collisions.
+    
+- **Reservation of the Channel**: The CTS frame serves as a reservation for the transmission channel. When the device that issued the **RTS** frame receives the **CTS** frame, it confirms that the channel is clear, and the sender can proceed with its transmission. The CTS frame also notifies nearby devices to **hold off** on transmitting for a specific amount of time, allowing the sender to transmit without interference.
 # **Exercise 7**
 
 After selecting the AP with which to associate, a wireless host sends an association request frame to the AP, and the AP responds with an association response frame. Once associated with an AP, the host will want to join the subnet (ref. IPv4 addressing of Section 4.3.2) to which the AP belongs. What does the host do next?
