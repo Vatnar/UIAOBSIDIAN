@@ -4,11 +4,13 @@
 A wireless network operating in infrastructure mode as in opposed to **ad-hoc** mode means that the devices in the network connect to a centralized access point and not directly to each other. An example of a wireless network operating in infrastructure mode is a **SOHO** (small office/ home Office) network. All devices talk to an **AP** (access point), or multiple APs, the APs connect to the router which forwards the messages or the access point forwards the messages directly if there are two wireless devices connected to the same access points. Access points works as "wireless" switche sin this instance.
 2. If the network is **not** in infrastructure mode, what mode of operation is it in, and what is the difference between that mode of operation and infrastructure mode?
 When the network is **not** in infrastructure mode it is in **Ad-hoc** mode. The Ad-hoc mode is not centralized and does not require infrastructure to function. Instead of each device connecting to a access point, they rather communicate directly in between each other. An example of an Ad hoc network is **Bluetooth**, which is often called a wireless personal network. A better and more applicable example of AD hoc networks are mesh networks. 
+
 **Exercise 2 (R3)**
-
 What are the differences between the following types of wireless channel impairments: **path loss**, **multipath propagation**, **interference** from other sources?
+Path loss describes the the fact tat electromagnetic radiation attenuates as it passes through matter (mountains, walls) and even in free space the signal will still disperse, which in turn results in decreased signal strength, whereas multipath propagation refers to the signal reflecting off objects or the ground leading to the same signal being received at different times, blurring the the received signal. Interference is an effect of electromagnetic waves, waves are additive which means they will disrupt each other and potentially cancel each other out. If two waves are in different frequency bands they still can be read separately, but it requires consideration when choosing frequencies, to efficiently apply FDM, and with a lot of concurrent signals TDM might be needed.
 
 
+I'm not sure what more i should write, what are your ideas for what to add?
 **Exercise 3 (R4)**
 
 As a mobile node gets farther and farther away from a base station, what are two actions that a base station could take to ensure that the loss probability of a transmitted frame does not increase?
