@@ -119,4 +119,25 @@ $(50+10)*10^{-6} + 2*\left( \frac{8*1400}{12\cdot10^6} \right)=933.33 \cdot10^{-
 
 # Exercise 9 (P9)
 
-Power is a precious resource in mobile devices, and thus the 802.11 standard provides power-management capabilities that allow 802.11 nodes to minimize the amount of time that their sense, transmit, and receive functions and other circuitry need to be “on.” In 802.11, a node is able to explicitly alternate between sleep and wake states. Explain in brief how a node communicates with the AP to perform power management.
+Power is a precious resource in mobile devices, and thus the 802.11 standard provides power-management capabilities that allow 802.11 nodes to minimize the amount of time that their sense, transmit, and receive functions and other circuitry need to be “on.” In 802.11, a node is able to explicitly alternate between sleep and wake states. Explain in brief how a node communicates with the AP to perform power management. This is achieved with the help of the beacon frames that AP sends out. 
+
+A device can go into sleep mode in between beacon frames allowing it to sleep 99.9% of the time.
+
+In 802.11, power management is achieved through the **Power Save Mode (PSM)**. When a device (station) wants to conserve battery power, it can communicate with the **Access Point (AP)** using a process involving **beacon frames**.
+
+### How it works:
+
+1. **Beacon Frames**: The AP periodically sends **beacon frames** to all associated devices. These frames contain important information about the network, including the **next beacon time**, which helps devices synchronize their sleep and wake cycles.
+    
+2. **Sleep Mode**: A device can enter sleep mode after receiving a beacon frame and remain in this state until the next beacon frame. This allows the device to stay inactive for most of the time, only waking up periodically to check for incoming data or perform other tasks.
+    
+3. **Traffic Buffering**: If the AP has data destined for the device, it will buffer that data while the device is in sleep mode. When the device wakes up, it will check in with the AP and receive any buffered data.
+    
+4. **Power Management Flags**: The device communicates its desire to enter power-saving mode to the AP using **power management flags** in the **association request** or **reassociation request** frames. These flags indicate the device’s power-saving intention. The AP then knows to buffer the data for the device and wait for the device to wake up.
+    
+5. **Wake Mode**: When the device wakes up, it sends a **Poll** request or just listens to the next beacon frame to see if there is any data waiting. If there is data buffered, the AP will send it after the device has woken up.
+    
+
+### Key Point:
+
+The device can sleep between beacon frames, allowing it to stay in sleep mode for extended periods (like 99.9% of the time). This minimizes power consumption while still maintaining connectivity with the AP.
