@@ -114,7 +114,7 @@ $$DIFS + SIFS + \text{2L/R}$$ Where $DIFS$ is the distributed interframe space a
  
 
 2. Assume that the datagram has a size of 1400 bytes and that the transmission rate in the wireless network is 12 Mbps. What will the total transfer time be in this case? The answer is given in microseconds. See figure 7.13 in the textbook for the framing length of payload, [11 Frame Types and Formats](https://howiwifi.com/2020/07/13/802-11-frame-types-and-formats/)
-
+$(50+10)*10^{-6} + 2*\left( \frac{1400}{12\cdot10^6} \right)=$
 [Lenker til en ekstern side.](https://howiwifi.com/2020/07/13/802-11-frame-types-and-formats/) for lengths of ACK, RTS and CTS frames, [DCF Interframe Space - Wikipedia](https://en.wikipedia.org/wiki/DCF_Interframe_Space) [Lenker til en ekstern side.](https://en.wikipedia.org/wiki/DCF_Interframe_Space) for the length of DIFS and [Short Interframe Space - Wikipedia](https://en.wikipedia.org/wiki/Short_Interframe_Space)1. [Lenker til en ekstern side.](https://en.wikipedia.org/wiki/Short_Interframe_Space) for the length of SIFS.
 
 # Exercise 9 (P9)
