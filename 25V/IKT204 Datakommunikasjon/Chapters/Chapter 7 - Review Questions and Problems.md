@@ -99,7 +99,20 @@ The host will broadcast an DHCP request to the AP, which the AP will forward to 
 Suppose an 802.11b station is configured to always reserve the channel with the RTS/CTS sequence. Suppose this station suddenly wants to transmit a datagram and all other stations are idle at this time.
 
 1. As a function of **SIFS** and **DIFS**, **and** ignoring propagation delay and assuming no bit errors, derive an equation to calculate the time required to transmit a frame with payload and receive the acknowledgment.
-The station first waits one DIFS and then por
+
+The station first waits one *DIFS* (Distributed Inter Frame space) and then proceeds to send its RTS frame, if it receives a CTS frame it then proceeds to send its frame. After the frame is sent and received, the receiver waits one SIFS, (Short *inter* frame spacing) sends the acknowledgement, then the initial station will receive the packet. If we ignore propagation delay and processing delay, we only need to account for DIFS, DIFS, and transmission delays.
+
+Time from send to receive ACK: $$
+\begin{aligned}
+DIFS + D_{trans} + SIFS + D_{trans} &= DIFS + SIFS + 2D_{trans} \\
+D_{trans} &= \frac{L}{R}
+\end{aligned}
+$$
+  
+Therefore our formula is
+$$DIFS + SIFS + \text{2L/R}$$ Where $DIFS$ is the distributed interframe space and $SIFS$ is the short inter frame spacing and $L$ is size of the frame, and $R$ is the average transmitting speed
+ 
+
 2. Assume that the datagram has a size of 1400 bytes and that the transmission rate in the wireless network is 12 Mbps. What will the total transfer time be in this case? The answer is given in microseconds. See figure 7.13 in the textbook for the framing length of payload, [11 Frame Types and Formats](https://howiwifi.com/2020/07/13/802-11-frame-types-and-formats/)
 
 [Lenker til en ekstern side.](https://howiwifi.com/2020/07/13/802-11-frame-types-and-formats/) for lengths of ACK, RTS and CTS frames, [DCF Interframe Space - Wikipedia](https://en.wikipedia.org/wiki/DCF_Interframe_Space) [Lenker til en ekstern side.](https://en.wikipedia.org/wiki/DCF_Interframe_Space) for the length of DIFS and [Short Interframe Space - Wikipedia](https://en.wikipedia.org/wiki/Short_Interframe_Space)1. [Lenker til en ekstern side.](https://en.wikipedia.org/wiki/Short_Interframe_Space) for the length of SIFS.
