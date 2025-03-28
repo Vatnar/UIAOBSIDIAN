@@ -12,5 +12,6 @@
   "obsidian-git",
   "text-extractor",
   "obsidian-plantuml",
-  "diagram-zoom-drag"
+  "diagram-zoom-drag",
+  "image-converter"
 ]
