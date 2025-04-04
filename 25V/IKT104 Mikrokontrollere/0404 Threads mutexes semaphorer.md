@@ -53,3 +53,5 @@ Our code use Mbed OS APIs,
 
 # Thread
 - Piece of code that runs independent of other threads
+- Threads are used to organiaze larger programs into smaller pieces
+- They have their own stacks for local variables, 4KB
