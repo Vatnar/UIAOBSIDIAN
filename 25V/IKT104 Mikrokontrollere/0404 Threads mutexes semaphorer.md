@@ -58,3 +58,14 @@ Our code use Mbed OS APIs,
 - With for many threads on microC it can be a problem since they dont hav emuch memory
 - They share the same memory space.
 - They can use mutexes to protect shared resources.
+- They can use semaphores to synchronize
+**Using**
+- Threads are declared using the class Thread
+- Functions can be started with thread.start(function)
+- Mbed OS switches the active thread automatically to let all threads run
+- Thread can sleep to reduce CPU usage, ThisThread::sleep_for(5s);
+- You can wait for a thread to finish with the join() function thread.join();
+- Threads can have different prioriteies
+## Preemptive vs cooperative multitasking
+**Preemptive**
+- The scheduler pauses and unpauses threads at will
