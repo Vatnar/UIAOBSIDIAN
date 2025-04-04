@@ -76,3 +76,30 @@ Our code use Mbed OS APIs,
 - Threads must pause themselves to let other threads run
 - Threads pause by calling sleep, or other function that wait for data
 - The scheduler decides which thread is allowed to run
+## Example: Thread
+```cpp
+#include "mbed.h"
+DigitalOut led1(LED1);
+DigitalOut led2(LED2);
+Thread thread;
+
+  
+
+void led2_thread()
+{
+    while (true) {
+        led2 = !led2;
+        ThisThread::sleep_for(1000ms);
+    }
+}
+  
+int main()
+{
+    thread.start(led2_thread);
+  
+    while (true) {
+        led1 = !led1;
+        ThisThread::sleep_for(500ms);
+    }
+}
+```
