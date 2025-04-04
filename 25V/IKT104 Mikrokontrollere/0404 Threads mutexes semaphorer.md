@@ -57,3 +57,4 @@ Our code use Mbed OS APIs,
 - They have their own stacks for local variables, 4KB.
 - With for many threads on microC it can be a problem since they dont hav emuch memory
 - They share the same memory space.
+- They can use mutexes to protect shared resources.
