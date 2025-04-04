@@ -46,4 +46,5 @@ c. LoRaWAN
 d. Cellular
 - Security features:
 a. Encryption
-b. 
+b. NFC/RFID
+c. 
