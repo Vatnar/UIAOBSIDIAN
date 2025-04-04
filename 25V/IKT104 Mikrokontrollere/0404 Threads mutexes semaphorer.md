@@ -186,7 +186,11 @@ typedef struct
 ![[image-16.png]]
 ```cpp
 #include "mbed.h"
-  
+Actor a = new actor("name");
+std::list<Actor> actors;
+for (const Actor &actor : actors){
+std::cout << actor.name;
+}
 Semaphore one_slot(1);
 Thread t2;
 Thread t3;
