@@ -50,3 +50,6 @@ b. NFC/RFID
 # MBed OS Architecture
 ![[Pasted image 20250404104526.png]]
 Our code use Mbed OS APIs, 
+
+# Thread
+- Piece of code that runs independent of other threads
