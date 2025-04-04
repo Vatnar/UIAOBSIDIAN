@@ -158,3 +158,28 @@ int main()
     test_thread((void *)"Th 1");
 }
 ```
+## Example: Shared Struct
+**About**
+- We can use structs to share data between threads
+- This type of data must also be protected against simultaneous access
+- The code is just like last year - except the struct now has a mutex
+- Threads lock this mutex when they want to access shared data
+```cpp
+// Struct holding our data  
+typedef struct  
+{  
+  // Mutex that protects this data struct  
+  Mutex mutex;
+  // Regular struct members (our data)  
+  char message[200];  
+} data_t;
+```
+
+# Semaphores
+**About**
+- Semaphores are very similar to mutexes
+- You aqquire and realase a semaphore
+	- Similar to lock and  unlock for mutexes
+- A semaphore can be aqquired more than once
+	- useful when moore than 1 shared resource is avaible
+- Count is the amount currently availbable max count is the maximum
