@@ -83,8 +83,6 @@ DigitalOut led1(LED1);
 DigitalOut led2(LED2);
 Thread thread;
 
-  
-
 void led2_thread()
 {
     while (true) {
