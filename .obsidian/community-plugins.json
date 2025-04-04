@@ -13,7 +13,6 @@
   "text-extractor",
   "obsidian-plantuml",
   "diagram-zoom-drag",
-  "image-converter",
-  "obsidian-icon-folder",
-  "custom-note-width"
+  "editor-width-slider",
+  "image-converter"
 ]
