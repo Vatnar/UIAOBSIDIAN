@@ -186,11 +186,7 @@ typedef struct
 ![[image-16.png]]
 ```cpp
 #include "mbed.h"
-Actor a = new actor("name");
-std::list<Actor> actors;
-for (const Actor &actor : actors){
-std::cout << actor.name;
-}
+
 Semaphore one_slot(1);
 Thread t2;
 Thread t3;
@@ -213,3 +209,16 @@ int main(void)
     test_thread((void *)"Th 1");
 }
 ```
+
+# Common errors
+Stack Overflow
+This error occurs when a function uses up all its stack space. You might see this when using complex libraries or allocating a lot of local variables. You can increase the stack size in mbed_app.json to compensate.
+
+  
+Heap Overflow
+This error occurs if any thread tries to allocate dynamic memory and that allocation fails. This means the you have used up all the memory on the microcontroller. This error usually occurs because of memory leaks, meaning memory that has been allocated but not freed.
+
+Resources
+- [Mbed OS threads](https://os.mbed.com/docs/mbed-os/v6.16/apis/thread.html)
+- [Mbed OS mutexes](https://os.mbed.com/docs/mbed-os/v6.16/apis/mutex.html)    
+- [Mbed OS semaphores](https://os.mbed.com/docs/mbed-os/v6.16/apis/semaphore.html)
