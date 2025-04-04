@@ -74,4 +74,5 @@ Our code use Mbed OS APIs,
 - Mbed OS uses preemptive threads
 **Cooperative**
 - Threads must pause themselves to let other threads run
-- Thrreads pause by calling sleep, or other fuin
+- Threads pause by calling sleep, or other function that wait for data
+- The scheduler decides which thread is allowed to run
