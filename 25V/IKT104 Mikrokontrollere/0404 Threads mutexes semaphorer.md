@@ -31,3 +31,19 @@ Agenda
 	- Block interrupts and so on
 - Usually no Memory Management Unit support (bare metal)
 - Using an RTOS is useful in larger projects
+
+# Mbed OS features
+**About Mbed OS**
++ Mbed OS has two main profiles - bare metal and OS
++ The bare metal profiles is suitable for small programs on limited devices
++ The OS profile is suitable for larger programs on more capable devices
+**Features**
+- OS features: Threads, mutexes, semaphores, mailboxes
+- Comunication features:
+a. Ethernet / Wi-Fi
+b. Bluetooth (low energy) Zigbee (low energy on top)
+c. LoRaWAN
+d. Cellular
+- Security features:
+a. Encryption
+b. 
