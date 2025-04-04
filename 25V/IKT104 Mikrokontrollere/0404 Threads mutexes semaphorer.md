@@ -69,3 +69,8 @@ Our code use Mbed OS APIs,
 ## Preemptive vs cooperative multitasking
 **Preemptive**
 - The scheduler pauses and unpauses threads at will
+- Threads can be paused an unpaused at any time
+- Threads are gnerally unaware that this happens
+- Mbed OS uses preemptive threads
+**Cooperative**
+- 
