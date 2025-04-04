@@ -1,12 +1,6 @@
-Agenda
-- What is a real time operating system
-- Mbed OS features
-- Mbed OS architecture
-- Creating threads
-- Thread switching
-- Protecting data with mutexes
-- Sharing data between threads
-- Common errors
+```table-of-contents
+```
+
 ![[09. Threads, mutexes and semaphores.pdf]]
 # Real time operating system
 **About**
@@ -32,7 +26,8 @@ Agenda
 - Usually no Memory Management Unit support (bare metal)
 - Using an RTOS is useful in larger projects
 
-# Mbed OS features
+# Mbed
+## Mbed OS features
 **About Mbed OS**
 + Mbed OS has two main profiles - bare metal and OS
 + The bare metal profiles is suitable for small programs on limited devices
@@ -47,7 +42,7 @@ d. Cellular
 - Security features:
 a. Encryption
 b. NFC/RFID
-# MBed OS Architecture
+## MBed OS Architecture
 ![[Pasted image 20250404104526.png]]
 Our code use Mbed OS APIs, 
 
@@ -158,7 +153,7 @@ int main()
     test_thread((void *)"Th 1");
 }
 ```
-## Example: Shared Struct
+### Example: Shared Struct
 **About**
 - We can use structs to share data between threads
 - This type of data must also be protected against simultaneous access
@@ -175,7 +170,7 @@ typedef struct
 } data_t;
 ```
 
-# Semaphores
+## Semaphores
 **About**
 - Semaphores are very similar to mutexes
 - You aqquire and realase a semaphore
@@ -210,7 +205,7 @@ int main(void)
 }
 ```
 
-# Common errors
+### Common errors
 Stack Overflow
 This error occurs when a function uses up all its stack space. You might see this when using complex libraries or allocating a lot of local variables. You can increase the stack size in mbed_app.json to compensate.
 
@@ -218,7 +213,7 @@ This error occurs when a function uses up all its stack space. You might see thi
 Heap Overflow
 This error occurs if any thread tries to allocate dynamic memory and that allocation fails. This means the you have used up all the memory on the microcontroller. This error usually occurs because of memory leaks, meaning memory that has been allocated but not freed.
 
-Resources
+# Resources
 - [Mbed OS threads](https://os.mbed.com/docs/mbed-os/v6.16/apis/thread.html)
 - [Mbed OS mutexes](https://os.mbed.com/docs/mbed-os/v6.16/apis/mutex.html)    
 - [Mbed OS semaphores](https://os.mbed.com/docs/mbed-os/v6.16/apis/semaphore.html)
