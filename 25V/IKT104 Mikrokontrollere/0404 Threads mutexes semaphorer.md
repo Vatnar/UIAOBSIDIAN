@@ -101,3 +101,18 @@ int main()
     }
 }
 ```
+## Thread Switching
+![[Pasted image 20250404113952.png|412x362]]
+Time slices
+- Mbed OS uses a timer internally to switch the active thread
+- The minimum time a thread can run is called a time slice
+- Each thread runs for this amount of time when it is active, at least
+Thread priority
+- The default priority is osPriorityNormal
+- You can assign a different priority at wish
+-  Finds the highest priority ready thread
+- Runs thread until enter state waiting / inactive  
+or the next thread switch
+
+## Mutex (mutual exclusion)
+![[image-15.png|476x264]]

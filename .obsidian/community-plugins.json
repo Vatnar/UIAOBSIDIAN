@@ -13,5 +13,6 @@
   "text-extractor",
   "obsidian-plantuml",
   "diagram-zoom-drag",
-  "editor-width-slider"
+  "editor-width-slider",
+  "image-converter"
 ]
