@@ -103,16 +103,58 @@ int main()
 ```
 ## Thread Switching
 ![[Pasted image 20250404113952.png|412x362]]
-Time slices
+**Time** **slices**
 - Mbed OS uses a timer internally to switch the active thread
 - The minimum time a thread can run is called a time slice
 - Each thread runs for this amount of time when it is active, at least
-Thread priority
-- The default priority is osPriorityNormal
+**Thread** **priority**
+- The default priority is *osPriorityNormal*
 - You can assign a different priority at wish
 -  Finds the highest priority ready thread
-- Runs thread until enter state waiting / inactive  
+- Runs thread until enter state *waiting* / inactive  
 or the next thread switch
 
 ## Mutex (mutual exclusion)
 ![[image-15.png|476x264]]
+**About mutexes**
+- Mutex can be used to protect access to shared data
+- Mutex ensures that only one thread access the data
+**Using** **mutexes**
+- Mutexes are available through the *Mutex* class
+- This class has two main functions:
+	- *Lock()*
+	- *unlock()*
+
+### Example: Mutex
+```cpp
+#include "mbed.h"
+  
+Mutex stdio_mutex;
+Thread t2;
+Thread t3;
+  
+void notify(const char *name, int state)
+{
+    stdio_mutex.lock(); // Use a mutex to lock access to printf()
+    printf("%s: %d\n\r", name, state);
+    stdio_mutex.unlock();
+}
+  
+void test_thread(void const *args)
+{
+    while (true) {
+        notify((const char *)args, 0);
+        ThisThread::sleep_for(1000ms);
+        notify((const char *)args, 1);
+        ThisThread::sleep_for(1000ms);
+    }
+}
+  
+int main()
+{
+    t2.start(callback(test_thread, (void *)"Th 2")); // callback is used to give the thread a parameter
+    t3.start(callback(test_thread, (void *)"Th 3"));
+  
+    test_thread((void *)"Th 1");
+}
+```
