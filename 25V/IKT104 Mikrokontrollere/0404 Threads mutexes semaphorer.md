@@ -53,5 +53,7 @@ Our code use Mbed OS APIs,
 
 # Thread
 - Piece of code that runs independent of other threads
-- Threads are used to organiaze larger programs into smaller pieces
-- They have their own stacks for local variables, 4KB
+- Threads are used to organize larger programs into smaller pieces
+- They have their own stacks for local variables, 4KB.
+- With for many threads on microC it can be a problem since they dont hav emuch memory
+- They share the same memory space.
