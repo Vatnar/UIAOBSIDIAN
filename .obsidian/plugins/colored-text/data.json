@@ -12,11 +12,11 @@
     "#7030a0"
   ],
   "colorArr": [
-    "#ff0000",
+    "#00ffd5",
     "rgb(0, 176, 80)",
     "#616161",
-    "#00b0f0",
-    "#c00000"
+    "#7030a0",
+    "#ffc000"
   ],
   "colorCellCount": "5",
   "hidePlugin": false

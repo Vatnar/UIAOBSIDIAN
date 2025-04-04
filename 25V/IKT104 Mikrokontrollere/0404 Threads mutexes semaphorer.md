@@ -18,8 +18,12 @@ Agenda
 		-  In Mbed process dont really exists, threads only.
 	- Mutexes / semaphores
 		- Synchronize data access, solve race conditions
-		- Semaphores for synchronisation, waiting, signaling
+		- Semaphores for synchronisation, waiting, signalling
 	- IPC: inter process / thread / task communication
+		- Send data between threads, 1 thread reads buttons, 1 thread executes what happens
 	- We'll go through these later in the next lecture.
 	-
-
+## Realtime vs traditional OS 
+- Lower latency overall (thread switching, interrupt handling etc.)
+- Lower OS overhead (no drivers, or lightweight drivers), drivers that exists are sensor drivers
+	- No preinstalled programs, made to solve problems when developing.
