@@ -27,3 +27,5 @@ Agenda
 - Lower latency overall (thread switching, interrupt handling etc.)
 - Lower OS overhead (no drivers, or lightweight drivers), drivers that exists are sensor drivers
 	- No preinstalled programs, made to solve problems when developing.
+- Predictability (important for embedded where timing matters)
+	- Block interrupts and so on
