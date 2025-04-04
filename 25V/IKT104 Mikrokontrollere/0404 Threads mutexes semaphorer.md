@@ -47,4 +47,6 @@ d. Cellular
 - Security features:
 a. Encryption
 b. NFC/RFID
-c. 
+# MBed OS Architecture
+![[Pasted image 20250404104526.png]]
+Our code use Mbed OS APIs, 
