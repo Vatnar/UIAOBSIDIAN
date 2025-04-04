@@ -73,4 +73,4 @@ Our code use Mbed OS APIs,
 - Threads are gnerally unaware that this happens
 - Mbed OS uses preemptive threads
 **Cooperative**
-- 
+- Threads must pause themselves to let other threads run
