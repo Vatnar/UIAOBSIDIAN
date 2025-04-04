@@ -30,3 +30,4 @@ Agenda
 - Predictability (important for embedded where timing matters)
 	- Block interrupts and so on
 - Usually no Memory Management Unit support (bare metal)
+- Using an RTOS is useful in larger projects
