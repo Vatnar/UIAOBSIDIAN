@@ -65,3 +65,35 @@ void thread1()
 // Somewhere in main
 thread1->flags_set(FLAG_BUTTON_1);
 ```
+
+# Mail
+- To send data between threads and or interrupts
+- The mail data can be any type, integer or struct u made.
+- Mail queue has a maximum size
+- Trying to allocate mail when mail queue is full can block or fail (choice)
+- Trying to receive from empty mail
+```cpp
+typedef struct {
+	float voltage; /* AD result of measured voltage */
+	float current; /* AD result of measured current */
+	uint32_t counter; /* A counter value */
+} mail_t;
+Mail<mail_t, 16> mail_box;
+void send_thread(void)
+{
+	uint32_t i = 0;
+	while (true) {
+		i++; // fake data update
+		mail_t *mail = mail_box.alloc();
+		mail->voltage = (i * 0.1) * 33;
+		mail->current = (i * 0.1) * 11;
+		mail->counter = i;
+		mail_box.put(mail);
+		ThisThread::sleep_for(1000ms);
+	}
+}
+// Somewhere else:
+mail_t *mail = mail_box.try_get_for(Kernel::wait_for_u32_forever);
+```
+
+
