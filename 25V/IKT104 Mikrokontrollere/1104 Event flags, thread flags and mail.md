@@ -44,7 +44,7 @@ wait and check for one or more flags
 each thread has 31 flags.
 
 ```cpp
-/ Each flag is one bit. Use bit 0 for the button 1 event and bit 1 for the button 2 event
+// Each flag is one bit. Use bit 0 for the button 1 event and bit 1 for the button 2 event
 #define FLAG_BUTTON_1 (1 << 0)
 #define FLAG_BUTTON_2 (1 << 1)
 // Thread that handles events from event_flags
