@@ -15,5 +15,24 @@ The thread does not know that the interrupt has happened.
 - A flag is one specific thing that has happened.
 - Example: 3 flags for 3 different buttons, 1 movment, 1 light, Eventflags would use 5 of 31 flags.
 ```cpp
-
+// Each flag is one bit. Use bit 0 for the button event
+#define EVENT_FLAG_BUTTON_PRESSED (1 << 0)
+// Each EventFlags supports 31 flags (1 bit per flag)
+EventFlags event_flags;
+static void button_interrupt_cb(void)
+{
+	// Set event flag EVENT_FLAG_BUTTON_PRESSED
+	event_flags.set(EVENT_FLAG_BUTTON_PRESSED);
+}
+// Thread that handles events from event_flags
+void main()
+{
+	// Setup interrupts etc. here
+	while (true) {
+		printf("Waiting for button flag event...\n");
+		// This thread will be blocked until the flag is set elsewhere
+		event_flags.wait_all(EVENT_FLAG_BUTTON_PRESSED);
+		printf("Got button flag!\n");
+	}
+}
 ```
