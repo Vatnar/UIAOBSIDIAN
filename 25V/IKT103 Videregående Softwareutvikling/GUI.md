@@ -41,3 +41,7 @@ auto app = Gtk::Application::create();
 return app->make_window_and_run<MyWindow>(argc, argv);
 }
 ```
+
+**Biblioiteker trengs i vcpkg**
+**pkgconf**
+**gtkmm**
