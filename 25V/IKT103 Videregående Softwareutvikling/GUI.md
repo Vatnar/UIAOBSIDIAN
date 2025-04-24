@@ -48,4 +48,4 @@ return app->make_window_and_run<MyWindow>(argc, argv);
 
 
 vcpkg install failed. See logs for more information: C:\Users\peter\Courses\ikt103g25v\examples\21_gtk\cmake-build-debug\vcpkg-manifest-install.log
-Libraries. 
+Libra465465465465498798798465132132111233465798798465123132456789987654651
