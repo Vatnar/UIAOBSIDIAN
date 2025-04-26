@@ -2,5 +2,6 @@
   "alwaysUpdateLinks": true,
   "showUnsupportedFiles": true,
   "promptDelete": false,
-  "newFileLocation": "current"
+  "newFileLocation": "current",
+  "readableLineLength": false
 }
