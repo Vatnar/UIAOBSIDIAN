@@ -42,3 +42,5 @@ Telephone numbers for `branch` and main actors for `video` are multi-valued.
 `status` of supplier, what is that?
 Information in video order regarding video information  needs to be kept since it should be "saved" in a video upon delivery.
 
+Branch HAS 1 Superviosr. how to enforce.
+
