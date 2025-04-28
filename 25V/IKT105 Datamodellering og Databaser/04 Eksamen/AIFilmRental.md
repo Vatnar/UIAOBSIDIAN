@@ -44,3 +44,6 @@ Information in video order regarding video information  needs to be kept since i
 
 Branch HAS 1 Superviosr. how to enforce.
 
+Purchase price is per video since same catalog can be bought from different suppliers
+
+
