@@ -4,12 +4,12 @@ staff: name, position, salary, staff number (unique)
 	manager 
 	supervisor
 	staff
-videos: catalog nuVidember (identifies content), video number (unique per), title, category, daily rental rate, purchase price, status (available or not), main actor names and characters, director
+videos: catalog nu mber (identifies content), video number (unique per), title, category, daily rental rate, purchase price, status (available or not), main actor names and characters, director
 	category: Action, adult children thriller horror, sci-fi
 	Likely that status is a generated value based on if it is currently being rented.
 customer: first name, last name, address, date registered, member number (unique), staff responsible (name)
 
-Rental( Video rented): rental number (unique), member full name, member number, video number, title, daily rental cost, date rented out, date returned
+VideoRental( Video rented): rental number (unique), member full name, member number, video number, title, daily rental cost, date rented out, date returned
 
 Video supplier: supplier number, name, address, telephone number, status.
 Video order: order number, supplier number, supplier address, video catalog number, video title, video purchase price, quantity, date order placed, date order received, address of brach.
@@ -39,3 +39,6 @@ One `Branch` can receive many `VideoOrders`.
 **Things to keep in mind**
 Videos should be updated when an order is delivered. 
 Telephone numbers for `branch` and main actors for `video` are multi-valued.
+`status` of supplier, what is that?
+Information in video order regarding video information  needs to be kept since it should be "saved" in a video upon delivery.
+
