@@ -1,14 +1,10 @@
 **Potential entitites**:
-Videos
-members
-branch
-rent
 branch: branch address( street, city, state, zip code), telephone numbers, branch number (unique)
 staff: name, position, salary, staff number (unique)
 	manager 
 	supervisor
 	staff
-videos: catalog number (identifies content), video number (unique per), title, category, daily rental rate, purchase price, status (available or not), main actor names and characters, director
+videos: catalog nuVidember (identifies content), video number (unique per), title, category, daily rental rate, purchase price, status (available or not), main actor names and characters, director
 	category: Action, adult children thriller horror, sci-fi
 	Likely that status is a generated value based on if it is currently being rented.
 customer: first name, last name, address, date registered, member number (unique), staff responsible (name)
