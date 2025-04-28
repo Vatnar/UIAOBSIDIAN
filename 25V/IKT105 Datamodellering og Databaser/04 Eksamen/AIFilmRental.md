@@ -12,3 +12,14 @@ videos: catalog number (identifies content), video number (unique per), title, c
 	category: Action, adult children thriller horror, sci-fi
 customer: first name, last name, address, date registered, member number (unique), staff responsible (name)
 
+Video rented( rental): rental number (unique), member full name, member number, video number, title, daily rental cost, date rented out, date returned
+
+
+
+
+
+
+
+relations:
+
+
