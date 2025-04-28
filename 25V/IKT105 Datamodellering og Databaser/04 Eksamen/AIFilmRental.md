@@ -40,4 +40,5 @@ One `Branch` can receive many `VideoOrders`.
 Videos should be updated when an order is delivered. 
 Telephone numbers for `branch` and main actors for `video` are multi-valued.
 `status` of supplier, what is that?
+Information in video order regarding video information  needs to be kept since it should be "saved" in a video upon delivery.
 
