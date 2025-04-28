@@ -32,3 +32,6 @@ Staff registers member (says name is noted, but might link staff.)
 Customer/Member rents up to 10 videos at one time. (handle at higher level, perhaps in program)
 Customer/member can register at more than one branch (same member number)
 
+**Things to keep in mind**
+Videos should be updated when an order is delivered. How to check this? Triggers? Software? Procedure?
+
