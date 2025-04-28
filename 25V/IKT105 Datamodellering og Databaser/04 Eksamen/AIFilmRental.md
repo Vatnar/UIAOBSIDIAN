@@ -25,5 +25,11 @@ Video order: order number, supplier number, supplier address, video catalog numb
 
 
 relations:
+Branch has max 3 telephone numbers
+Branch has 1 manager, and 1 or more supervisors and a number of staff.
+(Supervisor  supervises a group of staff.) Not specified to keep track of.
+Several copy of each video at branch.
+Staff registers member (says name is noted, but might link staff.)
+Member rents up to 10 videos at one time. (handle at higher level, perhaps in program)
 
 
