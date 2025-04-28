@@ -16,8 +16,9 @@ customer: first name, last name, address, date registered, member number (unique
 Rental( Video rented): rental number (unique), member full name, member number, video number, title, daily rental cost, date rented out, date returned
 
 Video supplier: supplier number, name, address, telephone number, status.
-video order: order number, supplier number, supplier address, video catalog number, video title, video purchase price
-
+Video order: order number, supplier number, supplier address, video catalog number, video title, video purchase price, quantity, date order placed, date order received, address of brach.
+	Why not branch number?
+	
 
 
 
