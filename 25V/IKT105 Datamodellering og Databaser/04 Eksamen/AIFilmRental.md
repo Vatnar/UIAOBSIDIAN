@@ -9,7 +9,7 @@ videos: catalog nuVidember (identifies content), video number (unique per), titl
 	Likely that status is a generated value based on if it is currently being rented.
 customer: first name, last name, address, date registered, member number (unique), staff responsible (name)
 
-Rental( Video rented): rental number (unique), member full name, member number, video number, title, daily rental cost, date rented out, date returned
+VideoRental( Video rented): rental number (unique), member full name, member number, video number, title, daily rental cost, date rented out, date returned
 
 Video supplier: supplier number, name, address, telephone number, status.
 Video order: order number, supplier number, supplier address, video catalog number, video title, video purchase price, quantity, date order placed, date order received, address of brach.
