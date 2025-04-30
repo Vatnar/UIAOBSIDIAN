@@ -1,5 +1,5 @@
 **Potential entitites**:
-branch: branch address( street, city, state, zip code), telephone numbers, branch number (unique)
+branch: branch address( street, city, state, zip code), telephone numbers, branch number (unique), branch name
 staff: name, position, salary, staff number (unique)
 	manager 
 	supervisor
