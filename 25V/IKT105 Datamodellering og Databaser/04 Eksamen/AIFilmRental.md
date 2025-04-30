@@ -48,4 +48,4 @@ Purchase price is per video since same catalog can be bought from different supp
 ![[image-4.png]]
 Check if staff number can be used or only staff name
 
-*WASHINGTON* IS A CITY OUTSIDE OF STATE, NEED TO BE HANDLED
+** NEED TO FIX ID OF BRANCH**
