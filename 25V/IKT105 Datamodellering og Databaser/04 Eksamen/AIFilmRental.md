@@ -48,4 +48,6 @@ Purchase price is per video since same catalog can be bought from different supp
 ![[image-4.png]]
 Check if staff number can be used or only staff name
 
-** NEED TO FIX ID OF BRANCH**
+
+
+FIX CONSTRAINTS
