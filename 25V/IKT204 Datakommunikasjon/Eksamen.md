@@ -21,3 +21,4 @@ TCP has 3 error handling mechanisms
 - Fast transmit pipelining
 
 Exam access to programmer calculator
+c
