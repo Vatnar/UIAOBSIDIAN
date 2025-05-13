@@ -16,3 +16,7 @@ TCP has 3 error handling mechanisms
 	- If an ack is lost, client can see that the server responds for the next one. 
 - Fast Transmit
 	- Resends old ack value, duplicate ACKS. If 3 duplicate ACKS resend data.
+	- If timers times out then its sent because of the timer instead.
+	- After fast transmit can be selective ack or cumulative ack on this one
+- Fast transmit pipelining
+	- 
