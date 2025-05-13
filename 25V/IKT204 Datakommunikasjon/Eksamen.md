@@ -13,4 +13,5 @@ TCP has 3 error handling mechanisms
 - Timer
 	- Timeout. 
 - Cumulative ACK
+	- If an ack is lost, client can see that the server responds for the next one. 
 - Fast Transmit
