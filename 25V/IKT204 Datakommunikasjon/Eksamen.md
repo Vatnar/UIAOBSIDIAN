@@ -15,4 +15,4 @@ TCP has 3 error handling mechanisms
 - Cumulative ACK
 	- If an ack is lost, client can see that the server responds for the next one. 
 - Fast Transmit
-	- 
+	- Resends old ack value, duplicate ACKS. If 3 duplicate ACKS resend data.
