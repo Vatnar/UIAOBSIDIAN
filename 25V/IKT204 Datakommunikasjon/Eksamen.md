@@ -19,4 +19,5 @@ TCP has 3 error handling mechanisms
 	- If timers times out then its sent because of the timer instead.
 	- After fast transmit can be selective ack or cumulative ack on this one
 - Fast transmit pipelining
-	- 
+
+Exam access to programmer calculator
