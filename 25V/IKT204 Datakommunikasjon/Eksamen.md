@@ -21,8 +21,9 @@ TCP has 3 error handling mechanisms
 - Fast transmit pipelining
 
 Exam access to programmer calculator
-c
 
+```table-of-contents
+```
 
 # 📘 IKT204 Exam Study Guide
 
@@ -278,4 +279,46 @@ c
 
 ---
 
-## ✅ Final Checklist
+
+
+## 📘 IKT204 Exam Study Guide
+
+### 🧠 Key Concepts to Remember
+
+#### 1. **Internet 5-Layer Model**
+
+- Know the **names of data units** at each layer.
+    
+- Understand the overall structure of the **protocol stack**.
+    
+
+📖 **Read:** Chapter 1.5, p. 62–63
+
+---
+
+#### 2. **Wireshark & HTTP over TCP**
+
+- Understand **Ethernet**, **TCP**, and **HTTP** headers.
+    
+- Be able to interpret **Wireshark captures** (window size, cookies, persistent connections).
+    
+
+📖 **Read:**
+
+- Chapter 2.2 (HTTP), p. 114–120
+    
+- Chapter 3.5.4 (TCP headers and segments), p. 263–267
+    
+- Wireshark lab references (found on textbook website)
+    
+
+---
+
+#### 3. **DNS (Domain Name System)**
+
+- What DNS does, **hostname-to-IP mapping**, caching, types of DNS records (A, MX, CNAME).
+    
+- DNS protocol and security threats (DNS poisoning, man-in-the-middle).
+    
+
+📖 **Read:** Chapter 2.4, p. 150–166
