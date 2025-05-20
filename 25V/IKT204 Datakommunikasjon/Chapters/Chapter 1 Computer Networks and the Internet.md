@@ -10,8 +10,8 @@ debugInConsole: false # Print debug info in Obsidian console
 Nuts and bolts:
 ![[some pieces of the Internet.jpg]]
 **Distributed applications**
-Multiple end systems that exchange data. Internet application run on end systen, not in the packet switches in the <span style="color:rgb(255, 0, 0)">network core</span>. 
-I.e you write your applications in programming languages that run on end systems. End systems attached to the internet provide a <span style="color:rgb(255, 0, 0)">socket interface</span> that specifes how a program on a end system asks the internet infrastructure to deliver data to a destination program on another end system. The socket interface is rules that the sneding program must follow to deliver the data. More in [[Chapter 2]]. Can be compared to a postal service, name is needed, address zip code, seal, stamp and so on. Official mailbox. Postal service interface. 
+Multiple end systems that exchange data. Internet application run on end system, not in the packet switches in the <span style="color:rgb(255, 0, 0)">network core</span>. 
+I.e. you write your applications in programming languages that run on end systems. End systems attached to the internet provide a <span style="color:rgb(255, 0, 0)">socket interface</span> that specifies how a program on a end system asks the internet infrastructure to deliver data to a destination program on another end system. The socket interface is rules that the sending program must follow to deliver the data. More in [[Chapter 2]]. Can be compared to a postal service, name is needed, address zip code, seal, stamp and so on. Official mailbox. Postal service interface. 
 
 # Protocols
 ## Human protocols
