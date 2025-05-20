@@ -11,6 +11,7 @@ kanban-plugin: board
 
 ## In Progress
 
+- [ ] Exam Practice #ikt104
 
 
 ## Delivered
@@ -25,6 +26,6 @@ kanban-plugin: board
 
 %% kanban:settings
 ```
-{"kanban-plugin":"board","list-collapse":[false,false,false,false],"tag-colors":[],"move-tags":true,"tag-action":"kanban"}
+{"kanban-plugin":"board","list-collapse":[false,false,false,false],"tag-colors":[{"tagKey":"#ikt104","color":"rgba(206, 48, 232, 1)","backgroundColor":""}],"move-tags":true,"tag-action":"kanban"}
 ```
 %%
