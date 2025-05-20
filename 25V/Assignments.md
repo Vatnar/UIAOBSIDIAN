@@ -6,7 +6,7 @@ kanban-plugin: board
 
 ## Upcoming
 
-- [ ] IKT104 @{05-22} ^d3iw15
+- [ ] IKT104 @{05-22} @@{09:00} ^d3iw15
 
 
 ## In Progress

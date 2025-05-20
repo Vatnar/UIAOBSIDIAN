@@ -106,5 +106,13 @@
       ],
       "key": "5"
     }
+  ],
+  "obsidian-kanban:toggle-kanban-view": [
+    {
+      "modifiers": [
+        "Mod"
+      ],
+      "key": "End"
+    }
   ]
 }
