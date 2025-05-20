@@ -38,7 +38,13 @@ Because rdt3.0 is a stop and wait protocol people would be unhappy about perform
 
 Consider RTT of 30ms.  with transmission rate R of 1 Gbps, packet size 1 KB, including header and data, the tiem to transmit woudl be 8 microseconds. 
 
-t=RTT/2+L/R = 15.008 msec, ack gets back to sender at 30msec. The sender sends at 30.008 msec. we define the *utilization* of the sender as the fraction of time the sender is actually busy which gives us. $U_{sender}=\frac{L}{R} * RTT + \frac{L}{R} = 0.00027$ or 0.027%. I.e using 267kbs on a Gbps link. 
+t=RTT/2+L/R = 15.008 msec, ack gets back to sender at 30msec. The sender sends at 30.008 msec. we define the *utilization* of the sender as the fraction of time the sender is actually busy which gives us. 
+$$
+U_{\text{sender}} = \frac{\frac{L}{R}}{RTT + \frac{L}{R}}
+$$
+
+or 0.027%. I.e using 267kbs on a Gbps link. 
+
 
 Rather pipeline
 - Sequence numbers must be increased, since each in transit packet  (not counting retransmissions) must have a unique sequence  number and there may be multiple unacknowlegded packets.
