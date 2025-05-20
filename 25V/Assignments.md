@@ -6,7 +6,7 @@ kanban-plugin: board
 
 ## Upcoming
 
-- [ ] IKT104 Exam @{05-22}
+- [ ] IKT104 @{05-22} ^d3iw15
 
 
 ## In Progress

@@ -1,6 +1,7 @@
 ```table-of-contents
 ```
 ## Principles of Network Application
+
 ### Network Application Architectures
 #### Client-server-architecture
 always-on host called server
