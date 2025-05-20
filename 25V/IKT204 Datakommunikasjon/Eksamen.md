@@ -322,3 +322,22 @@ Exam access to programmer calculator
     
 
 📖 **Read:** Chapter 2.4, p. 150–166
+
+
+## 📌 Important Port Numbers to Remember
+
+| Port | Protocol | Description                    |
+|-------|----------|-------------------------------|
+| 20    | TCP      | FTP (Data Transfer)            |
+| 21    | TCP      | FTP (Control)                  |
+| 22    | TCP      | SSH (Secure Shell)             |
+| 23    | TCP      | Telnet                        |
+| 25    | TCP      | SMTP (Simple Mail Transfer)    |
+| 53    | UDP/TCP  | DNS (Domain Name System)       |
+| 67    | UDP      | DHCP (Server to Client)        |
+| 68    | UDP      | DHCP (Client to Server)        |
+| 69    | UDP      | TFTP (Trivial FTP)             |
+| 80    | TCP      | HTTP                          |
+| 110   | TCP      | POP3 (Post Office Protocol v3)|
+| 143   | TCP      | IMAP (Internet Message Access)|
+| 161   | UDP      | SNMP (Simple Network Mgmt Prot)|
