@@ -26,7 +26,7 @@ and/or receipt of a message or other event*
 End systems or hosts. Can be devided into clients and servcers. Network physically connecting end system to the first router on a path from the end system to any other distant end system is called the <span style="color:rgb(255, 0, 0)">access network</span>. 
 ![[accessnetworks.jpg]]
 ## DSL Digital Subscriber Line and cable
-DSL from the same local telephone company that provides wired local phone access. WHen DSL is used, a customers telco is also its ISP. DSLAM (Digitial subscriber line access multiplexer.). The DSL modem takes digital data and transalte it to high frequency tones for transmission over telephone wirtes to the CO; the anolog signals from many such houses are translated back into digital format at the DSLAM.
+DSL from the same local telephone company that provides wired local phone access. WHen DSL is used, a customers telco is also its ISP. DSLAM (Digitial subscriber line access multiplexer.). The DSL modem takes digital data and transalte it to high frequency tones for transmission over telephone wirts to the CO; the anolog signals from many such houses are translated back into digital format at the DSLAM.
 
 Telephone line carries:
 - A high-speed downstream channel, in the 50 kHz to 1 MHz band
