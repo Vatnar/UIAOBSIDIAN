@@ -89,7 +89,7 @@ Every end system has a IP Address. Source end systems includes the destination's
 
 Analogous to a car driver not using maps but instead asking for directions and being pointed in the direction. 
 
-Router uses a packet's destination address to index a forwarding table and determine the apporpriate outbound link. But how does forwarding tables get set? Are they configured by hand in each and every router, or does it be automated? More about that in [[Chapter 5]]. Internet has a number of special *routing protocols* that are used to automatically set the forwarding tables.  They may for example determine the shortest path from each router to each destination and use the shortest path results to configre the forwarding tables in the routers.
+Router uses a packet's destination address to index a forwarding table and determine the appropriate outbound link. But how does forwarding tables get set? Are they configured by hand in each and every router, or does it be automated? More about that in [[Chapter 5]]. Internet has a number of special *routing protocols* that are used to automatically set the forwarding tables.  They may for example determine the shortest path from each router to each destination and use the shortest path results to configre the forwarding tables in the routers.
 
 ## Circuit Switching
 Resources needed along a path is reserved for the duration of the communication session between end systems. On the contrary in packet switching networks they are multiplexed.
