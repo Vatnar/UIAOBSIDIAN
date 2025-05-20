@@ -6,7 +6,7 @@ kanban-plugin: board
 
 ## Upcoming
 
-- [ ] IKT104 @{05-22} @@{09:00} ^d3iw15
+- [ ] #ikt104 IKT104 Exam @{05-22} @@{09:00}
 
 
 ## In Progress
@@ -25,6 +25,6 @@ kanban-plugin: board
 
 %% kanban:settings
 ```
-{"kanban-plugin":"board","list-collapse":[false,false,false,false]}
+{"kanban-plugin":"board","list-collapse":[false,false,false,false],"tag-colors":[],"move-tags":true,"tag-action":"kanban"}
 ```
 %%
