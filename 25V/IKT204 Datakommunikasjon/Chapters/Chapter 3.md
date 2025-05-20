@@ -51,6 +51,41 @@ Rather pipeline
 - Sender and receiver must buffer packets. Sender must at least buffer unacknowledged packets. Bufferinc correctly received packets may be needed by receiver. 
 - Sequence and buffering needs is decided by which pipelined error recovery approach: *Go-Back-N* and *Selective repeat*.
 
+##  Sender Utilization in Reliable Protocols
+
+###  Stop-and-Wait
+
+$$
+U_{\text{sender}} = \frac{\frac{L}{R}}{RTT + \frac{L}{R}}
+$$
+
+- Sends 1 packet, waits for ACK.
+- Low utilization if RTT is large.
+
+---
+
+###  Go-Back-N
+
+$$
+U_{\text{sender}} = \min\left(1, \frac{N \cdot \frac{L}{R}}{RTT + \frac{L}{R}}\right)
+$$
+
+- Sends up to \( N \) unacknowledged packets.
+- Must retransmit from first lost packet onward.
+- Higher utilization than Stop-and-Wait.
+
+---
+
+###  Selective Repeat
+
+$$
+U_{\text{sender}} = \min\left(1, \frac{N \cdot \frac{L}{R}}{RTT + \frac{L}{R}}\right)
+$$
+
+- Sends up to \( N \) unacknowledged packets.
+- Only retransmits lost packets.
+- Most efficient under packet loss.
+
 ### Go-Back-N
 The sender can send multiple packets before getting ACKS. but is constrained to  max N of unACKed packets in the pipeline. 
 Sliding window protocol
