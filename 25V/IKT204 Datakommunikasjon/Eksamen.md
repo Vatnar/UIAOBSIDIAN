@@ -380,4 +380,6 @@ Give your answers with brief explanations!
 ![[image-1.png]]
 Fra 6 - 16, gjennomsnittlig congestion window size er $(42+32)*5/2=37$ 
 37 sendinger per RTT
-$37 MSS \cdot 0.2s$ = 7.4 MSS
+$37 MSS / 0.2s$ = 160*8
+
+32+33+34+35+36+37+38+39+40+41+42
