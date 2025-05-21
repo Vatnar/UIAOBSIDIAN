@@ -379,7 +379,7 @@ Give your answers with brief explanations!
 
 ![[image-1.png]]
 Fra 6 - 16, gjennomsnittlig congestion window size er $(42+32)*11 / 2=$
-Integralet under * st
+Integralet under * størrelse i bit delt på tiden det tar  (RTT ganger iterasjoner)
 37 sendinger per RTT
 $37 MSS / 0.2s$ = 160*8
 
