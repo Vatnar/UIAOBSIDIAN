@@ -378,13 +378,17 @@ Give your answers with brief explanations!
 ![[image.png]]
 
 ![[image-1.png]]
-Fra 6 - 16, gjennomsnittlig congestion window size er $(42+32)*11 / 2=$
+$$
+\begin{align*}
+\text{Antall MSS sendt} \\
+\text{MSS sendt} &= \frac{(42 + 32) \times 11}{2} = 407 \text{ MSS} \\
+\text{Data sendt} &= 407 \times 1460 \text{ bytes} \times 8 \frac{\text{bits}}{\text{byte}} = 4\,753\,760 \text{ bits} \\
+\text{Tid} &= 11 \times 200 \text{ ms} = 2.2 \text{ s} \\
+\text{Hastighet} &= \frac{4\,753\,760 \text{ bits}}{1\,000\,000 \frac{\text{bits}}{\text{Mbit}} \times 2.2 \text{ s}} = 2.1608 \text{ Mbit/s}
+\end{align*}
+$$
 Integralet under * størrelse i bit delt på tiden det tar  (RTT ganger iterasjoner)
 37 sendinger per RTT
 $37 MSS / 0.2s$ = 160*8
 
-32+33+34+35+36+37+38+39+40+41+42 = 407
-$407 * 1460 * 8 = 4753760$ / 
- 4753760 / 2.2 = 2160800
-
-4321600 / 2 = 2160800
+32+33+34+35+36+37+38+39+40+41+42 = 4
