@@ -372,3 +372,12 @@ Give your answers with brief explanations!
 3.  The `sstresh` is set to `cwnd/2` and the `cwnd` is then set to `sstresh+3`
 4. After the retransmit the `sstresh` has been set to 15/2 = 7 (integer) and the `cwnd` would be 7+3 = 10. 2 more because adittional acks.
 5. When the retransmitted segment SEQ 4000 is acked, it means a new ACK has been sent which causes the state to go to congestion avoidance, and set the `cwnd = sstresh` and reset the dupackcount.
+
+
+
+![[image.png]]
+
+![[image-1.png]]
+Fra 6 - 16, gjennomsnittlig congestion window size er $(42+32)*5/2=37$ 
+37 sendinger per RTT
+$37 MSS \cdot 0.2s$ = 7.4 MSS
