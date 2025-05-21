@@ -392,3 +392,8 @@ Integralet under * størrelse i bit delt på tiden det tar  (RTT ganger iterasjo
 $37 MSS / 0.2s$ = 160*8
 
 32+33+34+35+36+37+38+39+40+41+42 = 4
+
+
+
+6 * 4000 / 0.3 = 80000
+100
