@@ -337,3 +337,38 @@ Read: Chapter 2.4, p. 150–166
 |110|TCP|POP3 (Post Office Protocol v3)|
 |143|TCP|IMAP (Internet Message Access)|
 |161|UDP|SNMP (Simple Network Mgmt Prot)|
+
+
+### TCP Reno Scenario Exercise
+
+Assume the following conditions:
+
+- MSS = 1000 bytes
+- Initial `cwnd` = 12 MSS
+- `ssthresh` = 16 MSS
+- Sender has sent segments with sequence numbers: 1000, 2000, 3000, ..., 12000 (12 segments)
+- Segment with SEQ = 4000 is lost
+- Receiver continues to receive out-of-order segments beyond 4000
+
+---
+
+**Questions:**
+
+1. What ACK number will the receiver send after receiving segments 1000, 2000, 3000, then missing 4000, but receiving 5000, 6000, 7000?
+
+2. When the sender receives **three duplicate ACKs**, what action does it take immediately?
+
+3. After fast retransmit, what happens to `ssthresh` and `cwnd`?
+
+4. During fast recovery, the sender receives two more duplicate ACKs. How many new segments can it send immediately after these?
+
+5. When the retransmitted segment (SEQ 4000) is finally acknowledged, what does the sender do with `cwnd` and which congestion control phase does it enter?
+
+---
+
+Give your answers with brief explanations!
+1. The receiver will send ACK number 4000, causing duplicate acks since it has not received SEQ number 4000.
+2. Since the `cwnd` starts at 12 MSS it increases to 15 after the first 3 packets. This means when the dup acks are received it is still in the slow start state.  When 3 DUP acks are detected it will go into the fast recovery state and immediatly retransmit the missing segment (fast retransmit). 
+3.  The `sstresh` is set to `cwnd/2` and the `cwnd` is then set to `sstresh+3`
+4. After the retransmit the `sstresh` has been set to 15/2 = 7 (integer) and the `cwnd` would be 7+3 = 10. Which means it can send (not sure) 7 more segments.
+5. When the retransmitted segment SEQ 4000 is acked, it means a new ACK has been sent which causes the state to go to congestion avoidance, and set the `cwnd = sstresh` and reset the dupackcount.
