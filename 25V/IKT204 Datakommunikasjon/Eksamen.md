@@ -370,5 +370,5 @@ Give your answers with brief explanations!
 1. The receiver will send ACK number 4000, causing duplicate acks since it has not received SEQ number 4000.
 2. Since the `cwnd` starts at 12 MSS it increases to 15 after the first 3 packets. This means when the dup acks are received it is still in the slow start state.  When 3 DUP acks are detected it will go into the fast recovery state and immediatly retransmit the missing segment (fast retransmit). 
 3.  The `sstresh` is set to `cwnd/2` and the `cwnd` is then set to `sstresh+3`
-4. After the retransmit the `sstresh` has been set to 15/2 = 7 (integer) and the `cwnd` would be 7+3 = 10. Which means it can send (not sure) 7 more segments.
+4. After the retransmit the `sstresh` has been set to 15/2 = 7 (integer) and the `cwnd` would be 7+3 = 10. 2 more because adittional acks.
 5. When the retransmitted segment SEQ 4000 is acked, it means a new ACK has been sent which causes the state to go to congestion avoidance, and set the `cwnd = sstresh` and reset the dupackcount.
