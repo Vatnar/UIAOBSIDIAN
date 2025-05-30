@@ -114,5 +114,14 @@
       ],
       "key": "End"
     }
+  ],
+  "colored-text:remove-color": [
+    {
+      "modifiers": [
+        "Alt",
+        "Mod"
+      ],
+      "key": "X"
+    }
   ]
 }
