@@ -3,7 +3,6 @@
   "execute-code",
   "obsidian-wordnet-plugin",
   "node-auto-resize",
-  "google-calendar",
   "obsidian-zotero-desktop-connector",
   "obsidian-file-color",
   "colored-text",
@@ -17,5 +16,8 @@
   "image-converter",
   "obsidian-kanban",
   "custom-note-width",
-  "iconic"
+  "iconic",
+  "pdf-plus",
+  "callout-manager",
+  "chronology"
 ]

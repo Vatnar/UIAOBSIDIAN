@@ -1,6 +1,7 @@
 {
   "cssTheme": "Catppuccin",
   "accentColor": "#da9a1b",
-  "theme": "moonstone",
-  "monospaceFontFamily": "UbuntuMono Nerd Font Mono"
+  "theme": "obsidian",
+  "monospaceFontFamily": "UbuntuMono Nerd Font Mono",
+  "showRibbon": true
 }
