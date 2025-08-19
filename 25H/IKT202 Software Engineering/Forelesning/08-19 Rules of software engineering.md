@@ -10,3 +10,7 @@ Understand business goals, domain problem, and make a system that is able to map
  In bigger projects with multiple people this method is important.
 
 [[Rules of Software Engineering]]
+
+[[The bermuda Triangle of modelling]]
+
+[[Software Life cycle Activities]]

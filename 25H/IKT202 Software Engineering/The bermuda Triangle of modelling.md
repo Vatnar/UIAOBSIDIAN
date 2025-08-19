@@ -1,0 +1,14 @@
+### The bermuda Triangle of modeling
+- System Models
+	- Object model
+	- Functional Model
+	- Dynamic Model
+- Issue Model
+	- Constraints
+	- Arguments
+	- Issues
+	- Proposals
+- Task models
+	- Org Chart
+	- PERT Chart
+	- Gantt Chart

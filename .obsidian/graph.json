@@ -8,31 +8,10 @@
   "collapse-color-groups": false,
   "colorGroups": [
     {
-      "query": "path:\"24H/IKT100 Nettverk, Sikkerhet og Personvern\"  ",
+      "query": "path:software",
       "color": {
         "a": 1,
-        "rgb": 13652704
-      }
-    },
-    {
-      "query": "path:\"24H/ING101 Teknologi Miljø og bærekraft\"  ",
-      "color": {
-        "a": 1,
-        "rgb": 11657298
-      }
-    },
-    {
-      "query": "path:\"24H/IKT102 Operativsystemer\"  ",
-      "color": {
-        "a": 1,
-        "rgb": 14095380
-      }
-    },
-    {
-      "query": "path:\"24H/IKT101 Grunnleggende Softwareutvikling\"  ",
-      "color": {
-        "a": 1,
-        "rgb": 64511
+        "rgb": 14701138
       }
     }
   ],
@@ -46,6 +25,6 @@
   "repelStrength": 20,
   "linkStrength": 1,
   "linkDistance": 218,
-  "scale": 0.10485725744081022,
-  "close": true
+  "scale": 0.1859717002109399,
+  "close": false
 }

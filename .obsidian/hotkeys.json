@@ -132,7 +132,8 @@
       "key": "R"
     }
   ],
-  "text-extractor:extract-to-new-note": [
+  "file-explorer:new-file-in-new-pane": [],
+  "note-composer:split-file": [
     {
       "modifiers": [
         "Mod",
@@ -140,6 +141,5 @@
       ],
       "key": "N"
     }
-  ],
-  "file-explorer:new-file-in-new-pane": []
+  ]
 }
