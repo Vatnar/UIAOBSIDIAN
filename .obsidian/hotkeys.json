@@ -131,5 +131,15 @@
       ],
       "key": "R"
     }
-  ]
+  ],
+  "text-extractor:extract-to-new-note": [
+    {
+      "modifiers": [
+        "Mod",
+        "Shift"
+      ],
+      "key": "N"
+    }
+  ],
+  "file-explorer:new-file-in-new-pane": []
 }

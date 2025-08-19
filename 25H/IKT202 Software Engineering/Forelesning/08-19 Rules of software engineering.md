@@ -5,7 +5,8 @@
 - More and more systems are software controlled.
 - Software Engineering entails theories, methods and tools for professional software development.
 
-### Laws of Software Engineering
-1.  Software engineer is willing to learn the problem domain
-	(problem cannot be solved without understanding it first)
-2. 
+#### Role of software engineering
+Understand business goals, domain problem, and make a system that is able to map that to software.
+ In bigger projects with multiple people this method is important.
+
+[[Rules of Software Engineering]]
