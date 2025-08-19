@@ -8,7 +8,7 @@
   "collapse-color-groups": false,
   "colorGroups": [
     {
-      "query": "path:software",
+      "query": "path:\"25H/IKT202 Software Engineering\"  ",
       "color": {
         "a": 1,
         "rgb": 14701138
@@ -17,14 +17,14 @@
   ],
   "collapse-display": false,
   "showArrow": true,
-  "textFadeMultiplier": -2.7,
-  "nodeSizeMultiplier": 3.22234927234927,
-  "lineSizeMultiplier": 2.57037422037422,
+  "textFadeMultiplier": -2.1,
+  "nodeSizeMultiplier": 2.44392903645833,
+  "lineSizeMultiplier": 2.52687174479167,
   "collapse-forces": false,
-  "centerStrength": 0.495841995841996,
-  "repelStrength": 20,
-  "linkStrength": 1,
-  "linkDistance": 218,
-  "scale": 0.1859717002109399,
+  "centerStrength": 0.139892578125,
+  "repelStrength": 12.3014322916667,
+  "linkStrength": 0.695556640625,
+  "linkDistance": 102,
+  "scale": 0.40027036677154504,
   "close": false
 }
