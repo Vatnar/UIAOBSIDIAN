@@ -17,3 +17,5 @@
 - This is completely opposite as with f.ex a handyworker fixing something at your house.
 	- This is because quality in Software is not well defined, while this is well defined in labour work of håndverkting
 
+##### Agile project Effort Estimation
+- Work backlog, estimate how  much time takes, but if you are knew, but don't know the estimate this doesn't work
