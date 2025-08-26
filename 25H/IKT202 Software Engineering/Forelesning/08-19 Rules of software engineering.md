@@ -14,3 +14,5 @@ Understand business goals, domain problem, and make a system that is able to map
 [[The bermuda Triangle of modelling]]
 
 [[Software Life cycle Activities]]
+
+[[26-08]]
