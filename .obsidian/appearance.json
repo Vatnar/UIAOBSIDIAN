@@ -2,6 +2,7 @@
   "cssTheme": "Catppuccin",
   "accentColor": "#da9a1b",
   "theme": "obsidian",
-  "monospaceFontFamily": "UbuntuMono Nerd Font Mono",
-  "showRibbon": true
+  "monospaceFontFamily": "Source Code Pro",
+  "showRibbon": true,
+  "textFontFamily": "Source Code Pro"
 }
