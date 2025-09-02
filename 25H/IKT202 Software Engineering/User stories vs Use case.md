@@ -1,0 +1,11 @@
+##### User stories vs Use case
+- Story is a brief explanation of what a user wants from product
+- More surface level, what a user wants to do. 
+- What a user should be able to perform early.
+- Use case stronger push towards the systems ability, to perform early.
+	- The system should have fields for firstname, middlename and lastname
+- Use cases contains more context, and provides a more detailed prescription of how the system should work
+	- List of all the steps the user need to take to reach their goal
+- The system should support `feature`
+- We will focus on feature requirements with use cases.
+- They are not mutual exclusive, a user story can be a starting point for use cases.
