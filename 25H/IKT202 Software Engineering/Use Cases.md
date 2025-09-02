@@ -13,4 +13,4 @@
 ##### From use case to use case scenario
 
 - What tasks must the system perform to complete this process or convert the inputs into outputs?
-- 
+- User acceptance test, Use case, test cases of use cases. 
