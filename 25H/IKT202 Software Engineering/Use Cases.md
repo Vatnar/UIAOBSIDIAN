@@ -18,6 +18,11 @@ Primary Actor
 Supporting Actor
 Trigger
 Pre condition
+
+Basic flow:
+Asusumptions
+	Assume, that there are books, tha a actor hasnt maxed out limit, 
+	Actir action, Librarian presses button "lend books", Response, System responds with a dialog with input fields.
 ##### From use case to use case scenario
 
 - What tasks must the system perform to complete this process or convert the inputs into outputs?
