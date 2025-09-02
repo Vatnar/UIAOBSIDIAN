@@ -8,44 +8,23 @@
   "collapse-color-groups": false,
   "colorGroups": [
     {
-      "query": "path:\"24H/IKT100 Nettverk, Sikkerhet og Personvern\"  ",
+      "query": "path:\"25H/IKT202 Software Engineering\"  ",
       "color": {
         "a": 1,
-        "rgb": 13652704
-      }
-    },
-    {
-      "query": "path:\"24H/ING101 Teknologi Miljø og bærekraft\"  ",
-      "color": {
-        "a": 1,
-        "rgb": 11657298
-      }
-    },
-    {
-      "query": "path:\"24H/IKT102 Operativsystemer\"  ",
-      "color": {
-        "a": 1,
-        "rgb": 14095380
-      }
-    },
-    {
-      "query": "path:\"24H/IKT101 Grunnleggende Softwareutvikling\"  ",
-      "color": {
-        "a": 1,
-        "rgb": 64511
+        "rgb": 14701138
       }
     }
   ],
   "collapse-display": false,
   "showArrow": true,
-  "textFadeMultiplier": -2.7,
-  "nodeSizeMultiplier": 3.22234927234927,
-  "lineSizeMultiplier": 2.57037422037422,
+  "textFadeMultiplier": -2.1,
+  "nodeSizeMultiplier": 2.44392903645833,
+  "lineSizeMultiplier": 2.52687174479167,
   "collapse-forces": false,
-  "centerStrength": 0.495841995841996,
-  "repelStrength": 20,
+  "centerStrength": 0.139892578125,
+  "repelStrength": 12.3014322916667,
   "linkStrength": 1,
-  "linkDistance": 218,
-  "scale": 0.10485725744081022,
-  "close": true
+  "linkDistance": 102,
+  "scale": 0.5896108748148894,
+  "close": false
 }

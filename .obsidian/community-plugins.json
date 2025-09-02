@@ -19,7 +19,8 @@
   "iconic",
   "pdf-plus",
   "callout-manager",
-  "chronology",
   "obsidian-markdown-formatting-assistant-plugin",
-  "tldraw"
+  "tldraw",
+  "vimium",
+  "vim-yank-highlight"
 ]

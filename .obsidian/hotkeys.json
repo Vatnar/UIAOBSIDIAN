@@ -131,5 +131,15 @@
       ],
       "key": "R"
     }
+  ],
+  "file-explorer:new-file-in-new-pane": [],
+  "note-composer:split-file": [
+    {
+      "modifiers": [
+        "Mod",
+        "Shift"
+      ],
+      "key": "N"
+    }
   ]
 }
