@@ -25,3 +25,5 @@ Does the subroutine usecase behavoiur change based on previous?
 
 
 
+
+## Bruke links til navn osv, slik at man har samme navn hele tiden
