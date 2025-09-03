@@ -21,9 +21,12 @@ Yes means extend
 Is this subroutine use case optional?
 is the base use case complete without this use case?
 Is the execution of subroutine use case conditional?
-Does the subroutine usecase behavoiur change based on previous?
+Does the subroutine usecase behaviour change based on previous?
 
 
 
 
 ## Bruke links til navn osv, slik at man har samme navn hele tiden
+
+
+[[Testing]]
