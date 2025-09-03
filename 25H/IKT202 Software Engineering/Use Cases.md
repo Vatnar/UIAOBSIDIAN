@@ -14,3 +14,14 @@
 
 - What tasks must the system perform to complete this process or convert the inputs into outputs?
 - User acceptance test, Use case, test cases of use cases. 
+
+
+No means include
+Yes means extend
+Is this subroutine use case optional?
+is the base use case complete without this use case?
+Is the execution of subroutine use case conditional?
+Does the subroutine usecase behavoiur change based on previous?
+
+
+
