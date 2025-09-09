@@ -54,11 +54,11 @@ What is the goal?
 ##### Elements of a use case diagram
 - Actor
 	- Represents a role played by external entities
-	- Humans, external systems, that interacts with the system or the sytem to be intarcts with, important -<span style="color:rgb(192, 0, 0)"> time is an actor</span>
+	- Humans, external systems, that interacts with the system or the system to be interacts with, important -<span style="color:rgb(192, 0, 0)"> time is an actor</span>
 - Use case:
 	- Describes what the system to be shall do
 	- Scenario: sequence of interactions between the actors and the system to be
 - Relationships:
-	- Relations between actors, usecases and other usecases
+	- Relations between actors, use cases and other use cases
 
 Hierarchy of actors, cause if not we get supporting actors.
