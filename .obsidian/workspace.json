@@ -88,9 +88,19 @@
               "icon": "lucide-file",
               "title": "New tab"
             }
+          },
+          {
+            "id": "36ca9ff4386d8e3e",
+            "type": "leaf",
+            "state": {
+              "type": "empty",
+              "state": {},
+              "icon": "lucide-file",
+              "title": "New tab"
+            }
           }
         ],
-        "currentTab": 2
+        "currentTab": 4
       }
     ],
     "direction": "vertical"
@@ -262,10 +272,10 @@
       "tldraw:Create new tldrawing": false
     }
   },
-  "active": "772a42f0c7c44c16",
+  "active": "36ca9ff4386d8e3e",
   "lastOpenFiles": [
-    "25H/IKT202 Software Engineering/Forelesning/10.09 Sequence diagram.md",
     "25H/IKT202 Software Engineering/Forelesning/23.09 objekter.md",
+    "25H/IKT202 Software Engineering/Forelesning/10.09 Sequence diagram.md",
     "25H/IKT201 Internettjenester/Forelesning/16.09 Prosjektplanlegging.md",
     "image-1.png",
     "24H/IKT102 Operativsystemer/Untitled.md",
