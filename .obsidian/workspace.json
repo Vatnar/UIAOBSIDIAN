@@ -37,7 +37,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "25H/IKT202 Software Engineering/Forelesning/10.09 Sequence diagram.md",
+                "file": "25H/IKT202 Software Engineering/Rules of Software Engineering.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": true,
@@ -52,7 +52,7 @@
                 }
               },
               "icon": "lucide-file",
-              "title": "10.09 Sequence diagram"
+              "title": "Rules of Software Engineering"
             }
           },
           {
@@ -90,7 +90,7 @@
             }
           }
         ],
-        "currentTab": 3
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -262,15 +262,15 @@
       "tldraw:Create new tldrawing": false
     }
   },
-  "active": "eecfcb3d48e71477",
+  "active": "f5861fb5a60c4d31",
   "lastOpenFiles": [
-    "25H/IKT202 Software Engineering/Forelesning/23.09 objekter.md",
+    "25H/IKT202 Software Engineering/Main UML specification.md",
+    "25H/IKT202 Software Engineering/Forelesning/09.09 UML.md",
     "25H/IKT202 Software Engineering/Forelesning/10.09 Sequence diagram.md",
+    "25H/IKT202 Software Engineering/Forelesning/23.09 objekter.md",
     "25H/IKT201 Internettjenester/Forelesning/16.09 Prosjektplanlegging.md",
     "image-1.png",
     "24H/IKT102 Operativsystemer/Untitled.md",
-    "25H/IKT202 Software Engineering/Main UML specification.md",
-    "25H/IKT202 Software Engineering/Forelesning/09.09 UML.md",
     "25H/IKT202 Software Engineering/The Use Case Approach.md",
     "image.png",
     "1_v-model.webp",
