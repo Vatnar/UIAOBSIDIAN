@@ -80,17 +80,7 @@
             }
           },
           {
-            "id": "005782c62166a517",
-            "type": "leaf",
-            "state": {
-              "type": "empty",
-              "state": {},
-              "icon": "lucide-file",
-              "title": "New tab"
-            }
-          },
-          {
-            "id": "36ca9ff4386d8e3e",
+            "id": "eecfcb3d48e71477",
             "type": "leaf",
             "state": {
               "type": "empty",
@@ -100,7 +90,7 @@
             }
           }
         ],
-        "currentTab": 4
+        "currentTab": 3
       }
     ],
     "direction": "vertical"
@@ -272,7 +262,7 @@
       "tldraw:Create new tldrawing": false
     }
   },
-  "active": "36ca9ff4386d8e3e",
+  "active": "eecfcb3d48e71477",
   "lastOpenFiles": [
     "25H/IKT202 Software Engineering/Forelesning/23.09 objekter.md",
     "25H/IKT202 Software Engineering/Forelesning/10.09 Sequence diagram.md",
