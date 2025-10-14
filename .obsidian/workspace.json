@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "25H/IKT202 Software Engineering/Forelesning/14.10.md",
+                "file": "25H/IKT202 Software Engineering/Forelesning/14.10 SOLID.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": true,
@@ -28,7 +28,7 @@
                 }
               },
               "icon": "lucide-file",
-              "title": "14.10"
+              "title": "14.10 SOLID"
             }
           },
           {
@@ -37,7 +37,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "25H/IKT202 Software Engineering/Forelesning/Single Responsibility Principle (SRP).md",
+                "file": "25H/IKT202 Software Engineering/SOLID/Single Responsibility Principle (SRP).md",
                 "mode": "source",
                 "source": false,
                 "backlinks": true,
@@ -230,15 +230,16 @@
   },
   "active": "c3a92da5464c7597",
   "lastOpenFiles": [
-    "25H/IKT202 Software Engineering/Forelesning/14.10.md",
-    "25H/IKT202 Software Engineering/Forelesning/Dependency Inversion Principle (DIP).md",
-    "25H/IKT202 Software Engineering/Forelesning/Interface segregation principle (ISP).md",
-    "25H/IKT202 Software Engineering/Forelesning/Liskov Subsitution principle (LSP).md",
+    "25H/IKT202 Software Engineering/Forelesning/14.10 SOLID.md",
+    "25H/IKT202 Software Engineering/SOLID",
+    "25H/IKT202 Software Engineering/SOLID/Single Responsibility Principle (SRP).md",
+    "25H/IKT202 Software Engineering/SOLID/Dependency Inversion Principle (DIP).md",
+    "25H/IKT202 Software Engineering/SOLID/Interface segregation principle (ISP).md",
+    "25H/IKT202 Software Engineering/SOLID/Liskov Subsitution principle (LSP).md",
     "25H/IKT202 Software Engineering/Main UML specification.md",
     "25H/IKT202 Software Engineering/Forelesning/02.09 Use Cases.md",
-    "25H/IKT202 Software Engineering/Forelesning/Open Closed Principle (OCP).md",
+    "25H/IKT202 Software Engineering/SOLID/Open Closed Principle (OCP).md",
     "25H/IKT202 Software Engineering/Forelesning/23.09 objekter.md",
-    "25H/IKT202 Software Engineering/Forelesning/Single Responsibility Principle (SRP).md",
     "25H/IKT202 Software Engineering/Forelesning/Untitled 1.md",
     "25H/IKT202 Software Engineering/Forelesning/09.09 UML.md",
     "25H/IKT202 Software Engineering/Forelesning/10.09 Sequence diagram.md",
@@ -258,7 +259,6 @@
     "24H/IKT102 Operativsystemer/Untitled.md",
     "image.png",
     "1_v-model.webp",
-    "25H/IKT202 Software Engineering/A Software Requirements Definition.md",
     "25H/IKT202 Software Engineering/Forelesning",
     "25H/IKT201 Internettjenester/Forelesning",
     "25H/IKT202 Software Engineering",
@@ -274,7 +274,6 @@
     "tldraw/assets/icons/vertical-align-end.svg",
     "tldraw/assets/icons/unlock.svg",
     "tldraw/assets/icons",
-    "tldraw/assets/fonts/Shantell_Sans-Informal_Bold_Italic.woff2",
-    "tldraw/assets/fonts/Shantell_Sans-Informal_Bold.woff2"
+    "tldraw/assets/fonts/Shantell_Sans-Informal_Bold_Italic.woff2"
   ]
 }
