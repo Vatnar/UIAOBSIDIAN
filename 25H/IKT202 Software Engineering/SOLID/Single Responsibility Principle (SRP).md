@@ -7,3 +7,8 @@ solution:
 - Grade Calculator Class: this class focuses solely on calculating the students grade. It takes a list of scores as input and provides the grade as output. This class follows SRP by separating the calculation responsibility
 - Report Generator, Responsible for generating reports. Takes Student Object as input.
 Student class is a pure data class, that we can put in a database (+ getters setters)
+
+1. Reduction in complexity of a code
+	A code is based on its functionality. A method holds logic for a single functionality or task.
+2. Increased readability, extensibility and maintenence
+	As each method has a single functionality
