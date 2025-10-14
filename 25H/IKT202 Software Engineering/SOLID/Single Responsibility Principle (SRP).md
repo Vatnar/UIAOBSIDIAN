@@ -10,5 +10,8 @@ Student class is a pure data class, that we can put in a database (+ getters set
 
 1. Reduction in complexity of a code
 	A code is based on its functionality. A method holds logic for a single functionality or task.
-2. Increased readability, extensibility and maintenence
+2. Increased readability, extensibility and maintenance
 	As each method has a single functionality
+3. Re-usability and reduced error
+	As code separates based functionality so if the same functionality uses somewhere else in an application then don't write it again.
+
