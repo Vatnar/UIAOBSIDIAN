@@ -375,9 +375,9 @@ Give your answers with brief explanations!
 
 
 
-![[image.png]]
+![[Images/image.png]]
 
-![[image-1.png]]
+![[Images/image-1.png]]
 $$
 \begin{align*}
 \text{Antall MSS sendt} \\

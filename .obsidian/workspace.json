@@ -13,30 +13,6 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "25H/IKT202 Software Engineering/Forelesning/14.10 SOLID.md",
-                "mode": "source",
-                "source": false,
-                "backlinks": true,
-                "backlinkOpts": {
-                  "collapseAll": false,
-                  "extraContext": false,
-                  "sortOrder": "alphabetical",
-                  "showSearch": false,
-                  "searchQuery": "",
-                  "backlinkCollapsed": false,
-                  "unlinkedCollapsed": true
-                }
-              },
-              "icon": "lucide-file",
-              "title": "14.10 SOLID"
-            }
-          },
-          {
-            "id": "c3a92da5464c7597",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
                 "file": "25H/IKT202 Software Engineering/SOLID/Single Responsibility Principle (SRP).md",
                 "mode": "source",
                 "source": false,
@@ -54,9 +30,23 @@
               "icon": "lucide-file",
               "title": "Single Responsibility Principle (SRP)"
             }
+          },
+          {
+            "id": "c3a92da5464c7597",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "25H/IKT202 Software Engineering/Forelesning/23.09 objekter.md",
+                "mode": "source",
+                "source": false,
+                "backlinks": false
+              },
+              "icon": "lucide-file",
+              "title": "23.09 objekter"
+            }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -228,18 +218,20 @@
       "tldraw:Create new tldrawing": false
     }
   },
-  "active": "c3a92da5464c7597",
+  "active": "5f5e7fbb75c67ca3",
   "lastOpenFiles": [
+    "Images",
     "25H/IKT202 Software Engineering/Forelesning/14.10 SOLID.md",
-    "25H/IKT202 Software Engineering/SOLID",
+    "25H/IKT202 Software Engineering/Forelesning/23.09 objekter.md",
+    "25H/IKT202 Software Engineering/Forelesning/27.08 Software Requirements.md",
     "25H/IKT202 Software Engineering/SOLID/Single Responsibility Principle (SRP).md",
+    "25H/IKT202 Software Engineering/SOLID",
     "25H/IKT202 Software Engineering/SOLID/Dependency Inversion Principle (DIP).md",
     "25H/IKT202 Software Engineering/SOLID/Interface segregation principle (ISP).md",
     "25H/IKT202 Software Engineering/SOLID/Liskov Subsitution principle (LSP).md",
     "25H/IKT202 Software Engineering/Main UML specification.md",
     "25H/IKT202 Software Engineering/Forelesning/02.09 Use Cases.md",
     "25H/IKT202 Software Engineering/SOLID/Open Closed Principle (OCP).md",
-    "25H/IKT202 Software Engineering/Forelesning/23.09 objekter.md",
     "25H/IKT202 Software Engineering/Forelesning/Untitled 1.md",
     "25H/IKT202 Software Engineering/Forelesning/09.09 UML.md",
     "25H/IKT202 Software Engineering/Forelesning/10.09 Sequence diagram.md",
@@ -255,10 +247,9 @@
     "25H/IKT202 Software Engineering/Software Life cycle Activities.md",
     "25H/IKT202 Software Engineering/Rules of Software Engineering.md",
     "25H/IKT201 Internettjenester/Forelesning/16.09 Prosjektplanlegging.md",
-    "image-1.png",
-    "24H/IKT102 Operativsystemer/Untitled.md",
-    "image.png",
-    "1_v-model.webp",
+    "Images/image-1.png",
+    "Images/image.png",
+    "Images/1_v-model.webp",
     "25H/IKT202 Software Engineering/Forelesning",
     "25H/IKT201 Internettjenester/Forelesning",
     "25H/IKT202 Software Engineering",
