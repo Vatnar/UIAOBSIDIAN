@@ -14,4 +14,5 @@ Student class is a pure data class, that we can put in a database (+ getters set
 	As each method has a single functionality
 3. Re-usability and reduced error
 	As code separates based functionality so if the same functionality uses somewhere else in an application then don't write it again.
-
+4. Better test-ability
+	In the maintenance, when a functionality changes then we don't need to test the entire model.
