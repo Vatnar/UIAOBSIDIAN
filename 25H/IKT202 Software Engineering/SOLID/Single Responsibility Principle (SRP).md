@@ -1,5 +1,5 @@
 Principle:
-- Only have on reason for change.
+- Only have one reason for change.
 Scenario:
 - We have a Student system that originally had a class responsible for storing student details, calculating grades, and managing student report generation.
 solution: 
