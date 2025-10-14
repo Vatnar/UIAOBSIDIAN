@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "25H/IKT202 Software Engineering/Main UML specification.md",
+                "file": "25H/IKT202 Software Engineering/Forelesning/14.10.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": true,
@@ -28,16 +28,16 @@
                 }
               },
               "icon": "lucide-file",
-              "title": "Main UML specification"
+              "title": "14.10"
             }
           },
           {
-            "id": "f5861fb5a60c4d31",
+            "id": "c3a92da5464c7597",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "25H/IKT202 Software Engineering/Forelesning/02.09 Use Cases.md",
+                "file": "25H/IKT202 Software Engineering/Forelesning/Single Responsibility Principle (SRP).md",
                 "mode": "source",
                 "source": false,
                 "backlinks": true,
@@ -52,41 +52,7 @@
                 }
               },
               "icon": "lucide-file",
-              "title": "02.09 Use Cases"
-            }
-          },
-          {
-            "id": "772a42f0c7c44c16",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "25H/IKT202 Software Engineering/Forelesning/23.09 objekter.md",
-                "mode": "source",
-                "source": false,
-                "backlinks": true,
-                "backlinkOpts": {
-                  "collapseAll": false,
-                  "extraContext": false,
-                  "sortOrder": "alphabetical",
-                  "showSearch": false,
-                  "searchQuery": "",
-                  "backlinkCollapsed": false,
-                  "unlinkedCollapsed": true
-                }
-              },
-              "icon": "lucide-file",
-              "title": "23.09 objekter"
-            }
-          },
-          {
-            "id": "eecfcb3d48e71477",
-            "type": "leaf",
-            "state": {
-              "type": "empty",
-              "state": {},
-              "icon": "lucide-file",
-              "title": "New tab"
+              "title": "Single Responsibility Principle (SRP)"
             }
           }
         ],
@@ -262,15 +228,24 @@
       "tldraw:Create new tldrawing": false
     }
   },
-  "active": "f5861fb5a60c4d31",
+  "active": "c3a92da5464c7597",
   "lastOpenFiles": [
+    "25H/IKT202 Software Engineering/Forelesning/14.10.md",
+    "25H/IKT202 Software Engineering/Forelesning/Dependency Inversion Principle (DIP).md",
+    "25H/IKT202 Software Engineering/Forelesning/Interface segregation principle (ISP).md",
+    "25H/IKT202 Software Engineering/Forelesning/Liskov Subsitution principle (LSP).md",
+    "25H/IKT202 Software Engineering/Main UML specification.md",
+    "25H/IKT202 Software Engineering/Forelesning/02.09 Use Cases.md",
+    "25H/IKT202 Software Engineering/Forelesning/Open Closed Principle (OCP).md",
+    "25H/IKT202 Software Engineering/Forelesning/23.09 objekter.md",
+    "25H/IKT202 Software Engineering/Forelesning/Single Responsibility Principle (SRP).md",
+    "25H/IKT202 Software Engineering/Forelesning/Untitled 1.md",
     "25H/IKT202 Software Engineering/Forelesning/09.09 UML.md",
     "25H/IKT202 Software Engineering/Forelesning/10.09 Sequence diagram.md",
     "25H/IKT202 Software Engineering/Forelesning/19.08 Rules of software engineering.md",
     "25H/IKT202 Software Engineering/Forelesning/26.08 Software Development methods.md",
     "25H/IKT202 Software Engineering/Agile Development.md",
     "25H/IKT202 Software Engineering/Waterfall method.md",
-    "25H/IKT202 Software Engineering/Forelesning/23.09 objekter.md",
     "25H/IKT202 Software Engineering/User stories vs Use case.md",
     "25H/IKT202 Software Engineering/Use Case Description.md",
     "25H/IKT202 Software Engineering/The Use Case Approach.md",
@@ -278,21 +253,12 @@
     "25H/IKT202 Software Engineering/Testing.md",
     "25H/IKT202 Software Engineering/Software Life cycle Activities.md",
     "25H/IKT202 Software Engineering/Rules of Software Engineering.md",
-    "25H/IKT202 Software Engineering/Main UML specification.md",
     "25H/IKT201 Internettjenester/Forelesning/16.09 Prosjektplanlegging.md",
     "image-1.png",
     "24H/IKT102 Operativsystemer/Untitled.md",
     "image.png",
     "1_v-model.webp",
     "25H/IKT202 Software Engineering/A Software Requirements Definition.md",
-    "25H/IKT202 Software Engineering/Use Cases.md",
-    "25H/IKT202 Software Engineering/Forelesning/27.08 Software Requirements.md",
-    "25H/IKT202 Software Engineering/Forelesning/02.09 Use Cases.md",
-    "25H/IKT202 Software Engineering/Forelesning/Tldraw 2025-09-02 10.14AM.md",
-    "README.md",
-    "25V/IKT204 Datakommunikasjon/From Slides/Untitled.md",
-    "25H/IKT201 Internettjenester/Forelesning/28.08.md",
-    "25H/IKT201 Internettjenester/Forelesning/08.19.md",
     "25H/IKT202 Software Engineering/Forelesning",
     "25H/IKT201 Internettjenester/Forelesning",
     "25H/IKT202 Software Engineering",

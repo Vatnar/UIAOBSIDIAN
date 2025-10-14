@@ -1,0 +1,1 @@
+Dependency inversion principle (DIP)

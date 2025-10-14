@@ -1,0 +1,1 @@
+Liskov substitution principle (LSP)
