@@ -100,7 +100,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "25H/IKT202 Software Engineering/Forelesning/22.10 avl trees.md",
+                "file": "25H/IKT202 Software Engineering/Forelesning/22.10 Graphs.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": true,
@@ -115,7 +115,7 @@
                 }
               },
               "icon": "lucide-file",
-              "title": "22.10 avl trees"
+              "title": "22.10 Graphs"
             }
           }
         ],
@@ -294,7 +294,7 @@
   "active": "75c6068b2c387767",
   "lastOpenFiles": [
     "25H/IKT202 Software Engineering/Forelesning/21.10 Organization of Software.md",
-    "25H/IKT202 Software Engineering/Forelesning/22.10 avl trees.md",
+    "25H/IKT202 Software Engineering/Forelesning/22.10 Graphs.md",
     "25H/IKT203 Algoritmer og Datastrukturer/Forelesning",
     "25H/IKT203 Algoritmer og Datastrukturer",
     "25H/IKT202 Software Engineering/SOLID/Single Responsibility Principle (SRP).md",
