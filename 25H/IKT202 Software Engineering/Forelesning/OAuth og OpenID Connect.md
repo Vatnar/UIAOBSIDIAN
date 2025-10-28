@@ -53,3 +53,6 @@ A bearer token is an opaque string, not intended to have any meaning to clients 
 
 Token introspection
 POST /token_info
+Token revocation
+POST /revoke
+mark as expired in the database. RS will know when it does introspection
