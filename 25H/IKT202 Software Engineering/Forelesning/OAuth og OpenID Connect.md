@@ -67,4 +67,8 @@ Not used with client credentials
 
 Consent
 Central part of the specification
-but 
+but, for instance google, not consenst screen for every app.
+
+What about authentication
+OIDC = OpenID Connect
+
