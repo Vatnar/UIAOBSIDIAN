@@ -59,4 +59,8 @@ mark as expired in the database. RS will know when it does introspection
 
 JWT (self contained tokens) short lifetime.
 
-Refresh t
+Refresh token
+POST /token
+User doesnt have to authorize again
+Refresh token is bound to the client
+Not used with client credentials
