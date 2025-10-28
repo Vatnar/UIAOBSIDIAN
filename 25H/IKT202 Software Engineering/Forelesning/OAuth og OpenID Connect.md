@@ -72,3 +72,34 @@ but, for instance google, not consenst screen for every app.
 What about authentication
 OIDC = OpenID Connect
 
+PKCE
+Proof key code exchange
+/authorize
+/callback
+man in the middle.
+
+generate code verifier, send with /authorize (code challenge) a hash of the code verifier
+saved at server side, (the challenge).
+when we do the token, we send the code verifier, so that the server can hash it to check to verify
+
+Client Assertions & public/private keys
+shared secrets? no thank you.
+use private_key_jwt instead, instead of sending shared secret, we send a client assertion. Just a jwt, save a public key for the user. 
+
+FAPI 2.0
+financial grade api, now FAPI
+
+high value use-cases
+3 parts.
+FAPI 2.0 Security Profile
+FAPI 2.0 Message Sigining
+FAPI 2.0 Attacker Model
+
+
+More OAuth snacks
+API to API calls - Token Exchange
+API we call might need data from another api. 
+AT cant be forwarded
+- might not contain the right claims
+- need to know the original source of the call
+
