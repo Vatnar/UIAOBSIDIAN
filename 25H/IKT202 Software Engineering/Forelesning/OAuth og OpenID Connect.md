@@ -43,7 +43,8 @@ Client credentials are used as an authoriation grant typically when the client i
 AS: Authoirzation server.
 RS: Resource server
 AT Access token
-RT refresh
-JWT Javascript
+RT refresh token
+JWT Json web tokens
 
 
+Opaque tokens - reference tokens.
