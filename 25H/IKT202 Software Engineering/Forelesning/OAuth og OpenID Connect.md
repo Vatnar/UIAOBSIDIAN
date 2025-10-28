@@ -48,3 +48,5 @@ JWT Json web tokens
 
 
 Opaque tokens - reference tokens.
+JWT (self contained tokens): 
+A bearer token is an opaque string, not intended to have any meaning to clients using it.
