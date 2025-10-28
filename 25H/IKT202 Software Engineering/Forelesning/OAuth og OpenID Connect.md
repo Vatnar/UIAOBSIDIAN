@@ -64,3 +64,7 @@ POST /token
 User doesnt have to authorize again
 Refresh token is bound to the client
 Not used with client credentials
+
+Consent
+Central part of the specification
+but 
