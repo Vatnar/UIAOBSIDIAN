@@ -33,3 +33,6 @@ refresh_token
 scope
 
 A bearer Token is an opaque string, not intended to have any meaning to clients using it
+
+5. API call
+GET /api/pjhotos, authorization bearer token.
