@@ -36,3 +36,6 @@ A bearer Token is an opaque string, not intended to have any meaning to clients 
 
 5. API call
 GET /api/pjhotos, authorization bearer token.
+
+Client Credentials
+Client credentials are used as an authoriation grant typically when the client is acting on its own behalf. Or is requesting access to protected resources between on an authorization previously arrranged.
