@@ -100,7 +100,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "25H/IKT202 Software Engineering/Forelesning/22.10 Graphs.md",
+                "file": "25H/IKT202 Software Engineering/Forelesning/21.10 Organization of Software.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": true,
@@ -115,7 +115,7 @@
                 }
               },
               "icon": "lucide-file",
-              "title": "22.10 Graphs"
+              "title": "21.10 Organization of Software"
             }
           }
         ],
@@ -293,8 +293,9 @@
   },
   "active": "75c6068b2c387767",
   "lastOpenFiles": [
+    "25H/IKT203 Algoritmer og Datastrukturer/Forelesning/22.10 Graphs.md",
+    "25H/IKT202 Software Engineering/Forelesning/27.08 Software Requirements.md",
     "25H/IKT202 Software Engineering/Forelesning/21.10 Organization of Software.md",
-    "25H/IKT202 Software Engineering/Forelesning/22.10 Graphs.md",
     "25H/IKT203 Algoritmer og Datastrukturer/Forelesning",
     "25H/IKT203 Algoritmer og Datastrukturer",
     "25H/IKT202 Software Engineering/SOLID/Single Responsibility Principle (SRP).md",
@@ -303,7 +304,6 @@
     "25H/IKT202 Software Engineering/SOLID/Open Closed Principle (OCP).md",
     "25H/IKT202 Software Engineering/Forelesning/23.09 objekter.md",
     "Images",
-    "25H/IKT202 Software Engineering/Forelesning/27.08 Software Requirements.md",
     "25H/IKT202 Software Engineering/SOLID",
     "25H/IKT202 Software Engineering/SOLID/Dependency Inversion Principle (DIP).md",
     "25H/IKT202 Software Engineering/SOLID/Interface segregation principle (ISP).md",
