@@ -117,9 +117,33 @@
               "icon": "lucide-file",
               "title": "21.10 Organization of Software"
             }
+          },
+          {
+            "id": "599d6fca9e6168bf",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "25H/IKT202 Software Engineering/Forelesning/OAuth og OpenID Connect.md",
+                "mode": "source",
+                "source": false,
+                "backlinks": true,
+                "backlinkOpts": {
+                  "collapseAll": false,
+                  "extraContext": false,
+                  "sortOrder": "alphabetical",
+                  "showSearch": false,
+                  "searchQuery": "",
+                  "backlinkCollapsed": false,
+                  "unlinkedCollapsed": true
+                }
+              },
+              "icon": "lucide-file",
+              "title": "OAuth og OpenID Connect"
+            }
           }
         ],
-        "currentTab": 4
+        "currentTab": 5
       }
     ],
     "direction": "vertical"
@@ -291,11 +315,12 @@
       "tldraw:Create new tldrawing": false
     }
   },
-  "active": "75c6068b2c387767",
+  "active": "599d6fca9e6168bf",
   "lastOpenFiles": [
+    "25H/IKT202 Software Engineering/Forelesning/21.10 Organization of Software.md",
+    "25H/IKT202 Software Engineering/Forelesning/OAuth og OpenID Connect.md",
     "25H/IKT203 Algoritmer og Datastrukturer/Forelesning/22.10 Graphs.md",
     "25H/IKT202 Software Engineering/Forelesning/27.08 Software Requirements.md",
-    "25H/IKT202 Software Engineering/Forelesning/21.10 Organization of Software.md",
     "25H/IKT203 Algoritmer og Datastrukturer/Forelesning",
     "25H/IKT203 Algoritmer og Datastrukturer",
     "25H/IKT202 Software Engineering/SOLID/Single Responsibility Principle (SRP).md",
@@ -323,7 +348,6 @@
     "25H/IKT202 Software Engineering/The bermuda Triangle of modelling.md",
     "25H/IKT202 Software Engineering/Testing.md",
     "25H/IKT202 Software Engineering/Software Life cycle Activities.md",
-    "25H/IKT202 Software Engineering/Rules of Software Engineering.md",
     "Images/image-1.png",
     "Images/image.png",
     "Images/1_v-model.webp",
