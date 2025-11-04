@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "25H/IKT202 Software Engineering/Forelesning/04.11 Architectural Rule of Thumbs.md",
+                "file": "25H/IKT202 Software Engineering/Forelesning/04.11.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": true,
@@ -28,7 +28,7 @@
                 }
               },
               "icon": "lucide-file",
-              "title": "04.11 Architectural Rule of Thumbs"
+              "title": "04.11"
             }
           }
         ]
@@ -205,13 +205,14 @@
   },
   "active": "1649516c92471813",
   "lastOpenFiles": [
+    "25H/IKT202 Software Engineering/Forelesning/Architectural Rules of Thumb.md",
     "25H/IKT202 Software Engineering/Forelesning/29.10.md",
     "25H/IKT203 Algoritmer og Datastrukturer/Forelesning/29.10 Introduction to Prim's algorithm.md",
     "25H/IKT203 Algoritmer og Datastrukturer/Forelesning/22.10 Graphs.md",
     "25H/IKT202 Software Engineering/Forelesning/21.10 Organization of Software.md",
     "25H/IKT202 Software Engineering/SOLID/Open Closed Principle (OCP).md",
     "25H/IKT202 Software Engineering/SOLID/Single Responsibility Principle (SRP).md",
-    "25H/IKT202 Software Engineering/Forelesning/04.11 Architectural Rule of Thumbs.md",
+    "25H/IKT202 Software Engineering/Forelesning/04.11.md",
     "25H/IKT202 Software Engineering/Forelesning/27.08 Software Requirements.md",
     "25H/IKT202 Software Engineering/Forelesning/OAuth og OpenID Connect.md",
     "25H/IKT203 Algoritmer og Datastrukturer/Forelesning",
@@ -235,7 +236,6 @@
     "25H/IKT202 Software Engineering/Waterfall method.md",
     "25H/IKT202 Software Engineering/User stories vs Use case.md",
     "25H/IKT202 Software Engineering/Use Case Description.md",
-    "25H/IKT202 Software Engineering/The Use Case Approach.md",
     "Images/image-1.png",
     "Images/image.png",
     "Images/1_v-model.webp",
