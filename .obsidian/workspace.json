@@ -180,9 +180,33 @@
               "icon": "lucide-file",
               "title": "29.10"
             }
+          },
+          {
+            "id": "1649516c92471813",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "25H/IKT202 Software Engineering/Forelesning/04.11.md",
+                "mode": "source",
+                "source": false,
+                "backlinks": true,
+                "backlinkOpts": {
+                  "collapseAll": false,
+                  "extraContext": false,
+                  "sortOrder": "alphabetical",
+                  "showSearch": false,
+                  "searchQuery": "",
+                  "backlinkCollapsed": false,
+                  "unlinkedCollapsed": true
+                }
+              },
+              "icon": "lucide-file",
+              "title": "04.11"
+            }
           }
         ],
-        "currentTab": 7
+        "currentTab": 8
       }
     ],
     "direction": "vertical"
@@ -354,10 +378,11 @@
       "tldraw:Create new tldrawing": false
     }
   },
-  "active": "9ac2f0d8f72dc238",
+  "active": "1649516c92471813",
   "lastOpenFiles": [
-    "25H/IKT202 Software Engineering/Forelesning/27.08 Software Requirements.md",
     "25H/IKT202 Software Engineering/Forelesning/29.10.md",
+    "25H/IKT202 Software Engineering/Forelesning/04.11.md",
+    "25H/IKT202 Software Engineering/Forelesning/27.08 Software Requirements.md",
     "25H/IKT203 Algoritmer og Datastrukturer/Forelesning/29.10 Introduction to Prim's algorithm.md",
     "25H/IKT203 Algoritmer og Datastrukturer/Forelesning/22.10 Graphs.md",
     "25H/IKT202 Software Engineering/Forelesning/OAuth og OpenID Connect.md",
@@ -386,7 +411,6 @@
     "25H/IKT202 Software Engineering/User stories vs Use case.md",
     "25H/IKT202 Software Engineering/Use Case Description.md",
     "25H/IKT202 Software Engineering/The Use Case Approach.md",
-    "25H/IKT202 Software Engineering/The bermuda Triangle of modelling.md",
     "Images/image-1.png",
     "Images/image.png",
     "Images/1_v-model.webp",
