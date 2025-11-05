@@ -78,6 +78,16 @@
               "icon": "lucide-file",
               "title": "05.11"
             }
+          },
+          {
+            "id": "bdbf33e5e7d23523",
+            "type": "leaf",
+            "state": {
+              "type": "graph",
+              "state": {},
+              "icon": "lucide-git-fork",
+              "title": "Graph view"
+            }
           }
         ],
         "currentTab": 2
@@ -221,14 +231,23 @@
               "icon": "lucide-list",
               "title": "Outline of README"
             }
+          },
+          {
+            "id": "58b8bdadcbe2f673",
+            "type": "leaf",
+            "state": {
+              "type": "git-view",
+              "state": {},
+              "icon": "git-pull-request",
+              "title": "Source Control"
+            }
           }
         ],
-        "currentTab": 4
+        "currentTab": 5
       }
     ],
     "direction": "horizontal",
-    "width": 200,
-    "collapsed": true
+    "width": 200
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -254,8 +273,8 @@
   },
   "active": "cd2c48bd25245d5b",
   "lastOpenFiles": [
-    "25H/IKT202 Software Engineering/Forelesning/29.10.md",
     "25H/IKT202 Software Engineering/Forelesning/05.11.md",
+    "25H/IKT202 Software Engineering/Forelesning/29.10.md",
     "25H/IKT202 Software Engineering/Forelesning/27.08 Software Requirements.md",
     "25H/IKT202 Software Engineering/Forelesning/26.08 Software Development methods.md",
     "25H/IKT202 Software Engineering/Forelesning/23.09 objekter.md",
