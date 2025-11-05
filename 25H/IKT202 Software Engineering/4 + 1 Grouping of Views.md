@@ -1,8 +1,3 @@
----
-noteID: 8c64d64a-3717-4cea-bff0-348c767bdf66
----
-[[Architectural Rules of Thumb]]
-
 # 4 + 1 Grouping of Views
 1 Logical Views focus on support for user functionality
 	- Use case, reqs
@@ -20,3 +15,5 @@ noteID: 8c64d64a-3717-4cea-bff0-348c767bdf66
 A Logical View of a system
 - System has two user interfaces, for smartphone and browser
 - Presentation Layer, Application Logic, External Services. Layered view
+- Layered approach becomes tiered system if it can run on different processes or servers for instance.
+- Most mobile apps are layered, web apps are tiered. 

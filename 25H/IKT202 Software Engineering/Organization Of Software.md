@@ -1,0 +1,12 @@
+Software is not long list of programs statements but it has structure.
+The above is a taxonomy of structural parts, but not representation of relationships between parts and does not specify the function of each part.
+
+Taxonomy of system parts. 
+
+Product lines:
+Office suites.
+Car models.
+
+Different subsystems. 
+
+[[Quality Attributes]]

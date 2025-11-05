@@ -1,0 +1,56 @@
+# IEEE definitions
+- Architecture is the fundamental organisation of software.
+
+Architecture is at different levels.
+Stakeholder reqs, system req, system arch, software req, software arch, software detailed design, software units.
+
+
+Acceptance test, first test we write, last we run.
+
+- Every system has a software architecture.
+- ~~Every system has a known software architecture~~
+
+Example Architectural Decisions
+- Decision on system decomposition
+- Decision on mapping software-to-hardware
+- Decision on development platform or operating system
+- Decision on how to fit the subsystems together
+
+MVC architecture and Layered architecture.
+
+Concerns
+- System decomposition, divide and conquer.
+	- How do we break up into pieces
+		- What functionality or behaviour to include
+	- Do we have all the necessary pieces
+	- do the pieces fit together
+	- how the pieces interact with each other and with the runtime environment
+- Cross-cutting concerns
+	- Broad scoped qualities or properties of the system
+	- Trade-offs among the qualities
+Software architecture patterns provides a set of well known solutions proven to work for similar problems.
+Conceptual integrity
+- "The quality of the system where all the concepts and relationship with each other are applied in a consistent way throughout the system"
+- "There is seldom so much perfection in works composed of many separate parts, upon which different heads had been employed, as in those completed by a single master" - Descartes
+
+A camel is a horse designed by a committee.
+
+What makes architecture good
++ There is no such thing as an inherently good or bad architecture
++ Architectures are either more or less fit for a purpose.
+Consistency over Availability.
++ For instance one big unit, has small time to market, which might make it superior.
++ 
+
+Rules of thumb
++ The architecture should be the product of a single architect or a small group of architects with an identified technical leader.
+	+ The approach gives the architecture its conceptual integrity and technical consistency.
+	+ This recommendation holds for agile and open source projects as well as traditional ones
+	+ There should be a strong connection between the architects and the development team.
+- The architect or (architecture team) should base the architecture on a prioritised list of well specified quality attribute requirements
+	- Time to market could be one
+- The architecture should be documented using views. The views should address the concerns of the most important stakeholders in support of the project timeline.
+- The architecture should be evaluated for its ability to deliver the systems important quality attributes
+	- This should occur early in the life cycle and repeated as appropriate
+- The architecture should lend itself to incremental implementation
+	- Create a skeletal 
