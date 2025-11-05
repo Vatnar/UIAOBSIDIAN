@@ -1,0 +1,35 @@
+# Component and Connector Views
+- Usage: show how the system works and its behaviour in runtime. 
+	- Particularly used for performance and availability quality attributes.
+- Process view
+	- Actual threads/processes of the system
+- Concurrency View
+	- Logical threads
+- Shared Data View
+	- How data is stored and accessed
+- Client/server view
+	- Multiple components talk to a common component for the same action
+C&C Component and Connector
+
+**Module View**
+- Usage: Document a systems principals units of implementations
+- Elements
+	- Modules, which are implementation units of software that provide a coherent set of responsibilities
+	- A class, collection of classes, layer, .dll, .jar (not really since the class is allocated to that dll)
+		It should have said package.
+- Relations:
+	- Is part of, which defines a part/whole relationship between the sub-module - the part - and the aggregate module -- the whole.
+	- Depends on, etc
+
+Sub package, circle with arrow.
+
+Module structures
+- Decompose - module into sub modules. Pieces related to the whole
+- Uses: -one module expects another to be present.
+- Layer -decomposition in which there is an ordering.
+- class - specialisation relationship.
+
+Module (Static) vs component (runtime) view.
+Decomposition: Client server, layered.
+Client server view.
+We need both to see we can have 2 tiers.

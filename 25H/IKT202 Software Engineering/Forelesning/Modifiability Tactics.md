@@ -1,0 +1,31 @@
+### Modifiability Tactics
+- Modifiability tactics
+- Reduce Size of a module
+	- Split Module
+		- If the module being modified includes a great deal of capability, the modifications costs will likely be high. Refining the module into several smaller modules should reduce the average cost of future changes.
+		- May also increase complexity, but usually short term.
+- Increase Cohesion
+	- Increase Semantic Coherence
+	- Cohesion is a measure of the relationship among the responsibilities of a specific modules
+	- Increase semantic coherence, if the responsibilities a and b in a module do not server the same purpose, they should be placed in different modules. New module or moving responsibility to an existing modules. Maintain semantic coherence.
+	- Abstract common services
+- Reduce Coupling
+	- Encapsulate
+		- Measure of the strength of association established by a connection from one module to another. Coupling is reduced when the relationships among elemnts not in the same modules are minimized. Encapuslate, introduceses an explicit interface to a module. Includes an API and responses. 
+	- Use an intermediary
+		- Given a dependency between responsibility a and responsibility B, for instance carrying out a first requires carrying out b, the dependency can be broken using an intermediary
+		- Introduce a queue in pub-sub (shared data rep)
+			- publish subscribe. 
+			- DLS: dynamic lookup service, e.g. DNS. Remove coupling between clients
+	- Abstract common services.
+		- Encapsulate by interface.
+	- Use a wrapper
+		- Wrapper vs adaptor, not a big difference, but often wrapper is done by a class wrapped another class. 
+	- Restrict dependencies
+		- Restricts the modules which a given module interacts with or depends on
+	- Refactor
+- Defer Binding
+	- **In general, the later in the life cycle we can bind values, the better.**
+	- **If we design artifacts with built-in flexibility, then exercising that flexibility is usually cheaper than hand-coding a specific change.**
+	- **However, putting the mechanisms in place to facilitate that late binding tends to be more expensive.** Try to wait binding as long as possible.
+	- Configuration time, startup time, runtime binding. 
