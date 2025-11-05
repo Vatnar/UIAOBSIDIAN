@@ -90,7 +90,7 @@
             }
           }
         ],
-        "currentTab": 2
+        "currentTab": 3
       }
     ],
     "direction": "vertical"
@@ -247,7 +247,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 200
+    "width": 200,
+    "collapsed": true
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -271,12 +272,12 @@
       "tldraw:Create new tldrawing": false
     }
   },
-  "active": "cd2c48bd25245d5b",
+  "active": "bdbf33e5e7d23523",
   "lastOpenFiles": [
+    "25H/IKT202 Software Engineering/Forelesning/05.11.md",
     "25H/IKT202 Software Engineering/Forelesning/Component and Connector Views.md",
     "25H/IKT202 Software Engineering/Forelesning/Allocation View.md",
     "25H/IKT202 Software Engineering/Forelesning/Modifiability Tactics.md",
-    "25H/IKT202 Software Engineering/Forelesning/05.11.md",
     "25H/IKT202 Software Engineering/Forelesning/29.10.md",
     "25H/IKT202 Software Engineering/Forelesning/27.08 Software Requirements.md",
     "25H/IKT202 Software Engineering/Forelesning/26.08 Software Development methods.md",
