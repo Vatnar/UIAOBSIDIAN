@@ -61,7 +61,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "25H/IKT202 Software Engineering/Forelesning/05.11.md",
+                "file": "25H/IKT202 Software Engineering/Forelesning/Modifiability Tactics.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": true,
@@ -76,7 +76,7 @@
                 }
               },
               "icon": "lucide-file",
-              "title": "05.11"
+              "title": "Modifiability Tactics"
             }
           },
           {
@@ -90,7 +90,7 @@
             }
           }
         ],
-        "currentTab": 3
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -272,7 +272,7 @@
       "tldraw:Create new tldrawing": false
     }
   },
-  "active": "bdbf33e5e7d23523",
+  "active": "cd2c48bd25245d5b",
   "lastOpenFiles": [
     "25H/IKT202 Software Engineering/Forelesning/05.11.md",
     "25H/IKT202 Software Engineering/Forelesning/Component and Connector Views.md",
