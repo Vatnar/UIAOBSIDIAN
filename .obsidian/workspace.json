@@ -80,6 +80,30 @@
             }
           },
           {
+            "id": "765e350319d44d5a",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "25H/IKT202 Software Engineering/Forelesning/11.11 KONGSBERG.md",
+                "mode": "source",
+                "source": false,
+                "backlinks": true,
+                "backlinkOpts": {
+                  "collapseAll": false,
+                  "extraContext": false,
+                  "sortOrder": "alphabetical",
+                  "showSearch": false,
+                  "searchQuery": "",
+                  "backlinkCollapsed": false,
+                  "unlinkedCollapsed": true
+                }
+              },
+              "icon": "lucide-file",
+              "title": "11.11 KONGSBERG"
+            }
+          },
+          {
             "id": "bdbf33e5e7d23523",
             "type": "leaf",
             "state": {
@@ -90,7 +114,7 @@
             }
           }
         ],
-        "currentTab": 2
+        "currentTab": 3
       }
     ],
     "direction": "vertical"
@@ -272,12 +296,13 @@
       "tldraw:Create new tldrawing": false
     }
   },
-  "active": "cd2c48bd25245d5b",
+  "active": "765e350319d44d5a",
   "lastOpenFiles": [
+    "25H/IKT202 Software Engineering/Forelesning/Modifiability Tactics.md",
+    "25H/IKT202 Software Engineering/Forelesning/11.11 KONGSBERG.md",
     "25H/IKT202 Software Engineering/Forelesning/05.11.md",
     "25H/IKT202 Software Engineering/Forelesning/Component and Connector Views.md",
     "25H/IKT202 Software Engineering/Forelesning/Allocation View.md",
-    "25H/IKT202 Software Engineering/Forelesning/Modifiability Tactics.md",
     "25H/IKT202 Software Engineering/Forelesning/29.10.md",
     "25H/IKT202 Software Engineering/Forelesning/27.08 Software Requirements.md",
     "25H/IKT202 Software Engineering/Forelesning/26.08 Software Development methods.md",
@@ -299,7 +324,6 @@
     "25H/IKT202 Software Engineering/Forelesning/02.09 Use Cases.md",
     "25H/IKT202 Software Engineering/4 + 1 Grouping of Views.md",
     "25H/IKT202 Software Engineering/Architectural Rules of Thumb.md",
-    "25H/IKT203 Algoritmer og Datastrukturer/Forelesning/29.10 Introduction to Prim's algorithm.md",
     "25H/IKT203 Algoritmer og Datastrukturer/Forelesning",
     "25H/IKT203 Algoritmer og Datastrukturer",
     "25H/IKT202 Software Engineering/Forelesning/21.10 Organization of Software",
