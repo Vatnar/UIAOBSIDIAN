@@ -85,7 +85,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "25H/IKT202 Software Engineering/Forelesning/11.11 KONGSBERG.md",
+                "file": "25H/IKT202 Software Engineering/Forelesning/29.10.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": true,
@@ -100,7 +100,31 @@
                 }
               },
               "icon": "lucide-file",
-              "title": "11.11 KONGSBERG"
+              "title": "29.10"
+            }
+          },
+          {
+            "id": "d54a4cc639bf0267",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "25H/IKT202 Software Engineering/Forelesning/12.11.md",
+                "mode": "source",
+                "source": false,
+                "backlinks": true,
+                "backlinkOpts": {
+                  "collapseAll": false,
+                  "extraContext": false,
+                  "sortOrder": "alphabetical",
+                  "showSearch": false,
+                  "searchQuery": "",
+                  "backlinkCollapsed": false,
+                  "unlinkedCollapsed": true
+                }
+              },
+              "icon": "lucide-file",
+              "title": "12.11"
             }
           },
           {
@@ -114,7 +138,7 @@
             }
           }
         ],
-        "currentTab": 3
+        "currentTab": 4
       }
     ],
     "direction": "vertical"
@@ -146,7 +170,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "",
+                "query": "rules of system engineering",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -296,15 +320,17 @@
       "tldraw:Create new tldrawing": false
     }
   },
-  "active": "765e350319d44d5a",
+  "active": "d54a4cc639bf0267",
   "lastOpenFiles": [
-    "25H/IKT202 Software Engineering/Forelesning/Modifiability Tactics.md",
+    "25H/IKT202 Software Engineering/Forelesning/29.10.md",
+    "25H/IKT202 Software Engineering/Forelesning/12.11.md",
     "25H/IKT202 Software Engineering/Forelesning/11.11 KONGSBERG.md",
+    "25H/IKT202 Software Engineering/Forelesning/27.08 Software Requirements.md",
+    "25H/IKT202 Software Engineering/Forelesning/Allocation View.md",
+    "25H/IKT202 Software Engineering/Rules of Software Engineering.md",
+    "25H/IKT202 Software Engineering/Forelesning/Modifiability Tactics.md",
     "25H/IKT202 Software Engineering/Forelesning/05.11.md",
     "25H/IKT202 Software Engineering/Forelesning/Component and Connector Views.md",
-    "25H/IKT202 Software Engineering/Forelesning/Allocation View.md",
-    "25H/IKT202 Software Engineering/Forelesning/29.10.md",
-    "25H/IKT202 Software Engineering/Forelesning/27.08 Software Requirements.md",
     "25H/IKT202 Software Engineering/Forelesning/26.08 Software Development methods.md",
     "25H/IKT202 Software Engineering/Forelesning/23.09 objekter.md",
     "25H/IKT202 Software Engineering/IEEE definitions.md",
@@ -322,8 +348,6 @@
     "25H/IKT202 Software Engineering/Sequence Diagram.md",
     "25H/IKT202 Software Engineering/Forelesning/09.09 UML.md",
     "25H/IKT202 Software Engineering/Forelesning/02.09 Use Cases.md",
-    "25H/IKT202 Software Engineering/4 + 1 Grouping of Views.md",
-    "25H/IKT202 Software Engineering/Architectural Rules of Thumb.md",
     "25H/IKT203 Algoritmer og Datastrukturer/Forelesning",
     "25H/IKT203 Algoritmer og Datastrukturer",
     "25H/IKT202 Software Engineering/Forelesning/21.10 Organization of Software",
