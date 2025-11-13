@@ -128,6 +128,18 @@
             }
           },
           {
+            "id": "9ef43aa17b7aed42",
+            "type": "leaf",
+            "state": {
+              "type": "release-notes",
+              "state": {
+                "currentVersion": "1.10.3"
+              },
+              "icon": "lucide-book-up",
+              "title": "Release Notes 1.10.3"
+            }
+          },
+          {
             "id": "bdbf33e5e7d23523",
             "type": "leaf",
             "state": {
@@ -138,7 +150,7 @@
             }
           }
         ],
-        "currentTab": 4
+        "currentTab": 5
       }
     ],
     "direction": "vertical"
@@ -320,7 +332,7 @@
       "tldraw:Create new tldrawing": false
     }
   },
-  "active": "d54a4cc639bf0267",
+  "active": "9ef43aa17b7aed42",
   "lastOpenFiles": [
     "25H/IKT202 Software Engineering/Forelesning/29.10.md",
     "25H/IKT202 Software Engineering/Forelesning/12.11.md",
