@@ -1,2 +1,7 @@
 SDLC - Software Development life cycle
 ALM - Application Lifecycle Management.
+ALM fra ide til avvikling
+SDLC inngår i ALM
+
+First law, Software Engineers must be willing to learn problem domain
+Second law, software be written for poeple first. 
