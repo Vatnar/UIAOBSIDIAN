@@ -5,3 +5,9 @@ SDLC inngår i ALM
 
 First law, Software Engineers must be willing to learn problem domain
 Second law, software be written for poeple first. 
+
+Bermuda triangle
+System models
+	
+Issue model
+Task model
