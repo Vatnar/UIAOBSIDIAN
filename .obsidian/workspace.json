@@ -131,12 +131,48 @@
             "id": "9ef43aa17b7aed42",
             "type": "leaf",
             "state": {
-              "type": "release-notes",
+              "type": "markdown",
               "state": {
-                "currentVersion": "1.10.3"
+                "file": "25H/IKT202 Software Engineering/Forelesning/29.10.md",
+                "mode": "source",
+                "source": false,
+                "backlinks": true,
+                "backlinkOpts": {
+                  "collapseAll": false,
+                  "extraContext": false,
+                  "sortOrder": "alphabetical",
+                  "showSearch": false,
+                  "searchQuery": "",
+                  "backlinkCollapsed": false,
+                  "unlinkedCollapsed": true
+                }
               },
-              "icon": "lucide-book-up",
-              "title": "Release Notes 1.10.3"
+              "icon": "lucide-file",
+              "title": "29.10"
+            }
+          },
+          {
+            "id": "1d3563a718d77054",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "25H/IKT202 Software Engineering/Forelesning/Eksamen kommentarer.md",
+                "mode": "source",
+                "source": false,
+                "backlinks": true,
+                "backlinkOpts": {
+                  "collapseAll": false,
+                  "extraContext": false,
+                  "sortOrder": "alphabetical",
+                  "showSearch": false,
+                  "searchQuery": "",
+                  "backlinkCollapsed": false,
+                  "unlinkedCollapsed": true
+                }
+              },
+              "icon": "lucide-file",
+              "title": "Eksamen kommentarer"
             }
           },
           {
@@ -150,7 +186,7 @@
             }
           }
         ],
-        "currentTab": 5
+        "currentTab": 6
       }
     ],
     "direction": "vertical"
@@ -332,9 +368,10 @@
       "tldraw:Create new tldrawing": false
     }
   },
-  "active": "9ef43aa17b7aed42",
+  "active": "1d3563a718d77054",
   "lastOpenFiles": [
     "25H/IKT202 Software Engineering/Forelesning/29.10.md",
+    "25H/IKT202 Software Engineering/Forelesning/Eksamen kommentarer.md",
     "25H/IKT202 Software Engineering/Forelesning/12.11.md",
     "25H/IKT202 Software Engineering/Forelesning/11.11 KONGSBERG.md",
     "25H/IKT202 Software Engineering/Forelesning/27.08 Software Requirements.md",
@@ -359,7 +396,6 @@
     "25H/IKT202 Software Engineering/Forelesning/10.09 Sequence Diagram.md",
     "25H/IKT202 Software Engineering/Sequence Diagram.md",
     "25H/IKT202 Software Engineering/Forelesning/09.09 UML.md",
-    "25H/IKT202 Software Engineering/Forelesning/02.09 Use Cases.md",
     "25H/IKT203 Algoritmer og Datastrukturer/Forelesning",
     "25H/IKT203 Algoritmer og Datastrukturer",
     "25H/IKT202 Software Engineering/Forelesning/21.10 Organization of Software",
