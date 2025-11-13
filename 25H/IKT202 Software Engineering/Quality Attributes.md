@@ -37,8 +37,8 @@ Content coupling
 Aim for High cohesion
 - Degree to which the elements of a module belong together
 - High cohesion of a module has one purpose and all element relate to the purpose.
-- Low cohesion, module hase elemnts to be grouped together.
-- jmultiple roles or elements that do not relate to a single purpose
+- Low cohesion, module has elements to be grouped together.
+- multiple roles or elements that do not relate to a single purpose
 
 Functional:
 - Elements that relate to a single purpose

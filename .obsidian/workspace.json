@@ -157,7 +157,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "25H/IKT202 Software Engineering/Forelesning/Eksamen kommentarer.md",
+                "file": "25H/IKT202 Software Engineering/Quality Attributes.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": true,
@@ -172,7 +172,7 @@
                 }
               },
               "icon": "lucide-file",
-              "title": "Eksamen kommentarer"
+              "title": "Quality Attributes"
             }
           },
           {
@@ -370,8 +370,8 @@
   },
   "active": "1d3563a718d77054",
   "lastOpenFiles": [
-    "25H/IKT202 Software Engineering/Forelesning/29.10.md",
     "25H/IKT202 Software Engineering/Forelesning/Eksamen kommentarer.md",
+    "25H/IKT202 Software Engineering/Forelesning/29.10.md",
     "25H/IKT202 Software Engineering/Forelesning/12.11.md",
     "25H/IKT202 Software Engineering/Forelesning/11.11 KONGSBERG.md",
     "25H/IKT202 Software Engineering/Forelesning/27.08 Software Requirements.md",
