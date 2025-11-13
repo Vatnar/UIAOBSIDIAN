@@ -13,3 +13,12 @@ Issue model
 	Constraints, arguments
 Task model
 	KANBAN, GANTT, PERT CHART.
+
+WATERFALL
++ Requirements elcitation
++ REquiremenents analysis
++ System Design
++ Object Design
++ Implementation
++ Testing
++ 
