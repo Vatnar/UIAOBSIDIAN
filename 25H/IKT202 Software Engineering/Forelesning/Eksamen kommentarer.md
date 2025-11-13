@@ -8,6 +8,8 @@ Second law, software be written for poeple first.
 
 Bermuda triangle
 System models
-	
+	prescriptive and descriptive models 
 Issue model
+	Constraints, arguments
 Task model
+	KANBAN, GANTT, PERT CHART.
