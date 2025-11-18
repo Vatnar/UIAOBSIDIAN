@@ -160,9 +160,33 @@
               "icon": "lucide-git-fork",
               "title": "Graph view"
             }
+          },
+          {
+            "id": "5913ccf6c49acab0",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "25H/IKT202 Software Engineering/Forelesning/18.11.md",
+                "mode": "source",
+                "source": false,
+                "backlinks": true,
+                "backlinkOpts": {
+                  "collapseAll": false,
+                  "extraContext": false,
+                  "sortOrder": "alphabetical",
+                  "showSearch": false,
+                  "searchQuery": "",
+                  "backlinkCollapsed": false,
+                  "unlinkedCollapsed": true
+                }
+              },
+              "icon": "lucide-file",
+              "title": "18.11"
+            }
           }
         ],
-        "currentTab": 6
+        "currentTab": 7
       }
     ],
     "direction": "vertical"
@@ -344,19 +368,20 @@
       "tldraw:Create new tldrawing": false
     }
   },
-  "active": "bdbf33e5e7d23523",
+  "active": "5913ccf6c49acab0",
   "lastOpenFiles": [
+    "25H/IKT202 Software Engineering/Eksamen kommentarer.md",
+    "25H/IKT202 Software Engineering/Forelesning/18.11.md",
     "25H/IKT202 Software Engineering/Quality Attributes.md",
-    "25H/IKT202 Software Engineering/Forelesning/Eksamen kommentarer.md",
     "25H/IKT202 Software Engineering/Forelesning/29.10.md",
     "25H/IKT202 Software Engineering/Forelesning/12.11.md",
     "25H/IKT202 Software Engineering/Forelesning/11.11 KONGSBERG.md",
     "25H/IKT202 Software Engineering/Forelesning/27.08 Software Requirements.md",
-    "25H/IKT202 Software Engineering/Forelesning/Allocation View.md",
+    "25H/IKT202 Software Engineering/Allocation View.md",
     "25H/IKT202 Software Engineering/Rules of Software Engineering.md",
-    "25H/IKT202 Software Engineering/Forelesning/Modifiability Tactics.md",
+    "25H/IKT202 Software Engineering/Modifiability Tactics.md",
     "25H/IKT202 Software Engineering/Forelesning/05.11.md",
-    "25H/IKT202 Software Engineering/Forelesning/Component and Connector Views.md",
+    "25H/IKT202 Software Engineering/Component and Connector Views.md",
     "25H/IKT202 Software Engineering/Forelesning/26.08 Software Development methods.md",
     "25H/IKT202 Software Engineering/Forelesning/23.09 objekter.md",
     "25H/IKT202 Software Engineering/IEEE definitions.md",
@@ -371,7 +396,6 @@
     "25H/IKT202 Software Engineering/Forelesning/04.11 Architectural Rules of Thumb.md",
     "25H/IKT202 Software Engineering/Forelesning/10.09 Sequence Diagram.md",
     "25H/IKT202 Software Engineering/Sequence Diagram.md",
-    "25H/IKT202 Software Engineering/Forelesning/09.09 UML.md",
     "25H/IKT203 Algoritmer og Datastrukturer/Forelesning",
     "25H/IKT203 Algoritmer og Datastrukturer",
     "25H/IKT202 Software Engineering/Forelesning/21.10 Organization of Software",
