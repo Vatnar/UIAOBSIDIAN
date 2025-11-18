@@ -152,30 +152,6 @@
             }
           },
           {
-            "id": "1d3563a718d77054",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "25H/IKT202 Software Engineering/Quality Attributes.md",
-                "mode": "source",
-                "source": false,
-                "backlinks": true,
-                "backlinkOpts": {
-                  "collapseAll": false,
-                  "extraContext": false,
-                  "sortOrder": "alphabetical",
-                  "showSearch": false,
-                  "searchQuery": "",
-                  "backlinkCollapsed": false,
-                  "unlinkedCollapsed": true
-                }
-              },
-              "icon": "lucide-file",
-              "title": "Quality Attributes"
-            }
-          },
-          {
             "id": "bdbf33e5e7d23523",
             "type": "leaf",
             "state": {
@@ -368,8 +344,9 @@
       "tldraw:Create new tldrawing": false
     }
   },
-  "active": "1d3563a718d77054",
+  "active": "bdbf33e5e7d23523",
   "lastOpenFiles": [
+    "25H/IKT202 Software Engineering/Quality Attributes.md",
     "25H/IKT202 Software Engineering/Forelesning/Eksamen kommentarer.md",
     "25H/IKT202 Software Engineering/Forelesning/29.10.md",
     "25H/IKT202 Software Engineering/Forelesning/12.11.md",
@@ -389,7 +366,6 @@
     "25H/IKT202 Software Engineering/Forelesning/19.08 Rules of software engineering.md",
     "25H/IKT202 Software Engineering/Why Software Engineering.md",
     "25H/IKT202 Software Engineering/Forelesning/14.10 SOLID.md",
-    "25H/IKT202 Software Engineering/Quality Attributes.md",
     "25H/IKT202 Software Engineering/Organization Of Software.md",
     "25H/IKT202 Software Engineering/SOLID.md",
     "25H/IKT202 Software Engineering/Forelesning/04.11 Architectural Rules of Thumb.md",
