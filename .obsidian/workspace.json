@@ -184,9 +184,33 @@
               "icon": "lucide-file",
               "title": "18.11"
             }
+          },
+          {
+            "id": "f85efb549ed69ff8",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "25H/IKT202 Software Engineering/Forelesning/19.11.md",
+                "mode": "source",
+                "source": false,
+                "backlinks": true,
+                "backlinkOpts": {
+                  "collapseAll": false,
+                  "extraContext": false,
+                  "sortOrder": "alphabetical",
+                  "showSearch": false,
+                  "searchQuery": "",
+                  "backlinkCollapsed": false,
+                  "unlinkedCollapsed": true
+                }
+              },
+              "icon": "lucide-file",
+              "title": "19.11"
+            }
           }
         ],
-        "currentTab": 7
+        "currentTab": 8
       }
     ],
     "direction": "vertical"
@@ -368,9 +392,10 @@
       "tldraw:Create new tldrawing": false
     }
   },
-  "active": "5913ccf6c49acab0",
+  "active": "f85efb549ed69ff8",
   "lastOpenFiles": [
     "25H/IKT202 Software Engineering/Eksamen kommentarer.md",
+    "25H/IKT202 Software Engineering/Forelesning/19.11.md",
     "25H/IKT202 Software Engineering/Forelesning/18.11.md",
     "25H/IKT202 Software Engineering/Quality Attributes.md",
     "25H/IKT202 Software Engineering/Forelesning/29.10.md",
@@ -395,7 +420,6 @@
     "25H/IKT202 Software Engineering/SOLID.md",
     "25H/IKT202 Software Engineering/Forelesning/04.11 Architectural Rules of Thumb.md",
     "25H/IKT202 Software Engineering/Forelesning/10.09 Sequence Diagram.md",
-    "25H/IKT202 Software Engineering/Sequence Diagram.md",
     "25H/IKT203 Algoritmer og Datastrukturer/Forelesning",
     "25H/IKT203 Algoritmer og Datastrukturer",
     "25H/IKT202 Software Engineering/Forelesning/21.10 Organization of Software",
