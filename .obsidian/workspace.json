@@ -191,7 +191,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "25H/IKT202 Software Engineering/Forelesning/19.11.md",
+                "file": "24H/IKT102 Operativsystemer/Eksamenforelsenging.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": true,
@@ -206,7 +206,7 @@
                 }
               },
               "icon": "lucide-file",
-              "title": "19.11"
+              "title": "Eksamenforelsenging"
             }
           }
         ],
@@ -394,8 +394,10 @@
   },
   "active": "f85efb549ed69ff8",
   "lastOpenFiles": [
-    "25H/IKT202 Software Engineering/Eksamen kommentarer.md",
+    "24H/IKT102 Operativsystemer/EKSAMEN.md",
+    "24H/IKT102 Operativsystemer/Eksamenforelsenging.md",
     "25H/IKT202 Software Engineering/Forelesning/19.11.md",
+    "25H/IKT202 Software Engineering/Eksamen kommentarer.md",
     "25H/IKT202 Software Engineering/Forelesning/18.11.md",
     "25H/IKT202 Software Engineering/Quality Attributes.md",
     "25H/IKT202 Software Engineering/Forelesning/29.10.md",
@@ -418,8 +420,6 @@
     "25H/IKT202 Software Engineering/Forelesning/14.10 SOLID.md",
     "25H/IKT202 Software Engineering/Organization Of Software.md",
     "25H/IKT202 Software Engineering/SOLID.md",
-    "25H/IKT202 Software Engineering/Forelesning/04.11 Architectural Rules of Thumb.md",
-    "25H/IKT202 Software Engineering/Forelesning/10.09 Sequence Diagram.md",
     "25H/IKT203 Algoritmer og Datastrukturer/Forelesning",
     "25H/IKT203 Algoritmer og Datastrukturer",
     "25H/IKT202 Software Engineering/Forelesning/21.10 Organization of Software",
