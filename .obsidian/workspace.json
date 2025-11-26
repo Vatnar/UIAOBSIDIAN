@@ -191,7 +191,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "24H/IKT102 Operativsystemer/Eksamenforelsenging.md",
+                "file": "25H/IKT203 Algoritmer og Datastrukturer/Forelesning/29.10 Introduction to Prim's algorithm.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": true,
@@ -206,7 +206,7 @@
                 }
               },
               "icon": "lucide-file",
-              "title": "Eksamenforelsenging"
+              "title": "29.10 Introduction to Prim's algorithm"
             }
           }
         ],
@@ -394,8 +394,10 @@
   },
   "active": "f85efb549ed69ff8",
   "lastOpenFiles": [
-    "24H/IKT102 Operativsystemer/EKSAMEN.md",
+    "25H/IKT203 Algoritmer og Datastrukturer/Forelesning/22.10 Graphs.md",
+    "25H/IKT203 Algoritmer og Datastrukturer/Forelesning/29.10 Introduction to Prim's algorithm.md",
     "24H/IKT102 Operativsystemer/Eksamenforelsenging.md",
+    "24H/IKT102 Operativsystemer/EKSAMEN.md",
     "25H/IKT202 Software Engineering/Forelesning/19.11.md",
     "25H/IKT202 Software Engineering/Eksamen kommentarer.md",
     "25H/IKT202 Software Engineering/Forelesning/18.11.md",
@@ -418,8 +420,6 @@
     "25H/IKT202 Software Engineering/Forelesning/19.08 Rules of software engineering.md",
     "25H/IKT202 Software Engineering/Why Software Engineering.md",
     "25H/IKT202 Software Engineering/Forelesning/14.10 SOLID.md",
-    "25H/IKT202 Software Engineering/Organization Of Software.md",
-    "25H/IKT202 Software Engineering/SOLID.md",
     "25H/IKT203 Algoritmer og Datastrukturer/Forelesning",
     "25H/IKT203 Algoritmer og Datastrukturer",
     "25H/IKT202 Software Engineering/Forelesning/21.10 Organization of Software",
