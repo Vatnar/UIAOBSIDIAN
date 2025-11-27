@@ -8,190 +8,12 @@
         "type": "tabs",
         "children": [
           {
-            "id": "1649516c92471813",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "25H/IKT202 Software Engineering/Forelesning/21.10 Organization of Software.md",
-                "mode": "source",
-                "source": false,
-                "backlinks": true,
-                "backlinkOpts": {
-                  "collapseAll": false,
-                  "extraContext": false,
-                  "sortOrder": "alphabetical",
-                  "showSearch": false,
-                  "searchQuery": "",
-                  "backlinkCollapsed": false,
-                  "unlinkedCollapsed": true
-                }
-              },
-              "icon": "lucide-file",
-              "title": "21.10 Organization of Software"
-            }
-          },
-          {
-            "id": "63b5c8bdc8daff33",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "25H/IKT202 Software Engineering/Forelesning/29.10.md",
-                "mode": "source",
-                "source": false,
-                "backlinks": true,
-                "backlinkOpts": {
-                  "collapseAll": false,
-                  "extraContext": false,
-                  "sortOrder": "alphabetical",
-                  "showSearch": false,
-                  "searchQuery": "",
-                  "backlinkCollapsed": false,
-                  "unlinkedCollapsed": true
-                }
-              },
-              "icon": "lucide-file",
-              "title": "29.10"
-            }
-          },
-          {
-            "id": "cd2c48bd25245d5b",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "25H/IKT202 Software Engineering/Forelesning/Modifiability Tactics.md",
-                "mode": "source",
-                "source": false,
-                "backlinks": true,
-                "backlinkOpts": {
-                  "collapseAll": false,
-                  "extraContext": false,
-                  "sortOrder": "alphabetical",
-                  "showSearch": false,
-                  "searchQuery": "",
-                  "backlinkCollapsed": false,
-                  "unlinkedCollapsed": true
-                }
-              },
-              "icon": "lucide-file",
-              "title": "Modifiability Tactics"
-            }
-          },
-          {
-            "id": "765e350319d44d5a",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "25H/IKT202 Software Engineering/Forelesning/29.10.md",
-                "mode": "source",
-                "source": false,
-                "backlinks": true,
-                "backlinkOpts": {
-                  "collapseAll": false,
-                  "extraContext": false,
-                  "sortOrder": "alphabetical",
-                  "showSearch": false,
-                  "searchQuery": "",
-                  "backlinkCollapsed": false,
-                  "unlinkedCollapsed": true
-                }
-              },
-              "icon": "lucide-file",
-              "title": "29.10"
-            }
-          },
-          {
-            "id": "d54a4cc639bf0267",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "25H/IKT202 Software Engineering/Forelesning/12.11.md",
-                "mode": "source",
-                "source": false,
-                "backlinks": true,
-                "backlinkOpts": {
-                  "collapseAll": false,
-                  "extraContext": false,
-                  "sortOrder": "alphabetical",
-                  "showSearch": false,
-                  "searchQuery": "",
-                  "backlinkCollapsed": false,
-                  "unlinkedCollapsed": true
-                }
-              },
-              "icon": "lucide-file",
-              "title": "12.11"
-            }
-          },
-          {
-            "id": "9ef43aa17b7aed42",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "25H/IKT202 Software Engineering/Forelesning/29.10.md",
-                "mode": "source",
-                "source": false,
-                "backlinks": true,
-                "backlinkOpts": {
-                  "collapseAll": false,
-                  "extraContext": false,
-                  "sortOrder": "alphabetical",
-                  "showSearch": false,
-                  "searchQuery": "",
-                  "backlinkCollapsed": false,
-                  "unlinkedCollapsed": true
-                }
-              },
-              "icon": "lucide-file",
-              "title": "29.10"
-            }
-          },
-          {
-            "id": "bdbf33e5e7d23523",
-            "type": "leaf",
-            "state": {
-              "type": "graph",
-              "state": {},
-              "icon": "lucide-git-fork",
-              "title": "Graph view"
-            }
-          },
-          {
-            "id": "5913ccf6c49acab0",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "25H/IKT202 Software Engineering/Forelesning/18.11.md",
-                "mode": "source",
-                "source": false,
-                "backlinks": true,
-                "backlinkOpts": {
-                  "collapseAll": false,
-                  "extraContext": false,
-                  "sortOrder": "alphabetical",
-                  "showSearch": false,
-                  "searchQuery": "",
-                  "backlinkCollapsed": false,
-                  "unlinkedCollapsed": true
-                }
-              },
-              "icon": "lucide-file",
-              "title": "18.11"
-            }
-          },
-          {
             "id": "f85efb549ed69ff8",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "25H/IKT203 Algoritmer og Datastrukturer/Forelesning/29.10 Introduction to Prim's algorithm.md",
+                "file": "25H/IKT202 Software Engineering/Forelesning/19.08 Rules of software engineering.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": true,
@@ -206,11 +28,47 @@
                 }
               },
               "icon": "lucide-file",
-              "title": "29.10 Introduction to Prim's algorithm"
+              "title": "19.08 Rules of software engineering"
+            }
+          },
+          {
+            "id": "2046a4d06a4a4f51",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "25H/IKT202 Software Engineering/Eksamen kommentarer.md",
+                "mode": "preview",
+                "source": false,
+                "backlinks": true,
+                "backlinkOpts": {
+                  "collapseAll": false,
+                  "extraContext": false,
+                  "sortOrder": "alphabetical",
+                  "showSearch": false,
+                  "searchQuery": "",
+                  "backlinkCollapsed": false,
+                  "unlinkedCollapsed": true
+                }
+              },
+              "icon": "lucide-file",
+              "title": "Eksamen kommentarer"
+            }
+          },
+          {
+            "id": "4046fcf6e62ea646",
+            "type": "leaf",
+            "state": {
+              "type": "release-notes",
+              "state": {
+                "currentVersion": "1.10.6"
+              },
+              "icon": "lucide-book-up",
+              "title": "Release Notes 1.10.6"
             }
           }
         ],
-        "currentTab": 8
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -392,34 +250,34 @@
       "tldraw:Create new tldrawing": false
     }
   },
-  "active": "f85efb549ed69ff8",
+  "active": "4046fcf6e62ea646",
   "lastOpenFiles": [
-    "25H/IKT203 Algoritmer og Datastrukturer/Forelesning/22.10 Graphs.md",
-    "25H/IKT203 Algoritmer og Datastrukturer/Forelesning/29.10 Introduction to Prim's algorithm.md",
-    "24H/IKT102 Operativsystemer/Eksamenforelsenging.md",
-    "24H/IKT102 Operativsystemer/EKSAMEN.md",
+    "25H/IKT202 Software Engineering/Estimation Error Over Time.md",
+    "25H/IKT202 Software Engineering/Agile Development.md",
     "25H/IKT202 Software Engineering/Forelesning/19.11.md",
-    "25H/IKT202 Software Engineering/Eksamen kommentarer.md",
     "25H/IKT202 Software Engineering/Forelesning/18.11.md",
-    "25H/IKT202 Software Engineering/Quality Attributes.md",
-    "25H/IKT202 Software Engineering/Forelesning/29.10.md",
     "25H/IKT202 Software Engineering/Forelesning/12.11.md",
     "25H/IKT202 Software Engineering/Forelesning/11.11 KONGSBERG.md",
-    "25H/IKT202 Software Engineering/Forelesning/27.08 Software Requirements.md",
-    "25H/IKT202 Software Engineering/Allocation View.md",
-    "25H/IKT202 Software Engineering/Rules of Software Engineering.md",
-    "25H/IKT202 Software Engineering/Modifiability Tactics.md",
     "25H/IKT202 Software Engineering/Forelesning/05.11.md",
+    "25H/IKT202 Software Engineering/Modifiability Tactics.md",
+    "25H/IKT202 Software Engineering/Allocation View.md",
     "25H/IKT202 Software Engineering/Component and Connector Views.md",
-    "25H/IKT202 Software Engineering/Forelesning/26.08 Software Development methods.md",
-    "25H/IKT202 Software Engineering/Forelesning/23.09 objekter.md",
+    "25H/IKT202 Software Engineering/Forelesning/04.11 Architectural Rules of Thumb.md",
+    "25H/IKT202 Software Engineering/4 + 1 Grouping of Views.md",
+    "25H/IKT202 Software Engineering/Architectural Rules of Thumb.md",
+    "25H/IKT202 Software Engineering/Forelesning/29.10.md",
     "25H/IKT202 Software Engineering/IEEE definitions.md",
-    "25H/IKT202 Software Engineering/Requirements.md",
-    "25H/IKT202 Software Engineering/Objects in Software Architecture.md",
     "25H/IKT202 Software Engineering/Forelesning/21.10 Organization of Software.md",
-    "25H/IKT202 Software Engineering/Forelesning/19.08 Rules of software engineering.md",
-    "25H/IKT202 Software Engineering/Why Software Engineering.md",
+    "25H/IKT202 Software Engineering/Organization Of Software.md",
+    "25H/IKT202 Software Engineering/Quality Attributes.md",
+    "25H/IKT202 Software Engineering/Forelesning/23.09 objekter.md",
     "25H/IKT202 Software Engineering/Forelesning/14.10 SOLID.md",
+    "25H/IKT202 Software Engineering/SOLID.md",
+    "25H/IKT202 Software Engineering/SOLID/Interface segregation principle (ISP).md",
+    "25H/IKT202 Software Engineering/SOLID/Liskov Subsitution principle (LSP).md",
+    "25H/IKT202 Software Engineering/SOLID/Open Closed Principle (OCP).md",
+    "25H/IKT202 Software Engineering/SOLID/Single Responsibility Principle (SRP).md",
+    "25H/IKT202 Software Engineering/Objects in Software Architecture.md",
     "25H/IKT203 Algoritmer og Datastrukturer/Forelesning",
     "25H/IKT203 Algoritmer og Datastrukturer",
     "25H/IKT202 Software Engineering/Forelesning/21.10 Organization of Software",
