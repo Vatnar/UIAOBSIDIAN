@@ -59,12 +59,24 @@
             "id": "4046fcf6e62ea646",
             "type": "leaf",
             "state": {
-              "type": "release-notes",
+              "type": "markdown",
               "state": {
-                "currentVersion": "1.10.6"
+                "file": "24H/IKT102 Operativsystemer/Deadlock.md",
+                "mode": "source",
+                "source": false,
+                "backlinks": true,
+                "backlinkOpts": {
+                  "collapseAll": false,
+                  "extraContext": false,
+                  "sortOrder": "alphabetical",
+                  "showSearch": false,
+                  "searchQuery": "",
+                  "backlinkCollapsed": false,
+                  "unlinkedCollapsed": true
+                }
               },
-              "icon": "lucide-book-up",
-              "title": "Release Notes 1.10.6"
+              "icon": "lucide-file",
+              "title": "Deadlock"
             }
           }
         ],
@@ -252,6 +264,7 @@
   },
   "active": "4046fcf6e62ea646",
   "lastOpenFiles": [
+    "24H/IKT102 Operativsystemer/Eksamenforelsenging.md",
     "25H/IKT202 Software Engineering/Estimation Error Over Time.md",
     "25H/IKT202 Software Engineering/Agile Development.md",
     "25H/IKT202 Software Engineering/Forelesning/19.11.md",
@@ -277,7 +290,6 @@
     "25H/IKT202 Software Engineering/SOLID/Liskov Subsitution principle (LSP).md",
     "25H/IKT202 Software Engineering/SOLID/Open Closed Principle (OCP).md",
     "25H/IKT202 Software Engineering/SOLID/Single Responsibility Principle (SRP).md",
-    "25H/IKT202 Software Engineering/Objects in Software Architecture.md",
     "25H/IKT203 Algoritmer og Datastrukturer/Forelesning",
     "25H/IKT203 Algoritmer og Datastrukturer",
     "25H/IKT202 Software Engineering/Forelesning/21.10 Organization of Software",
