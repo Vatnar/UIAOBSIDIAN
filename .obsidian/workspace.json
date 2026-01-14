@@ -78,9 +78,33 @@
               "icon": "lucide-file",
               "title": "Deadlock"
             }
+          },
+          {
+            "id": "aa5cd31b4db77bae",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "26V/Statistikk/14.1.26.md",
+                "mode": "source",
+                "source": false,
+                "backlinks": true,
+                "backlinkOpts": {
+                  "collapseAll": false,
+                  "extraContext": false,
+                  "sortOrder": "alphabetical",
+                  "showSearch": false,
+                  "searchQuery": "",
+                  "backlinkCollapsed": false,
+                  "unlinkedCollapsed": true
+                }
+              },
+              "icon": "lucide-file",
+              "title": "14.1.26"
+            }
           }
         ],
-        "currentTab": 2
+        "currentTab": 3
       }
     ],
     "direction": "vertical"
@@ -262,8 +286,14 @@
       "tldraw:Create new tldrawing": false
     }
   },
-  "active": "4046fcf6e62ea646",
+  "active": "aa5cd31b4db77bae",
   "lastOpenFiles": [
+    "24H/IKT102 Operativsystemer/Untitled.md",
+    "24H/IKT102 Operativsystemer/Virtuelt Minne.md",
+    "26V/Statistikk/14.1.26.md",
+    "24H/IKT102 Operativsystemer/Deadlock.md",
+    "26V/Statistikk",
+    "26V",
     "24H/IKT102 Operativsystemer/Eksamenforelsenging.md",
     "25H/IKT202 Software Engineering/Estimation Error Over Time.md",
     "25H/IKT202 Software Engineering/Agile Development.md",
@@ -286,10 +316,6 @@
     "25H/IKT202 Software Engineering/Forelesning/23.09 objekter.md",
     "25H/IKT202 Software Engineering/Forelesning/14.10 SOLID.md",
     "25H/IKT202 Software Engineering/SOLID.md",
-    "25H/IKT202 Software Engineering/SOLID/Interface segregation principle (ISP).md",
-    "25H/IKT202 Software Engineering/SOLID/Liskov Subsitution principle (LSP).md",
-    "25H/IKT202 Software Engineering/SOLID/Open Closed Principle (OCP).md",
-    "25H/IKT202 Software Engineering/SOLID/Single Responsibility Principle (SRP).md",
     "25H/IKT203 Algoritmer og Datastrukturer/Forelesning",
     "25H/IKT203 Algoritmer og Datastrukturer",
     "25H/IKT202 Software Engineering/Forelesning/21.10 Organization of Software",
@@ -301,8 +327,6 @@
     "25H/IKT202 Software Engineering/Forelesning",
     "25H/IKT201 Internettjenester/Forelesning",
     "25H/IKT202 Software Engineering",
-    "25H/IKT201 Internettjenester",
-    "25H",
     "tldraw/assets/icons/zoom-out.svg",
     "tldraw/assets/icons/zoom-in.svg",
     "tldraw/assets/icons/warning-triangle.svg",
