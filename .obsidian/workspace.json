@@ -252,8 +252,8 @@
             "state": {
               "type": "git-view",
               "state": {},
-              "icon": "git-pull-request",
-              "title": "Source Control"
+              "icon": "lucide-ghost",
+              "title": "git-view"
             }
           }
         ],
@@ -267,7 +267,6 @@
   "left-ribbon": {
     "hiddenItems": {
       "bases:Create new base": false,
-      "obsidian-markdown-formatting-assistant-plugin:Open Markdown Formatting Assistant": false,
       "switcher:Open quick switcher": false,
       "graph:Open graph view": false,
       "canvas:Create new canvas": false,
@@ -275,14 +274,15 @@
       "templates:Insert template": false,
       "command-palette:Open command palette": false,
       "markdown-importer:Open format converter": true,
-      "obsidian-importer:Open Importer": true,
+      "obsidian-importer:Open Importer": false,
       "obsidian-git:Open Git source control": false,
-      "obsidian-kanban:Create new board": true,
-      "iconic:Open rulebook": true,
-      "pdf-plus:PDF++: Toggle auto-copy": true,
-      "pdf-plus:PDF++: Toggle auto-focus": true,
-      "pdf-plus:PDF++: Toggle auto-paste": true,
+      "obsidian-kanban:Create new board": false,
+      "iconic:Open rulebook": false,
+      "pdf-plus:PDF++: Toggle auto-copy": false,
+      "pdf-plus:PDF++: Toggle auto-focus": false,
+      "pdf-plus:PDF++: Toggle auto-paste": false,
       "callout-manager:Insert Callout": false,
+      "obsidian-markdown-formatting-assistant-plugin:Open Markdown Formatting Assistant": false,
       "tldraw:Create new tldrawing": false
     }
   },
