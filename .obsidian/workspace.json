@@ -252,8 +252,8 @@
             "state": {
               "type": "git-view",
               "state": {},
-              "icon": "lucide-ghost",
-              "title": "git-view"
+              "icon": "git-pull-request",
+              "title": "Source Control"
             }
           }
         ],
@@ -261,8 +261,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 200,
-    "collapsed": true
+    "width": 200
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -288,7 +287,8 @@
   },
   "active": "5f5e7fbb75c67ca3",
   "lastOpenFiles": [
-    "Apputvikling",
+    "26V/Advanced Operatingsystems",
+    "26V/Apputvikling",
     "24H/IKT102 Operativsystemer/Untitled.md",
     "24H/IKT102 Operativsystemer/Virtuelt Minne.md",
     "26V/Statistikk/14.1.26 - Data.md",
@@ -326,7 +326,6 @@
     "Images/1_v-model.webp",
     "25H/IKT202 Software Engineering/Forelesning",
     "25H/IKT201 Internettjenester/Forelesning",
-    "25H/IKT202 Software Engineering",
     "tldraw/assets/icons/zoom-out.svg",
     "tldraw/assets/icons/zoom-in.svg",
     "tldraw/assets/icons/warning-triangle.svg",
