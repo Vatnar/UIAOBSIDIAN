@@ -109,7 +109,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "26V/Advanced Operatingsystems/20.01.2026 Advanced Operating Systems.md",
+                "file": "26V/Advanced Operatingsystems/20f.01.2026 Advanced Operating Systems.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": true,
@@ -124,7 +124,7 @@
                 }
               },
               "icon": "lucide-file",
-              "title": "20.01.2026 Advanced Operating Systems"
+              "title": "20f.01.2026 Advanced Operating Systems"
             }
           }
         ],
@@ -285,7 +285,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 200
+    "width": 200,
+    "collapsed": true
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -309,10 +310,10 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "5f5e7fbb75c67ca3",
+  "active": "cb01e2eb425497e7",
   "lastOpenFiles": [
     "26V/Statistikk/14.1.26 - Data.md",
-    "26V/Advanced Operatingsystems/20.01.2026 Advanced Operating Systems.md",
+    "26V/Advanced Operatingsystems/20f.01.2026 Advanced Operating Systems.md",
     "26V/Advanced Operatingsystems",
     "26V/Apputvikling",
     "24H/IKT102 Operativsystemer/Untitled.md",
