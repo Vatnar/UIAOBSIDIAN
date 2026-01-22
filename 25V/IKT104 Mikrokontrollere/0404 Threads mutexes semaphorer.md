@@ -110,7 +110,7 @@ int main()
 or the next thread switch
 
 ## Mutex (mutual exclusion)
-![[image-15.png|476x264]]
+![[Images/image-15.png|476x264]]
 **About mutexes**
 - Mutex can be used to protect access to shared data
 - Mutex ensures that only one thread access the data
@@ -178,7 +178,7 @@ typedef struct
 - A semaphore can be aqquired more than once
 	- useful when moore than 1 shared resource is avaible
 - Count is the amount currently availbable max count is the maximum
-![[image-16.png]]
+![[Images/image-16.png]]
 ```cpp
 #include "mbed.h"
 
