@@ -336,6 +336,10 @@
   },
   "active": "461f9c616b41b8a8",
   "lastOpenFiles": [
+    "image-3.png",
+    "image-2.png",
+    "image-1.png",
+    "image.png",
     "26V/Statistikk/14.1.26 - Data.md",
     "26V/Statistikk/22.01.26 2D -data.md",
     "26V/Advanced Operatingsystems/20.01.2026 Advanced Operating Systems.md",
@@ -365,7 +369,6 @@
     "25H/IKT202 Software Engineering/Forelesning/21.10 Organization of Software.md",
     "25H/IKT202 Software Engineering/Organization Of Software.md",
     "25H/IKT202 Software Engineering/Quality Attributes.md",
-    "25H/IKT202 Software Engineering/Forelesning/23.09 objekter.md",
     "25H/IKT203 Algoritmer og Datastrukturer/Forelesning",
     "25H/IKT203 Algoritmer og Datastrukturer",
     "25H/IKT202 Software Engineering/Forelesning/21.10 Organization of Software",
@@ -378,9 +381,6 @@
     "tldraw/assets/icons/zoom-out.svg",
     "tldraw/assets/icons/zoom-in.svg",
     "tldraw/assets/icons/warning-triangle.svg",
-    "tldraw/assets/icons/vertical-align-start.svg",
-    "tldraw/assets/icons/vertical-align-middle.svg",
-    "tldraw/assets/icons/vertical-align-end.svg",
-    "tldraw/assets/icons/unlock.svg"
+    "tldraw/assets/icons/vertical-align-start.svg"
   ]
 }
