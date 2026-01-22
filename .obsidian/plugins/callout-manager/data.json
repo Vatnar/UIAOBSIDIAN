@@ -1,7 +1,29 @@
 {
   "callouts": {
-    "custom": [],
-    "settings": {}
+    "custom": [
+      "definition"
+    ],
+    "settings": {
+      "definition": [
+        {
+          "changes": {}
+        },
+        {
+          "condition": {
+            "colorScheme": "light"
+          },
+          "changes": {}
+        },
+        {
+          "condition": {
+            "colorScheme": "dark"
+          },
+          "changes": {
+            "color": "137, 180, 250"
+          }
+        }
+      ]
+    }
   },
   "calloutDetection": {
     "obsidian": true,
