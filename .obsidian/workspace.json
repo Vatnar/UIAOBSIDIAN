@@ -109,7 +109,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "26V/Advanced Operatingsystems/20.01.2026 Advanced Operating Systems.md",
+                "file": "26V/Statistikk/14.1.26 - Data.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": true,
@@ -124,11 +124,35 @@
                 }
               },
               "icon": "lucide-file",
-              "title": "20.01.2026 Advanced Operating Systems"
+              "title": "14.1.26 - Data"
+            }
+          },
+          {
+            "id": "461f9c616b41b8a8",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "26V/Statistikk/22.01.26.md",
+                "mode": "source",
+                "source": false,
+                "backlinks": true,
+                "backlinkOpts": {
+                  "collapseAll": false,
+                  "extraContext": false,
+                  "sortOrder": "alphabetical",
+                  "showSearch": false,
+                  "searchQuery": "",
+                  "backlinkCollapsed": false,
+                  "unlinkedCollapsed": true
+                }
+              },
+              "icon": "lucide-file",
+              "title": "22.01.26"
             }
           }
         ],
-        "currentTab": 4
+        "currentTab": 5
       }
     ],
     "direction": "vertical"
@@ -310,9 +334,10 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "cb01e2eb425497e7",
+  "active": "461f9c616b41b8a8",
   "lastOpenFiles": [
     "26V/Statistikk/14.1.26 - Data.md",
+    "26V/Statistikk/22.01.26.md",
     "26V/Advanced Operatingsystems/20.01.2026 Advanced Operating Systems.md",
     "26V/Advanced Operatingsystems",
     "26V/Apputvikling",
@@ -341,7 +366,6 @@
     "25H/IKT202 Software Engineering/Organization Of Software.md",
     "25H/IKT202 Software Engineering/Quality Attributes.md",
     "25H/IKT202 Software Engineering/Forelesning/23.09 objekter.md",
-    "25H/IKT202 Software Engineering/Forelesning/14.10 SOLID.md",
     "25H/IKT203 Algoritmer og Datastrukturer/Forelesning",
     "25H/IKT203 Algoritmer og Datastrukturer",
     "25H/IKT202 Software Engineering/Forelesning/21.10 Organization of Software",
