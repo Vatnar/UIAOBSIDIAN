@@ -6,7 +6,9 @@
     "settings": {
       "definition": [
         {
-          "changes": {}
+          "changes": {
+            "icon": "lucide-info"
+          }
         },
         {
           "condition": {
