@@ -175,8 +175,7 @@
               "title": "29.01.26"
             }
           }
-        ],
-        "currentTab": 6
+        ]
       }
     ],
     "direction": "vertical"
@@ -368,11 +367,11 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "381a7193aab9feff",
+  "active": "f85efb549ed69ff8",
   "lastOpenFiles": [
+    "26V/Statistikk/29.01.26.md",
     "image-1.png",
     "26V/Statistikk/22.01.26 2D - data.md",
-    "26V/Statistikk/29.01.26.md",
     "26V/Statistikk/14.1.26 - Data.md",
     "image.png",
     "Images/image 1.png",
@@ -383,7 +382,6 @@
     "Images/image-21.png",
     "Images/image-20.png",
     "Images/image-19.png",
-    "Images/image-18.png",
     "26V/Advanced Operatingsystems/20.01.2026 Advanced Operating Systems.md",
     "26V/Advanced Operatingsystems",
     "26V/Apputvikling",
