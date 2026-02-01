@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "26V/Statistikk/22.01.26 2D - data.md",
+                "file": "26V/Statistikk/29.01.26.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": true,
@@ -28,7 +28,7 @@
                 }
               },
               "icon": "lucide-file",
-              "title": "22.01.26 2D - data"
+              "title": "29.01.26"
             }
           },
           {
@@ -207,7 +207,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "rules of system engineering",
+                "query": "",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -228,7 +228,8 @@
               "title": "Bookmarks"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "horizontal",
@@ -369,9 +370,9 @@
   },
   "active": "f85efb549ed69ff8",
   "lastOpenFiles": [
-    "26V/Statistikk/29.01.26.md",
     "26V/Statistikk/22.01.26 2D - data.md",
     "26V/Statistikk/14.1.26 - Data.md",
+    "26V/Statistikk/29.01.26.md",
     "25H/IKT202 Software Engineering/Forelesning/19.08 Rules of software engineering.md",
     "image-1.png",
     "image.png",
