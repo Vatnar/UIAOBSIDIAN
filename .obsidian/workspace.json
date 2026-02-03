@@ -11,24 +11,10 @@
             "id": "f85efb549ed69ff8",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "26V/Statistikk/29.01.26.md",
-                "mode": "source",
-                "source": false,
-                "backlinks": true,
-                "backlinkOpts": {
-                  "collapseAll": false,
-                  "extraContext": false,
-                  "sortOrder": "alphabetical",
-                  "showSearch": false,
-                  "searchQuery": "",
-                  "backlinkCollapsed": false,
-                  "unlinkedCollapsed": true
-                }
-              },
-              "icon": "lucide-file",
-              "title": "29.01.26"
+              "type": "graph",
+              "state": {},
+              "icon": "lucide-git-fork",
+              "title": "Graph view"
             }
           },
           {
@@ -228,8 +214,7 @@
               "title": "Bookmarks"
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "horizontal",
@@ -367,11 +352,11 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "f85efb549ed69ff8",
+  "active": "5f5e7fbb75c67ca3",
   "lastOpenFiles": [
+    "26V/Statistikk/29.01.26.md",
     "26V/Statistikk/22.01.26 2D - data.md",
     "26V/Statistikk/14.1.26 - Data.md",
-    "26V/Statistikk/29.01.26.md",
     "25H/IKT202 Software Engineering/Forelesning/19.08 Rules of software engineering.md",
     "image-1.png",
     "image.png",
