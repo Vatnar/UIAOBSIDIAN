@@ -119,7 +119,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "26V/Statistikk/22.01.26 2D - data.md",
+                "file": "26V/Statistikk/05.02.26 Oppsummering.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": true,
@@ -134,7 +134,7 @@
                 }
               },
               "icon": "lucide-file",
-              "title": "22.01.26 2D - data"
+              "title": "05.02.26 Oppsummering"
             }
           },
           {
@@ -189,28 +189,16 @@
             "id": "56d95d4ffcc5b414",
             "type": "leaf",
             "state": {
-              "type": "markdown",
+              "type": "tldraw-view",
               "state": {
-                "file": "26V/Statistikk/05.02.26 Oppsummering.md",
-                "mode": "source",
-                "source": false,
-                "backlinks": true,
-                "backlinkOpts": {
-                  "collapseAll": false,
-                  "extraContext": false,
-                  "sortOrder": "alphabetical",
-                  "showSearch": false,
-                  "searchQuery": "",
-                  "backlinkCollapsed": false,
-                  "unlinkedCollapsed": true
-                }
+                "file": "Tldraw 2026-02-05 10.39AM.md"
               },
               "icon": "lucide-file",
-              "title": "05.02.26 Oppsummering"
+              "title": "Tldraw 2026-02-05 10.39AM"
             }
           }
         ],
-        "currentTab": 8
+        "currentTab": 5
       }
     ],
     "direction": "vertical"
@@ -401,13 +389,17 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "56d95d4ffcc5b414",
+  "active": "461f9c616b41b8a8",
   "lastOpenFiles": [
+    "image-3.png",
     "26V/Statistikk/29.01.26.md",
+    "25H/IKT202 Software Engineering/Eksamen kommentarer.md",
+    "Tldraw 2026-02-05 10.39AM.md",
     "26V/Statistikk/05.02.26 Oppsummering.md",
-    "26V/Apputvikling/Supabase.md",
-    "26V/Statistikk/22.01.26 2D - data.md",
+    "image-2.png",
     "26V/Statistikk/14.1.26 - Data.md",
+    "26V/Statistikk/22.01.26 2D - data.md",
+    "26V/Apputvikling/Supabase.md",
     "25H/IKT202 Software Engineering/Forelesning/19.08 Rules of software engineering.md",
     "image-1.png",
     "image.png",
@@ -418,7 +410,6 @@
     "Images/image-22.png",
     "Images/image-21.png",
     "Images/image-20.png",
-    "Images/image-19.png",
     "26V/Advanced Operatingsystems/20.01.2026 Advanced Operating Systems.md",
     "26V/Advanced Operatingsystems",
     "26V/Apputvikling",
@@ -440,9 +431,6 @@
     "25H/IKT202 Software Engineering/Component and Connector Views.md",
     "25H/IKT202 Software Engineering/Forelesning/04.11 Architectural Rules of Thumb.md",
     "25H/IKT202 Software Engineering/4 + 1 Grouping of Views.md",
-    "25H/IKT202 Software Engineering/Architectural Rules of Thumb.md",
-    "25H/IKT202 Software Engineering/Forelesning/29.10.md",
-    "25H/IKT202 Software Engineering/IEEE definitions.md",
     "25H/IKT203 Algoritmer og Datastrukturer/Forelesning",
     "25H/IKT203 Algoritmer og Datastrukturer",
     "25H/IKT202 Software Engineering/Forelesning/21.10 Organization of Software",
