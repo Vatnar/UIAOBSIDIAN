@@ -167,7 +167,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "26V/Apputvikling/Supabase.md",
+                "file": "26V/Statistikk/29.01.26.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": true,
@@ -182,11 +182,35 @@
                 }
               },
               "icon": "lucide-file",
-              "title": "Supabase"
+              "title": "29.01.26"
+            }
+          },
+          {
+            "id": "56d95d4ffcc5b414",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "26V/Statistikk/05.02.26.md",
+                "mode": "source",
+                "source": false,
+                "backlinks": true,
+                "backlinkOpts": {
+                  "collapseAll": false,
+                  "extraContext": false,
+                  "sortOrder": "alphabetical",
+                  "showSearch": false,
+                  "searchQuery": "",
+                  "backlinkCollapsed": false,
+                  "unlinkedCollapsed": true
+                }
+              },
+              "icon": "lucide-file",
+              "title": "05.02.26"
             }
           }
         ],
-        "currentTab": 7
+        "currentTab": 8
       }
     ],
     "direction": "vertical"
@@ -377,10 +401,11 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "5f5e7fbb75c67ca3",
+  "active": "56d95d4ffcc5b414",
   "lastOpenFiles": [
-    "26V/Apputvikling/Supabase.md",
     "26V/Statistikk/29.01.26.md",
+    "26V/Statistikk/05.02.26.md",
+    "26V/Apputvikling/Supabase.md",
     "26V/Statistikk/22.01.26 2D - data.md",
     "26V/Statistikk/14.1.26 - Data.md",
     "25H/IKT202 Software Engineering/Forelesning/19.08 Rules of software engineering.md",
@@ -418,7 +443,6 @@
     "25H/IKT202 Software Engineering/Architectural Rules of Thumb.md",
     "25H/IKT202 Software Engineering/Forelesning/29.10.md",
     "25H/IKT202 Software Engineering/IEEE definitions.md",
-    "25H/IKT202 Software Engineering/Forelesning/21.10 Organization of Software.md",
     "25H/IKT203 Algoritmer og Datastrukturer/Forelesning",
     "25H/IKT203 Algoritmer og Datastrukturer",
     "25H/IKT202 Software Engineering/Forelesning/21.10 Organization of Software",
