@@ -138,6 +138,18 @@
             }
           },
           {
+            "id": "5f24b786f06ef119",
+            "type": "leaf",
+            "state": {
+              "type": "release-notes",
+              "state": {
+                "currentVersion": "1.11.7"
+              },
+              "icon": "lucide-book-up",
+              "title": "Release Notes 1.11.7"
+            }
+          },
+          {
             "id": "381a7193aab9feff",
             "type": "leaf",
             "state": {
@@ -198,7 +210,7 @@
             }
           }
         ],
-        "currentTab": 5
+        "currentTab": 6
       }
     ],
     "direction": "vertical"
@@ -389,7 +401,7 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "461f9c616b41b8a8",
+  "active": "5f24b786f06ef119",
   "lastOpenFiles": [
     "26V/Devops",
     "26V/Statistikk/05.02.26 Oppsummering.md",
