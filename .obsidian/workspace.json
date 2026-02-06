@@ -179,7 +179,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "26V/Statistikk/29.01.26.md",
+                "file": "26V/Devops/Docker and Docker Compose.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": true,
@@ -194,7 +194,31 @@
                 }
               },
               "icon": "lucide-file",
-              "title": "29.01.26"
+              "title": "Docker and Docker Compose"
+            }
+          },
+          {
+            "id": "bbac2a06bee2d07f",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "26V/Devops/Bandit.md",
+                "mode": "source",
+                "source": false,
+                "backlinks": true,
+                "backlinkOpts": {
+                  "collapseAll": false,
+                  "extraContext": false,
+                  "sortOrder": "alphabetical",
+                  "showSearch": false,
+                  "searchQuery": "",
+                  "backlinkCollapsed": false,
+                  "unlinkedCollapsed": true
+                }
+              },
+              "icon": "lucide-file",
+              "title": "Bandit"
             }
           },
           {
@@ -210,7 +234,7 @@
             }
           }
         ],
-        "currentTab": 6
+        "currentTab": 9
       }
     ],
     "direction": "vertical"
@@ -401,11 +425,13 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "5f24b786f06ef119",
+  "active": "bbac2a06bee2d07f",
   "lastOpenFiles": [
+    "26V/Devops/Docker and Docker Compose.md",
+    "26V/Devops/Bandit.md",
+    "26V/Statistikk/29.01.26.md",
     "26V/Devops",
     "26V/Statistikk/05.02.26 Oppsummering.md",
-    "26V/Devops/Docker and Docker Compose.md",
     "Images/image-4 3.png",
     "Images/image-3 3.png",
     "Images/image-2 3.png",
@@ -416,7 +442,6 @@
     "Images/image-4 2.png",
     "Images/image-3 2.png",
     "Images/image-2 2.png",
-    "26V/Statistikk/29.01.26.md",
     "26V/Statistikk/22.01.26 2D - data.md",
     "tldraw/Tldraw 2026-02-05 10.39AM.md",
     "25H/IKT202 Software Engineering/Eksamen kommentarer.md",
@@ -447,7 +472,6 @@
     "25H/IKT203 Algoritmer og Datastrukturer",
     "25H/IKT202 Software Engineering/Forelesning/21.10 Organization of Software",
     "Images",
-    "25H/IKT202 Software Engineering/SOLID",
-    "25H/IKT202 Software Engineering/Forelesning"
+    "25H/IKT202 Software Engineering/SOLID"
   ]
 }
