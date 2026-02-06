@@ -119,7 +119,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "26V/Statistikk/05.02.26 Oppsummering.md",
+                "file": "26V/Devops/Docker and Docker Compose.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": true,
@@ -134,7 +134,7 @@
                 }
               },
               "icon": "lucide-file",
-              "title": "05.02.26 Oppsummering"
+              "title": "Docker and Docker Compose"
             }
           },
           {
@@ -389,8 +389,11 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "5f5e7fbb75c67ca3",
+  "active": "461f9c616b41b8a8",
   "lastOpenFiles": [
+    "26V/Devops",
+    "26V/Statistikk/05.02.26 Oppsummering.md",
+    "26V/Devops/Docker and Docker Compose.md",
     "Images/image-4 3.png",
     "Images/image-3 3.png",
     "Images/image-2 3.png",
@@ -401,10 +404,8 @@
     "Images/image-4 2.png",
     "Images/image-3 2.png",
     "Images/image-2 2.png",
-    "Images/image-1 3.png",
     "26V/Statistikk/29.01.26.md",
     "26V/Statistikk/22.01.26 2D - data.md",
-    "26V/Statistikk/05.02.26 Oppsummering.md",
     "tldraw/Tldraw 2026-02-05 10.39AM.md",
     "25H/IKT202 Software Engineering/Eksamen kommentarer.md",
     "26V/Statistikk/14.1.26 - Data.md",
@@ -430,7 +431,6 @@
     "25H/IKT202 Software Engineering/Allocation View.md",
     "25H/IKT202 Software Engineering/Component and Connector Views.md",
     "25H/IKT202 Software Engineering/Forelesning/04.11 Architectural Rules of Thumb.md",
-    "25H/IKT202 Software Engineering/4 + 1 Grouping of Views.md",
     "25H/IKT203 Algoritmer og Datastrukturer/Forelesning",
     "25H/IKT203 Algoritmer og Datastrukturer",
     "25H/IKT202 Software Engineering/Forelesning/21.10 Organization of Software",
