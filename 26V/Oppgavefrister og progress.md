@@ -34,3 +34,5 @@ Gjøre tidligere eksamen og lese i bok.
 
 pi * r^2 = 2.4
 r = sqrt(2.4/pi)
+
+1.748521
