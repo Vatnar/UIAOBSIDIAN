@@ -22,3 +22,11 @@
 Forprosjekt må være ferdig før den 13.
 Gjøre tidligere eksamen og lese i bok.
 
+
+## today:
+- [x] plan meeting devops
+- [] statistics <span style="color:rgb(192, 0, 0)">1c, få ferdig. denne først. </span>
+- [] Forprosjekt må være ferdig før den 13.
+- [] opssy:
+	- [] Assignment 1,
+	- [] Assignment 2,
