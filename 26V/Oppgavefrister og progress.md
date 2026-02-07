@@ -16,4 +16,8 @@
 	Tirsdag: 8:45-10:00
 	Onsdag: 10:15-11:30
 # Statistikk
+1b  levertt.
+<span style="color:rgb(192, 0, 0)">1c, få ferdig. denne først. </span>
+Forprosjekt må være ferdig før den 13.
+Gjøre tidligere eksamen og lese i bok.
 
