@@ -30,3 +30,7 @@ Gjøre tidligere eksamen og lese i bok.
 - [] opssy:
 	- [] Assignment 1,
 	- [] Assignment 2,
+
+
+pi * r^2 = 2.4
+r = sqrt(2.4/pi)
