@@ -25,16 +25,8 @@ Gjøre tidligere eksamen og lese i bok.
 
 ## today:
 - [x] plan meeting devops
-- [] statistics <span style="color:rgb(192, 0, 0)">1c, få ferdig. denne først. </span>
+- [x] statistics <span style="color:rgb(192, 0, 0)">1c, få ferdig. denne først. </span>
 - [] Forprosjekt må være ferdig før den 13.
 - [] opssy:
 	- [] Assignment 1,
 	- [] Assignment 2,
-
-
-pi * r^2 = 2.4
-r = sqrt(2.4/pi)
-
-1.748521
-
-9.6
