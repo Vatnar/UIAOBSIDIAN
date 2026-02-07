@@ -1,7 +1,8 @@
 # Devops
 - Assignment 2 - Ferdig individuelt, mangler rapport
 - Assignment 3 - Venter på VPS, har gjort [[Bandit]]
-- Møtes onsdag 11:30-??
+![[image-2.png|572x419]]
+
 # App utvkl
 - Ferdig med begge, venter på vurdering. er mulig at det kommer en til før ferie.
 # Avansert opsys
