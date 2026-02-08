@@ -9,7 +9,7 @@
 - Før ferie:
 	- Assignment 1,
 	- Assignment 2,
-	- Assignment 3 påbegynne
+		- Assignment 3 påbegynne
 
 # Matematikk 
 - Øve til delprøve #1 (25:#1,#2)
