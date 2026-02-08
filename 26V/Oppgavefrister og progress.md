@@ -9,7 +9,7 @@
 - Før ferie:
 	- Assignment 1,
 	- Assignment 2,
-	- Asssignment 3 påbegynne
+	- Assignment 3 påbegynne
 
 # Matematikk 
 - Øve til delprøve #1 (25:#1,#2)
@@ -18,7 +18,7 @@
 	Onsdag: 10:15-11:30
 # Statistikk
 1b  levertt.
-<span style="color:rgb(192, 0, 0)">1c, få ferdig. denne først. </span>
+1c, ferdig men må leveres
 Forprosjekt må være ferdig før den 13.
 Gjøre tidligere eksamen og lese i bok.
 
