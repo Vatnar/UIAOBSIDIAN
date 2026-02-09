@@ -12,5 +12,14 @@ lvl: 10: FGUW5ilLVJrxX9kMYMmlN4MgbpfMiqey, strings data.txt | grep =,
 ![[image.png]]
 
 
+```
+Host ikt206
+  HostName 10.225.151.48
+  User vatnar
+  IdentityFile ~/.ssh/id_ed25519
+  SetEnv TERM=xterm-256color
+```
+
+
 ![[image-3.png]]
 ![[image-4.png]]
