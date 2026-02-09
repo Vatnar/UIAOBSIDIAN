@@ -10,3 +10,5 @@ lvl: 8: dfwvzFQi4mU0wfNbFOe9RoWskMLg7eEc, cat og greppe etter millonth
 lvl: 9: 4CKMh1JI91bUIZZPXDqGanal4xvAg0JM, sort data.txt | uniq -u 
 lvl: 10: FGUW5ilLVJrxX9kMYMmlN4MgbpfMiqey, strings data.txt | grep =,
 ![[image.png]]
+
+

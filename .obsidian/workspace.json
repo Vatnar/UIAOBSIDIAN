@@ -227,7 +227,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "26V/Oppgavefrister og progress.md",
+                "file": "26V/Devops/Bandit.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": true,
@@ -242,7 +242,7 @@
                 }
               },
               "icon": "lucide-file",
-              "title": "Oppgavefrister og progress"
+              "title": "Bandit"
             }
           },
           {
@@ -311,8 +311,7 @@
               "title": "Bookmarks"
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "horizontal",
@@ -452,12 +451,12 @@
   },
   "active": "972e4663c6f5a6d2",
   "lastOpenFiles": [
+    "26V/Devops/Docker and Docker Compose.md",
+    "26V/Oppgavefrister og progress.md",
     "image-2.png",
     "image-1.png",
     "26V/Devops/Bandit.md",
-    "26V/Oppgavefrister og progress.md",
     "image.png",
-    "26V/Devops/Docker and Docker Compose.md",
     "tldraw/Tldraw 2026-02-05 10.39AM.md",
     "26V/Statistikk/29.01.26.md",
     "26V/Devops",
@@ -469,7 +468,6 @@
     "Images/image 4.png",
     "Images/image-6 2.png",
     "Images/image-5 2.png",
-    "Images/image-4 2.png",
     "26V/Statistikk/22.01.26 2D - data.md",
     "25H/IKT202 Software Engineering/Eksamen kommentarer.md",
     "26V/Statistikk/14.1.26 - Data.md",
