@@ -12,3 +12,5 @@ lvl: 10: FGUW5ilLVJrxX9kMYMmlN4MgbpfMiqey, strings data.txt | grep =,
 ![[image.png]]
 
 
+![[image-3.png]]
+![[image-4.png]]
