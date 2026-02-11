@@ -227,7 +227,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "26V/Devops/Bandit.md",
+                "file": "26V/Advanced Operatingsystems/20.01.2026 Advanced Operating Systems.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": true,
@@ -242,7 +242,31 @@
                 }
               },
               "icon": "lucide-file",
-              "title": "Bandit"
+              "title": "20.01.2026 Advanced Operating Systems"
+            }
+          },
+          {
+            "id": "439c0619b33c78f7",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "26V/Advanced Operatingsystems/Untitled.md",
+                "mode": "source",
+                "source": false,
+                "backlinks": true,
+                "backlinkOpts": {
+                  "collapseAll": false,
+                  "extraContext": false,
+                  "sortOrder": "alphabetical",
+                  "showSearch": false,
+                  "searchQuery": "",
+                  "backlinkCollapsed": false,
+                  "unlinkedCollapsed": true
+                }
+              },
+              "icon": "lucide-file",
+              "title": "Untitled"
             }
           },
           {
@@ -258,7 +282,7 @@
             }
           }
         ],
-        "currentTab": 10
+        "currentTab": 11
       }
     ],
     "direction": "vertical"
@@ -449,10 +473,12 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "972e4663c6f5a6d2",
+  "active": "439c0619b33c78f7",
   "lastOpenFiles": [
-    "26V/Devops/Docker and Docker Compose.md",
+    "26V/Advanced Operatingsystems/20.01.2026 Advanced Operating Systems.md",
+    "26V/Advanced Operatingsystems/Untitled.md",
     "26V/Devops/Bandit.md",
+    "26V/Devops/Docker and Docker Compose.md",
     "image-4.png",
     "image-3.png",
     "26V/Oppgavefrister og progress.md",
@@ -473,7 +499,6 @@
     "26V/Statistikk/14.1.26 - Data.md",
     "26V/Apputvikling/Supabase.md",
     "25H/IKT202 Software Engineering/Forelesning/19.08 Rules of software engineering.md",
-    "26V/Advanced Operatingsystems/20.01.2026 Advanced Operating Systems.md",
     "26V/Advanced Operatingsystems",
     "26V/Apputvikling",
     "24H/IKT102 Operativsystemer/Untitled.md",
