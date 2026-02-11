@@ -1,12 +1,6 @@
 
 devcontainer.json (pass på bygge locally)
 ```json
-////////////////////////////////////
-
-// Linux Setup (X11)
-
-////////////////////////////////////
-
 "mounts": [
 
 "source=/tmp/.X11-unix,target=/tmp/.X11-unix,type=bind,consistency=cached",
@@ -17,7 +11,9 @@ devcontainer.json (pass på bygge locally)
 
 "containerEnv": {
 
-"PULSE_SERVER": "unix:/run/user/1000/pulse/native"
+"PULSE_SERVER": "unix:/run/user/1000/pulse/native",
+
+"NO_AT_BRIDGE": "1"
 
 },
 
