@@ -1,8 +1,5 @@
-```bash
--DCMAKE_C_COMPILER=/usr/local/bin/i686-elf-gcc
--DCMAKE_CXX_COMPILER=/usr/local/bin/i686-elf-g++
-```
 
+fikse audio device
 devcontainer.json
 ```json
 ////////////////////////////////////
@@ -25,3 +22,12 @@ devcontainer.json
 
 ],
 ```
+legg til osdev i audio group, for lyd.
+
+
+Build, Execution, Deployment / CMake, set cmake options, (inni devcontainer, etter du har mounta)
+```bash
+-DCMAKE_C_COMPILER=/usr/local/bin/i686-elf-gcc
+-DCMAKE_CXX_COMPILER=/usr/local/bin/i686-elf-g++
+```
+
