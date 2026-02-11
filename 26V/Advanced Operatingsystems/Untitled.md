@@ -22,8 +22,10 @@ devcontainer.json
 
 ],
 ```
-legg til osdev i audio group, for lyd.
-
+legg til osdev i audio group, for lyd. DockerFile
+``` bash
+&& usermod -aG audio osdev \
+```
 
 Build, Execution, Deployment / CMake, set cmake options, (inni devcontainer, etter du har mounta)
 ```bash
