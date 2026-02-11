@@ -1,6 +1,5 @@
 
-fikse audio device
-devcontainer.json
+devcontainer.json (pass på bygge locally)
 ```json
 ////////////////////////////////////
 
@@ -15,7 +14,7 @@ devcontainer.json
 ],
 
 "containerEnv": {},
-
+// For å fikse lyd
 "runArgs": [
 
 "--device=/dev/snd"
@@ -32,4 +31,5 @@ Build, Execution, Deployment / CMake, set cmake options, (inni devcontainer, ett
 -DCMAKE_C_COMPILER=/usr/local/bin/i686-elf-gcc
 -DCMAKE_CXX_COMPILER=/usr/local/bin/i686-elf-g++
 ```
+Også bare å lage run config
 
