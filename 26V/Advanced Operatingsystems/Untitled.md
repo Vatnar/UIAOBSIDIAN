@@ -11,10 +11,16 @@ devcontainer.json (pass på bygge locally)
 
 "source=/tmp/.X11-unix,target=/tmp/.X11-unix,type=bind,consistency=cached",
 
+"source=/run/user/1000/pulse,target=/run/user/1000/pulse,type=bind,consistency=cached"
+
 ],
 
-"containerEnv": {},
-// For å fikse lyd
+"containerEnv": {
+
+"PULSE_SERVER": "unix:/run/user/1000/pulse/native"
+
+},
+
 "runArgs": [
 
 "--device=/dev/snd"
