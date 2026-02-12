@@ -22,3 +22,5 @@ betyr
 P(X=12,13,14,15,16)
 
 # r stuff
+![[image-20.png]]
+Sannsynlighet for å få presis 2 = 0, fordi det ikke er diskret.
