@@ -47,3 +47,6 @@ sannsynlighet diskret
 
 ![[image-27.png]]
 
+![[image-28.png]]
+![[image-29.png]]
+invers CDF, brukes en del 
