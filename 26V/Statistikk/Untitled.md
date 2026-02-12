@@ -42,3 +42,6 @@ median.
 modus, høyeste punkt
 sannsynlighetstetthet kontinuerlig
 sannsynlighet diskret
+
+![[image-26.png]]
+
