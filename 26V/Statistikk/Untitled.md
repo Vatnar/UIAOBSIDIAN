@@ -50,3 +50,5 @@ sannsynlighet diskret
 ![[image-28.png]]
 ![[image-29.png]]
 invers CDF, brukes en del 
+
+![[image-30.png]]
