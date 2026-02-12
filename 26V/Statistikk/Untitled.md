@@ -9,3 +9,6 @@ n ganger p
 ![[image-10.png]]
 ![[image-13.png]]
 ![[image-14.png]]
+![[image-15.png]]
+![[image-16.png]]
+
