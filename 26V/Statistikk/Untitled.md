@@ -14,3 +14,9 @@ n ganger p
 
 ![[image-17.png]]
 ![[image-18.png]]
+
+
+# VIKTIG
+![[image-19.png]]
+betyr
+P(X=12,13,14,15,16)
