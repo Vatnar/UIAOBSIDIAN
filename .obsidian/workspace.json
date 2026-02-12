@@ -251,7 +251,31 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "26V/Advanced Operatingsystems/Untitled.md",
+                "file": "26V/Statistikk/05.02.26 Oppsummering.md",
+                "mode": "source",
+                "source": false,
+                "backlinks": true,
+                "backlinkOpts": {
+                  "collapseAll": false,
+                  "extraContext": false,
+                  "sortOrder": "alphabetical",
+                  "showSearch": false,
+                  "searchQuery": "",
+                  "backlinkCollapsed": false,
+                  "unlinkedCollapsed": true
+                }
+              },
+              "icon": "lucide-file",
+              "title": "05.02.26 Oppsummering"
+            }
+          },
+          {
+            "id": "1276ec5045d06852",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "26V/Statistikk/Untitled.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": true,
@@ -282,7 +306,7 @@
             }
           }
         ],
-        "currentTab": 11
+        "currentTab": 12
       }
     ],
     "direction": "vertical"
@@ -473,10 +497,14 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "439c0619b33c78f7",
+  "active": "1276ec5045d06852",
   "lastOpenFiles": [
-    "26V/Advanced Operatingsystems/20.01.2026 Advanced Operating Systems.md",
+    "image-6.png",
+    "image-5.png",
+    "26V/Statistikk/05.02.26 Oppsummering.md",
+    "26V/Statistikk/Untitled.md",
     "26V/Advanced Operatingsystems/Untitled.md",
+    "26V/Advanced Operatingsystems/20.01.2026 Advanced Operating Systems.md",
     "26V/Devops/Bandit.md",
     "26V/Devops/Docker and Docker Compose.md",
     "image-4.png",
@@ -488,12 +516,10 @@
     "tldraw/Tldraw 2026-02-05 10.39AM.md",
     "26V/Statistikk/29.01.26.md",
     "26V/Devops",
-    "26V/Statistikk/05.02.26 Oppsummering.md",
     "Images/image-4 3.png",
     "Images/image-3 3.png",
     "Images/image-2 3.png",
     "Images/image-1 4.png",
-    "Images/image 4.png",
     "26V/Statistikk/22.01.26 2D - data.md",
     "25H/IKT202 Software Engineering/Eksamen kommentarer.md",
     "26V/Statistikk/14.1.26 - Data.md",
@@ -514,8 +540,6 @@
     "25H/IKT202 Software Engineering/Forelesning/12.11.md",
     "25H/IKT202 Software Engineering/Forelesning/11.11 KONGSBERG.md",
     "25H/IKT202 Software Engineering/Forelesning/05.11.md",
-    "25H/IKT202 Software Engineering/Modifiability Tactics.md",
-    "25H/IKT202 Software Engineering/Allocation View.md",
     "25H/IKT203 Algoritmer og Datastrukturer/Forelesning",
     "25H/IKT203 Algoritmer og Datastrukturer",
     "25H/IKT202 Software Engineering/Forelesning/21.10 Organization of Software",
