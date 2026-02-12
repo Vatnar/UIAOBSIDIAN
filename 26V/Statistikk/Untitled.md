@@ -20,3 +20,5 @@ n ganger p
 ![[image-19.png]]
 betyr
 P(X=12,13,14,15,16)
+
+# r stuff
