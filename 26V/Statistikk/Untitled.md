@@ -35,3 +35,10 @@ d for not
 cdf
 ![[image-24.png]]
 ![[image-25.png]]
+
+PDF:
+median.
+50% areal på hver side
+modus, høyeste punkt
+sannsynlighetstetthet kontinuerlig
+sannsynlighet diskret
