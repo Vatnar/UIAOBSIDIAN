@@ -52,3 +52,7 @@ sannsynlighet diskret
 invers CDF, brukes en del 
 
 ![[image-30.png]]
+![[image-31.png]]
+![[image-32.png]]
+![[image-33.png]]
+qgamma invers.
