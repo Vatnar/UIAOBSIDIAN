@@ -12,3 +12,4 @@ n ganger p
 ![[image-15.png]]
 ![[image-16.png]]
 
+![[image-17.png]]
