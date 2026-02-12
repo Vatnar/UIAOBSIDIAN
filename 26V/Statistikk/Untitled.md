@@ -25,4 +25,7 @@ P(X=12,13,14,15,16)
 ![[image-20.png]]
 Sannsynlighet for å få presis 2 = 0, fordi det ikke er diskret.
 Sannsynlighet er arealet under grafen
+![[image-22.png]]
 
+p for comulative
+d for not
