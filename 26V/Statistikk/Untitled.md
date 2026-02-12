@@ -29,3 +29,8 @@ Sannsynlighet er arealet under grafen
 
 p for comulative
 d for not
+
+
+![[image-23.png]]
+cdf
+![[image-24.png]]
