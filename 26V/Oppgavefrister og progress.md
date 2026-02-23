@@ -7,10 +7,9 @@
 - 
 https://uia.instructure.com/courses/19554/assignments/86765 3 mars frist
 # Avansert opsys
-- Før ferie:
-	- Assignment 1,
-	- Assignment 2,
-		- Assignment 3 påbegynne
+Skrive assignment 1,2 overleaf
+Gjøre interrupts
+Merge meg + morten + pull request for assignment 2.
 
 # Matematikk 
 + Ferdig
