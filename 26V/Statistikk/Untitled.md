@@ -1,40 +1,40 @@
 Rbinom
 dbinom
-![[image-6.png]]
+![[image-6 3.png]]
 samme som 
 n ganger p
-![[image-7.png]]
-![[image-8.png]]
-![[image-9.png]]
-![[image-10.png]]
-![[image-13.png]]
-![[image-14.png]]
-![[image-15.png]]
-![[image-16.png]]
+![[image-7 2.png]]
+![[image-8 2.png]]
+![[image-9 2.png]]
+![[image-10 2.png]]
+![[image-13 1.png]]
+![[image-14 1.png]]
+![[image-15 1.png]]
+![[image-16 1.png]]
 
-![[image-17.png]]
-![[image-18.png]]
+![[image-17 1.png]]
+![[image-18 1.png]]
 
 
 # VIKTIG
-![[image-19.png]]
+![[image-19 1.png]]
 betyr
 P(X=12,13,14,15,16)
 
 # r stuff
-![[image-20.png]]
+![[image-20 1.png]]
 Sannsynlighet for å få presis 2 = 0, fordi det ikke er diskret.
 Sannsynlighet er arealet under grafen
-![[image-22.png]]
+![[image-22 1.png]]
 
 p for comulative
 d for not
 
 
-![[image-23.png]]
+![[image-23 1.png]]
 cdf
-![[image-24.png]]
-![[image-25.png]]
+![[image-24 1.png]]
+![[image-25 1.png]]
 
 PDF:
 median.
@@ -43,15 +43,15 @@ modus, høyeste punkt
 sannsynlighetstetthet kontinuerlig
 sannsynlighet diskret
 
-![[image-26.png]]
+![[Images/image-26.png]]
 
-![[image-27.png]]
+![[Images/image-27.png]]
 
-![[image-28.png]]
-![[image-29.png]]
+![[Images/image-28.png]]
+![[Images/image-29.png]]
 invers CDF, brukes en del 
 
-![[image-30.png]]
+![[Images/image-30.png]]
 ![[image-31.png]]
 ![[image-32.png]]
 ![[image-33.png]]

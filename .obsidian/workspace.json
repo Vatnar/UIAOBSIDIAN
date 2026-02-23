@@ -273,24 +273,12 @@
             "id": "1276ec5045d06852",
             "type": "leaf",
             "state": {
-              "type": "markdown",
+              "type": "image",
               "state": {
-                "file": "26V/Statistikk/Untitled.md",
-                "mode": "source",
-                "source": false,
-                "backlinks": true,
-                "backlinkOpts": {
-                  "collapseAll": false,
-                  "extraContext": false,
-                  "sortOrder": "alphabetical",
-                  "showSearch": false,
-                  "searchQuery": "",
-                  "backlinkCollapsed": false,
-                  "unlinkedCollapsed": true
-                }
+                "file": "Images/image 5.png"
               },
-              "icon": "lucide-file",
-              "title": "Untitled"
+              "icon": "lucide-image",
+              "title": "image 5"
             }
           },
           {
@@ -497,21 +485,20 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "1276ec5045d06852",
+  "active": "5f5e7fbb75c67ca3",
   "lastOpenFiles": [
-    "image-33.png",
-    "image-32.png",
-    "image-31.png",
-    "image-30.png",
-    "image-29.png",
-    "image-28.png",
-    "image-27.png",
-    "image-26.png",
-    "image-25.png",
-    "image-24.png",
-    "image-23.png",
-    "26V/Statistikk/05.02.26 Oppsummering.md",
     "26V/Statistikk/Untitled.md",
+    "Images/image-33.png",
+    "Images/image-32.png",
+    "Images/image-31.png",
+    "Images/image-30.png",
+    "Images/image-29.png",
+    "Images/image-28.png",
+    "Images/image-27.png",
+    "Images/image-26.png",
+    "Images/image-25 1.png",
+    "Images/image-24 1.png",
+    "26V/Statistikk/05.02.26 Oppsummering.md",
     "26V/Advanced Operatingsystems/Untitled.md",
     "26V/Advanced Operatingsystems/20.01.2026 Advanced Operating Systems.md",
     "26V/Devops/Bandit.md",

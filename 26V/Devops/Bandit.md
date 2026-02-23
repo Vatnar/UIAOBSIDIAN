@@ -9,7 +9,7 @@ lvl 7: morbNTDkSW6jIlUc0ymOdMaLnOlFVAaj, find fra root, med type f, user bandit 
 lvl: 8: dfwvzFQi4mU0wfNbFOe9RoWskMLg7eEc, cat og greppe etter millonth
 lvl: 9: 4CKMh1JI91bUIZZPXDqGanal4xvAg0JM, sort data.txt | uniq -u 
 lvl: 10: FGUW5ilLVJrxX9kMYMmlN4MgbpfMiqey, strings data.txt | grep =,
-![[image.png]]
+![[image 5.png]]
 
 
 ```
@@ -21,5 +21,5 @@ Host ikt206
 ```
 
 
-![[image-3.png]]
-![[image-4.png]]
+![[image-3 4.png]]
+![[image-4 4.png]]
