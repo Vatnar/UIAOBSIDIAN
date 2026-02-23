@@ -1,10 +1,11 @@
 # Devops
-- Assignment 2 - Ferdig individuelt, mangler rapport
+- Assignment 2 - Camilla må legge inn
 - Assignment 3 - Venter på VPS, har gjort [[Bandit]]
-![[image-2 4.png|572x419]]
+
 
 # App utvkl
-- Ferdig med begge, venter på vurdering. er mulig at det kommer en til før ferie.
+- 
+https://uia.instructure.com/courses/19554/assignments/86765 3 mars frist
 # Avansert opsys
 - Før ferie:
 	- Assignment 1,
@@ -12,14 +13,8 @@
 		- Assignment 3 påbegynne
 
 # Matematikk 
-- Øve til delprøve #1 (25:#1,#2)
-- Tider:
-	Tirsdag: 8:45-10:00
-	Onsdag: 10:15-11:30
++ Ferdig
 # Statistikk
-1b  levertt.
-1c, ferdig men må leveres
-Forprosjekt må være ferdig før den 13.
 Gjøre tidligere eksamen og lese i bok.
 
 

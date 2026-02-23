@@ -273,12 +273,24 @@
             "id": "1276ec5045d06852",
             "type": "leaf",
             "state": {
-              "type": "image",
+              "type": "markdown",
               "state": {
-                "file": "Images/image 5.png"
+                "file": "26V/Oppgavefrister og progress.md",
+                "mode": "source",
+                "source": false,
+                "backlinks": true,
+                "backlinkOpts": {
+                  "collapseAll": false,
+                  "extraContext": false,
+                  "sortOrder": "alphabetical",
+                  "showSearch": false,
+                  "searchQuery": "",
+                  "backlinkCollapsed": false,
+                  "unlinkedCollapsed": true
+                }
               },
-              "icon": "lucide-image",
-              "title": "image 5"
+              "icon": "lucide-file",
+              "title": "Oppgavefrister og progress"
             }
           },
           {
@@ -485,8 +497,9 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "5f5e7fbb75c67ca3",
+  "active": "1276ec5045d06852",
   "lastOpenFiles": [
+    "Images/image 5.png",
     "26V/Statistikk/Untitled.md",
     "Images/image-33.png",
     "Images/image-32.png",
