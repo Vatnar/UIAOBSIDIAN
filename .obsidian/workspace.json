@@ -497,7 +497,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 396
+    "width": 200,
+    "collapsed": true
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -521,7 +522,7 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "5f5e7fbb75c67ca3",
+  "active": "1ebf92b8faf31636",
   "lastOpenFiles": [
     "Images/image 6.png",
     "26V/Devops/Bandit.md",
