@@ -1,6 +1,5 @@
 # Devops
-- Assignment 2 - Camilla må legge inn
-- Assignment 3 - Skrive rapport
+- Assignment 3 - Ferdig: vente på jenter
 
 
 # App utvkl
@@ -14,7 +13,5 @@ Merge meg + morten + pull request for assignment 2.
 + Ferdig
 # Statistikk
 Gjøre tidligere eksamen og lese i bok.
-2 a, frist 27. feb
-https://uia.instructure.com/courses/19424/files/3210473?module_item_id=793707
-
+2b
 
