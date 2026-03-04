@@ -3,15 +3,14 @@
 
 
 # App utvkl
-https://uia.instructure.com/courses/19554/assignments/86765 3 mars frist
+ferdig per nå
 # Avansert opsys
-Skrive assignment 1,2 overleaf
-Gjøre interrupts
-Merge meg + morten + pull request for assignment 2.
+Skrive assignment 1,2, 3 overleaf
+gjøre assignment 4
 
 # Matematikk 
 + Ferdig
 # Statistikk
 Gjøre tidligere eksamen og lese i bok.
-2b
+2b leveres før fredag
 
