@@ -316,33 +316,9 @@
               "icon": "lucide-file",
               "title": "Oppgavefrister og progress"
             }
-          },
-          {
-            "id": "73f2f26df5dfde15",
-            "type": "leaf",
-            "state": {
-              "type": "release-notes",
-              "state": {
-                "currentVersion": "1.12.4"
-              },
-              "icon": "lucide-book-up",
-              "title": "Release Notes 1.12.4"
-            }
-          },
-          {
-            "id": "56d95d4ffcc5b414",
-            "type": "leaf",
-            "state": {
-              "type": "tldraw-view",
-              "state": {
-                "file": "tldraw/Tldraw 2026-02-05 10.39AM.md"
-              },
-              "icon": "lucide-file",
-              "title": "Tldraw 2026-02-05 10.39AM"
-            }
           }
         ],
-        "currentTab": 14
+        "currentTab": 13
       }
     ],
     "direction": "vertical"
@@ -534,8 +510,9 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "73f2f26df5dfde15",
+  "active": "1ebf92b8faf31636",
   "lastOpenFiles": [
+    "tldraw/Tldraw 2026-02-05 10.39AM.md",
     "26V/Statistikk/26.02.26.md",
     "Images/image 6.png",
     "26V/Devops/Bandit.md",
@@ -555,7 +532,6 @@
     "Images/image-26.png",
     "26V/Advanced Operatingsystems/20.01.2026 Advanced Operating Systems.md",
     "26V/Devops/Docker and Docker Compose.md",
-    "tldraw/Tldraw 2026-02-05 10.39AM.md",
     "26V/Devops",
     "26V/Statistikk/22.01.26 2D - data.md",
     "25H/IKT202 Software Engineering/Eksamen kommentarer.md",
