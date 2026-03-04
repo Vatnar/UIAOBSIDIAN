@@ -15,4 +15,4 @@ Gjøre tidligere eksamen og lese i bok.
 2b leveres før fredag
 
 
-gjøre 
+gjøre https://uia.instructure.com/courses/19424/files/3213293?module_item_id=794593
