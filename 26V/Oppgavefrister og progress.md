@@ -1,6 +1,6 @@
 # Devops
 - Assignment 3 - Ferdig: vente på jenter
-
+ingenting nytt
 
 # App utvkl
 [Assignment4, frist 17. mars](https://uia.instructure.com/courses/19554/assignments/87054)
@@ -14,3 +14,5 @@ gjøre assignment 4
 Gjøre tidligere eksamen og lese i bok.
 2b leveres før fredag
 
+
+gjøre 
