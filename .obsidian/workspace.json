@@ -299,7 +299,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "26V/Statistikk/05.03.26.md",
+                "file": "26V/Oppgavefrister og progress.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": true,
@@ -314,7 +314,7 @@
                 }
               },
               "icon": "lucide-file",
-              "title": "05.03.26"
+              "title": "Oppgavefrister og progress"
             }
           }
         ],
@@ -512,8 +512,9 @@
   },
   "active": "1ebf92b8faf31636",
   "lastOpenFiles": [
-    "26V/Statistikk/29.01.26.md",
+    "26V/Devops/Docker and Docker Compose.md",
     "26V/Statistikk/05.03.26.md",
+    "26V/Statistikk/29.01.26.md",
     "26V/Oppgavefrister og progress.md",
     "tldraw/Tldraw 2026-02-05 10.39AM.md",
     "26V/Statistikk/26.02.26.md",
@@ -532,7 +533,6 @@
     "Images/image-27.png",
     "Images/image-26.png",
     "26V/Advanced Operatingsystems/20.01.2026 Advanced Operating Systems.md",
-    "26V/Devops/Docker and Docker Compose.md",
     "26V/Devops",
     "26V/Statistikk/22.01.26 2D - data.md",
     "25H/IKT202 Software Engineering/Eksamen kommentarer.md",
