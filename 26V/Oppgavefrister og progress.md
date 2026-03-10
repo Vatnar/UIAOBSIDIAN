@@ -1,9 +1,8 @@
 # Devops
 - Assignment 3 - Ferdig: vente på jenter
-ingenting nytt
+- assignment 4, 5
 
 # App utvkl
-[Assignment4, frist 17. mars](https://uia.instructure.com/courses/19554/assignments/87054)
 # Avansert opsys
 Skrive assignment 1,2, 3 overleaf
 gjøre assignment 4
