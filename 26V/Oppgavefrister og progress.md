@@ -2,7 +2,7 @@
 Assignment 4, vente
 assignment 5, rapport
 
-# App utvikling
+# App utvkling
 Prosjekt
 # Avansert opsys
 Kun improvisasjon og rapport 
