@@ -323,7 +323,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "26V/Oppgavefrister og progress.md",
+                "file": "26V/Statistikk/Prosjekt.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": true,
@@ -338,7 +338,7 @@
                 }
               },
               "icon": "lucide-file",
-              "title": "Oppgavefrister og progress"
+              "title": "Prosjekt"
             }
           }
         ],
@@ -536,6 +536,8 @@
   },
   "active": "60a3cb690cbf2087",
   "lastOpenFiles": [
+    "26V/Statistikk/05.02.26 Oppsummering.md",
+    "26V/Statistikk/Prosjekt.md",
     "26V/Oppgavefrister og progress.md",
     "26V/Devops/Docker and Docker Compose.md",
     "26V/Statistikk/05.03.26.md",
@@ -546,7 +548,6 @@
     "26V/Devops/Bandit.md",
     "26V/Advanced Operatingsystems/Untitled.md",
     "26V/Statistikk/12.02.26.md",
-    "26V/Statistikk/05.02.26 Oppsummering.md",
     "Images/image 5.png",
     "Images/image-33.png",
     "Images/image-32.png",
@@ -576,7 +577,6 @@
     "25H/IKT202 Software Engineering/Forelesning/19.11.md",
     "25H/IKT202 Software Engineering/Forelesning/18.11.md",
     "25H/IKT202 Software Engineering/Forelesning/12.11.md",
-    "25H/IKT202 Software Engineering/Forelesning/11.11 KONGSBERG.md",
     "25H/IKT203 Algoritmer og Datastrukturer/Forelesning",
     "25H/IKT203 Algoritmer og Datastrukturer",
     "25H/IKT202 Software Engineering/Forelesning/21.10 Organization of Software",
