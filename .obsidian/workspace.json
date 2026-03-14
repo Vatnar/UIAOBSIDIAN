@@ -316,9 +316,19 @@
               "icon": "lucide-file",
               "title": "Oppgavefrister og progress"
             }
+          },
+          {
+            "id": "60a3cb690cbf2087",
+            "type": "leaf",
+            "state": {
+              "type": "empty",
+              "state": {},
+              "icon": "lucide-file",
+              "title": "New tab"
+            }
           }
         ],
-        "currentTab": 13
+        "currentTab": 14
       }
     ],
     "direction": "vertical"
@@ -510,12 +520,12 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "1ebf92b8faf31636",
+  "active": "60a3cb690cbf2087",
   "lastOpenFiles": [
+    "26V/Oppgavefrister og progress.md",
     "26V/Devops/Docker and Docker Compose.md",
     "26V/Statistikk/05.03.26.md",
     "26V/Statistikk/29.01.26.md",
-    "26V/Oppgavefrister og progress.md",
     "tldraw/Tldraw 2026-02-05 10.39AM.md",
     "26V/Statistikk/26.02.26.md",
     "Images/image 6.png",
