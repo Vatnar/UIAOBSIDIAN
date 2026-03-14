@@ -13,6 +13,4 @@ oppgaver
 # Statistikk
 Gjøre tidligere eksamen og lese i bok.
 
-fullføre 2c
-
 PROSJEKT
