@@ -1,19 +1,45 @@
-1. The "Community Hazard" Reporter (Crowdsourced Safety)
-An app where users pin local hazards (broken streetlights, potholes, icy sidewalks) with photos and severity levels.
+# App Ideer - IKT205 Prosjekt
 
-Why it hits the A-grade:
+##  "Community Hazard"
+*App hvor brukere "pinner" farer i nærområdet (ødelagte ting, is, osv), med bilder og farenivå.*
 
-Third-party integration: Uses Google Maps API (complex UI).
+> [!SUCCESS] PROS
+> - **Google Maps API:** Gir mye "nice" UI-stuff og visualisering.
+> - **Lokasjonsbaserte notifikasjoner:** Varsle brukere når de nærmer seg en fare.
+> - **Teknisk dybde:** Caching av kart, håndtering av bilder og media.
+> - **Rapport-mat:** Gode muligheter for å skrive om Privacy/GDPR.
 
-Advanced UI: Requires handling a map with custom clusters and image uploads.
+> [!WARNING] CONS
+> - **Datamangel:** Vanskelig å få en god app-opplevelse uten masse data (kjipt med tomt kart).
+> - **Datakvalitet:** Validering av brukerinnsendt data og håndtering av misbruk (troll-pins).
+> - **GDPR-surr:** Registreringsnumre på biler eller ansikter i bilder må sensureres.
 
-Push Notifications: Alerts users when a hazard is reported nearby (Firebase Cloud Messaging).
+---
 
-Offline/Online: Needs to cache map data or queue reports if the user has no signal while outside.
+##  "Silent Guardian"
+*Bruker Geofencing API for å tracke lokasjoner. Kobles opp mot kart med definerte "Silent Zones" (f.eks. bibliotek). Bruker Foreground Services eller WorkManager.*
 
-Legal/Privacy: Perfect for discussing GDPR and "Public interest" data in your report.
+### Key Features
+- **Zone Management:** Map interface (Google Maps SDK) for å definere soner.
+- **Sosialt:** Deling av soner/communities og globale definerte soner.
+- **Automatisering:** Gå automatisk på "Ikke forstyrr" eller send SMS-svar: *"In a silent zone"*.
 
+> [!SUCCESS] PROS
+> - **UI + OS Interaction:** Gir ekstremt god kunnskap om Android-systemet (ikke bare en standard CRUD-app).
+> - **Teknisk Stack:** Avansert bruk av Google Maps, Background Services, Geofencing API og WorkManager.
+> - **Optimalisering:** Fokus på batteri og ressursbruk (JobScheduler/WorkManager).
+> - **TDD-vennlig:** Veldig egnet for Test Driven Development i logikk-laget.
 
-2.
-"Silent Guardian"
-Bruke Geofencing API til å tracke lokasjoner til telefonen, blir koblet opp mot et globalt kart hvor ulike silent zones er definert. For eksempel et bibliotek etc. Appen vil jobbe med Foreground services eller WorkManager 
+> [!WARNING] CONS
+> - **Tilganger:** Bakgrunnslokasjon er strengt og "kranglete" i moderne Android.
+> - **Testing:** Kan være utfordrende å teste background services manuelt.
+> - **Arkitektur:** Ekstremt viktig å holde logikken og Android-servicene separat for å kunne kjøre tester.
+> - **Maskinvare:** Noe funksjonalitet (som auto-reply) må testes fysisk.
+
+---
+
+##  Oppsummering 
+
+- **Community Hazard** er mest sannsynlig et enklere prosjekt rent teknisk, men har større utfordringer rundt innhold og moderering.
+- **Silent Guardian** gir mulighet for høyere karakter da det treffer de "avanserte" kriteriene i emnebeskrivelsen bedre.
+- Det kan faktisk være "enklere" på sikt hvis man unngår utfordringene med brukergenerert innhold og bilde-moderasjon som man får i Hazard-appen.
