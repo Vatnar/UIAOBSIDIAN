@@ -143,7 +143,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "26V/Oppgavefrister og progress.md",
+                "file": "26V/Apputvikling/Ideer.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": true,
@@ -158,7 +158,7 @@
                 }
               },
               "icon": "lucide-file",
-              "title": "Oppgavefrister og progress"
+              "title": "Ideer"
             }
           }
         ],
@@ -356,8 +356,9 @@
   },
   "active": "60a3cb690cbf2087",
   "lastOpenFiles": [
-    "26V/Statistikk/Prosjekt.md",
     "26V/Oppgavefrister og progress.md",
+    "26V/Apputvikling/Ideer.md",
+    "26V/Statistikk/Prosjekt.md",
     "26V/Statistikk/12.02.26.md",
     "26V/Statistikk/05.02.26 Oppsummering.md",
     "26V/Advanced Operatingsystems/20.01.2026 Advanced Operating Systems.md",
@@ -396,7 +397,6 @@
     "25H/IKT202 Software Engineering/Agile Development.md",
     "25H/IKT202 Software Engineering/Forelesning/19.11.md",
     "25H/IKT202 Software Engineering/Forelesning/18.11.md",
-    "25H/IKT202 Software Engineering/Forelesning/12.11.md",
     "25H/IKT203 Algoritmer og Datastrukturer/Forelesning",
     "25H/IKT203 Algoritmer og Datastrukturer",
     "25H/IKT202 Software Engineering/Forelesning/21.10 Organization of Software",
