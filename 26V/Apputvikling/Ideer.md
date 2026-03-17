@@ -13,3 +13,7 @@ Offline/Online: Needs to cache map data or queue reports if the user has no sign
 
 Legal/Privacy: Perfect for discussing GDPR and "Public interest" data in your report.
 
+
+2.
+"Silent Guardian"
+Bruke Geofencing API til å tracke lokasjoner til telefonen, blir koblet opp mot et globalt kart hvor ulike silent zones er definert. For eksempel et bibliotek etc. Appen vil jobbe med Foreground services eller WorkManager 
