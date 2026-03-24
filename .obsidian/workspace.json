@@ -143,7 +143,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "26V/Apputvikling/Ideer.md",
+                "file": "26V/Oppgavefrister og progress.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": true,
@@ -158,7 +158,7 @@
                 }
               },
               "icon": "lucide-file",
-              "title": "Ideer"
+              "title": "Oppgavefrister og progress"
             }
           }
         ],
@@ -356,8 +356,8 @@
   },
   "active": "60a3cb690cbf2087",
   "lastOpenFiles": [
-    "26V/Oppgavefrister og progress.md",
     "26V/Apputvikling/Ideer.md",
+    "26V/Oppgavefrister og progress.md",
     "26V/Statistikk/Prosjekt.md",
     "26V/Statistikk/12.02.26.md",
     "26V/Statistikk/05.02.26 Oppsummering.md",
