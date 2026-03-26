@@ -160,9 +160,21 @@
               "icon": "lucide-file",
               "title": "Oppgavefrister og progress"
             }
+          },
+          {
+            "id": "93cd459809f1fdf6",
+            "type": "leaf",
+            "state": {
+              "type": "release-notes",
+              "state": {
+                "currentVersion": "1.12.7"
+              },
+              "icon": "lucide-book-up",
+              "title": "Release Notes 1.12.7"
+            }
           }
         ],
-        "currentTab": 6
+        "currentTab": 7
       }
     ],
     "direction": "vertical"
@@ -354,7 +366,7 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "60a3cb690cbf2087",
+  "active": "93cd459809f1fdf6",
   "lastOpenFiles": [
     "26V/Apputvikling/Ideer.md",
     "26V/Oppgavefrister og progress.md",
