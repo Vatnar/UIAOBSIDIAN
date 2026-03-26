@@ -165,16 +165,52 @@
             "id": "93cd459809f1fdf6",
             "type": "leaf",
             "state": {
-              "type": "release-notes",
+              "type": "markdown",
               "state": {
-                "currentVersion": "1.12.7"
+                "file": "26V/Statistikk/05.02.26 Oppsummering.md",
+                "mode": "source",
+                "source": false,
+                "backlinks": true,
+                "backlinkOpts": {
+                  "collapseAll": false,
+                  "extraContext": false,
+                  "sortOrder": "alphabetical",
+                  "showSearch": false,
+                  "searchQuery": "",
+                  "backlinkCollapsed": false,
+                  "unlinkedCollapsed": true
+                }
               },
-              "icon": "lucide-book-up",
-              "title": "Release Notes 1.12.7"
+              "icon": "lucide-file",
+              "title": "05.02.26 Oppsummering"
+            }
+          },
+          {
+            "id": "b2c12db012a8d45f",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "26V/Statistikk/26.03.md",
+                "mode": "source",
+                "source": false,
+                "backlinks": true,
+                "backlinkOpts": {
+                  "collapseAll": false,
+                  "extraContext": false,
+                  "sortOrder": "alphabetical",
+                  "showSearch": false,
+                  "searchQuery": "",
+                  "backlinkCollapsed": false,
+                  "unlinkedCollapsed": true
+                }
+              },
+              "icon": "lucide-file",
+              "title": "26.03"
             }
           }
         ],
-        "currentTab": 7
+        "currentTab": 8
       }
     ],
     "direction": "vertical"
@@ -366,13 +402,14 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "93cd459809f1fdf6",
+  "active": "b2c12db012a8d45f",
   "lastOpenFiles": [
+    "26V/Statistikk/05.02.26 Oppsummering.md",
+    "26V/Statistikk/26.03.md",
     "26V/Apputvikling/Ideer.md",
     "26V/Oppgavefrister og progress.md",
     "26V/Statistikk/Prosjekt.md",
     "26V/Statistikk/12.02.26.md",
-    "26V/Statistikk/05.02.26 Oppsummering.md",
     "26V/Advanced Operatingsystems/20.01.2026 Advanced Operating Systems.md",
     "26V/Devops/Bandit.md",
     "26V/Devops/Docker and Docker Compose.md",
@@ -408,7 +445,6 @@
     "25H/IKT202 Software Engineering/Estimation Error Over Time.md",
     "25H/IKT202 Software Engineering/Agile Development.md",
     "25H/IKT202 Software Engineering/Forelesning/19.11.md",
-    "25H/IKT202 Software Engineering/Forelesning/18.11.md",
     "25H/IKT203 Algoritmer og Datastrukturer/Forelesning",
     "25H/IKT203 Algoritmer og Datastrukturer",
     "25H/IKT202 Software Engineering/Forelesning/21.10 Organization of Software",
