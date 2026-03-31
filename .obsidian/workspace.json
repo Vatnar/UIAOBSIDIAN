@@ -191,7 +191,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "26V/Statistikk/26.03.md",
+                "file": "26V/Apputvikling/Ideer.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": true,
@@ -206,11 +206,35 @@
                 }
               },
               "icon": "lucide-file",
-              "title": "26.03"
+              "title": "Ideer"
+            }
+          },
+          {
+            "id": "717d5300acd9bb29",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "26V/Apputvikling/Notater.md",
+                "mode": "source",
+                "source": false,
+                "backlinks": true,
+                "backlinkOpts": {
+                  "collapseAll": false,
+                  "extraContext": false,
+                  "sortOrder": "alphabetical",
+                  "showSearch": false,
+                  "searchQuery": "",
+                  "backlinkCollapsed": false,
+                  "unlinkedCollapsed": true
+                }
+              },
+              "icon": "lucide-file",
+              "title": "Notater"
             }
           }
         ],
-        "currentTab": 8
+        "currentTab": 9
       }
     ],
     "direction": "vertical"
@@ -402,12 +426,13 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "b2c12db012a8d45f",
+  "active": "717d5300acd9bb29",
   "lastOpenFiles": [
+    "26V/Apputvikling/Ideer.md",
+    "26V/Apputvikling/Notater.md",
+    "26V/Statistikk/26.03.md",
     "image.png",
     "26V/Statistikk/05.02.26 Oppsummering.md",
-    "26V/Statistikk/26.03.md",
-    "26V/Apputvikling/Ideer.md",
     "26V/Oppgavefrister og progress.md",
     "26V/Statistikk/Prosjekt.md",
     "26V/Statistikk/12.02.26.md",
@@ -428,7 +453,6 @@
     "Images/image-29.png",
     "Images/image-28.png",
     "Images/image-27.png",
-    "Images/image-26.png",
     "26V/Devops",
     "26V/Statistikk/22.01.26 2D - data.md",
     "25H/IKT202 Software Engineering/Eksamen kommentarer.md",
