@@ -19,6 +19,9 @@ Fast holdepunkt.
 Docker compose. Usually put in a .env file or something.
 Why is this hard in kubernetes environment
 
+# .env kubernetes
+Kubernetes forventer at det skal ligge i en pod spec.
+
 For individuelle pods kan du sette gjennom
 ```yml
 env: 
