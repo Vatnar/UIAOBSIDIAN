@@ -114,3 +114,44 @@ Gateway API
 - Most features are built into the core API, making it less vendor dependent.
 
 To have more servers on one load balancer.
+USE GATEWAY API
+
+Ingress:
+```yaml
+kind: Ingress
+metadata:
+  name: my-app-ingress
+  annotations:
+  # Vendor specific magic notes
+  nginx.ingress.kubernetes.io/rewrite-target: /
+spec:
+  rules:
+  - host: myapp.example.com
+    http:
+      paths:
+      - path: /api
+        pathType: Prefix
+        backend:
+          service:
+            name: api-service
+            port:
+              number: 80
+```
+Potential for conlficts since amdinistrator and devleoper needs to touch it.
+
+Gateway:
+HTTPRoute and Gateway kinds
+```yaml
+kind: Gateway
+metadata:
+  name: external-web-gateway
+```
+
+```yaml
+kind: HTTPRoute
+metadata:
+  name: api-route
+  
+```
+https://gateway-api.sigs.k8s.io
+
