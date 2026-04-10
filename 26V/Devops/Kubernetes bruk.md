@@ -28,3 +28,89 @@ env:
 - name: KEY
   value: VALUE
 ```
+
+Can be used for instance to split up permissions. Maybe some people can't set secrets, but just configmaps
+### ConfigMaps
+- Cluster aware .env
+- Stored in the cluster store
+- Injected into containers as env variables or mounted as files
+### Secrets
+- Same as ConfigMaps
+- Base64 encoded
+- *Not encrypted*
+
+```yaml
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: hello-cm
+data:
+  PORT: "8080"
+    info.json: |
+	  {
+	    "containerImageArch":"macos/arm"
+	  }
+
+apiVersion: v1
+kind: Secret
+metadata:
+  name: hello-scret
+type: Opaque
+data:
+  MESSAGE: "SGVAWJDAJHWAD=" #base64
+```
+used with
+```yaml
+envFrom:
+- secretRef:
+  name: hello-secret
+```
+or
+```yaml
+	volumeMounts: # must be here
+	- mountPath:
+	  subPath:
+volumes:
+- name: hello-cm
+  configMap:
+    name: hello-cm
+```
+
+# Storage
+PersistentVolume
+- Physical piece of storage in infrastructure.
+- Managed by th elcuster administrator
+- Could be local harddrive, NFS or AWS etc.
+PersistentVolumeClaim
+- A "request" for storage
+- Kubernetes provisions a PersistentVolume through a StorageClass
+- The StorageClass is responsible for the physical storage
+
+```yaml
+kind: PersistentVoliumeClaim
+metadata:
+  name: data-pvc
+spec:
+  resources:
+    requests:
+      storage: 50Gi
+  volumeMode: Filesystem
+  accessModes:
+    - ReadWriteOnce # only one has access too
+```
+
+In a deployements.
+Add in volumes.
+And volumeMounts
+
+## Important stuff
+Ingress (legacy)
+- Simple routing of HTTP HTTPS traffic inside the cluster
+- Limited to http routing, not entirely true
+- Everything else handled by annnotations (very dependent on implementation)
+Gateway API
+- Built from the ground up to solve the fialures of Ingress.
+- Can natively handle TCP, UDP and gRPC traffic.
+- Most features are built into the core API, making it less vendor dependent.
+
+To have more servers on one load balancer.
