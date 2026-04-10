@@ -215,7 +215,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "26V/Apputvikling/Notater.md",
+                "file": "26V/Devops/Bandit.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": true,
@@ -230,11 +230,35 @@
                 }
               },
               "icon": "lucide-file",
-              "title": "Notater"
+              "title": "Bandit"
+            }
+          },
+          {
+            "id": "0e7c3484b4231520",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "26V/Devops/Kubernetes bruk.md",
+                "mode": "source",
+                "source": false,
+                "backlinks": true,
+                "backlinkOpts": {
+                  "collapseAll": false,
+                  "extraContext": false,
+                  "sortOrder": "alphabetical",
+                  "showSearch": false,
+                  "searchQuery": "",
+                  "backlinkCollapsed": false,
+                  "unlinkedCollapsed": true
+                }
+              },
+              "icon": "lucide-file",
+              "title": "Kubernetes bruk"
             }
           }
         ],
-        "currentTab": 9
+        "currentTab": 10
       }
     ],
     "direction": "vertical"
@@ -426,10 +450,12 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "717d5300acd9bb29",
+  "active": "0e7c3484b4231520",
   "lastOpenFiles": [
-    "26V/Apputvikling/Ideer.md",
+    "26V/Devops/Bandit.md",
+    "26V/Devops/Kubernetes bruk.md",
     "26V/Apputvikling/Notater.md",
+    "26V/Apputvikling/Ideer.md",
     "26V/Statistikk/26.03.md",
     "image.png",
     "26V/Statistikk/05.02.26 Oppsummering.md",
@@ -437,7 +463,6 @@
     "26V/Statistikk/Prosjekt.md",
     "26V/Statistikk/12.02.26.md",
     "26V/Advanced Operatingsystems/20.01.2026 Advanced Operating Systems.md",
-    "26V/Devops/Bandit.md",
     "26V/Devops/Docker and Docker Compose.md",
     "26V/Statistikk/29.01.26.md",
     "26V/Statistikk/05.03.26.md",
@@ -468,7 +493,6 @@
     "26V",
     "24H/IKT102 Operativsystemer/Eksamenforelsenging.md",
     "25H/IKT202 Software Engineering/Estimation Error Over Time.md",
-    "25H/IKT202 Software Engineering/Agile Development.md",
     "25H/IKT203 Algoritmer og Datastrukturer/Forelesning",
     "25H/IKT203 Algoritmer og Datastrukturer",
     "25H/IKT202 Software Engineering/Forelesning/21.10 Organization of Software",
