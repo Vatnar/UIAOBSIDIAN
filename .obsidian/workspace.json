@@ -239,7 +239,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "26V/Devops/Introduction_This assignment will be graded and wi.md",
+                "file": "26V/Apputvikling/Notater.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": true,
@@ -254,7 +254,7 @@
                 }
               },
               "icon": "lucide-file",
-              "title": "Introduction_This assignment will be graded and wi"
+              "title": "Notater"
             }
           }
         ],
@@ -452,8 +452,9 @@
   },
   "active": "0e7c3484b4231520",
   "lastOpenFiles": [
-    "26V/Devops/Kubernetes bruk.md",
+    "26V/Apputvikling/Supabase.md",
     "26V/Devops/Introduction_This assignment will be graded and wi.md",
+    "26V/Devops/Kubernetes bruk.md",
     "26V/Devops/Docker and Docker Compose.md",
     "26V/Devops/Bandit.md",
     "26V/Apputvikling/Notater.md",
@@ -483,7 +484,6 @@
     "26V/Statistikk/22.01.26 2D - data.md",
     "25H/IKT202 Software Engineering/Eksamen kommentarer.md",
     "26V/Statistikk/14.1.26 - Data.md",
-    "26V/Apputvikling/Supabase.md",
     "25H/IKT202 Software Engineering/Forelesning/19.08 Rules of software engineering.md",
     "26V/Advanced Operatingsystems",
     "26V/Apputvikling",
