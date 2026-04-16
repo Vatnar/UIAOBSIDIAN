@@ -1,16 +1,12 @@
 # Devops
-Assignment 4, vente
-assignment 5, rapport
-
+Prosjekt: 15.05
 # App utvkling
-Prosjekt
+Prosjekt: 15.05
 # Avansert opsys
-Kun improvisasjon og rapport 
-eksamen
+Kun improvisasjon og rapport: 04.05
+eksamen: 13.05
 # Matematikk 
-+ Gjøre delprøve 2
-oppgaver
+Skriftlig pøve: 19.05
 # Statistikk
-Gjøre tidligere eksamen og lese i bok.
-
-PROSJEKT
+Eksamen: 21.05
+PROSJEKT: 15.05
