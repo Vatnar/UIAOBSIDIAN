@@ -239,7 +239,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "26V/Advanced Operatingsystems/Untitled.md",
+                "file": "26V/Apputvikling/Notater.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": true,
@@ -254,7 +254,7 @@
                 }
               },
               "icon": "lucide-file",
-              "title": "Untitled"
+              "title": "Notater"
             }
           }
         ],
@@ -452,9 +452,10 @@
   },
   "active": "0e7c3484b4231520",
   "lastOpenFiles": [
+    "26V/Apputvikling/Supabase.md",
+    "26V/Advanced Operatingsystems/Untitled.md",
     "26V/Oppgavefrister og progress.md",
     "26V/Apputvikling/Notater.md",
-    "26V/Apputvikling/Supabase.md",
     "26V/Devops/Introduction_This assignment will be graded and wi.md",
     "26V/Devops/Kubernetes bruk.md",
     "26V/Devops/Docker and Docker Compose.md",
@@ -471,7 +472,6 @@
     "tldraw/Tldraw 2026-02-05 10.39AM.md",
     "26V/Statistikk/26.02.26.md",
     "Images/image 6.png",
-    "26V/Advanced Operatingsystems/Untitled.md",
     "Images/image 5.png",
     "Images/image-33.png",
     "Images/image-32.png",

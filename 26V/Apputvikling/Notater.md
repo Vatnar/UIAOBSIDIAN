@@ -5,3 +5,6 @@ ja..
 
 
 responsive layout. Window insets IME.
+
+
+recipe link sharing. vps, assetlinks.json thingy
