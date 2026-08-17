@@ -1,2 +1,2905 @@
-var __create=Object.create,__defProp=Object.defineProperty,__getOwnPropDesc=Object.getOwnPropertyDescriptor,__getOwnPropNames=Object.getOwnPropertyNames,__getProtoOf=Object.getPrototypeOf,__hasOwnProp=Object.prototype.hasOwnProperty,__commonJS=(t,e)=>function(){return e||(0,t[__getOwnPropNames(t)[0]])((e={exports:{}}).exports,e),e.exports},__export=(t,e)=>{for(var i in e)__defProp(t,i,{get:e[i],enumerable:!0})},__copyProps=(t,e,i,n)=>{if(e&&"object"==typeof e||"function"==typeof e)for(let r of __getOwnPropNames(e))__hasOwnProp.call(t,r)||r===i||__defProp(t,r,{get:()=>e[r],enumerable:!(n=__getOwnPropDesc(e,r))||n.enumerable});return t},__toESM=(t,e,i)=>(i=null!=t?__create(__getProtoOf(t)):{},__copyProps(!e&&t&&t.__esModule?i:__defProp(i,"default",{value:t,enumerable:!0}),t)),__toCommonJS=t=>__copyProps(__defProp({},"__esModule",{value:!0}),t),require_loki_indexed_adapter=__commonJS({"node_modules/lokijs/src/loki-indexed-adapter.js"(t,e){var i,n;i=t,n=function(){return function(){function t(t,e){if(this.app="loki",this.options=e||{},void 0!==t&&(this.app=t),this.catalog=null,!this.checkAvailability())throw new Error("indexedDB does not seem to be supported for your environment")}function e(t){this.db=null,this.initializeLokiCatalog(t)}return t.prototype.closeDatabase=function(){this.catalog&&this.catalog.db&&(this.catalog.db.close(),this.catalog.db=null)},t.prototype.checkAvailability=function(){return!("undefined"==typeof indexedDB||!indexedDB)},t.prototype.loadDatabase=function(t,i){var n=this.app,r=this;null!==this.catalog&&null!==this.catalog.db?this.catalog.getAppKey(n,t,(function(t){if("function"==typeof i){if(0===t.id)return void i(null);i(t.val)}})):this.catalog=new e((function(e){r.catalog=e,r.loadDatabase(t,i)}))},t.prototype.loadKey=t.prototype.loadDatabase,t.prototype.saveDatabase=function(t,i,n){var r=this.app,s=this;function a(t){t&&!0===t.success?n(null):n(new Error("Error saving database")),s.options.closeAfterSave&&s.closeDatabase()}null!==this.catalog&&null!==this.catalog.db?this.catalog.setAppKey(r,t,i,a):this.catalog=new e((function(e){s.saveDatabase(t,i,a)}))},t.prototype.saveKey=t.prototype.saveDatabase,t.prototype.deleteDatabase=function(t,i){var n=this.app,r=this;null!==this.catalog&&null!==this.catalog.db?this.catalog.getAppKey(n,t,(function(t){var e=t.id;0!==e?r.catalog.deleteAppKey(e,i):"function"==typeof i&&i({success:!0})})):this.catalog=new e((function(e){r.catalog=e,r.deleteDatabase(t,i)}))},t.prototype.deleteKey=t.prototype.deleteDatabase,t.prototype.deleteDatabasePartitions=function(t){var e=this;this.getDatabaseList((function(i){i.forEach((function(i){i.startsWith(t)&&e.deleteDatabase(i)}))}))},t.prototype.getDatabaseList=function(t){var i=this.app,n=this;null!==this.catalog&&null!==this.catalog.db?this.catalog.getAppKeys(i,(function(e){for(var i=[],n=0;n<e.length;n++)i.push(e[n].key);"function"==typeof t?t(i):i.forEach((function(t){}))})):this.catalog=new e((function(e){n.catalog=e,n.getDatabaseList(t)}))},t.prototype.getKeyList=t.prototype.getDatabaseList,t.prototype.getCatalogSummary=function(t){this.app;var i=this;null!==this.catalog&&null!==this.catalog.db?this.catalog.getAllKeys((function(e){for(var i,n,r,s,a,o=[],l=0;l<e.length;l++)r=(i=e[l]).app||"",s=i.key||"",a=i.val||"",n=2*r.length+2*s.length+a.length+1,o.push({app:i.app,key:i.key,size:n});"function"==typeof t?t(o):o.forEach((function(t){}))})):this.catalog=new e((function(e){i.catalog=e,i.getCatalogSummary(t)}))},e.prototype.initializeLokiCatalog=function(t){var e=indexedDB.open("LokiCatalog",1),i=this;e.onupgradeneeded=function(t){var e=t.target.result;if(e.objectStoreNames.contains("LokiAKV")&&e.deleteObjectStore("LokiAKV"),!e.objectStoreNames.contains("LokiAKV")){var i=e.createObjectStore("LokiAKV",{keyPath:"id",autoIncrement:!0});i.createIndex("app","app",{unique:!1}),i.createIndex("key","key",{unique:!1}),i.createIndex("appkey","appkey",{unique:!0})}},e.onsuccess=function(e){i.db=e.target.result,"function"==typeof t&&t(i)},e.onerror=function(t){throw t}},e.prototype.getAppKey=function(t,e,i){var n,r=t+","+e,s=this.db.transaction(["LokiAKV"],"readonly").objectStore("LokiAKV").index("appkey").get(r);s.onsuccess=(n=i,function(t){var e=t.target.result;null==e&&(e={id:0,success:!1}),"function"==typeof n&&n(e)}),s.onerror=function(t){return function(e){if("function"!=typeof t)throw e;t({id:0,success:!1})}}(i)},e.prototype.getAppKeyById=function(t,e,i){var n,r;this.db.transaction(["LokiAKV"],"readonly").objectStore("LokiAKV").get(t).onsuccess=(n=i,r=e,function(t){"function"==typeof r&&r(t.target.result,n)})},e.prototype.setAppKey=function(t,e,i,n){var r,s=this.db.transaction(["LokiAKV"],"readwrite").objectStore("LokiAKV"),a=s.index("appkey"),o=t+","+e,l=a.get(o);l.onsuccess=function(r){var a=r.target.result;null==a?a={app:t,key:e,appkey:t+","+e,val:i}:a.val=i;var o,l=s.put(a);l.onerror=(o=n,function(t){"function"==typeof o&&o({success:!1})}),l.onsuccess=function(t){return function(e){"function"==typeof t&&t({success:!0})}}(n)},l.onerror=(r=n,function(t){"function"==typeof r&&r({success:!1})})},e.prototype.deleteAppKey=function(t,e){var i,n=this.db.transaction(["LokiAKV"],"readwrite").objectStore("LokiAKV").delete(t);n.onsuccess=(i=e,function(t){"function"==typeof i&&i({success:!0})}),n.onerror=function(t){return function(e){"function"==typeof t&&t({success:!1})}}(e)},e.prototype.getAppKeys=function(t,e){var i,n,r,s=this.db.transaction(["LokiAKV"],"readonly").objectStore("LokiAKV").index("app"),a=IDBKeyRange.only(t),o=s.openCursor(a);o.onsuccess=(i=[],n=e,function(t){var e=t.target.result;if(e){var r=e.value;i.push(r),e.continue()}else"function"==typeof n&&n(i)}),o.onerror=(r=e,function(t){"function"==typeof r&&r(null)})},e.prototype.getAllKeys=function(t){var e,i,n,r=this.db.transaction(["LokiAKV"],"readonly").objectStore("LokiAKV").openCursor();r.onsuccess=(e=[],i=t,function(t){var n=t.target.result;if(n){var r=n.value;e.push(r),n.continue()}else"function"==typeof i&&i(e)}),r.onerror=(n=t,function(t){"function"==typeof n&&n(null)})},t}()},"function"==typeof define&&define.amd?define([],n):"object"==typeof t?e.exports=n():i.LokiIndexedAdapter=n()}}),require_lokijs=__commonJS({"node_modules/lokijs/src/lokijs.js"(t,e){var i,n;i=t,n=function(){return function(){"use strict";var t=Object.prototype.hasOwnProperty;function e(t){var n,r;if(Array.isArray(t)){for(r=0;r<t.length;r++)e(t[r]);i(t)}else if(null!==t&&"object"==typeof t){for(n in t)t.hasOwnProperty(n)&&e(t[n]);i(t)}}function i(t){Object.isFrozen(t)||Object.freeze(t)}function n(t){return Object.isFrozen(t)?g(t,"shallow"):t}var r={copyProperties:function(t,e){var i;for(i in t)e[i]=t[i]},resolveTransformObject:function(t,e,i){var n,s;if("number"!=typeof i&&(i=0),++i>=10)return t;for(n in t)"string"==typeof t[n]&&0===t[n].indexOf("[%lktxp]")?(s=t[n].substring(8),e.hasOwnProperty(s)&&(t[n]=e[s])):"object"==typeof t[n]&&(t[n]=r.resolveTransformObject(t[n],e,i));return t},resolveTransformParams:function(t,e){var i,n,s=[];if(void 0===e)return t;for(i=0;i<t.length;i++)n=g(t[i],"shallow-recurse-objects"),s.push(r.resolveTransformObject(n,e));return s},getIn:function(t,e,i){if(null!=t){if(!i)return t[e];if("string"==typeof e&&(e=e.split(".")),!Array.isArray(e))throw new Error("path must be a string or array. Found "+typeof e);for(var n=0,r=e.length;null!=t&&n<r;)t=t[e[n++]];return n&&n==r?t:void 0}}},s={aeq:a,lt:o,gt:l};function a(t,e){var i,n,r,s;if(t===e)return!0;if(!t||!e||!0===t||!0===e||t!=t||e!=e){switch(t){case void 0:r=1;break;case null:r=1;break;case!1:r=3;break;case!0:r=4;break;case"":r=5;break;default:r=t==t?9:0;break}switch(e){case void 0:s=1;break;case null:s=1;break;case!1:s=3;break;case!0:s=4;break;case"":s=5;break;default:s=e==e?9:0;break}if(9!==r||9!==s)return r===s}return i=Number(t),n=Number(e),i==i||n==n?i===n:(i=t.toString())==(n=e.toString())}function o(t,e,i){var n,r,s,a;if(!t||!e||!0===t||!0===e||t!=t||e!=e){switch(t){case void 0:s=1;break;case null:s=1;break;case!1:s=3;break;case!0:s=4;break;case"":s=5;break;default:s=t==t?9:0;break}switch(e){case void 0:a=1;break;case null:a=1;break;case!1:a=3;break;case!0:a=4;break;case"":a=5;break;default:a=e==e?9:0;break}if(9!==s||9!==a)return s===a?i:s<a}return n=Number(t),r=Number(e),n==n&&r==r?n<r||!(n>r)&&i:n==n&&r!=r||(r!=r||n==n)&&(t<e||!(t>e)&&(t==e?i:(n=t.toString())<(r=e.toString())||n==r&&i))}function l(t,e,i){var n,r,s,a;if(!t||!e||!0===t||!0===e||t!=t||e!=e){switch(t){case void 0:s=1;break;case null:s=1;break;case!1:s=3;break;case!0:s=4;break;case"":s=5;break;default:s=t==t?9:0;break}switch(e){case void 0:a=1;break;case null:a=1;break;case!1:a=3;break;case!0:a=4;break;case"":a=5;break;default:a=e==e?9:0;break}if(9!==s||9!==a)return s===a?i:s>a}return n=Number(t),r=Number(e),n==n&&r==r?n>r||!(n<r)&&i:(n!=n||r==r)&&(r==r&&n!=n||t>e||!(t<e)&&(t==e?i:(n=t.toString())>(r=e.toString())||n==r&&i))}function h(t,e,i){return s.aeq(t,e)?0:s.lt(t,e,!1)?i?1:-1:s.gt(t,e,!1)?i?-1:1:0}function d(t,e,i,n,r,s){var a,o=s||0,l=e[o],h=!1;if("object"==typeof t&&l in t&&(a=t[l]),o+1>=e.length)h=i(a,n,r);else if(Array.isArray(a))for(var c=0,u=a.length;c<u&&!0!==(h=d(a[c],e,i,n,r,o+1));c+=1);else h=d(a,e,i,n,r,o+1);return h}function c(e){return"string"==typeof e||Array.isArray(e)?function(t){return-1!==e.indexOf(t)}:"object"==typeof e&&null!==e?function(i){return t.call(e,i)}:null}function u(e,i,n){for(var r in i)if(t.call(i,r))return p[r](e,i[r],n);return!1}var p={$eq:function(t,e){return t===e},$aeq:function(t,e){return t==e},$ne:function(t,e){return e!=e?t==t:t!==e},$dteq:function(t,e){return s.aeq(t,e)},$gt:function(t,e){return s.gt(t,e,!1)},$gte:function(t,e){return s.gt(t,e,!0)},$lt:function(t,e){return s.lt(t,e,!1)},$lte:function(t,e){return s.lt(t,e,!0)},$jgt:function(t,e){return t>e},$jgte:function(t,e){return t>=e},$jlt:function(t,e){return t<e},$jlte:function(t,e){return t<=e},$between:function(t,e){return null!=t&&s.gt(t,e[0],!0)&&s.lt(t,e[1],!0)},$jbetween:function(t,e){return null!=t&&t>=e[0]&&t<=e[1]},$in:function(t,e){return-1!==e.indexOf(t)},$inSet:function(t,e){return e.has(t)},$nin:function(t,e){return-1===e.indexOf(t)},$keyin:function(t,e){return t in e},$nkeyin:function(t,e){return!(t in e)},$definedin:function(t,e){return void 0!==e[t]},$undefinedin:function(t,e){return void 0===e[t]},$regex:function(t,e){return e.test(t)},$containsString:function(t,e){return"string"==typeof t&&-1!==t.indexOf(e)},$containsNone:function(t,e){return!p.$containsAny(t,e)},$containsAny:function(t,e){var i=c(t);return null!==i&&(Array.isArray(e)?e.some(i):i(e))},$contains:function(t,e){var i=c(t);return null!==i&&(Array.isArray(e)?e.every(i):i(e))},$elemMatch:function(t,e){return!!Array.isArray(t)&&t.some((function(t){return Object.keys(e).every((function(i){var n=e[i];return"object"==typeof n&&n||(n={$eq:n}),-1!==i.indexOf(".")?d(t,i.split("."),u,e[i],t):u(t[i],n,t)}))}))},$type:function(t,e,i){var n=typeof t;return"object"===n&&(Array.isArray(t)?n="array":t instanceof Date&&(n="date")),"object"!=typeof e?n===e:u(n,e,i)},$finite:function(t,e){return e===isFinite(t)},$size:function(t,e,i){return!!Array.isArray(t)&&("object"!=typeof e?t.length===e:u(t.length,e,i))},$len:function(t,e,i){return"string"==typeof t&&("object"!=typeof e?t.length===e:u(t.length,e,i))},$where:function(t,e){return!0===e(t)},$not:function(t,e,i){return!u(t,e,i)},$and:function(t,e,i){for(var n=0,r=e.length;n<r;n+=1)if(!u(t,e[n],i))return!1;return!0},$or:function(t,e,i){for(var n=0,r=e.length;n<r;n+=1)if(u(t,e[n],i))return!0;return!1},$exists:function(t,e){return e?void 0!==t:void 0===t}};["$eq","$aeq","$ne","$dteq","$gt","$gte","$lt","$lte","$jgt","$jgte","$jlt","$jlte","$type"].forEach((function(t){var e=p[t];p["$"+t]=function(t,i,n){if("string"==typeof i)return e(t,n[i]);if("function"==typeof i)return e(t,i(n));throw new Error("Invalid argument to $$ matcher")}}));var f={$eq:p.$eq,$aeq:!0,$dteq:!0,$gt:!0,$gte:!0,$lt:!0,$lte:!0,$in:!0,$between:!0};function g(t,e){if(null==t)return null;var i;switch(e||"parse-stringify"){case"parse-stringify":i=JSON.parse(JSON.stringify(t));break;case"jquery-extend-deep":i=jQuery.extend(!0,{},t);break;case"shallow":i=Object.create(t.constructor.prototype),Object.keys(t).map((function(e){i[e]=t[e]}));break;case"shallow-assign":i=Object.create(t.constructor.prototype),Object.assign(i,t);break;case"shallow-recurse-objects":i=g(t,"shallow"),Object.keys(t).forEach((function(e){"object"==typeof t[e]&&"Object"===t[e].constructor.name?i[e]=g(t[e],"shallow-recurse-objects"):Array.isArray(t[e])&&(i[e]=function(t,e){if(0)return g(t,e);for(var i=[],n=0,r=t.length;n<r;n++)i[n]=g(t[n],e);return i}(t[e],"shallow-recurse-objects"))}));break;default:break}return i}function y(){try{return window&&void 0!==window.localStorage&&null!==window.localStorage}catch(t){return!1}}function v(){}function m(t,e){this.filename=t||"loki.db",this.collections=[],this.databaseVersion=1.5,this.engineVersion=1.5,this.autosave=!1,this.autosaveInterval=5e3,this.autosaveHandle=null,this.throttledSaves=!0,this.options={},this.persistenceMethod=null,this.persistenceAdapter=null,this.throttledSavePending=!1,this.throttledCallbacks=[],this.verbose=!(!e||!e.hasOwnProperty("verbose"))&&e.verbose,this.events={init:[],loaded:[],flushChanges:[],close:[],changes:[],warning:[]},e&&e.hasOwnProperty("env")?this.ENV=e.env:this.ENV="undefined"!=typeof global&&(global.android||global.NSObject)?"NATIVESCRIPT":"undefined"==typeof window||"undefined"!=typeof global&&global.window&&"undefined"!=typeof process?"NODEJS":"undefined"!=typeof document?-1===document.URL.indexOf("http://")&&-1===document.URL.indexOf("https://")?"CORDOVA":"BROWSER":"CORDOVA","undefined"===this.ENV&&(this.ENV="NODEJS"),this.configureOptions(e,!0),this.on("init",this.clearChanges)}function I(t){this.hashStore={},this.options=t||{},this.options.hasOwnProperty("asyncResponses")||(this.options.asyncResponses=!1),this.options.hasOwnProperty("asyncTimeout")||(this.options.asyncTimeout=50)}function E(t,e){if(this.mode="reference",this.adapter=null,this.options=e||{},this.dbref=null,this.dbname="",this.pageIterator={},!t)throw new Error("LokiPartitioningAdapter requires a (non-reference mode) adapter on construction");if("reference"===t.mode)throw new Error("LokiPartitioningAdapter cannot be instantiated with a reference mode adapter");this.adapter=t,this.options.hasOwnProperty("paging")||(this.options.paging=!1),this.options.hasOwnProperty("pageSize")||(this.options.pageSize=26214400),this.options.hasOwnProperty("delimiter")||(this.options.delimiter="$<\n")}function b(){try{this.fs=require("fs")}catch(t){this.fs=null}}function w(){}function D(t,e){return e=e||{},this.collection=t,this.filteredrows=[],this.filterInitialized=!1,this}function S(t,e){if("$regex"===t)Array.isArray(e)?e=new RegExp(e[0],e[1]):e instanceof RegExp||(e=new RegExp(e));else if("object"==typeof e)for(var i in e)"$regex"!==i&&"object"!=typeof e[i]||(e[i]=S(i,e[i]));return e}function N(t,e,i){this.collection=t,this.name=e,this.rebuildPending=!1,this.options=i||{},this.options.hasOwnProperty("persistent")||(this.options.persistent=!1),this.options.hasOwnProperty("sortPriority")||(this.options.sortPriority="passive"),this.options.hasOwnProperty("minRebuildInterval")||(this.options.minRebuildInterval=1),this.resultset=new D(t),this.resultdata=[],this.resultsdirty=!1,this.cachedresultset=null,this.filterPipeline=[],this.collection.disableFreeze||Object.freeze(this.filterPipeline),this.sortFunction=null,this.sortCriteria=null,this.sortCriteriaSimple=null,this.sortDirty=!1,this.events={rebuild:[],filter:[],sort:[]}}function A(e,i){this.name=e,this.data=[],this.idIndex=null,this.binaryIndices={},this.constraints={unique:{},exact:{}},this.uniqueNames=[],this.transforms={},this.objType=e,this.dirty=!0,this.cachedIndex=null,this.cachedBinaryIndex=null,this.cachedData=null;var n=this;(i=i||{}).hasOwnProperty("unique")&&(Array.isArray(i.unique)||(i.unique=[i.unique]),i.unique.forEach((function(t){n.uniqueNames.push(t)}))),i.hasOwnProperty("exact")&&i.exact.forEach((function(t){n.constraints.exact[t]=new L(t)})),this.adaptiveBinaryIndices=!i.hasOwnProperty("adaptiveBinaryIndices")||i.adaptiveBinaryIndices,this.transactional=!!i.hasOwnProperty("transactional")&&i.transactional,this.cloneObjects=!!i.hasOwnProperty("clone")&&i.clone,this.cloneMethod=i.hasOwnProperty("cloneMethod")?i.cloneMethod:"parse-stringify",this.asyncListeners=!!i.hasOwnProperty("asyncListeners")&&i.asyncListeners,this.disableMeta=!!i.hasOwnProperty("disableMeta")&&i.disableMeta,this.disableChangesApi=!i.hasOwnProperty("disableChangesApi")||i.disableChangesApi,this.disableDeltaChangesApi=!i.hasOwnProperty("disableDeltaChangesApi")||i.disableDeltaChangesApi,this.disableChangesApi&&(this.disableDeltaChangesApi=!0),this.autoupdate=!!i.hasOwnProperty("autoupdate")&&i.autoupdate,this.serializableIndices=!i.hasOwnProperty("serializableIndices")||i.serializableIndices,this.disableFreeze=!i.hasOwnProperty("disableFreeze")||i.disableFreeze,this.ttl={age:null,ttlInterval:null,daemon:null},this.setTTL(i.ttl||-1,i.ttlInterval),this.maxId=0,this.DynamicViews=[],this.events={insert:[],update:[],"pre-insert":[],"pre-update":[],close:[],flushbuffer:[],error:[],delete:[],warning:[]},this.changes=[],this.dirtyIds=[];var r=[];if(i&&i.indices)if("[object Array]"===Object.prototype.toString.call(i.indices))r=i.indices;else{if("string"!=typeof i.indices)throw new TypeError("Indices needs to be a string or an array of strings");r=[i.indices]}for(var s=0;s<r.length;s++)this.ensureIndex(r[s]);function a(t,e){var i=null!==e&&"object"==typeof e?Object.keys(e):null;if(i&&i.length&&["string","boolean","number"].indexOf(typeof e)<0){for(var r={},s=0;s<i.length;s++){var o=i[s];if(e.hasOwnProperty(o))if(!t.hasOwnProperty(o)||n.uniqueNames.indexOf(o)>=0||"$loki"==o||"meta"==o)r[o]=e[o];else{var l=a(t[o],e[o]);void 0!==l&&l!={}&&(r[o]=l)}}return 0===Object.keys(r).length?void 0:r}return t===e?void 0:e}function o(){n.changes=[]}this.observerCallback=function(e){var i="function"==typeof Set?new Set:[];i.add||(i.add=function(t){return-1===this.indexOf(t)&&this.push(t),this}),e.forEach((function(t){i.add(t.object)})),i.forEach((function(e){if(!t.call(e,"$loki"))return n.removeAutoUpdateObserver(e);try{n.update(e)}catch(t){}}))},this.getChangeDelta=function(t,e){return e?a(e,t):JSON.parse(JSON.stringify(t))},this.getObjectDelta=a,this.getChanges=function(){return n.changes},this.flushChanges=o,this.setChangesApi=function(t){n.disableChangesApi=!t,t||(n.disableDeltaChangesApi=!1)},this.on("delete",(function(t){n.disableChangesApi||n.createChange(n.name,"R",t)})),this.on("warning",(function(t){n.lokiConsoleWrapper.warn(t)})),o()}function O(t){return-1!==t.indexOf(".")}function M(t){return parseFloat(t,10)}function T(t,e){return t+e}function R(t,e){return t-e}function C(t){return t.reduce(T,0)/t.length}function x(t,e,i){if(!1===i)return t[e];for(var n=e.split("."),r=t;n.length>0;)r=r[n.shift()];return r}function P(t,e,i){for(var n,r,s=0,a=t.length;s<a;){if(r=s+a>>1,0===(n=i.apply(null,[e,t[r]])))return{found:!0,index:r};n<0?a=r:s=r+1}return{found:!1,index:a}}function k(t){return function(e,i){return P(e,i,t)}}function W(){}function U(t){this.field=t,this.keyMap=Object.create(null),this.lokiMap=Object.create(null)}function L(t){this.index=Object.create(null),this.field=t}return v.prototype.events={},v.prototype.asyncListeners=!1,v.prototype.on=function(t,e){var i,n=this;return Array.isArray(t)?(t.forEach((function(t){n.on(t,e)})),e):((i=this.events[t])||(i=this.events[t]=[]),i.push(e),e)},v.prototype.emit=function(t){var e,i=this;if(!t||!this.events[t])throw new Error("No event "+t+" defined");this.events[t].length&&(e=Array.prototype.slice.call(arguments,1),this.events[t].forEach((function(t){i.asyncListeners?setTimeout((function(){t.apply(i,e)}),1):t.apply(i,e)})))},v.prototype.addListener=v.prototype.on,v.prototype.removeListener=function(t,e){var i=this;if(Array.isArray(t))t.forEach((function(t){i.removeListener(t,e)}));else if(this.events[t]){var n=this.events[t];n.splice(n.indexOf(e),1)}},m.prototype=new v,m.prototype.constructor=m,m.prototype.getIndexedAdapter=function(){var t;return"function"==typeof require&&(t=require_loki_indexed_adapter()),t},m.prototype.configureOptions=function(t,e){var i={fs:b,localStorage:w,memory:I};if(this.options={},this.persistenceMethod=null,this.persistenceAdapter=null,void 0!==t){if(this.options=t,this.options.hasOwnProperty("persistenceMethod")&&"function"==typeof i[t.persistenceMethod]&&(this.persistenceMethod=t.persistenceMethod,this.persistenceAdapter=new i[t.persistenceMethod]),this.options.hasOwnProperty("adapter")&&(this.persistenceMethod="adapter",this.persistenceAdapter=t.adapter,this.options.adapter=null,this.isIncremental="incremental"===this.persistenceAdapter.mode),t.autoload&&e){var n=this;setTimeout((function(){n.loadDatabase(t,t.autoloadCallback)}),1)}this.options.hasOwnProperty("autosaveInterval")&&(this.autosaveDisable(),this.autosaveInterval=parseInt(this.options.autosaveInterval,10)),this.options.hasOwnProperty("autosave")&&this.options.autosave&&(this.autosaveDisable(),this.autosave=!0,this.options.hasOwnProperty("autosaveCallback")?this.autosaveEnable(t,t.autosaveCallback):this.autosaveEnable()),this.options.hasOwnProperty("throttledSaves")&&(this.throttledSaves=this.options.throttledSaves)}this.options.hasOwnProperty("serializationMethod")||(this.options.serializationMethod="normal"),this.options.hasOwnProperty("destructureDelimiter")||(this.options.destructureDelimiter="$<\n"),null===this.persistenceAdapter&&(this.persistenceMethod={NODEJS:"fs",BROWSER:"localStorage",CORDOVA:"localStorage",MEMORY:"memory"}[this.ENV],this.persistenceMethod&&(this.persistenceAdapter=new i[this.persistenceMethod]))},m.prototype.copy=function(t){var e,i,n=new m(this.filename,{env:"NA"});if(t=t||{},n.loadJSONObject(this,{retainDirtyFlags:!0}),t.hasOwnProperty("removeNonSerializable")&&!0===t.removeNonSerializable)for(n.autosaveHandle=null,n.persistenceAdapter=null,e=n.collections.length,i=0;i<e;i++)n.collections[i].constraints=null,n.collections[i].ttl=null;return n},m.prototype.addCollection=function(t,e){var i,n=this.collections.length;if(e&&!0===e.disableMeta){if(!1===e.disableChangesApi)throw new Error("disableMeta option cannot be passed as true when disableChangesApi is passed as false");if(!1===e.disableDeltaChangesApi)throw new Error("disableMeta option cannot be passed as true when disableDeltaChangesApi is passed as false");if("number"==typeof e.ttl&&e.ttl>0)throw new Error("disableMeta option cannot be passed as true when ttl is enabled")}for(i=0;i<n;i+=1)if(this.collections[i].name===t)return this.collections[i];var r=new A(t,e);return r.isIncremental=this.isIncremental,this.collections.push(r),this.verbose&&(r.lokiConsoleWrapper=console),r},m.prototype.loadCollection=function(t){if(!t.name)throw new Error("Collection must have a name property to be loaded");this.collections.push(t)},m.prototype.getCollection=function(t){var e,i=this.collections.length;for(e=0;e<i;e+=1)if(this.collections[e].name===t)return this.collections[e];return this.emit("warning","collection "+t+" not found"),null},m.prototype.renameCollection=function(t,e){var i=this.getCollection(t);return i&&(i.name=e),i},m.prototype.listCollections=function(){for(var t=this.collections.length,e=[];t--;)e.push({name:this.collections[t].name,type:this.collections[t].objType,count:this.collections[t].data.length});return e},m.prototype.removeCollection=function(t){var e,i=this.collections.length;for(e=0;e<i;e+=1)if(this.collections[e].name===t){var n=new A(t,{}),r=this.collections[e];for(var s in r)r.hasOwnProperty(s)&&n.hasOwnProperty(s)&&(r[s]=n[s]);return void this.collections.splice(e,1)}},m.prototype.getName=function(){return this.name},m.prototype.serializeReplacer=function(t,e){switch(t){case"autosaveHandle":case"persistenceAdapter":case"constraints":case"ttl":return null;case"throttledSavePending":case"throttledCallbacks":return;case"lokiConsoleWrapper":return null;default:return e}},m.prototype.serialize=function(t){switch((t=t||{}).hasOwnProperty("serializationMethod")||(t.serializationMethod=this.options.serializationMethod),t.serializationMethod){case"normal":return JSON.stringify(this,this.serializeReplacer);case"pretty":return JSON.stringify(this,this.serializeReplacer,2);case"destructured":return this.serializeDestructured();default:return JSON.stringify(this,this.serializeReplacer)}},m.prototype.toJson=m.prototype.serialize,m.prototype.serializeDestructured=function(t){var e,i,n,r,s,a=[];if((t=t||{}).hasOwnProperty("partitioned")||(t.partitioned=!1),t.hasOwnProperty("delimited")||(t.delimited=!0),t.hasOwnProperty("delimiter")||(t.delimiter=this.options.destructureDelimiter),!0===t.partitioned&&t.hasOwnProperty("partition")&&t.partition>=0)return this.serializeCollection({delimited:t.delimited,delimiter:t.delimiter,collectionIndex:t.partition});for((s=new m(this.filename)).loadJSONObject(this),e=0;e<s.collections.length;e++)s.collections[e].data=[];if(!0===t.partitioned&&-1===t.partition)return s.serialize({serializationMethod:"normal"});for(a.push(s.serialize({serializationMethod:"normal"})),s=null,e=0;e<this.collections.length;e++)if(n=this.serializeCollection({delimited:t.delimited,delimiter:t.delimiter,collectionIndex:e}),!1===t.partitioned&&!1===t.delimited){if(!Array.isArray(n))throw new Error("a nondelimited, non partitioned collection serialization did not return an expected array");for(r=n.length,i=0;i<r;i++)a.push(n[i]),n[i]=null;a.push("")}else a.push(n);return t.partitioned?(t.delimited,a):t.delimited?(a.push(""),a.join(t.delimiter)):(a.push(""),a);return a.push(""),a.join(delim)},m.prototype.serializeCollection=function(t){var e,i,n=[];if((t=t||{}).hasOwnProperty("delimited")||(t.delimited=!0),!t.hasOwnProperty("collectionIndex"))throw new Error("serializeCollection called without 'collectionIndex' option");for(e=this.collections[t.collectionIndex].data.length,n=[],i=0;i<e;i++)n.push(JSON.stringify(this.collections[t.collectionIndex].data[i]));return t.delimited?(n.push(""),n.join(t.delimiter)):n},m.prototype.deserializeDestructured=function(t,e){var i,n,r,s=[],a=0,o=1,l=!1;if((e=e||{}).hasOwnProperty("partitioned")||(e.partitioned=!1),e.hasOwnProperty("delimited")||(e.delimited=!0),e.hasOwnProperty("delimiter")||(e.delimiter=this.options.destructureDelimiter),e.partitioned){if(e.hasOwnProperty("partition"))return-1===e.partition?i=JSON.parse(t[0]):this.deserializeCollection(t[e.partition+1],e);for(n=(i=JSON.parse(t[0])).collections.length,a=0;a<n;a++)i.collections[a].data=this.deserializeCollection(t[a+1],e);return i}if(e.delimited){if(s=t.split(e.delimiter),t=null,0===s.length)return null}else s=t;for(n=(i=JSON.parse(s[0])).collections.length,s[0]=null;!l;)s[o],""===s[o]?++a>n&&(l=!0):(r=JSON.parse(s[o]),i.collections[a].data.push(r)),s[o++]=null;return i},m.prototype.deserializeCollection=function(t,e){var i,n,r=[];for((e=e||{}).hasOwnProperty("partitioned")||(e.partitioned=!1),e.hasOwnProperty("delimited")||(e.delimited=!0),e.hasOwnProperty("delimiter")||(e.delimiter=this.options.destructureDelimiter),e.delimited?(r=t.split(e.delimiter)).pop():r=t,n=r.length,i=0;i<n;i++)r[i]=JSON.parse(r[i]);return r},m.prototype.loadJSON=function(t,e){var i;if(0===t.length)i={};else switch(this.options.serializationMethod){case"normal":case"pretty":i=JSON.parse(t);break;case"destructured":i=this.deserializeDestructured(t);break;default:i=JSON.parse(t);break}this.loadJSONObject(i,e)},m.prototype.loadJSONObject=function(t,i){var n,s,a,o,l,h,d=0,c=t.collections?t.collections.length:0;function u(t){var e,n=i[t.name];return n.proto?(e=n.inflate||r.copyProperties,function(t){var i=new n.proto;return e(t,i),i}):n.inflate}for(this.name=t.name,t.hasOwnProperty("throttledSaves")&&i&&!i.hasOwnProperty("throttledSaves")&&(this.throttledSaves=t.throttledSaves),this.collections=[];d<c;d+=1){if(n=t.collections[d],(s=this.addCollection(n.name,{disableChangesApi:n.disableChangesApi,disableDeltaChangesApi:n.disableDeltaChangesApi,disableMeta:n.disableMeta,disableFreeze:!n.hasOwnProperty("disableFreeze")||n.disableFreeze})).adaptiveBinaryIndices=!!n.hasOwnProperty("adaptiveBinaryIndices")&&!0===n.adaptiveBinaryIndices,s.transactional=n.transactional,s.asyncListeners=n.asyncListeners,s.cloneObjects=n.cloneObjects,s.cloneMethod=n.cloneMethod||"parse-stringify",s.autoupdate=n.autoupdate,s.changes=n.changes,s.dirtyIds=n.dirtyIds||[],i&&!0===i.retainDirtyFlags?s.dirty=n.dirty:s.dirty=!1,a=n.data.length,o=0,i&&i.hasOwnProperty(n.name))for(l=u(n);o<a;o++)h=l(n.data[o]),s.data[o]=h,s.addAutoUpdateObserver(h),s.disableFreeze||e(s.data[o]);else for(;o<a;o++)s.data[o]=n.data[o],s.addAutoUpdateObserver(s.data[o]),s.disableFreeze||e(s.data[o]);if(s.maxId=void 0===n.maxId?0:n.maxId,void 0!==n.binaryIndices&&(s.binaryIndices=n.binaryIndices),void 0!==n.transforms&&(s.transforms=n.transforms),s.uniqueNames=[],n.hasOwnProperty("uniqueNames")&&(s.uniqueNames=n.uniqueNames),void 0!==n.DynamicViews){for(var p=0;p<n.DynamicViews.length;p++){var f=n.DynamicViews[p],g=s.addDynamicView(f.name,f.options);g.resultdata=f.resultdata,g.resultsdirty=f.resultsdirty,g.filterPipeline=f.filterPipeline,g.sortCriteriaSimple=f.sortCriteriaSimple,g.sortCriteria=f.sortCriteria,g.sortFunction=null,g.sortDirty=f.sortDirty,s.disableFreeze||(e(g.filterPipeline),g.sortCriteriaSimple?e(g.sortCriteriaSimple):g.sortCriteria&&e(g.sortCriteria)),g.resultset.filteredrows=f.resultset.filteredrows,g.resultset.filterInitialized=f.resultset.filterInitialized,g.rematerialize({removeWhereFilters:!0})}t.databaseVersion<1.5&&(s.ensureAllIndexes(!0),s.dirty=!0)}}},m.prototype.close=function(t){this.autosave&&(this.autosaveDisable(),this.autosaveDirty()&&(this.saveDatabase(t),t=void 0)),t&&this.on("close",t),this.emit("close")},m.prototype.generateChangesNotification=function(t){function e(t){return t.name}var i=[],n=t||this.collections.map(e);return this.collections.forEach((function(t){-1!==n.indexOf(e(t))&&(i=i.concat(t.getChanges()))})),i},m.prototype.serializeChanges=function(t){return JSON.stringify(this.generateChangesNotification(t))},m.prototype.clearChanges=function(){this.collections.forEach((function(t){t.flushChanges&&t.flushChanges()}))},I.prototype.loadDatabase=function(t,e){var i=this;this.options.asyncResponses?setTimeout((function(){i.hashStore.hasOwnProperty(t)?e(i.hashStore[t].value):e(null)}),this.options.asyncTimeout):this.hashStore.hasOwnProperty(t)?e(this.hashStore[t].value):e(null)},I.prototype.saveDatabase=function(t,e,i){var n,r=this;this.options.asyncResponses?setTimeout((function(){n=r.hashStore.hasOwnProperty(t)?r.hashStore[t].savecount:0,r.hashStore[t]={savecount:n+1,lastsave:new Date,value:e},i()}),this.options.asyncTimeout):(n=this.hashStore.hasOwnProperty(t)?this.hashStore[t].savecount:0,this.hashStore[t]={savecount:n+1,lastsave:new Date,value:e},i())},I.prototype.deleteDatabase=function(t,e){this.hashStore.hasOwnProperty(t)&&delete this.hashStore[t],"function"==typeof e&&e()},E.prototype.loadDatabase=function(t,e){var i=this;this.dbname=t,this.dbref=new m(t),this.adapter.loadDatabase(t,(function(t){if(t){"string"!=typeof t&&e(new Error("LokiPartitioningAdapter received an unexpected response from inner adapter loadDatabase()"));var n=JSON.parse(t);i.dbref.loadJSONObject(n),n=null,i.dbref.collections.length,0!==i.dbref.collections.length?(i.pageIterator={collection:0,pageIndex:0},i.loadNextPartition(0,(function(){e(i.dbref)}))):e(i.dbref)}else e(t)}))},E.prototype.loadNextPartition=function(t,e){var i=this.dbname+"."+t,n=this;if(!0===this.options.paging)return this.pageIterator.pageIndex=0,void this.loadNextPage(e);this.adapter.loadDatabase(i,(function(i){var r=n.dbref.deserializeCollection(i,{delimited:!0,collectionIndex:t});n.dbref.collections[t].data=r,++t<n.dbref.collections.length?n.loadNextPartition(t,e):e()}))},E.prototype.loadNextPage=function(t){var e=this.dbname+"."+this.pageIterator.collection+"."+this.pageIterator.pageIndex,i=this;this.adapter.loadDatabase(e,(function(e){var n=e.split(i.options.delimiter);e="";var r,s=n.length,a=""===n[s-1];for(a&&(n.pop(),""===n[(s=n.length)-1]&&1===s&&(n.pop(),s=n.length)),r=0;r<s;r++)i.dbref.collections[i.pageIterator.collection].data.push(JSON.parse(n[r])),n[r]=null;n=[],a?++i.pageIterator.collection<i.dbref.collections.length?i.loadNextPartition(i.pageIterator.collection,t):t():(i.pageIterator.pageIndex++,i.loadNextPage(t))}))},E.prototype.exportDatabase=function(t,e,i){var n,r=e.collections.length;for(this.dbref=e,this.dbname=t,this.dirtyPartitions=[-1],n=0;n<r;n++)e.collections[n].dirty&&this.dirtyPartitions.push(n);this.saveNextPartition((function(t){i(t)}))},E.prototype.saveNextPartition=function(t){var e=this,i=this.dirtyPartitions.shift(),n=this.dbname+(-1===i?"":"."+i);if(this.options.paging&&-1!==i)return this.pageIterator={collection:i,docIndex:0,pageIndex:0},void this.saveNextPage((function(i){0===e.dirtyPartitions.length?t(i):e.saveNextPartition(t)}));var r=this.dbref.serializeDestructured({partitioned:!0,delimited:!0,partition:i});this.adapter.saveDatabase(n,r,(function(i){i?t(i):0===e.dirtyPartitions.length?t(null):e.saveNextPartition(t)}))},E.prototype.saveNextPage=function(t){var e=this,i=this.dbref.collections[this.pageIterator.collection],n=this.dbname+"."+this.pageIterator.collection+"."+this.pageIterator.pageIndex,r=0,s=i.data.length,a=this.options.delimiter.length,o="",l="",h=!1,d=!1,c=function(i){l="",i&&t(i),h?t(null):(e.pageIterator.pageIndex++,e.saveNextPage(t))};for(0===i.data.length&&(h=!0);;)if(h||(o=JSON.stringify(i.data[this.pageIterator.docIndex]),l+=o,r+=o.length,++this.pageIterator.docIndex>=s&&(h=!0)),r>=this.options.pageSize&&(d=!0),d&&!h||(l+=this.options.delimiter,r+=a),h||d)return void this.adapter.saveDatabase(n,l,c)},b.prototype.loadDatabase=function(t,e){var i=this;this.fs.stat(t,(function(n,r){!n&&r.isFile()?i.fs.readFile(t,{encoding:"utf8"},(function(t,i){e(t?new Error(t):i)})):e(null)}))},b.prototype.saveDatabase=function(t,e,i){var n=this,r=t+"~";this.fs.writeFile(r,e,(function(e){e?i(new Error(e)):n.fs.rename(r,t,i)}))},b.prototype.deleteDatabase=function(t,e){this.fs.unlink(t,(function(t){t?e(new Error(t)):e()}))},w.prototype.loadDatabase=function(t,e){y()?e(localStorage.getItem(t)):e(new Error("localStorage is not available"))},w.prototype.saveDatabase=function(t,e,i){y()?(localStorage.setItem(t,e),i(null)):i(new Error("localStorage is not available"))},w.prototype.deleteDatabase=function(t,e){y()?(localStorage.removeItem(t),e(null)):e(new Error("localStorage is not available"))},m.prototype.throttledSaveDrain=function(t,e){var i=this,n=(new Date).getTime();if(this.throttledSaves||t(!0),(e=e||{}).hasOwnProperty("recursiveWait")||(e.recursiveWait=!0),e.hasOwnProperty("recursiveWaitLimit")||(e.recursiveWaitLimit=!1),e.hasOwnProperty("recursiveWaitLimitDuration")||(e.recursiveWaitLimitDuration=2e3),e.hasOwnProperty("started")||(e.started=(new Date).getTime()),this.throttledSaves&&this.throttledSavePending){if(!e.recursiveWait)return void this.throttledCallbacks.push(t);this.throttledCallbacks.push((function(){return i.throttledSavePending?e.recursiveWaitLimit&&n-e.started>e.recursiveWaitLimitDuration?void t(!1):void i.throttledSaveDrain(t,e):void t(!0)}))}else t(!0)},m.prototype.loadDatabaseInternal=function(t,e){var i=e||function(t,e){if(t)throw t},n=this;null!==this.persistenceAdapter?this.persistenceAdapter.loadDatabase(this.filename,(function(e){if("string"==typeof e){var r=!1;try{n.loadJSON(e,t||{}),r=!0}catch(t){i(t)}r&&(i(null),n.emit("loaded","database "+n.filename+" loaded"))}else{if(!e)return i(null),void n.emit("loaded","empty database "+n.filename+" loaded");if(e instanceof Error)return void i(e);if("object"==typeof e)return n.loadJSONObject(e,t||{}),i(null),void n.emit("loaded","database "+n.filename+" loaded");i("unexpected adapter response : "+e)}})):i(new Error("persistenceAdapter not configured"))},m.prototype.loadDatabase=function(t,e){var i=this;this.throttledSaves?this.throttledSaveDrain((function(n){if(n)return i.throttledSavePending=!0,void i.loadDatabaseInternal(t,(function(t){0===i.throttledCallbacks.length?i.throttledSavePending=!1:i.saveDatabase(),"function"==typeof e&&e(t)}));"function"==typeof e&&e(new Error("Unable to pause save throttling long enough to read database"))}),t):this.loadDatabaseInternal(t,e)},m.prototype.saveDatabaseInternal=function(t){var e,i=t||function(t){if(t)throw t},n=this;this.persistenceAdapter?"incremental"===this.persistenceAdapter.mode?(this.ignoreAutosave=!0,this.persistenceAdapter.saveDatabase(this.filename,(function(){if(n.ignoreAutosave=!1,!e){var t=n.copy({removeNonSerializable:!0});return e=n.collections.map((function(t){return[t.dirty,t.dirtyIds]})),n.collections.forEach((function(t){t.dirty=!1,t.dirtyIds=[]})),t}i(new Error("adapter error - getLokiCopy called more than once"))}),(function(t){n.ignoreAutosave=!1,t&&e&&n.collections.forEach((function(t,i){var n=e[i];t.dirty=t.dirty||n[0],t.dirtyIds=t.dirtyIds.concat(n[1])})),i(t)}))):"reference"===this.persistenceAdapter.mode&&"function"==typeof this.persistenceAdapter.exportDatabase?this.persistenceAdapter.exportDatabase(this.filename,this.copy({removeNonSerializable:!0}),(function(t){n.autosaveClearFlags(),i(t)})):(this.autosaveClearFlags(),this.persistenceAdapter.saveDatabase(this.filename,this.serialize(),(function(t){i(t)}))):i(new Error("persistenceAdapter not configured"))},m.prototype.saveDatabase=function(t){if(this.throttledSaves)if(this.throttledSavePending)this.throttledCallbacks.push(t);else{var e=this.throttledCallbacks;this.throttledCallbacks=[],e.unshift(t),this.throttledSavePending=!0;var i=this;this.saveDatabaseInternal((function(t){i.throttledSavePending=!1,e.forEach((function(e){"function"==typeof e&&setTimeout((function(){e(t)}),1)})),i.throttledCallbacks.length>0&&i.saveDatabase()}))}else this.saveDatabaseInternal(t)},m.prototype.save=m.prototype.saveDatabase,m.prototype.deleteDatabase=function(t,e){var i=e||function(t,e){if(t)throw t};"function"!=typeof t||e||(i=t),null!==this.persistenceAdapter?this.persistenceAdapter.deleteDatabase(this.filename,(function(t){i(t)})):i(new Error("persistenceAdapter not configured"))},m.prototype.autosaveDirty=function(){for(var t=0;t<this.collections.length;t++)if(this.collections[t].dirty)return!0;return!1},m.prototype.autosaveClearFlags=function(){for(var t=0;t<this.collections.length;t++)this.collections[t].dirty=!1},m.prototype.autosaveEnable=function(t,e){this.autosave=!0;var i=5e3,n=this;void 0!==this.autosaveInterval&&null!==this.autosaveInterval&&(i=this.autosaveInterval),this.autosaveHandle=setInterval((function(){n.autosaveDirty()&&!n.ignoreAutosave&&n.saveDatabase(e)}),i)},m.prototype.autosaveDisable=function(){void 0!==this.autosaveHandle&&null!==this.autosaveHandle&&(clearInterval(this.autosaveHandle),this.autosaveHandle=null)},D.prototype.reset=function(){return this.filteredrows.length>0&&(this.filteredrows=[]),this.filterInitialized=!1,this},D.prototype.toJSON=function(){var t=this.copy();return t.collection=null,t},D.prototype.limit=function(t){this.filterInitialized||0!==this.filteredrows.length||(this.filteredrows=this.collection.prepareFullDocIndex());var e=new D(this.collection);return e.filteredrows=this.filteredrows.slice(0,t),e.filterInitialized=!0,e},D.prototype.offset=function(t){this.filterInitialized||0!==this.filteredrows.length||(this.filteredrows=this.collection.prepareFullDocIndex());var e=new D(this.collection);return e.filteredrows=this.filteredrows.slice(t),e.filterInitialized=!0,e},D.prototype.copy=function(){var t=new D(this.collection);return this.filteredrows.length>0&&(t.filteredrows=this.filteredrows.slice()),t.filterInitialized=this.filterInitialized,t},D.prototype.branch=D.prototype.copy,D.prototype.transform=function(t,e){var i,n,s=this;if("string"==typeof t&&this.collection.transforms.hasOwnProperty(t)&&(t=this.collection.transforms[t]),"object"!=typeof t||!Array.isArray(t))throw new Error("Invalid transform");for(void 0!==e&&(t=r.resolveTransformParams(t,e)),i=0;i<t.length;i++)switch((n=t[i]).type){case"find":s.find(n.value);break;case"where":s.where(n.value);break;case"simplesort":s.simplesort(n.property,n.desc||n.options);break;case"compoundsort":s.compoundsort(n.value);break;case"sort":s.sort(n.value);break;case"limit":s=s.limit(n.value);break;case"offset":s=s.offset(n.value);break;case"map":s=s.map(n.value,n.dataOptions);break;case"eqJoin":s=s.eqJoin(n.joinData,n.leftJoinKey,n.rightJoinKey,n.mapFun,n.dataOptions);break;case"mapReduce":s=s.mapReduce(n.mapFunction,n.reduceFunction);break;case"update":s.update(n.value);break;case"remove":s.remove();break;default:break}return s},D.prototype.sort=function(t){this.filterInitialized||0!==this.filteredrows.length||(this.filteredrows=this.collection.prepareFullDocIndex());var e,i,n=(e=t,i=this.collection.data,function(t,n){return e(i[t],i[n])});return this.filteredrows.sort(n),this},D.prototype.simplesort=function(t,e){var i,n=10,s=this.collection.data.length,a=this.filteredrows.length,o=this.collection.binaryIndices.hasOwnProperty(t);if(void 0!==e&&!1!==e||(e={desc:!1}),!0===e&&(e={desc:!0}),0===a){if(this.filterInitialized)return this;if(this.collection.binaryIndices.hasOwnProperty(t))return this.collection.ensureIndex(t),this.filteredrows=this.collection.binaryIndices[t].values.slice(0),e.desc&&this.filteredrows.reverse(),this;this.filteredrows=this.collection.prepareFullDocIndex()}else if(!e.disableIndexIntersect&&o&&(i=s/a,e.useJavascriptSorting&&(n=6),i<=n||e.forceIndexIntersect)){var l,d=this.filteredrows,c={};for(l=0;l<a;l++)c[d[l]]=!0;var u=this.collection.binaryIndices[t].values;return this.filteredrows=u.filter((function(t){return c[t]})),e.desc&&this.filteredrows.reverse(),this}if(e.useJavascriptSorting)return this.sort((function(e,i){return e[t]===i[t]?0:e[t]>i[t]?1:e[t]<i[t]?-1:void 0}));var p,f,g,y,v,m,I=(p=t,f=e.desc,g=this.collection.data,function(t,e){return~p.indexOf(".")?(m=p.split("."),y=r.getIn(g[t],m,!0),v=r.getIn(g[e],m,!0)):(y=g[t][p],v=g[e][p]),h(y,v,f)});return this.filteredrows.sort(I),this},D.prototype.compoundsort=function(t){if(0===t.length)throw new Error("Invalid call to compoundsort, need at least one property");var e;if(1===t.length)return e=t[0],Array.isArray(e)?this.simplesort(e[0],e[1]):this.simplesort(e,!1);for(var i=0,n=t.length;i<n;i+=1)e=t[i],Array.isArray(e)||(t[i]=[e,!1]);this.filterInitialized||0!==this.filteredrows.length||(this.filteredrows=this.collection.prepareFullDocIndex());var s,a,o=(s=t,a=this.collection.data,function(t,e){return function(t,e,i){for(var n,s,a,o,l,d=0,c=0,u=t.length;c<u;c++)if(~(s=(n=t[c])[0]).indexOf(".")?(l=s.split("."),a=r.getIn(e,l,!0),o=r.getIn(i,l,!0)):(a=e[s],o=i[s]),0!==(d=h(a,o,n[1])))return d;return 0}(s,a[t],a[e])});return this.filteredrows.sort(o),this},D.prototype.findOr=function(t){for(var e=null,i=0,n=0,r=[],s=[],a=0,o=(this.count(),0),l=t.length;o<l;o++)for(n=(e=this.branch().find(t[o]).filteredrows).length,i=0;i<n;i++)void 0===s[a=e[i]]&&(s[a]=!0,r.push(a));return this.filteredrows=r,this.filterInitialized=!0,this},D.prototype.$or=D.prototype.findOr,D.prototype.findAnd=function(t){for(var e=0,i=t.length;e<i;e++){if(0===this.count())return this;this.find(t[e])}return this},D.prototype.$and=D.prototype.findAnd,D.prototype.find=function(e,i){if(0===this.collection.data.length)return this.filteredrows=[],this.filterInitialized=!0,this;var n,s,a,o,l,h,c,u=e||"getAll",g=!1,y=[],v=[],m=null;if(i=i||!1,"object"==typeof u){for(n in u)(o={})[n]=u[n],v.push(o),t.call(u,n)&&(s=n,a=u[n]);if(v.length>1)return this.find({$and:v},i)}if(!s||"getAll"===u)return i&&(this.filterInitialized?this.filteredrows=this.filteredrows.slice(0,1):(this.filteredrows=this.collection.data.length>0?[0]:[],this.filterInitialized=!0)),this;if("$and"===s||"$or"===s)return this[s](a),i&&this.filteredrows.length>1&&(this.filteredrows=this.filteredrows.slice(0,1)),this;if(null===a||"object"!=typeof a||a instanceof Date)l="$eq",h=a;else{if("object"!=typeof a)throw new Error("Do not know what you want to do.");for(c in a)if(t.call(a,c)){l=c,h=a[c];break}}"$regex"!==l&&"object"!=typeof h||(h=S(l,h));var I=-1!==s.indexOf(".");!this.filterInitialized&&this.collection.binaryIndices[s]&&f[l]&&(!0!==this.collection.adaptiveBinaryIndices&&this.collection.ensureIndex(s),g=!0,m=this.collection.binaryIndices[s]),!g&&"$in"===l&&Array.isArray(h)&&"undefined"!=typeof Set&&(h=new Set(h),l="$inSet");var E,b,w=p[l],D=this.collection.data,N=0,A=0,O=0;if(this.filterInitialized){if(A=(E=this.filteredrows).length,I){for(s=s.split("."),N=0;N<A;N++)if(d(b=D[O=E[N]],s,w,h,b)&&(y.push(O),i))return this.filteredrows=y,this}else for(N=0;N<A;N++)if(w((b=D[O=E[N]])[s],h,b)&&(y.push(O),i))return this.filteredrows=y,this}else if(g){var M=this.collection.calculateRange(l,s,h);if("$in"!==l){for(N=M[0];N<=M[1];N++)if(!0!==f[l]){if(f[l](r.getIn(D[m.values[N]],s,I),h)&&(y.push(m.values[N]),i))return this.filteredrows=y,this.filterInitialized=!0,this}else if(y.push(m.values[N]),i)return this.filteredrows=y,this.filterInitialized=!0,this}else for(N=0,A=M.length;N<A;N++)if(y.push(m.values[M[N]]),i)return this.filteredrows=y,this.filterInitialized=!0,this}else if(A=D.length,I){for(s=s.split("."),N=0;N<A;N++)if(d(b=D[N],s,w,h,b)&&(y.push(N),i))return this.filteredrows=y,this.filterInitialized=!0,this}else for(N=0;N<A;N++)if(w((b=D[N])[s],h,b)&&(y.push(N),i))return this.filteredrows=y,this.filterInitialized=!0,this;return this.filteredrows=y,this.filterInitialized=!0,this},D.prototype.where=function(t){var e,i=[];if("function"!=typeof t)throw new TypeError("Argument is not a stored view or a function");e=t;try{if(this.filterInitialized){for(var n=this.filteredrows.length;n--;)!0===e(this.collection.data[this.filteredrows[n]])&&i.push(this.filteredrows[n]);return this.filteredrows=i,this}for(var r=this.collection.data.length;r--;)!0===e(this.collection.data[r])&&i.push(r);return this.filteredrows=i,this.filterInitialized=!0,this}catch(t){throw t}},D.prototype.count=function(){return this.filterInitialized?this.filteredrows.length:this.collection.count()},D.prototype.data=function(t){var e,i,n,r,s=[],a=this.collection.data;if((t=t||{}).removeMeta&&!t.forceClones&&(t.forceClones=!0,t.forceCloneMethod=t.forceCloneMethod||"shallow"),!this.collection.disableDeltaChangesApi&&this.collection.disableFreeze&&(t.forceClones=!0,t.forceCloneMethod="parse-stringify"),!this.filterInitialized){if(0===this.filteredrows.length){if(this.collection.cloneObjects||t.forceClones){for(i=a.length,r=t.forceCloneMethod||this.collection.cloneMethod,n=0;n<i;n++)e=g(a[n],r),t.removeMeta&&(delete e.$loki,delete e.meta),s.push(e);return s}return a.slice()}this.filterInitialized=!0}var o=this.filteredrows;if(i=o.length,this.collection.cloneObjects||t.forceClones)for(r=t.forceCloneMethod||this.collection.cloneMethod,n=0;n<i;n++)e=g(a[o[n]],r),t.removeMeta&&(delete e.$loki,delete e.meta),s.push(e);else for(n=0;n<i;n++)s.push(a[o[n]]);return s},D.prototype.update=function(t){if("function"!=typeof t)throw new TypeError("Argument is not a function");this.filterInitialized||0!==this.filteredrows.length||(this.filteredrows=this.collection.prepareFullDocIndex());for(var e,i=this.filteredrows.length,n=this.collection.data,r=0;r<i;r++)this.disableFreeze&&!this.collection.cloneObjects&&this.collection.disableDeltaChangesApi?(t(n[this.filteredrows[r]]),this.collection.update(n[this.filteredrows[r]])):(t(e=g(n[this.filteredrows[r]],this.collection.cloneMethod)),this.collection.update(e));return this},D.prototype.remove=function(){return this.filterInitialized||0!==this.filteredrows.length||(this.filteredrows=this.collection.prepareFullDocIndex()),this.collection.removeBatchByPositions(this.filteredrows),this.filteredrows=[],this},D.prototype.mapReduce=function(t,e){try{return e(this.data().map(t))}catch(t){throw t}},D.prototype.eqJoin=function(t,e,i,n,r){var s,a,o,l,h=[],d=[],c="function"==typeof e,u="function"==typeof i,p={};if(a=(s=this.data(r)).length,t instanceof A)h=t.chain().data(r);else if(t instanceof D)h=t.data(r);else{if(!Array.isArray(t))throw new TypeError("joinData needs to be an array or result set");h=t}o=h.length;for(var f=0;f<o;f++)p[l=u?i(h[f]):h[f][i]]=h[f];n||(n=function(t,e){return{left:t,right:e}});for(var g=0;g<a;g++)l=c?e(s[g]):s[g][e],d.push(n(s[g],p[l]||{}));return this.collection=new A("joinData"),this.collection.insert(d),this.filteredrows=[],this.filterInitialized=!1,this},D.prototype.map=function(t,e){var i=this.data(e).map(t);return this.collection=new A("mappedData"),this.collection.insert(i),this.filteredrows=[],this.filterInitialized=!1,this},N.prototype=new v,N.prototype.constructor=N,N.prototype.getSort=function(){return this.sortFunction||this.sortCriteria||this.sortCriteriaSimple},N.prototype.rematerialize=function(t){var e,i,n;t=t||{},this.resultdata=[],this.resultsdirty=!0,this.resultset=new D(this.collection),(this.sortFunction||this.sortCriteria||this.sortCriteriaSimple)&&(this.sortDirty=!0);var r=Object.isFrozen(this.filterPipeline);if(t.hasOwnProperty("removeWhereFilters"))for(r&&(this.filterPipeline=this.filterPipeline.slice()),i=e=this.filterPipeline.length;i--;)"where"===this.filterPipeline[i].type&&(i!==this.filterPipeline.length-1&&(this.filterPipeline[i]=this.filterPipeline[this.filterPipeline.length-1]),this.filterPipeline.length--);var s=this.filterPipeline;for(this.filterPipeline=[],e=s.length,n=0;n<e;n++)this.applyFind(s[n].val,s[n].uid);return r&&Object.freeze(this.filterPipeline),this.data(),this.emit("rebuild",this),this},N.prototype.branchResultset=function(t,e){var i=this.resultset.branch();return void 0===t?i:i.transform(t,e)},N.prototype.toJSON=function(){var t=new N(this.collection,this.name,this.options);return t.resultset=this.resultset,t.resultdata=[],t.resultsdirty=!0,t.filterPipeline=this.filterPipeline,t.sortFunction=this.sortFunction,t.sortCriteria=this.sortCriteria,t.sortCriteriaSimple=this.sortCriteriaSimple||null,t.sortDirty=this.sortDirty,t.collection=null,t},N.prototype.removeFilters=function(t){t=t||{},this.rebuildPending=!1,this.resultset.reset(),this.resultdata=[],this.resultsdirty=!0,this.cachedresultset=null;var e=Object.isFrozen(this.filterPipeline),i=this.filterPipeline.length>0;this.filterPipeline=[],e&&Object.freeze(this.filterPipeline),this.sortFunction=null,this.sortCriteria=null,this.sortCriteriaSimple=null,this.sortDirty=!1,!0===t.queueSortPhase&&this.queueSortPhase(),i&&this.emit("filter")},N.prototype.applySort=function(t){return this.sortFunction=t,this.sortCriteria=null,this.sortCriteriaSimple=null,this.queueSortPhase(),this.emit("sort"),this},N.prototype.applySimpleSort=function(t,i){return this.sortCriteriaSimple={propname:t,options:i||!1},this.collection.disableFreeze||e(this.sortCriteriaSimple),this.sortCriteria=null,this.sortFunction=null,this.queueSortPhase(),this.emit("sort"),this},N.prototype.applySortCriteria=function(t){return this.sortCriteria=t,this.collection.disableFreeze||e(this.sortCriteria),this.sortCriteriaSimple=null,this.sortFunction=null,this.queueSortPhase(),this.emit("sort"),this},N.prototype.startTransaction=function(){return this.cachedresultset=this.resultset.copy(),this},N.prototype.commit=function(){return this.cachedresultset=null,this},N.prototype.rollback=function(){return this.resultset=this.cachedresultset,this.options.persistent&&(this.resultdata=this.resultset.data(),this.emit("rebuild",this)),this},N.prototype._indexOfFilterWithId=function(t){if("string"==typeof t||"number"==typeof t)for(var e=0,i=this.filterPipeline.length;e<i;e+=1)if(t===this.filterPipeline[e].uid)return e;return-1},N.prototype._addFilter=function(t){var i=Object.isFrozen(this.filterPipeline);i&&(this.filterPipeline=this.filterPipeline.slice()),this.collection.disableFreeze||e(t),this.filterPipeline.push(t),i&&Object.freeze(this.filterPipeline),this.resultset[t.type](t.val)},N.prototype.reapplyFilters=function(){this.resultset.reset(),this.cachedresultset=null,this.options.persistent&&(this.resultdata=[],this.resultsdirty=!0);var t=this.filterPipeline,e=Object.isFrozen(t);this.filterPipeline=[];for(var i=0,n=t.length;i<n;i+=1)this._addFilter(t[i]);return e&&Object.freeze(this.filterPipeline),this.sortFunction||this.sortCriteria||this.sortCriteriaSimple?this.queueSortPhase():this.queueRebuildEvent(),this.emit("filter"),this},N.prototype.applyFilter=function(t){var e=this._indexOfFilterWithId(t.uid);if(e>=0){var n=Object.isFrozen(this.filterPipeline);return n&&(this.filterPipeline=this.filterPipeline.slice()),this.filterPipeline[e]=t,n&&(i(t),Object.freeze(this.filterPipeline)),this.reapplyFilters()}return this.cachedresultset=null,this.options.persistent&&(this.resultdata=[],this.resultsdirty=!0),this._addFilter(t),this.sortFunction||this.sortCriteria||this.sortCriteriaSimple?this.queueSortPhase():this.queueRebuildEvent(),this.emit("filter"),this},N.prototype.applyFind=function(t,e){return this.applyFilter({type:"find",val:t,uid:e}),this},N.prototype.applyWhere=function(t,e){return this.applyFilter({type:"where",val:t,uid:e}),this},N.prototype.removeFilter=function(t){var e=this._indexOfFilterWithId(t);if(e<0)throw new Error("Dynamic view does not contain a filter with ID: "+t);var i=Object.isFrozen(this.filterPipeline);return i&&(this.filterPipeline=this.filterPipeline.slice()),this.filterPipeline.splice(e,1),i&&Object.freeze(this.filterPipeline),this.reapplyFilters(),this},N.prototype.count=function(){return this.resultsdirty&&(this.resultdata=this.resultset.data()),this.resultset.count()},N.prototype.data=function(t){return(this.sortDirty||this.resultsdirty)&&this.performSortPhase({suppressRebuildEvent:!0}),this.options.persistent?this.resultdata:this.resultset.data(t)},N.prototype.queueRebuildEvent=function(){if(!this.rebuildPending){this.rebuildPending=!0;var t=this;setTimeout((function(){t.rebuildPending&&(t.rebuildPending=!1,t.emit("rebuild",t))}),this.options.minRebuildInterval)}},N.prototype.queueSortPhase=function(){if(!this.sortDirty){this.sortDirty=!0;var t=this;"active"===this.options.sortPriority?setTimeout((function(){t.performSortPhase()}),this.options.minRebuildInterval):this.queueRebuildEvent()}},N.prototype.performSortPhase=function(t){(this.sortDirty||this.resultsdirty)&&(t=t||{},this.sortDirty&&(this.sortFunction?this.resultset.sort(this.sortFunction):this.sortCriteria?this.resultset.compoundsort(this.sortCriteria):this.sortCriteriaSimple&&this.resultset.simplesort(this.sortCriteriaSimple.propname,this.sortCriteriaSimple.options),this.sortDirty=!1),this.options.persistent&&(this.resultdata=this.resultset.data(),this.resultsdirty=!1),t.suppressRebuildEvent||this.emit("rebuild",this))},N.prototype.evaluateDocument=function(t,e){if(!this.resultset.filterInitialized)return this.options.persistent&&(this.resultdata=this.resultset.data()),void(this.sortFunction||this.sortCriteria||this.sortCriteriaSimple?this.queueSortPhase():this.queueRebuildEvent());var i,n=this.resultset.filteredrows,r=e?-1:n.indexOf(+t),s=n.length,a=new D(this.collection);a.filteredrows=[t],a.filterInitialized=!0;for(var o=0,l=this.filterPipeline.length;o<l;o++)a[(i=this.filterPipeline[o]).type](i.val);var h=0===a.filteredrows.length?-1:0;return-1!==r||-1!==h?-1===r&&-1!==h?(n.push(t),this.options.persistent&&this.resultdata.push(this.collection.data[t]),void(this.sortFunction||this.sortCriteria||this.sortCriteriaSimple?this.queueSortPhase():this.queueRebuildEvent())):-1!==r&&-1===h?(r<s-1?(n.splice(r,1),this.options.persistent&&this.resultdata.splice(r,1)):(n.length=s-1,this.options.persistent&&(this.resultdata.length=s-1)),void(this.sortFunction||this.sortCriteria||this.sortCriteriaSimple?this.queueSortPhase():this.queueRebuildEvent())):-1!==r&&-1!==h?(this.options.persistent&&(this.resultdata[r]=this.collection.data[t]),void(this.sortFunction||this.sortCriteria||this.sortCriteriaSimple?this.queueSortPhase():this.queueRebuildEvent())):void 0:void 0},N.prototype.removeDocument=function(t){var e,i,n,r={},s={},a=[],o=this.resultset,l=this.resultset.filteredrows,h=l.length;if(!this.resultset.filterInitialized)return this.options.persistent&&(this.resultdata=this.resultset.data()),void(this.sortFunction||this.sortCriteria||this.sortCriteriaSimple?this.queueSortPhase():this.queueRebuildEvent());for(Array.isArray(t)||(t=[t]),n=t.length,i=0;i<n;i++)r[t[i]]=!0;for(e=0;e<h;e++)r[l[e]]&&(s[e]=!0);Object.keys(s).length>0&&(this.resultset.filteredrows=this.resultset.filteredrows.filter((function(t,e){return!s[e]})),this.options.persistent&&(this.resultdata=this.resultdata.filter((function(t,e){return!s[e]}))),this.sortFunction||this.sortCriteria||this.sortCriteriaSimple?this.queueSortPhase():this.queueRebuildEvent());var d=function(t){return function(e){return e<o.filteredrows[t]}};for(h=o.filteredrows.length,e=0;e<h;e++)a=t.filter(d(e)),o.filteredrows[e]-=a.length},N.prototype.mapReduce=function(t,e){try{return e(this.data().map(t))}catch(t){throw t}},A.prototype=new v,A.prototype.contructor=A,A.prototype.createChange=function(t,e,i,n){this.changes.push({name:t,operation:e,obj:"U"!=e||this.disableDeltaChangesApi?JSON.parse(JSON.stringify(i)):this.getChangeDelta(i,n)})},A.prototype.insertMeta=function(t){var e,i;if(!this.disableMeta&&t)if(Array.isArray(t))for(e=t.length,i=0;i<e;i++)t[i].hasOwnProperty("meta")||(t[i].meta={}),t[i].meta.created=(new Date).getTime(),t[i].meta.revision=0;else t.meta||(t.meta={}),t.meta.created=(new Date).getTime(),t.meta.revision=0},A.prototype.updateMeta=function(t){return this.disableMeta||!t||(this.disableFreeze||((t=n(t)).meta=n(t.meta)),t.meta.updated=(new Date).getTime(),t.meta.revision+=1),t},A.prototype.createInsertChange=function(t){this.createChange(this.name,"I",t)},A.prototype.createUpdateChange=function(t,e){this.createChange(this.name,"U",t,e)},A.prototype.insertMetaWithChange=function(t){this.insertMeta(t),this.createInsertChange(t)},A.prototype.updateMetaWithChange=function(t,e,i){return t=this.updateMeta(t,i),this.createUpdateChange(t,e),t},A.prototype.lokiConsoleWrapper={log:function(){},warn:function(){},error:function(){}},A.prototype.addAutoUpdateObserver=function(t){this.autoupdate&&"function"==typeof Object.observe&&Object.observe(t,this.observerCallback,["add","update","delete","reconfigure","setPrototype"])},A.prototype.removeAutoUpdateObserver=function(t){this.autoupdate&&"function"==typeof Object.observe&&Object.unobserve(t,this.observerCallback)},A.prototype.addTransform=function(t,e){if(this.transforms.hasOwnProperty(t))throw new Error("a transform by that name already exists");this.transforms[t]=e},A.prototype.getTransform=function(t){return this.transforms[t]},A.prototype.setTransform=function(t,e){this.transforms[t]=e},A.prototype.removeTransform=function(t){delete this.transforms[t]},A.prototype.byExample=function(t){var e,i,n;for(e in n=[],t)t.hasOwnProperty(e)&&n.push(((i={})[e]=t[e],i));return{$and:n}},A.prototype.findObject=function(t){return this.findOne(this.byExample(t))},A.prototype.findObjects=function(t){return this.find(this.byExample(t))},A.prototype.ttlDaemonFuncGen=function(){var t=this,e=this.ttl.age;return function(){var i=Date.now();t.chain().where((function(t){var n=t.meta.updated||t.meta.created;return e<i-n})).remove()}},A.prototype.setTTL=function(t,e){t<0?clearInterval(this.ttl.daemon):(this.ttl.age=t,this.ttl.ttlInterval=e,this.ttl.daemon=setInterval(this.ttlDaemonFuncGen(),e))},A.prototype.prepareFullDocIndex=function(){for(var t=this.data.length,e=new Array(t),i=0;i<t;i+=1)e[i]=i;return e},A.prototype.configureOptions=function(t){(t=t||{}).hasOwnProperty("adaptiveBinaryIndices")&&(this.adaptiveBinaryIndices=t.adaptiveBinaryIndices,this.adaptiveBinaryIndices&&this.ensureAllIndexes())},A.prototype.ensureIndex=function(t,e){if(void 0===e&&(e=!1),null==t)throw new Error("Attempting to set index without an associated property");if((!this.binaryIndices[t]||e||this.binaryIndices[t].dirty)&&(!0!==this.adaptiveBinaryIndices||!this.binaryIndices.hasOwnProperty(t)||e)){var i={name:t,dirty:!0,values:this.prepareFullDocIndex()};this.binaryIndices[t]=i;var n,a,o,l,h,d=(n=t,a=this.data,h=!!~n.indexOf(".")&&n.split("."),function(t,e){if(h?(o=r.getIn(a[t],h,!0),l=r.getIn(a[e],h,!0)):(o=a[t][n],l=a[e][n]),o!==l){if(s.lt(o,l,!1))return-1;if(s.gt(o,l,!1))return 1}return 0});i.values.sort(d),i.dirty=!1,this.dirty=!0}},A.prototype.checkAllIndexes=function(e){var i,n=this.binaryIndices,r=[];for(i in n)t.call(n,i)&&(this.checkIndex(i,e)||r.push(i));return r},A.prototype.checkIndex=function(t,e){(e=e||{}).randomSamplingFactor&&!1!==e.randomSampling&&(e.randomSampling=!0),e.randomSamplingFactor=e.randomSamplingFactor||.1,(e.randomSamplingFactor<0||e.randomSamplingFactor>1)&&(e.randomSamplingFactor=.1);var i,n,s,a,o,l=!0;if(!this.binaryIndices.hasOwnProperty(t))throw new Error("called checkIndex on property without an index: "+t);if(this.adaptiveBinaryIndices||this.ensureIndex(t),(a=(o=this.binaryIndices[t].values).length)!==this.data.length)return e.repair&&this.ensureIndex(t,!0),!1;if(0===a)return!0;var h=-1!==t.indexOf(".");if(1===a)l=0===o[0];else if(e.randomSampling){if(p.$lte(r.getIn(this.data[o[0]],t,h),r.getIn(this.data[o[1]],t,h))||(l=!1),p.$lte(r.getIn(this.data[o[a-2]],t,h),r.getIn(this.data[o[a-1]],t,h))||(l=!1),l)for(n=Math.floor((a-1)*e.randomSamplingFactor),i=0;i<n-1;i++)if(s=Math.floor(Math.random()*(a-1)),!p.$lte(r.getIn(this.data[o[s]],t,h),r.getIn(this.data[o[s+1]],t,h))){l=!1;break}}else for(i=0;i<a-1;i++)if(!p.$lte(r.getIn(this.data[o[i]],t,h),r.getIn(this.data[o[i+1]],t,h))){l=!1;break}return!l&&e.repair&&this.ensureIndex(t,!0),l},A.prototype.getBinaryIndexValues=function(t){var e,i=this.binaryIndices[t].values,n=[];for(e=0;e<i.length;e++)n.push(r.getIn(this.data[i[e]],t,!0));return n},A.prototype.getUniqueIndex=function(t,e){var i=this.constraints.unique[t];return!i&&e?this.ensureUniqueIndex(t):i},A.prototype.ensureUniqueIndex=function(t){var e=this.constraints.unique[t];return e||-1==this.uniqueNames.indexOf(t)&&this.uniqueNames.push(t),this.constraints.unique[t]=e=new U(t),this.data.forEach((function(t){e.set(t)})),e},A.prototype.ensureAllIndexes=function(e){var i,n=this.binaryIndices;for(i in n)t.call(n,i)&&this.ensureIndex(i,e)},A.prototype.flagBinaryIndexesDirty=function(){var e,i=this.binaryIndices;for(e in i)t.call(i,e)&&(i[e].dirty=!0)},A.prototype.flagBinaryIndexDirty=function(t){this.binaryIndices[t]&&(this.binaryIndices[t].dirty=!0)},A.prototype.count=function(t){return t?this.chain().find(t).filteredrows.length:this.data.length},A.prototype.ensureId=function(){if(!this.idIndex){for(var t=this.data,e=0,i=t.length,n=new Array(i);e<i;e++)n[e]=t[e].$loki;this.idIndex=n}},A.prototype.ensureIdAsync=function(t){this.async((function(){this.ensureId()}),t)},A.prototype.addDynamicView=function(t,e){var i=new N(this,t,e);return this.DynamicViews.push(i),i},A.prototype.removeDynamicView=function(t){this.DynamicViews=this.DynamicViews.filter((function(e){return e.name!==t}))},A.prototype.getDynamicView=function(t){for(var e=0;e<this.DynamicViews.length;e++)if(this.DynamicViews[e].name===t)return this.DynamicViews[e];return null},A.prototype.findAndUpdate=function(t,e){"function"==typeof t?this.updateWhere(t,e):this.chain().find(t).update(e)},A.prototype.findAndRemove=function(t){this.chain().find(t).remove()},A.prototype.insert=function(t,e){if(!Array.isArray(t))return this.insertOne(t);var i,n=[],r=e&&!this.cloneObjects&&this.adaptiveBinaryIndices&&Object.keys(this.binaryIndices).length>0;r&&(this.adaptiveBinaryIndices=!1);try{this.emit("pre-insert",t);for(var s=0,a=t.length;s<a;s++){if(!(i=this.insertOne(t[s],!0)))return;n.push(i)}}finally{r&&(this.ensureAllIndexes(),this.adaptiveBinaryIndices=!0)}return this.emit("insert",n),1===(n=this.cloneObjects?g(n,this.cloneMethod):n).length?n[0]:n},A.prototype.insertOne=function(t,i){var r,s=null;if("object"!=typeof t?s=new TypeError("Document needs to be an object"):null===t&&(s=new TypeError("Object cannot be null")),null!==s)throw this.emit("error",s),s;var a=this.cloneObjects?g(t,this.cloneMethod):t;if(this.disableFreeze||(a=n(a)),this.disableMeta||(void 0===a.meta?a.meta={revision:0,created:0}:this.disableFreeze||(a.meta=n(a.meta))),i||this.emit("pre-insert",a),this.add(a))return this.disableChangesApi?this.insertMeta(a):this.insertMetaWithChange(a),this.disableFreeze||e(a),r=this.cloneObjects?g(a,this.cloneMethod):a,i||this.emit("insert",r),this.addAutoUpdateObserver(r),r},A.prototype.clear=function(t){var e=this;t=t||{},this.data=[],this.idIndex=null,this.cachedIndex=null,this.cachedBinaryIndex=null,this.cachedData=null,this.maxId=0,this.DynamicViews=[],this.dirty=!0,this.constraints={unique:{},exact:{}},!0===t.removeIndices?(this.binaryIndices={},this.uniqueNames=[]):Object.keys(this.binaryIndices).forEach((function(t){e.binaryIndices[t].dirty=!1,e.binaryIndices[t].values=[]}))},A.prototype.update=function(i){var n,r,s;if(Array.isArray(i)){s=i.length,(n=!this.cloneObjects&&this.adaptiveBinaryIndices&&Object.keys(this.binaryIndices).length>0)&&(this.adaptiveBinaryIndices=!1);try{for(r=0;r<s;r+=1)this.update(i[r])}finally{n&&(this.ensureAllIndexes(),this.adaptiveBinaryIndices=!0)}}else{if(!t.call(i,"$loki"))throw new Error("Trying to update unsynced document. Please save the document first by using insert() or addMany()");try{this.startTransaction();var a,o,l,h,d,c=this.get(i.$loki,!0),u=this;if(!c)throw new Error("Trying to update a document not in collection.");a=c[0],l=c[1],o=this.cloneObjects||!this.disableDeltaChangesApi&&this.disableFreeze?g(i,this.cloneMethod):i,this.emit("pre-update",i),this.uniqueNames.forEach((function(t){u.getUniqueIndex(t,!0).update(a,o)})),this.data[l]=o,o!==i&&this.addAutoUpdateObserver(i);for(var p=0;p<this.DynamicViews.length;p++)this.DynamicViews[p].evaluateDocument(l,!1);if(this.adaptiveBinaryIndices){var f=this.binaryIndices;for(h in f)this.adaptiveBinaryIndexUpdate(l,h)}else this.flagBinaryIndexesDirty();return this.idIndex[l]=o.$loki,this.isIncremental&&this.dirtyIds.push(o.$loki),this.commit(),this.dirty=!0,o=this.disableChangesApi?this.updateMeta(o):this.updateMetaWithChange(o,a),this.disableFreeze||e(o),d=this.cloneObjects?g(o,this.cloneMethod):o,this.emit("update",d,a),d}catch(t){throw this.rollback(),this.lokiConsoleWrapper.error(t.message),this.emit("error",t),t}}},A.prototype.add=function(t){if("object"!=typeof t)throw new TypeError("Object being added needs to be an object");if(void 0!==t.$loki)throw new Error("Document is already in collection, please use update()");try{this.startTransaction(),this.maxId++,isNaN(this.maxId)&&(this.maxId=this.data[this.data.length-1].$loki+1);var e=this.maxId;t.$loki=e,this.disableMeta||(t.meta.version=0);for(var i=0,n=this.uniqueNames.length;i<n;i++)this.getUniqueIndex(this.uniqueNames[i],!0).set(t);this.idIndex&&this.idIndex.push(e),this.isIncremental&&this.dirtyIds.push(e),this.data.push(t);var r=this.data.length-1,s=this.DynamicViews.length;for(i=0;i<s;i++)this.DynamicViews[i].evaluateDocument(r,!0);if(this.adaptiveBinaryIndices){var a=this.binaryIndices;for(var o in a)this.adaptiveBinaryIndexInsert(r,o)}else this.flagBinaryIndexesDirty();return this.commit(),this.dirty=!0,this.cloneObjects?g(t,this.cloneMethod):t}catch(t){throw this.rollback(),this.lokiConsoleWrapper.error(t.message),this.emit("error",t),t}},A.prototype.updateWhere=function(t,e){var i,n=this.where(t),r=0;try{for(;r<n.length;r++)i=e(n[r]),this.update(i)}catch(t){this.rollback(),this.lokiConsoleWrapper.error(t.message)}},A.prototype.removeWhere=function(t){var e;"function"==typeof t?(e=this.data.filter(t),this.remove(e)):this.chain().find(t).remove()},A.prototype.removeDataOnly=function(){this.remove(this.data.slice())},A.prototype.removeBatchByPositions=function(t){var e,i,n,r,s=t.length,a={},o=Object.keys(this.binaryIndices).length,l=Object.keys(this.constraints.unique).length,h=this.adaptiveBinaryIndices&&Object.keys(this.binaryIndices).length>0,d=this;try{for(this.startTransaction(),this.ensureId(),n=0;n<s;n++)a[this.idIndex[t[n]]]=!0;if((e=this.DynamicViews.length)>0||o>0||l>0){if(e>0)for(i=0;i<e;i++)this.DynamicViews[i].removeDocument(t);if(this.adaptiveBinaryIndices&&!h){var c,u=this.binaryIndices;for(c in u)this.adaptiveBinaryIndexRemove(t,c)}else this.flagBinaryIndexesDirty();l&&this.uniqueNames.forEach((function(e){var i=d.getUniqueIndex(e);if(i)for(n=0;n<s;n++)null!==(r=d.data[t[n]])[e]&&void 0!==r[e]&&i.remove(r[e])}))}if(!this.disableChangesApi||this.events.delete.length>1)for(n=0;n<s;n++)this.emit("delete",this.data[t[n]]);if(this.data=this.data.filter((function(t){return!a[t.$loki]})),this.isIncremental)for(n=0;n<s;n++)this.dirtyIds.push(this.idIndex[t[n]]);this.idIndex=this.idIndex.filter((function(t){return!a[t]})),this.adaptiveBinaryIndices&&h&&(this.adaptiveBinaryIndices=!1,this.ensureAllIndexes(!0),this.adaptiveBinaryIndices=!0),this.commit(),this.dirty=!0}catch(t){return this.rollback(),h&&(this.adaptiveBinaryIndices=!0),this.lokiConsoleWrapper.error(t.message),this.emit("error",t),null}},A.prototype.removeBatch=function(t){var e,i=t.length,n=this.data.length,r={},s=[];for(e=0;e<n;e++)r[this.data[e].$loki]=e;for(e=0;e<i;e++)"object"==typeof t[e]?s.push(r[t[e].$loki]):s.push(r[t[e]]);this.removeBatchByPositions(s)},A.prototype.remove=function(e){if("number"==typeof e&&(e=this.get(e)),"object"!=typeof e)throw new Error("Parameter is not an object");if(Array.isArray(e))this.removeBatch(e);else{if(!t.call(e,"$loki"))throw new Error("Object is not a document stored in the collection");try{this.startTransaction();var r=this.get(e.$loki,!0),s=r[1],a=this;this.uniqueNames.forEach((function(t){if(null!==e[t]&&void 0!==e[t]){var i=a.getUniqueIndex(t);i&&i.remove(e[t])}}));for(var o=0;o<this.DynamicViews.length;o++)this.DynamicViews[o].removeDocument(s);if(this.adaptiveBinaryIndices){var l,h=this.binaryIndices;for(l in h)this.adaptiveBinaryIndexRemove(s,l)}else this.flagBinaryIndexesDirty();return this.data.splice(s,1),this.removeAutoUpdateObserver(e),this.idIndex.splice(s,1),this.isIncremental&&this.dirtyIds.push(e.$loki),this.commit(),this.dirty=!0,this.emit("delete",r[0]),this.disableFreeze||(e=n(e)),delete e.$loki,delete e.meta,this.disableFreeze||i(e),e}catch(t){return this.rollback(),this.lokiConsoleWrapper.error(t.message),this.emit("error",t),null}}},A.prototype.get=function(t,e){this.idIndex||this.ensureId();var i=e||!1,n=this.idIndex,r=n.length-1,s=0,a=s+r>>1;if(t="number"==typeof t?t:parseInt(t,10),isNaN(t))throw new TypeError("Passed id is not an integer");for(;n[s]<n[r];)n[a=s+r>>1]<t?s=a+1:r=a;return r===s&&n[s]===t?i?[this.data[s],s]:this.data[s]:null},A.prototype.getBinaryIndexPosition=function(t,e){var i=r.getIn(this.data[t],e,!0),n=this.binaryIndices[e].values,s=this.calculateRange("$eq",e,i);if(0===s[0]&&-1===s[1])return null;for(var a=s[0],o=s[1],l=a;l<=o;l++)if(n[l]===t)return l;return null},A.prototype.adaptiveBinaryIndexInsert=function(t,e){var i=-1!==e.indexOf("."),n=this.binaryIndices[e].values,s=r.getIn(this.data[t],e,i);!0===this.serializableIndices&&s instanceof Date&&(this.data[t][e]=s.getTime(),s=r.getIn(this.data[t],e));var a=0===n.length?0:this.calculateRangeStart(e,s,!0,i);this.binaryIndices[e].values.splice(a,0,t)},A.prototype.adaptiveBinaryIndexUpdate=function(t,e){var i,n=this.binaryIndices[e].values,r=n.length;for(i=0;i<r&&n[i]!==t;i++);this.binaryIndices[e].values.splice(i,1),this.adaptiveBinaryIndexInsert(t,e)},A.prototype.adaptiveBinaryIndexRemove=function(t,e,i){var n,r,s,a,o,l,h,d=this.binaryIndices[e],c={};if(Array.isArray(t)){if(1!==(a=t.length)){for(s=0;s<a;s++)c[t[s]]=!0;if(d.values=d.values.filter((function(t){return!c[t]})),!0===i)return;var u=t.slice();for(u.sort((function(t,e){return t-e})),n=d.values.length,r=0;r<n;r++){for(o=d.values[r],l=0,s=0;s<a&&o>u[s];s++)l++;d.values[r]-=l}return}t=t[0]}if(null===(h=this.getBinaryIndexPosition(t,e)))return null;if(d.values.splice(h,1),!0!==i)for(n=d.values.length,r=0;r<n;r++)d.values[r]>t&&d.values[r]--},A.prototype.calculateRangeStart=function(t,e,i,n){var a=this.data,o=this.binaryIndices[t].values,l=0,h=o.length-1,d=0;if(0===o.length)return-1;for(r.getIn(a[o[l]],t,n),r.getIn(a[o[h]],t,n);l<h;)d=l+h>>1,s.lt(r.getIn(a[o[d]],t,n),e,!1)?l=d+1:h=d;var c=l;return s.aeq(e,r.getIn(a[o[c]],t,n))?c:s.lt(e,r.getIn(a[o[c]],t,n),!1)?i?c:c-1:i?c+1:c},A.prototype.calculateRangeEnd=function(t,e,i){var n=this.data,a=this.binaryIndices[t].values,o=0,l=a.length-1,h=0;if(0===a.length)return-1;for(r.getIn(n[a[o]],t,i),r.getIn(n[a[l]],t,i);o<l;)h=o+l>>1,s.lt(e,r.getIn(n[a[h]],t,i),!1)?l=h:o=h+1;var d=l;return s.aeq(e,r.getIn(n[a[d]],t,i))?d:s.gt(e,r.getIn(n[a[d]],t,i),!1)?d+1:s.aeq(e,r.getIn(n[a[d-1]],t,i))?d-1:d},A.prototype.calculateRange=function(t,e,i){var n,a,o,l=this.data,h=this.binaryIndices[e].values,d=h.length-1;if(0===l.length)return[0,-1];var c=-1!==e.indexOf("."),u=r.getIn(l[h[0]],e,c),p=r.getIn(l[h[d]],e,c);switch(t){case"$eq":case"$aeq":if(s.lt(i,u,!1)||s.gt(i,p,!1))return[0,-1];break;case"$dteq":if(s.lt(i,u,!1)||s.gt(i,p,!1))return[0,-1];break;case"$gt":if(s.gt(i,p,!0))return[0,-1];if(s.gt(u,i,!1))return[0,d];break;case"$gte":if(s.gt(i,p,!1))return[0,-1];if(s.gt(u,i,!0))return[0,d];break;case"$lt":if(s.lt(i,u,!0))return[0,-1];if(s.lt(p,i,!1))return[0,d];break;case"$lte":if(s.lt(i,u,!1))return[0,-1];if(s.lt(p,i,!0))return[0,d];break;case"$between":return s.gt(i[0],p,!1)||s.lt(i[1],u,!1)?[0,-1]:((n=this.calculateRangeStart(e,i[0],!1,c))<0&&n++,(o=this.calculateRangeEnd(e,i[1],c))>d&&o--,s.gt(r.getIn(l[h[n]],e,c),i[0],!0)||n++,s.lt(r.getIn(l[h[o]],e,c),i[1],!0)||o--,o<n?[0,-1]:[n,o]);case"$in":for(var f=[],g=[],y=0,v=i.length;y<v;y++)for(var m=this.calculateRange("$eq",e,i[y]),I=m[0];I<=m[1];I++)void 0===f[I]&&(f[I]=!0,g.push(I));return g}switch(t){case"$eq":case"$aeq":case"$dteq":case"$gte":case"$lt":n=this.calculateRangeStart(e,i,!1,c),a=r.getIn(l[h[n]],e,c);break;default:break}switch(t){case"$eq":case"$aeq":case"$dteq":case"$lte":case"$gt":o=this.calculateRangeEnd(e,i,c),r.getIn(l[h[o]],e,c);break;default:break}switch(t){case"$eq":case"$aeq":case"$dteq":return s.aeq(a,i)?[n,o]:[0,-1];case"$gt":return s.aeq(r.getIn(l[h[o]],e,c),i)?[o+1,d]:[o,d];case"$gte":return s.aeq(r.getIn(l[h[n]],e,c),i)?[n,d]:[n+1,d];case"$lt":return s.aeq(r.getIn(l[h[n]],e,c),i)?[0,n-1]:[0,n];case"$lte":return s.aeq(r.getIn(l[h[o]],e,c),i)?[0,o]:[0,o-1];default:return[0,l.length-1]}},A.prototype.by=function(t,e){var i;if(void 0===e)return i=this,function(e){return i.by(t,e)};var n=this.getUniqueIndex(t,!0).get(e);return this.cloneObjects?g(n,this.cloneMethod):n},A.prototype.findOne=function(t){t=t||{};var e=this.chain().find(t,!0).data();return Array.isArray(e)&&0===e.length?null:this.cloneObjects?g(e[0],this.cloneMethod):e[0]},A.prototype.chain=function(t,e){var i=new D(this);return void 0===t?i:i.transform(t,e)},A.prototype.find=function(t){return this.chain().find(t).data()},A.prototype.findOneUnindexed=function(t,e){for(var i=this.data.length;i--;)if(r.getIn(this.data[i],t,!0)===e)return this.data[i];return null},A.prototype.startTransaction=function(){if(this.transactional){this.cachedData=g(this.data,this.cloneMethod),this.cachedIndex=this.idIndex,this.cachedBinaryIndex=this.binaryIndices,this.cachedDirtyIds=this.dirtyIds;for(var t=0;t<this.DynamicViews.length;t++)this.DynamicViews[t].startTransaction()}},A.prototype.commit=function(){if(this.transactional){this.cachedData=null,this.cachedIndex=null,this.cachedBinaryIndex=null,this.cachedDirtyIds=null;for(var t=0;t<this.DynamicViews.length;t++)this.DynamicViews[t].commit()}},A.prototype.rollback=function(){if(this.transactional){null!==this.cachedData&&null!==this.cachedIndex&&(this.data=this.cachedData,this.idIndex=this.cachedIndex,this.binaryIndices=this.cachedBinaryIndex,this.dirtyIds=this.cachedDirtyIds);for(var t=0;t<this.DynamicViews.length;t++)this.DynamicViews[t].rollback()}},A.prototype.async=function(t,e){setTimeout((function(){if("function"!=typeof t)throw new TypeError("Argument passed for async execution is not a function");t(),e()}),0)},A.prototype.where=function(t){return this.chain().where(t).data()},A.prototype.mapReduce=function(t,e){try{return e(this.data.map(t))}catch(t){throw t}},A.prototype.eqJoin=function(t,e,i,n,r){return new D(this).eqJoin(t,e,i,n,r)},A.prototype.stages={},A.prototype.getStage=function(t){return this.stages[t]||(this.stages[t]={}),this.stages[t]},A.prototype.commitLog=[],A.prototype.stage=function(t,e){var i=JSON.parse(JSON.stringify(e));return this.getStage(t)[e.$loki]=i,i},A.prototype.commitStage=function(t,e){var i,n=this.getStage(t),r=(new Date).getTime();for(i in n)this.update(n[i]),this.commitLog.push({timestamp:r,message:e,data:JSON.parse(JSON.stringify(n[i]))});this.stages[t]={}},A.prototype.no_op=function(){},A.prototype.extract=function(t){for(var e=0,i=this.data.length,n=O(t),r=[];e<i;e+=1)r.push(x(this.data[e],t,n));return r},A.prototype.max=function(t){return Math.max.apply(null,this.extract(t))},A.prototype.min=function(t){return Math.min.apply(null,this.extract(t))},A.prototype.maxRecord=function(t){for(var e,i=0,n=this.data.length,r=O(t),s={index:0,value:void 0};i<n;i+=1)void 0!==e?e<x(this.data[i],t,r)&&(e=x(this.data[i],t,r),s.index=this.data[i].$loki):(e=x(this.data[i],t,r),s.index=this.data[i].$loki);return s.value=e,s},A.prototype.minRecord=function(t){for(var e,i=0,n=this.data.length,r=O(t),s={index:0,value:void 0};i<n;i+=1)void 0!==e?e>x(this.data[i],t,r)&&(e=x(this.data[i],t,r),s.index=this.data[i].$loki):(e=x(this.data[i],t,r),s.index=this.data[i].$loki);return s.value=e,s},A.prototype.extractNumerical=function(t){return this.extract(t).map(M).filter(Number).filter((function(t){return!isNaN(t)}))},A.prototype.avg=function(t){return C(this.extractNumerical(t))},A.prototype.stdDev=function(t){return e=this.extractNumerical(t),i=C(e),n=C(e.map((function(t){var e=t-i;return e*e}))),Math.sqrt(n);var e,i,n},A.prototype.mode=function(t){var e,i,n,r={},s=this.extract(t);for(i in s.forEach((function(t){r[t]?r[t]+=1:r[t]=1})),r)e?e<r[i]&&(n=i):(n=i,e=r[i]);return n},A.prototype.median=function(t){var e=this.extractNumerical(t);e.sort(R);var i=Math.floor(e.length/2);return e.length%2?e[i]:(e[i-1]+e[i])/2},W.prototype={keys:[],values:[],sort:function(t,e){return t<e?-1:t>e?1:0},setSort:function(t){this.bs=new k(t)},bs:function(){return new k(this.sort)},set:function(t,e){var i=this.bs(this.keys,t);i.found?this.values[i.index]=e:(this.keys.splice(i.index,0,t),this.values.splice(i.index,0,e))},get:function(t){return this.values[P(this.keys,t,this.sort).index]}},U.prototype.keyMap={},U.prototype.lokiMap={},U.prototype.set=function(t){var e=t[this.field];if(null!=e){if(this.keyMap[e])throw new Error("Duplicate key for property "+this.field+": "+e);this.keyMap[e]=t,this.lokiMap[t.$loki]=e}},U.prototype.get=function(t){return this.keyMap[t]},U.prototype.byId=function(t){return this.keyMap[this.lokiMap[t]]},U.prototype.update=function(t,e){if(this.lokiMap[t.$loki]!==e[this.field]){var i=this.lokiMap[t.$loki];this.set(e),this.keyMap[i]=void 0}else this.keyMap[t[this.field]]=e},U.prototype.remove=function(t){var e=this.keyMap[t];if(null==e)throw new Error("Key is not in unique index: "+this.field);this.keyMap[t]=void 0,this.lokiMap[e.$loki]=void 0},U.prototype.clear=function(){this.keyMap=Object.create(null),this.lokiMap=Object.create(null)},L.prototype={set:function(t,e){this.index[t]?this.index[t].push(e):this.index[t]=[e]},remove:function(t,e){var i=this.index[t];for(var n in i)i[n]==e&&i.splice(n,1);i.length<1&&(this.index[t]=void 0)},get:function(t){return this.index[t]},clear:function(t){this.index={}}},m.deepFreeze=e,m.freeze=i,m.unFreeze=n,m.LokiOps=p,m.Collection=A,m.DynamicView=N,m.Resultset=D,m.KeyValueStore=W,m.LokiMemoryAdapter=I,m.LokiPartitioningAdapter=E,m.LokiLocalStorageAdapter=w,m.LokiFsAdapter=b,m.persistenceAdapters={fs:b,localStorage:w},m.aeq=a,m.lt=o,m.gt=l,m.Comparators=s,m}()},"function"==typeof define&&define.amd?define([],n):"object"==typeof t?e.exports=n():i.loki=n()}}),main_exports={};__export(main_exports,{default:()=>CustomNoteWidth}),module.exports=__toCommonJS(main_exports);var import_obsidian6=require("obsidian"),import_obsidian3=require("obsidian"),UUID_FORMAT="xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx",YAML_FRONTMATTER_REGEX=new RegExp(/^---\n([\s\S]*?)\n---/),PLUGIN_NAME="Custom Note Width",DATABASE_COLLECTION_NOTE_WIDTHS="NoteWidths",DATABASE_FILENAME="noteWidthDatabase.json",DONATION_LINK="https://ko-fi.com/skater_",DONATION_DISCLAIMER_TEXT="Disclaimer: Please note that clicking the image will open a link in your browser.",NOTE_ID_KEY="noteID",CANCEL_BUTTON_TEXT="Cancel",APPLY_BUTTON_TEXT="Apply",PROGRESS_BAR_MODAL_KEY_TITLE_TEXT="Changing all YAML-Frontmatter keys...",PROGRESS_BAR_MODAL_VALUE_TITLE_TEXT="Changing the value for all YAML-Frontmatter's...",PRIORITY_LIST={SAVED_NOTE_WIDTH:"Check for saved note width",YAML_NOTE_WIDTH:"Check for YAML-Frontmatter width"},COMMANDS={CHANGE_NOTE_WIDTH:{ID:"change-note-width",NAME:"Change the width of the open note",MODAL_TITLE:"Enter the width for the open note (%)"},CHANGE_DEFAULT_NOTE_WIDTH:{ID:"change-default-note-width",NAME:"Change the default note width",MODAL_TITLE:"Enter the default note width (%)"},CHANGE_ALL_NOTE_WIDTH:{ID:"change-all-note-width",NAME:"Change the width for all notes",MODAL_TITLE:"Enter the width for all notes (%)"}},NOTICES={SLIDER_HIDE_WARNING:"Slider too large!"},DOM_IDENTIFIERS={DUMMY:"dummy",SLIDER:"custom-note-width-slider",SLIDER_VALUE:"custom-note-width-slider-value",WRAPPER:"custom-note-width-wrapper",STATUSBAR_ELEMENT:"plugin-custom-note-width",DONATION_BUTTON:"custom-note-width-donation-button",STATUSBAR:"status-bar",CUSTOM_NOTE_WIDTH:"custom-note-width",MARKDOWN_PREVIEW_VIEW:"markdown-preview-view",CM_SCROLLER:"cm-scroller",PROGRESS_BAR_CONTAINER:"progress-bar-container",PROGRESS_OUTER:"progress-bar-outer",PROGRESS_INNER:"progress-bar-inner",MODAL_CLOSE_BUTTON:"modal-close-button",NWM_CONTAINER:"nwm-container",NWM_INPUT_CONTAINER:"nwm-input-container",NWM_BUTTON_CONTAINER:"nwm-button-container",PRIORITY_LIST_ITEM:"priority-list-item",PRIORITY_NUMBER:"priority-number"};function getLoadedMessage(t){return`${PLUGIN_NAME} v${t} loaded!`}function getUnloadedMessage(t){return`${PLUGIN_NAME} v${t} unloaded!`}var KOFI_SVG='<?xml version="1.0" encoding="UTF-8"?><svg id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 185.71 29.2"><defs><style>.cls-1{fill:none;isolation:isolate;}</style></defs><image id="image0" class="cls-1" width="1081" height="170" transform="scale(.17)" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAABDcAAACoCAYAAAD0MgVSAAAACXBIWXMAAEBwAABAcAH66ZoqAAAgAElEQVR4nO3dCXhU5b0/8G9s8Vb0NrFSLFYhAUWoLFFUCGoJm0vFELRXZCkE69pWCXpv69JKEPd7reDSulUTBK21lbBotSIkirIomrBU1AoBtQqiJq1gW/81/+c3J4czM8zMed8575k5Z+b7eZ55koGzz2HIfPN7f28BFLVXzKsCMAdAofsa7aqbBfY5Ao11vew3qOsqvyIJ1vWy36CuG3M9eG9kZb9BXJfvG7FPeW84eG/EPuW94eC9EfuU94aD94bzrdZ94WW/Xo7X6/phuzfy7T3D6/oZus78jOLw595oBlBdMG9+g87WXQ+lvWJeEYB6AMPUN8v/UNJelz9sxOIbh4P3hoPvG7FPeW84eG/EPuW94eC9EfuU94aD94bzLcONWAw3HAw3YvEzisPfe2NWwbz5NaoLpzyU9op5pQAa1Ko1YtZUX5T/ocQ+5Q8bsfjG4eC94eD7RuxT3hsO3huxT3lvOHhvxD7lveHgveF8y3AjFsMNB8ONWPyM4vD/3pAqjvKCefNb3RbcL+lurWEoaQQbRERERERERESeDZRcon3KpFK3DSUMN9orHpFg42EGG0RERERERESURUoBxz7hRnvFI6UdwQYRERERERERUbZJ4UV9+5RJRUrhRnvFI8UdQ1GIiIiIiIiIiIKiR6q8Ir5yo55DUYiIiIiIiIgogAa2T5k0J9Fh7Q032iseqekYy0JEREREREREFETT26dMKk8YbnQMR5nJl42IiIiIiIiIAq42/vDsyo19/oKIiIiIiIiIKIB6tE+ZVB0TbrRXPCLlHMP4ahERERERERFRSMSGGwCq+MoRERERERERUYhI9cbePEPCjal89YiIiIiIiIgoZPZWb8RPBUtEREREREREFAYyNWwxww0iIiIiIiIiCrNKMNwgIiIiIiIiohBjuEFEREREREREoRaZ/ZXhBhERERERERGFlvTdYLhBRERERERERGHGcIOIiIiIiIiIQq2U4QYRERERERERhVkRww0iIiIiIiIiCjWGG0REREREREQUagw3iIiIiIiIiCjUGG4QERERERERUagx3CAiIiIiIiKiUGO4QURERERERESh9tUgH3zLnl2o/+A1NLVtR8vnuxTWaM/A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"/></svg>',DonationButton=class{constructor(){this.parser=new DOMParser}createDonateButtonElement(t,e){const i=document.createElement("a");i.setAttribute("href",t),e.style.height="auto",e.style.width="100%",i.appendChild(e);const n=document.createElement("div");return n.appendChild(i),n}createDonationButton(t){const e=t.createEl("div");e.id=DOM_IDENTIFIERS.DONATION_BUTTON;const i=document.createElement("p");return i.textContent=DONATION_DISCLAIMER_TEXT,e.appendChild(this.createDonateButtonElement(DONATION_LINK,this.parser.parseFromString(KOFI_SVG,"text/xml").documentElement)),e.appendChild(i),e}},import_obsidian=require("obsidian"),path=__toESM(require("path"));function getAbsoluteVaultPath(t){let e=t.vault.adapter;return e instanceof import_obsidian.FileSystemAdapter?e.getBasePath():""}function getAbsolutePluginPath(t,e){return path.join(getAbsoluteVaultPath(t),e.manifest.dir)}function getDatabasePath(t,e,i){return path.join(getAbsolutePluginPath(t,e),i)}function isActiveLeafMarkdown(t){return!!t.workspace.getActiveViewOfType(import_obsidian.MarkdownView)}function getActiveMarkdownView(t){return t.workspace.getActiveViewOfType(import_obsidian.MarkdownView)}function getActiveEditorDiv(t,e){const i=getActiveMarkdownView(t);if(i){if("preview"===e)return i.containerEl.querySelector(classSelector(DOM_IDENTIFIERS.MARKDOWN_PREVIEW_VIEW));if("source"===e)return i.containerEl.querySelector(classSelector(DOM_IDENTIFIERS.CM_SCROLLER))}return null}function getEditorMode(){const t=getActiveMarkdownView(this.app);return t?t.getMode():null}async function calculateNoteWidth(t,e){const i=await getCharWidth();return i?i*(1+t/100*(e.clientWidth/i-1)):null}async function getCharWidth(){const t=document.querySelector(classSelector(DOM_IDENTIFIERS.MARKDOWN_PREVIEW_VIEW))||document.querySelector(classSelector(DOM_IDENTIFIERS.CM_SCROLLER));if(!t)return null;const e=window.getComputedStyle(t).fontFamily,i=window.getComputedStyle(t).fontSize,n=document.createElement("canvas"),r=n.getContext("2d");if(!r)return null;r.font=`${i} ${e}`;const s=r.measureText("m").width;return n.remove(),s}function idSelector(t){return`#${t}`}function classSelector(t){return`.${t}`}function validateWidth(t){return Math.min(100,Math.max(0,t))}var YamlFrontMatterProcessor=class{constructor(t){this.app=t}async replaceYamlKeyInAllNotes(t,e,i){const n=this.app.vault.getMarkdownFiles(),r=100/n.length;for(const s of n){if(i.isCancelled)break;await this.app.fileManager.processFrontMatter(s,(i=>{t in i&&(i[e]=i[t],delete i[t])})),i.incrementProgress(r)}}async updateAllYamlValues(t,e,i){const n=this.app.vault.getMarkdownFiles(),r=100/n.length;for(const s of n){if(i.isCancelled)break;await this.app.fileManager.processFrontMatter(s,(i=>{t in i&&(i[t]=e)})),i.incrementProgress(r)}}getActiveNoteContent(){const t=getActiveMarkdownView(this.app);return(null==t?void 0:t.editor.getValue())||null}extractYamlFromNote(){const t=this.getActiveNoteContent();if(!t)return null;const e=t.match(YAML_FRONTMATTER_REGEX);return e&&e[1]}hasYamlFrontMatter(){return Boolean(this.extractYamlFromNote())}async getYamlValue(t){const e=getActiveMarkdownView(this.app);if(!e||!e.file)return null;let i=null;return await this.app.fileManager.processFrontMatter(e.file,(e=>{i=e[t]})),i}async setYamlValue(t,e){const i=getActiveMarkdownView(this.app);i&&i.file&&await this.app.fileManager.processFrontMatter(i.file,(i=>{i[t]=e}))}async removeYamlKey(t){const e=getActiveMarkdownView(this.app);e&&e.file&&await this.app.fileManager.processFrontMatter(e.file,(e=>{delete e[t]}))}async hasYamlKey(t){const e=getActiveMarkdownView(this.app);if(!e||!e.file)return!1;let i=!1;return await this.app.fileManager.processFrontMatter(e.file,(e=>{i=t in e})),i}async isOnlyYamlKey(t){const e=getActiveMarkdownView(this.app);if(!e||!e.file)return!1;let i=!1;return await this.app.fileManager.processFrontMatter(e.file,(e=>{i=1===Object.keys(e).length&&void 0!==e[t]})),i}async removeYamlFrontMatter(){const t=getActiveMarkdownView(this.app);t&&t.file&&await this.app.fileManager.processFrontMatter(t.file,(t=>{for(const e of Object.keys(t))delete t[e]}))}},import_obsidian2=require("obsidian"),DOMElementManager=class{constructor(){this.cachedElements=new Map}querySelector(t,e=document){const i=this.generateCacheKey(t,e);if(this.cachedElements.has(i))return this.cachedElements.get(i)||null;const n=e.querySelector(t);return this.cachedElements.set(i,n),n}invalidateCache(t){this.cachedElements.delete(t)}clearCache(){this.cachedElements.clear()}generateCacheKey(t,e=document){return`${t}-${e}`}},domElementManager=new DOMElementManager,ProgressBarModal=class extends import_obsidian2.Modal{constructor(t,e){super(t),this.title=e,this.progress=0,this.isCancelled=!1,this.handleClickOutside=t=>{this.modalEl&&this.modalEl.contains(t.target)||(this.isCancelled=!0,this.close(),document.body.removeEventListener("click",this.handleClickOutside,!0))},this.progress=0}addCancelButton(){const t=this.contentEl.createEl("button",{text:CANCEL_BUTTON_TEXT});t.style.marginTop="20px",t.style.float="right",t.onclick=()=>{this.isCancelled=!0,this.close()}}updateProgress(){const t=this.contentEl.querySelector(classSelector(DOM_IDENTIFIERS.PROGRESS_INNER));t&&(t.style.width=`${this.progress}%`)}addProgressBarContainer(){domElementManager.querySelector(classSelector(DOM_IDENTIFIERS.PROGRESS_BAR_CONTAINER),this.contentEl)||this.contentEl.createDiv({cls:DOM_IDENTIFIERS.PROGRESS_BAR_CONTAINER}).createDiv({cls:DOM_IDENTIFIERS.PROGRESS_OUTER}).createDiv({cls:DOM_IDENTIFIERS.PROGRESS_INNER})}incrementProgress(t){this.progress+=t,this.updateProgress()}onOpen(){this.titleEl.setText(this.title);const t=this.containerEl.querySelector(".modal-close-button");t&&t.remove(),document.body.addEventListener("click",this.handleClickOutside,!0)}display(){this.open(),this.addProgressBarContainer(),this.addCancelButton(),this.updateProgress()}close(){const t=domElementManager.generateCacheKey(classSelector(DOM_IDENTIFIERS.PROGRESS_INNER),this.contentEl);domElementManager.invalidateCache(t),document.body.removeEventListener("click",this.handleClickOutside),super.close()}},import_lokijs=__toESM(require_lokijs()),LokiDatabase=class{constructor(t,e={autosave:!0,autosaveInterval:4e3}){this.db=new import_lokijs.default(t,{autosave:e.autosave,autosaveInterval:e.autosaveInterval})}async init(){try{await this.loadDatabase(),this.getOrCreateCollection(DATABASE_COLLECTION_NOTE_WIDTHS)}catch(t){}}async addNote(t,e){try{const i=this.notesCollection.findOne({id:t});i?this.updateNote(i,e):this.insertNote({id:t,width:e})}catch(t){}}loadDatabase(){return new Promise(((t,e)=>{this.db.loadDatabase({},(i=>{i?e(i):t()}))}))}getOrCreateCollection(t){const e=this.db.getCollection(t);this.notesCollection=e||this.db.addCollection(t)}updateNote(t,e){t.width!==e&&(t.width=e,this.notesCollection.update(t))}insertNote(t){this.notesCollection.insert(t)}noteExists(t){return null!==this.notesCollection.findOne({id:t})}getNoteWidth(t){const e=this.notesCollection.findOne({id:t});return e?e.width:null}async updateAllNotesWidth(t){try{const e=this.notesCollection.find();for(const i of e)i.width=t,this.notesCollection.update(i)}catch(t){}}removeNoteWidth(t){const e=this.notesCollection.findOne({id:t});e&&this.notesCollection.remove(e)}},CustomNoteWidthSettingTab=class extends import_obsidian3.PluginSettingTab{constructor(t,e){super(t,e),this.plugin=e,this.donationButton=new DonationButton,this.yamlProcessor=new YamlFrontMatterProcessor(t)}display(){let t;const{containerEl:e}=this;if(e.empty(),new import_obsidian3.Setting(e).setName("Enable slider").setDesc("Toggle to enable/disable the slider.").addToggle((t=>{t.setValue(this.plugin.settingsManager.getEnableSlider()),t.onChange((async t=>{await this.plugin.settingsManager.saveSettings({...this.plugin.settingsManager.settings,enableSlider:t}),this.plugin.uiManager.updateUI(),this.display()}))})),this.plugin.settingsManager.getEnableSlider()&&new import_obsidian3.Setting(e).setName("Slider width").setDesc("Change the width of the slider.").addText((t=>t.setPlaceholder("85").setValue(this.plugin.settingsManager.getSliderWidth().toString()).onChange((async e=>{let i=parseInt(e);if(""!==e)if(isNaN(i)){await this.plugin.settingsManager.saveSettings({...this.plugin.settingsManager.settings,sliderWidth:this.plugin.settingsManager.DEFAULT_SETTINGS.sliderWidth}),t.setValue(this.plugin.settingsManager.DEFAULT_SETTINGS.sliderWidth.toString());const e=this.plugin.uiManager.getSliderElement();e&&(e.style.width=this.plugin.settingsManager.DEFAULT_SETTINGS.sliderWidth+"px")}else if(i/window.innerWidth>.9){new import_obsidian3.Notice(NOTICES.SLIDER_HIDE_WARNING,5e3),await this.plugin.settingsManager.saveSettings({...this.plugin.settingsManager.settings,sliderWidth:this.plugin.settingsManager.DEFAULT_SETTINGS.sliderWidth}),t.setValue(this.plugin.settingsManager.DEFAULT_SETTINGS.sliderWidth.toString());const e=this.plugin.uiManager.getSliderElement();e&&(e.style.width=this.plugin.settingsManager.DEFAULT_SETTINGS.sliderWidth+"px")}else{await this.plugin.settingsManager.saveSettings({...this.plugin.settingsManager.settings,sliderWidth:i});const t=this.plugin.uiManager.getSliderElement();t&&(t.style.width=i+"px")}})))),new import_obsidian3.Setting(e).setName("Enable text field").setDesc("Enable to change the width via text field input.").addToggle((t=>{t.setValue(this.plugin.settingsManager.getEnableTextInput()),t.onChange((async t=>{await this.plugin.settingsManager.saveSettings({...this.plugin.settingsManager.settings,enableTextInput:t}),this.plugin.uiManager.updateUI(),this.display()}))})),new import_obsidian3.Setting(e).setName("Change width for each note").setDesc("Toggle to separately change and save the width of notes.").addToggle((t=>{t.setValue(this.plugin.settingsManager.getEnableSaveWidthIndividually()),t.onChange((async t=>{await this.plugin.settingsManager.saveSettings({...this.plugin.settingsManager.settings,enableSaveWidthIndividually:t}),t&&!this.plugin.database&&(this.plugin.database=new LokiDatabase(getDatabasePath(this.plugin.app,this.plugin,DATABASE_FILENAME)),await this.plugin.database.init()),t||await this.plugin.settingsManager.saveSettings({...this.plugin.settingsManager.settings,enableChangeDefaultNoteWidth:!1}),this.display()}))})),this.plugin.settingsManager.getEnableSaveWidthIndividually()&&(new import_obsidian3.Setting(e).setName("Change default note width").setDesc("Toggle to change the default width of notes.").addToggle((t=>{t.setValue(this.plugin.settingsManager.getEnableChangeDefaultNoteWidth()),t.onChange((async t=>{await this.plugin.settingsManager.saveSettings({...this.plugin.settingsManager.settings,enableChangeDefaultNoteWidth:t}),t?this.plugin.commandsManager.enableCommand("change-default-note-width"):this.plugin.commandsManager.disableCommand("change-default-note-width"),this.display()}))})),this.plugin.settingsManager.getEnableChangeDefaultNoteWidth()&&new import_obsidian3.Setting(e).setName("Default width").setDesc("Set the Default width each new note should have.").addText((t=>t.setPlaceholder("36").setValue(this.plugin.settingsManager.getDefaultNoteWidth().toString()).onChange((async e=>{let i=parseInt(e);""!==e&&""!==e.trim()&&(isNaN(i)?(await this.plugin.settingsManager.saveSettings({...this.plugin.settingsManager.settings,defaultNoteWidth:this.plugin.settingsManager.DEFAULT_SETTINGS.defaultNoteWidth}),t.setValue(this.plugin.settingsManager.DEFAULT_SETTINGS.defaultNoteWidth.toString())):i<0?(await this.plugin.settingsManager.saveSettings({...this.plugin.settingsManager.settings,defaultNoteWidth:0}),t.setValue("0")):i>100?(await this.plugin.settingsManager.saveSettings({...this.plugin.settingsManager.settings,defaultNoteWidth:100}),t.setValue("100")):await this.plugin.settingsManager.saveSettings({...this.plugin.settingsManager.settings,defaultNoteWidth:i}))}))))),new import_obsidian3.Setting(e).setName("Enable custom width via YAML front matter").setDesc("Enable the option to retrieve note width from the YAML front matter.").addToggle((t=>{t.setValue(this.plugin.settingsManager.getEnableYAMLWidth()),t.onChange((async t=>{await this.plugin.settingsManager.saveSettings({...this.plugin.settingsManager.settings,enableYAMLWidth:t}),this.display()}))})),this.plugin.settingsManager.getEnableYAMLWidth()&&new import_obsidian3.Setting(e).setName("YAML front matter key for custom width").setDesc("Specify the YAML front matter key to use for setting the custom width of the editor. If a note includes this key in its YAML front matter, the specified value will be used as the editor's width.").addText((e=>{e.setPlaceholder("custom-width").setValue(this.plugin.settingsManager.getYAMLKey()).onChange((async e=>{t&&clearTimeout(t),t=window.setTimeout((async()=>{const t=this.plugin.settingsManager.getYAMLKey();if(e&&""!==e.trim()){if(t!==e){const i=new ProgressBarModal(this.app,PROGRESS_BAR_MODAL_KEY_TITLE_TEXT);i.display(),await this.yamlProcessor.replaceYamlKeyInAllNotes(t,e,i),i.close()}await this.plugin.settingsManager.saveSettings({...this.plugin.settingsManager.settings,yamlKey:e})}}),1500)}))})),this.plugin.settingsManager.getEnableYAMLWidth()&&this.plugin.settingsManager.getEnableSaveWidthIndividually()){new import_obsidian3.Setting(e).setName("Priority list").setDesc("Choose the priority in which the following will be executed.");{const t=e.createEl("div");this.plugin.settingsManager.getPriorityList().forEach(((e,i)=>{const n=t.createEl("div",{cls:DOM_IDENTIFIERS.PRIORITY_LIST_ITEM});n.createEl("span",{cls:DOM_IDENTIFIERS.PRIORITY_NUMBER}).innerText=`${i+1}. `,n.createEl("div").createEl("span").innerText=e;const r=n.createEl("div");if(r.style.float="right",i>0){const t=r.createEl("button");t.innerText="↑",t.style.marginRight="8px",t.addEventListener("click",(async()=>{const t=this.plugin.settingsManager.getPriorityList();[t[i],t[i-1]]=[t[i-1],t[i]],await this.plugin.settingsManager.saveSettings({...this.plugin.settingsManager.settings,priorityList:t}),this.display()}))}if(i<this.plugin.settingsManager.getPriorityList().length-1){const t=r.createEl("button");t.innerText="↓",t.style.marginRight="8px",t.addEventListener("click",(async()=>{const t=this.plugin.settingsManager.getPriorityList();[t[i],t[i+1]]=[t[i+1],t[i]],await this.plugin.settingsManager.saveSettings({...this.plugin.settingsManager.settings,priorityList:t}),this.display()}))}}))}}e.appendChild(this.donationButton.createDonationButton(e))}},import_obsidian4=require("obsidian"),NoteWidthModal=class extends import_obsidian4.Modal{constructor(t,e,i){super(t),this.onNumberEntered=e,this.modalTitle=i,this.currentNumber=null,this.keydownHandler=t=>{"Enter"===t.key&&null!==this.currentNumber&&(t.preventDefault(),this.onNumberEntered(this.currentNumber),this.close())}}addInputField(){const t=this.contentEl.createDiv();t.id=DOM_IDENTIFIERS.NWM_INPUT_CONTAINER,t.createEl("input",{type:"number"}).oninput=t=>{let e=parseFloat(t.target.value);if(isNaN(e))return this.currentNumber=0,void(t.target.value="0");e=Math.max(0,Math.min(100,e)),this.currentNumber=e,t.target.value=e.toString()}}addSubmitButton(){const t=this.contentEl.createDiv();t.id=DOM_IDENTIFIERS.NWM_BUTTON_CONTAINER,t.createEl("button",{text:APPLY_BUTTON_TEXT}).onclick=()=>{null!==this.currentNumber&&(this.onNumberEntered(this.currentNumber),this.close())}}onOpen(){this.modalEl.id=DOM_IDENTIFIERS.NWM_CONTAINER,this.titleEl.textContent=this.modalTitle,this.addInputField(),this.addSubmitButton(),document.addEventListener("keydown",this.keydownHandler)}onClose(){document.removeEventListener("keydown",this.keydownHandler)}},Command=class{constructor(t,e,i){this.id=t,this.name=e,this.modalTitle=i}},ChangeDefaultNoteWidthCommand=class extends Command{constructor(t){super(COMMANDS.CHANGE_DEFAULT_NOTE_WIDTH.ID,COMMANDS.CHANGE_DEFAULT_NOTE_WIDTH.NAME,COMMANDS.CHANGE_DEFAULT_NOTE_WIDTH.MODAL_TITLE),this.plugin=t}execute(t){this.plugin.noteWidthManager.changeDefaultNoteWidth(t)}canExecute(){return this.plugin.settingsManager.getEnableChangeDefaultNoteWidth()&&this.plugin.settingsManager.getEnableSaveWidthIndividually()}},ChangeAllNoteWidthCommand=class extends Command{constructor(t){super(COMMANDS.CHANGE_ALL_NOTE_WIDTH.ID,COMMANDS.CHANGE_ALL_NOTE_WIDTH.NAME,COMMANDS.CHANGE_ALL_NOTE_WIDTH.MODAL_TITLE),this.plugin=t}execute(t){this.plugin.noteWidthManager.changeAllNoteWidth(t)}canExecute(){return!0}},ChangeNoteWidthCommand=class extends Command{constructor(t){super(COMMANDS.CHANGE_NOTE_WIDTH.ID,COMMANDS.CHANGE_NOTE_WIDTH.NAME,COMMANDS.CHANGE_NOTE_WIDTH.MODAL_TITLE),this.plugin=t}execute(t){this.plugin.noteWidthManager.changeNoteWidth(t)}canExecute(){return isActiveLeafMarkdown(this.plugin.app)}},CommandsManager=class{constructor(t){this.activeCommands={},this.commands=[],this.plugin=t,this.commands.push(new ChangeNoteWidthCommand(t)),this.commands.push(new ChangeDefaultNoteWidthCommand(t)),this.commands.push(new ChangeAllNoteWidthCommand(t)),this.registerCommands()}registerCommands(){for(const t of this.commands)this.addCommand(t)}addCommand(t){if(this.activeCommands.hasOwnProperty(t.id))return;this.activeCommands[t.id]=!0;const e=this.commandCallback.bind(this,t.execute.bind(t),t.modalTitle);this.plugin.addCommand({id:t.id,name:t.name,callback:()=>{this.activeCommands[t.id]&&e()},checkCallback:i=>!(!this.activeCommands[t.id]||t.canExecute&&!t.canExecute()||(i||e(),0))})}commandCallback(t,e){new NoteWidthModal(this.plugin.app,(e=>{t(e)}),e).open()}disableCommand(t){this.activeCommands[t]=!1}enableCommand(t){this.activeCommands.hasOwnProperty(t)&&(this.activeCommands[t]=!0)}},SettingsManager=class{constructor(t){this.plugin=t,this.DEFAULT_SETTINGS={widthPercentage:36,sliderWidth:85,defaultNoteWidth:36,yamlKey:"custom-width",enableSlider:!0,enableTextInput:!0,enableYAMLWidth:!0,enableSaveWidthIndividually:!0,enableChangeDefaultNoteWidth:!1,priorityList:[PRIORITY_LIST.SAVED_NOTE_WIDTH,PRIORITY_LIST.YAML_NOTE_WIDTH]}}getSetting(t){const e=this.settings[t];if(void 0===e)throw new Error(`Invalid setting key: ${t}`);return e}getWidthPercentage(){return this.getSetting("widthPercentage")}getEnableSlider(){return this.getSetting("enableSlider")}getYAMLKey(){return this.getSetting("yamlKey")}getEnableTextInput(){return this.getSetting("enableTextInput")}getSliderWidth(){return this.getSetting("sliderWidth")}getEnableSaveWidthIndividually(){return this.getSetting("enableSaveWidthIndividually")}getEnableChangeDefaultNoteWidth(){return this.getSetting("enableChangeDefaultNoteWidth")}getEnableYAMLWidth(){return this.getSetting("enableYAMLWidth")}getDefaultNoteWidth(){return this.getSetting("defaultNoteWidth")}getCurrentPriority(){return this.getSetting("priorityList")[0]}getPriorityList(){return this.getSetting("priorityList")}async saveDefaultNoteWidth(t){this.settings.defaultNoteWidth=t,await this.plugin.saveData(this.settings)}async saveWidthPercentage(t){this.settings.widthPercentage=t,await this.plugin.saveData(this.settings)}async loadSettings(){this.settings=Object.assign({},this.DEFAULT_SETTINGS,await this.plugin.loadData())}async saveSettings(t){this.settings=t,await this.plugin.saveData(t)}async resetEditorWidth(){this.plugin.noteWidthManager.removeNoteWidthEditorStyle()}},UUIDGenerator=class{static generateUUIDV4(){return UUID_FORMAT.replace(/[xy]/g,(function(t){let e=16*Math.random()|0;return("x"===t?e:3&e|8).toString(16)}))}static getUniqueUUID(t){let e=this.generateUUIDV4();for(;t.noteExists(e);)e=this.generateUUIDV4();return e}},NoteWidthManager=class{constructor(t,e){this.app=t,this.plugin=e,this.styleElement=null,this.styleElement=document.createElement("style"),this.styleElement.id=DOM_IDENTIFIERS.CUSTOM_NOTE_WIDTH,document.getElementsByTagName("head")[0].appendChild(this.styleElement)}removeNoteWidthEditorStyle(){this.styleElement&&(this.styleElement.remove(),this.styleElement=null)}async updateNoteWidthEditorStyle(t){if(!this.styleElement)throw"custom-note-width style element not found!";const e=getEditorMode();if(null===e)return;const i=getActiveEditorDiv(this.app,e);if(!i)return;const n=await calculateNoteWidth(t,i);n&&(this.styleElement.innerText=`body { --file-line-width: ${n}px;}`)}async changeAllNoteWidth(t){const e=this.plugin.settingsManager.getYAMLKey();let i=validateWidth(t);const n=this.plugin.settingsManager.getEnableSaveWidthIndividually(),r=this.plugin.settingsManager.getEnableYAMLWidth();if(n&&r){this.plugin.database.updateAllNotesWidth(t);const n=new ProgressBarModal(this.app,PROGRESS_BAR_MODAL_VALUE_TITLE_TEXT);n.display(),await this.plugin.yamlFrontMatterProcessor.updateAllYamlValues(e,i,n),n.close()}else if(r){const t=new ProgressBarModal(this.app,PROGRESS_BAR_MODAL_VALUE_TITLE_TEXT);t.display(),await this.plugin.yamlFrontMatterProcessor.updateAllYamlValues(e,i,t),t.close()}else n&&this.plugin.database.updateAllNotesWidth(t);this.updateNoteWidthEditorStyle(t),this.plugin.uiManager.setSliderAndTextField(t),await this.plugin.settingsManager.saveWidthPercentage(t)}async changeDefaultNoteWidth(t){await this.plugin.settingsManager.saveDefaultNoteWidth(t)}async changeNoteWidth(t){let e=validateWidth(t);const i=this.plugin.settingsManager.getYAMLKey(),n=this.plugin.yamlFrontMatterProcessor,r=this.plugin.settingsManager.getEnableSaveWidthIndividually(),s=this.plugin.settingsManager.getEnableYAMLWidth(),a=await n.hasYamlKey(NOTE_ID_KEY),o=await n.hasYamlKey(i);if(r&&s)if(a){const i=await n.getYamlValue(NOTE_ID_KEY);if(this.plugin.database.noteExists(i))this.plugin.database.addNote(i,e);else{let e=validateWidth(t);this.plugin.database.addNote(i,e)}}else o?n.setYamlValue(i,e):(n.setYamlValue(NOTE_ID_KEY,UUIDGenerator.getUniqueUUID(this.plugin.database)),this.plugin.database.addNote(UUIDGenerator.getUniqueUUID(this.plugin.database),e));else if(r)if(a){const i=await n.getYamlValue(NOTE_ID_KEY);if(this.plugin.database.noteExists(i))this.plugin.database.addNote(i,e);else{let e=validateWidth(t);this.plugin.database.addNote(i,e)}}else this.plugin.yamlFrontMatterProcessor.setYamlValue(NOTE_ID_KEY,UUIDGenerator.getUniqueUUID(this.plugin.database)),this.plugin.database.addNote(UUIDGenerator.getUniqueUUID(this.plugin.database),e);else s&&n.setYamlValue(i,e);this.plugin.uiManager.setSliderAndTextField(e),await this.updateNoteWidthEditorStyle(e),await this.plugin.settingsManager.saveWidthPercentage(e)}async refreshNoteWidth(t){const e=this.plugin.yamlFrontMatterProcessor,i=this.plugin.uiManager,n=this.plugin.database,r=this.plugin.settingsManager.getDefaultNoteWidth(),s=this.plugin.settingsManager.getEnableSaveWidthIndividually(),a=this.plugin.settingsManager.getEnableYAMLWidth(),o=this.plugin.settingsManager.getWidthPercentage(),l=this.plugin.settingsManager.getYAMLKey(),h=this.plugin.settingsManager.getCurrentPriority();if(t){if(this.plugin.eventHandler.isUserInputTriggered=!1,!s&&!a)return void this.plugin.noteWidthManager.updateNoteWidthEditorStyle(o);if(s&&a){if(e.hasYamlFrontMatter()){if(!e.hasYamlKey(l)&&!e.hasYamlKey(NOTE_ID_KEY)){if(h===PRIORITY_LIST.SAVED_NOTE_WIDTH){const t=UUIDGenerator.getUniqueUUID(n);e.setYamlValue(NOTE_ID_KEY,t),n.addNote(t,o),i.updateUIAndEditorWidth(o)}else h===PRIORITY_LIST.YAML_NOTE_WIDTH&&(e.setYamlValue(l,o),i.updateUIAndEditorWidth(o));return}if(await e.hasYamlKey(NOTE_ID_KEY)){const t=await e.getYamlValue(NOTE_ID_KEY);n.addNote(t,o),i.updateUIAndEditorWidth(o)}return void(await e.hasYamlKey(l)&&(e.setYamlValue(l,o),i.updateUIAndEditorWidth(o)))}if(h===PRIORITY_LIST.SAVED_NOTE_WIDTH){const t=UUIDGenerator.getUniqueUUID(n);return n.addNote(t,o),e.setYamlValue(NOTE_ID_KEY,t),void i.updateUIAndEditorWidth(o)}if(h===PRIORITY_LIST.YAML_NOTE_WIDTH)return e.setYamlValue(l,o),void i.updateUIAndEditorWidth(o)}else{if(s){if(await e.hasYamlKey(NOTE_ID_KEY)){const t=await e.getYamlValue(NOTE_ID_KEY);return n.addNote(t,o),void i.updateUIAndEditorWidth(o)}{const t=UUIDGenerator.getUniqueUUID(n);return e.setYamlValue(NOTE_ID_KEY,t),void n.addNote(t,o)}}if(a&&await e.hasYamlKey(l))return void e.setYamlValue(l,o)}}else{if(!s&&!a)return void i.updateUIAndEditorWidth(o);if(s&&a){if(!e.hasYamlFrontMatter())return void i.updateUIAndEditorWidth(r);if(h===PRIORITY_LIST.SAVED_NOTE_WIDTH)if(await e.hasYamlKey(NOTE_ID_KEY)){const t=await e.getYamlValue(NOTE_ID_KEY);if(!n.noteExists(t))return await e.isOnlyYamlKey(NOTE_ID_KEY)?e.removeYamlFrontMatter():e.removeYamlKey(NOTE_ID_KEY),void i.updateUIAndEditorWidth(r);{let e=n.getNoteWidth(t);if(null!==e)return e=validateWidth(e),void i.updateUIAndEditorWidth(e)}}else{if(!await e.hasYamlKey(l))return void i.updateUIAndEditorWidth(r);{let t=await e.getYamlValue(l);if(null!==t)return t=validateWidth(t),e.setYamlValue(l,t),void i.updateUIAndEditorWidth(await t)}}else if(h===PRIORITY_LIST.YAML_NOTE_WIDTH)if(await e.hasYamlKey(l)){let t=await e.getYamlValue(l);if(null!==t)return t=validateWidth(t),e.setYamlValue(l,t),void i.updateUIAndEditorWidth(await t)}else{if(!await e.hasYamlKey(NOTE_ID_KEY))return void i.updateUIAndEditorWidth(r);{const t=await e.getYamlValue(NOTE_ID_KEY);if(!n.noteExists(t))return await e.isOnlyYamlKey(NOTE_ID_KEY)?e.removeYamlFrontMatter():e.removeYamlKey(NOTE_ID_KEY),void i.updateUIAndEditorWidth(r);{let e=n.getNoteWidth(t);if(null!==e)return e=validateWidth(e),void i.updateUIAndEditorWidth(e)}}}}else if(s){if(!e.hasYamlFrontMatter())return void i.updateUIAndEditorWidth(r);if(!e.hasYamlKey(NOTE_ID_KEY))return void i.updateUIAndEditorWidth(r);{const t=await e.getYamlValue(NOTE_ID_KEY);if(!n.noteExists(t))return await e.isOnlyYamlKey(NOTE_ID_KEY)?e.removeYamlFrontMatter():e.removeYamlKey(NOTE_ID_KEY),void i.updateUIAndEditorWidth(r);{let e=n.getNoteWidth(t);if(null!==e)return e=validateWidth(e),void i.updateUIAndEditorWidth(e)}}}else if(a){if(!e.hasYamlFrontMatter())return void i.updateUIAndEditorWidth(r);if(!e.hasYamlKey(l))return void i.updateUIAndEditorWidth(r);{let t=await e.getYamlValue(l);if(null!==t)return t=validateWidth(t),e.setYamlValue(l,t),void i.updateUIAndEditorWidth(await t)}}}}},import_obsidian5=require("obsidian"),CONFIG={DEBOUNCE_DELAY:300,SLIDER_HIDE_THRESHOLD:.954,SLIDER_VALUE_MAX_LENGTH:3},EventHandler=class{constructor(t,e){this.app=t,this.plugin=e,this.isUserInputTriggered=!1,this.handleResize=async()=>{if(this.handleSidebarChange(),this.plugin.settingsManager.getSliderWidth()/window.innerWidth>CONFIG.SLIDER_HIDE_THRESHOLD){new import_obsidian5.Notice(NOTICES.SLIDER_HIDE_WARNING,5e3);const t=this.plugin.uiManager.getSliderElement();await this.plugin.settingsManager.saveSettings({...this.plugin.settingsManager.settings,sliderWidth:this.plugin.settingsManager.DEFAULT_SETTINGS.sliderWidth}),t&&(t.style.width=this.plugin.settingsManager.DEFAULT_SETTINGS.sliderWidth+"px")}this.plugin.noteWidthManager.updateNoteWidthEditorStyle(this.plugin.settingsManager.getWidthPercentage())},this.handleActiveLeafChange=async t=>{isActiveLeafMarkdown(this.app)?this.plugin.statusBarManager.showStatusBarItem():this.plugin.statusBarManager.hideStatusBarItem(),t&&this.handleActiveLeafChangeDebounced()},this.handleActiveLeafChangeDebouncedLogic=async()=>{await this.plugin.noteWidthManager.refreshNoteWidth(this.isUserInputTriggered)},this.handleActiveLeafChangeDebounced=(0,import_obsidian5.debounce)(this.handleActiveLeafChangeDebouncedLogic,300)}registerEventHandlers(){this.plugin.registerEvent(this.app.workspace.on("resize",this.handleResize)),this.plugin.registerEvent(this.app.workspace.on("active-leaf-change",this.handleActiveLeafChange))}deregisterEventHandlers(){this.app.workspace.off("resize",this.handleResize),this.app.workspace.off("active-leaf-change",this.handleActiveLeafChange)}handleSidebarChange(){this.plugin.noteWidthManager.updateNoteWidthEditorStyle(this.plugin.settingsManager.getWidthPercentage())}handleTextInputEvent(t,e){e.addEventListener("change",(()=>{const t=parseInt(e.value);isNaN(t)||t<0?e.value=e.min:t>100&&(e.value=e.max)})),e.addEventListener("input",(async()=>{let i=parseInt(e.value);isNaN(i)||i<0?i=0:i>100&&(i=100);const n=Math.min(Math.max(i,0),100);t.value=n.toString(),await this.plugin.settingsManager.saveSettings({...this.plugin.settingsManager.settings,widthPercentage:n}),this.plugin.noteWidthManager.updateNoteWidthEditorStyle(n),this.plugin.settingsManager.getEnableSaveWidthIndividually()&&(this.isUserInputTriggered=!0,this.updateTimeout&&clearTimeout(this.updateTimeout),this.updateTimeout=window.setTimeout((async()=>{await this.plugin.noteWidthManager.refreshNoteWidth(this.isUserInputTriggered)}),250)),e.value=e.value.substring(0,3)})),t.addEventListener("input",(async()=>{const i=parseInt(t.value);await this.plugin.settingsManager.saveSettings({...this.plugin.settingsManager.settings,widthPercentage:i}),this.plugin.noteWidthManager.updateNoteWidthEditorStyle(i),(this.plugin.settingsManager.getEnableSaveWidthIndividually()||this.plugin.settingsManager.getEnableYAMLWidth())&&(this.isUserInputTriggered=!0,this.updateTimeout&&clearTimeout(this.updateTimeout),this.updateTimeout=window.setTimeout((async()=>{await this.plugin.noteWidthManager.refreshNoteWidth(this.isUserInputTriggered)}),250)),e instanceof HTMLInputElement?e.value=i.toString():e instanceof HTMLSpanElement&&(e.textContent=i.toString())}))}handleTextSpanEvent(t,e){t.addEventListener("input",(async()=>{const i=parseInt(t.value);await this.plugin.settingsManager.saveSettings({...this.plugin.settingsManager.settings,widthPercentage:i}),this.plugin.noteWidthManager.updateNoteWidthEditorStyle(i),(this.plugin.settingsManager.getEnableSaveWidthIndividually()||this.plugin.settingsManager.getEnableYAMLWidth())&&(this.isUserInputTriggered=!0,this.updateTimeout&&clearTimeout(this.updateTimeout),this.updateTimeout=window.setTimeout((async()=>{await this.plugin.noteWidthManager.refreshNoteWidth(this.isUserInputTriggered)}),250)),e.textContent=i.toString()}))}},StatusBarManager=class{constructor(t){this.wrapper=null,this.statusBarItemEl=null,this.plugin=t,this.setWrapper(t.wrapperManager.getWrapper())}appendToStatusBar(){if(!this.wrapper||!this.plugin.settingsManager.getEnableSlider()&&!this.plugin.settingsManager.getEnableTextInput())return void(this.wrapper=null);this.statusBarItemEl=this.plugin.addStatusBarItem(),this.statusBarItemEl.appendChild(this.wrapper),this.statusBarItemEl.style.paddingLeft="0px";const t=domElementManager.querySelector(classSelector(DOM_IDENTIFIERS.STATUSBAR));null==t||t.insertBefore(this.statusBarItemEl,t.firstChild)}removeStatusBarItem(){this.statusBarItemEl&&this.statusBarItemEl.detach()}setWrapper(t){this.wrapper=t}showStatusBarItem(){this.statusBarItemEl&&(this.statusBarItemEl.style.display="flex")}hideStatusBarItem(){this.statusBarItemEl&&(this.statusBarItemEl.style.display="none")}},WrapperManager=class{constructor(){this.wrapper=null,this.createWrapper()}createWrapper(){this.wrapper=document.createElement("div"),this.wrapper.id=DOM_IDENTIFIERS.WRAPPER}removeWrapper(){this.wrapper&&(this.wrapper.remove(),this.wrapper=null)}appendToWrapper(...t){if(this.wrapper)for(const e of t)e&&this.wrapper.appendChild(e)}getWrapper(){return this.wrapper}},UIElementCreator=class{constructor(t){this.plugin=t,this.createUIElements()}createSliderElement(){if(!this.plugin.settingsManager.getEnableSlider()){const t=document.createElement("input");return t.id=DOM_IDENTIFIERS.DUMMY,t}const t=document.createElement("input");return t.id=DOM_IDENTIFIERS.SLIDER,t.type="range",t.min="0",t.max="100",t.value=this.plugin.settingsManager.getWidthPercentage().toString(),t.style.width=this.plugin.settingsManager.getSliderWidth()+"px",t}createTextInput(t,e){let i=null;return t&&(e?(i=document.createElement("input"),i.type="number",i.value=t.value,i.min="0",i.max="100",i.style.height="160%",i.style.width="38px",i.style.fontSize="108%"):(i=document.createElement("span"),i.textContent=t.value,i.style.fontSize="102.5%",i.style.marginBottom="-0.5px"),i.id=DOM_IDENTIFIERS.SLIDER_VALUE),i}createAndConfigureText(t,e){let i=null;return t&&this.plugin.settingsManager.getEnableTextInput()?(i=this.createTextInput(t,this.plugin.settingsManager.getEnableTextInput()),i&&this.plugin.eventHandler.handleTextInputEvent(t,i)):t?(i=this.createTextInput(t,this.plugin.settingsManager.getEnableTextInput()),i&&this.plugin.eventHandler.handleTextSpanEvent(t,i)):this.plugin.settingsManager.getEnableTextInput()&&(i=this.createTextInput(null,this.plugin.settingsManager.getEnableTextInput()),i&&e&&(i.value=e)),i}createUIElements(){let t=null,e=null;if(this.plugin.settingsManager.getEnableSlider()&&(t=this.createSliderElement(),t&&(e=this.createAndConfigureText(t))),this.plugin.settingsManager.getEnableTextInput()&&!t){const t=document.createElement("input");t.value=this.plugin.settingsManager.getWidthPercentage().toString(),e=this.createAndConfigureText(t)}t&&e?this.plugin.wrapperManager.appendToWrapper(t,e):e&&this.plugin.wrapperManager.appendToWrapper(e),this.plugin.statusBarManager.appendToStatusBar()}},UIManager=class{constructor(t){this.plugin=t,this.slider=null,this.textField=null,this.initializeElements()}initializeElements(){this.slider=this.getSliderElement(),this.textField=this.getTextFieldElement()}getSliderElement(){let t=this.slider;return t||(t=domElementManager.querySelector(idSelector(DOM_IDENTIFIERS.SLIDER)),t)?t:null}getTextFieldElement(){let t=this.textField;return t||(t=domElementManager.querySelector(idSelector(DOM_IDENTIFIERS.SLIDER_VALUE)),t)?t:null}setSliderAndTextField(t){const e=this.getSliderElement(),i=this.getTextFieldElement();e&&(e.value=t.toString()),i&&(i.value=t.toString())}updateUIAndEditorWidth(t){this.plugin.uiManager.setSliderAndTextField(t),this.plugin.noteWidthManager.updateNoteWidthEditorStyle(t)}updateUI(){this.plugin.wrapperManager.removeWrapper(),this.plugin.statusBarManager.removeStatusBarItem(),this.plugin.wrapperManager.createWrapper(),this.plugin.statusBarManager.setWrapper(this.plugin.wrapperManager.getWrapper()),this.plugin.uiElementCreator.createUIElements(),this.plugin.noteWidthManager.updateNoteWidthEditorStyle(this.plugin.settingsManager.getWidthPercentage())}},CustomNoteWidth=class extends import_obsidian6.Plugin{async onload(){this.settingsManager=new SettingsManager(this),await this.settingsManager.loadSettings(),this.settingsTab=new CustomNoteWidthSettingTab(this.app,this),this.addSettingTab(this.settingsTab),this.settingsManager.getEnableSaveWidthIndividually()&&(this.database=new LokiDatabase(getDatabasePath(this.app,this,DATABASE_FILENAME)),await this.database.init()),this.wrapperManager=new WrapperManager,this.yamlFrontMatterProcessor=new YamlFrontMatterProcessor(this.app),this.statusBarManager=new StatusBarManager(this),this.noteWidthManager=new NoteWidthManager(this.app,this),this.eventHandler=new EventHandler(this.app,this),this.uiElementCreator=new UIElementCreator(this),this.uiManager=new UIManager(this),this.commandsManager=new CommandsManager(this),this.eventHandler.registerEventHandlers(),this.noteWidthManager.updateNoteWidthEditorStyle(this.settingsManager.getWidthPercentage())}async onunload(){this.wrapperManager.removeWrapper(),this.noteWidthManager.removeNoteWidthEditorStyle(),this.eventHandler.deregisterEventHandlers()}};
+/*
+THIS IS A GENERATED/BUNDLED FILE BY ESBUILD
+if you want to view the source, please visit the github repository of this plugin
+*/
+
+"use strict";
+var __defProp = Object.defineProperty;
+var __getOwnPropDesc = Object.getOwnPropertyDescriptor;
+var __getOwnPropNames = Object.getOwnPropertyNames;
+var __hasOwnProp = Object.prototype.hasOwnProperty;
+var __export = (target, all) => {
+  for (var name in all)
+    __defProp(target, name, { get: all[name], enumerable: true });
+};
+var __copyProps = (to, from, except, desc) => {
+  if (from && typeof from === "object" || typeof from === "function") {
+    for (let key of __getOwnPropNames(from))
+      if (!__hasOwnProp.call(to, key) && key !== except)
+        __defProp(to, key, { get: () => from[key], enumerable: !(desc = __getOwnPropDesc(from, key)) || desc.enumerable });
+  }
+  return to;
+};
+var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
+
+// src/main.ts
+var main_exports = {};
+__export(main_exports, {
+  default: () => CustomNoteWidth
+});
+module.exports = __toCommonJS(main_exports);
+var import_obsidian8 = require("obsidian");
+
+// src/settings/settingsTab.ts
+var import_obsidian4 = require("obsidian");
+
+// src/i18n/i18n.ts
+var localeOverride = null;
+var SUPPORTED_LOCALES = [
+  { value: "auto", label: "Auto" },
+  { value: "en", label: "English" },
+  { value: "de", label: "Deutsch" },
+  { value: "ru", label: "\u0420\u0443\u0441\u0441\u043A\u0438\u0439" }
+];
+function setLocaleOverride(locale) {
+  localeOverride = locale;
+}
+var en = {
+  // Buttons
+  "button.cancel": "Cancel",
+  "button.apply": "Apply",
+  // Commands
+  "command.change_note_width.name": "Change the width of the open note",
+  "command.change_note_width.modal_title": "Enter the width for the open note",
+  "command.change_default_width.name": "Change the default note width",
+  "command.change_default_width.modal_title": "Enter the default note width",
+  "command.change_all_width.name": "Change the width for all notes",
+  "command.change_all_width.modal_title": "Enter the width for all notes",
+  "command.apply_pill_preset.name": "Apply pill preset {{index}}",
+  // Notices
+  "notice.slider_too_large": "Slider too large!",
+  "notice.local_overrides_cleared": "Removed {{count}} local width override(s).",
+  "notice.local_overrides_empty": "No local width overrides to clear.",
+  "modal.reset_overrides.title": "Reset local width overrides",
+  "modal.reset_overrides.desc": "{{count}} note(s) have a locally stored width. Pick which ones to remove.",
+  "modal.reset_overrides.search_placeholder": "Filter by path\u2026",
+  "modal.reset_overrides.select_all": "Select all",
+  "modal.reset_overrides.empty_filter": "No matches.",
+  "modal.reset_overrides.remove": "Remove {{count}}",
+  // Progress modals
+  "progress.changing_keys": "Changing all YAML-Frontmatter keys...",
+  "progress.changing_values": "Changing the value for all YAML-Frontmatter's...",
+  // Settings — Language
+  "settings.language.name": "Language",
+  "settings.language.desc": "Choose the plugin language. 'Auto' uses Obsidian's language.",
+  // Settings — UI
+  "settings.enable_slider.name": "Enable slider",
+  "settings.enable_slider.desc": "Toggle to enable/disable the slider.",
+  "settings.slider_width.name": "Slider width",
+  "settings.slider_width.desc": "Change the width of the slider.",
+  "settings.enable_text_field.name": "Enable text field",
+  "settings.enable_text_field.desc": "Enable to change the width via text field input.",
+  "settings.control_mode.name": "Control mode",
+  "settings.control_mode.desc": "Choose between the classic slider or preset pills for quick width switching.",
+  "settings.control_mode.slider": "Slider",
+  "settings.control_mode.pills": "Pills",
+  "settings.pill_preset.name": "Preset {{index}}",
+  "settings.pill_preset.desc": "Width value and unit for this preset pill.",
+  // Settings — Width
+  "settings.default_width_unit.name": "Default width unit",
+  "settings.default_width_unit.desc": "Choose the unit for the default width (%, px, or ch).",
+  "settings.default_width.name": "Default width",
+  "settings.default_width.desc": "Set the default width ({{unit}}) for notes without a per-note width. Range: {{min}}\u2013{{max}}",
+  // Settings — Range
+  "settings.unit_range.name": "{{unit}} range",
+  "settings.unit_range.desc": "Min and max for {{unit}} unit (absolute bounds: {{min}}\u2013{{max}}).",
+  // Settings — Per-Note
+  "settings.enable_per_note.name": "Enable per-note width",
+  "settings.enable_per_note.desc": "When on, notes can have their own width instead of using the global default.",
+  "settings.per_note_mode.name": "Where per-note width is stored",
+  "settings.per_note_mode.desc": "Choose where per-note widths live. 'Frontmatter' writes them into the note itself. 'Locally' saves them per note inside the plugin without touching the file. 'View only' keeps the change until the note is closed, then discards it.",
+  "settings.per_note_mode.option.frontmatter": "Frontmatter",
+  "settings.per_note_mode.option.local": "Locally",
+  "settings.per_note_mode.option.view_only": "View only",
+  "settings.reset_local_overrides.name": "Reset local width overrides",
+  "settings.reset_local_overrides.desc": "Remove every per-note width you have stored locally.",
+  "settings.reset_local_overrides.button": "Reset",
+  "settings.yaml_key.name": "YAML front matter key",
+  "settings.yaml_key.desc": "Frontmatter key used to store the per-note width.",
+  // Settings — Code Block
+  "settings.enable_code_block.name": "Enable code block width",
+  "settings.enable_code_block.desc": "Control the width of code blocks independently from the editor width.",
+  "settings.code_block_unit.name": "Code block width unit",
+  "settings.code_block_unit.desc": "Choose the unit for code block width (%, px, or ch).",
+  "settings.code_block_width.name": "Code block width",
+  "settings.code_block_width.desc": "Set the width ({{unit}}) for code blocks. Range: {{min}}\u2013{{max}}",
+  "settings.reading_mode.name": "Reading mode",
+  "settings.reading_mode.desc": "Apply code block width in reading/preview mode.",
+  "settings.source_mode.name": "Source mode",
+  "settings.source_mode.desc": "Apply code block width in source/edit mode.",
+  "settings.live_preview.name": "Live preview mode",
+  "settings.live_preview.desc": "Apply code block width in live preview mode.",
+  // Plugin info
+  "plugin.loaded": "{{name}} v{{version}} loaded!",
+  "plugin.unloaded": "{{name}} v{{version}} unloaded!"
+};
+var de = {
+  // Buttons
+  "button.cancel": "Abbrechen",
+  "button.apply": "Anwenden",
+  // Commands
+  "command.change_note_width.name": "Breite der ge\xF6ffneten Notiz \xE4ndern",
+  "command.change_note_width.modal_title": "Breite f\xFCr die ge\xF6ffnete Notiz eingeben",
+  "command.change_default_width.name": "Standard-Notizbreite \xE4ndern",
+  "command.change_default_width.modal_title": "Standard-Notizbreite eingeben",
+  "command.change_all_width.name": "Breite f\xFCr alle Notizen \xE4ndern",
+  "command.change_all_width.modal_title": "Breite f\xFCr alle Notizen eingeben",
+  "command.apply_pill_preset.name": "Pill-Voreinstellung {{index}} anwenden",
+  // Notices
+  "notice.slider_too_large": "Schieberegler zu gro\xDF!",
+  "notice.local_overrides_cleared": "{{count}} lokale Breite(n) entfernt.",
+  "notice.local_overrides_empty": "Keine lokalen Breiten zum Zur\xFCcksetzen.",
+  "modal.reset_overrides.title": "Lokale Notizbreiten zur\xFCcksetzen",
+  "modal.reset_overrides.desc": "{{count}} Notiz(en) haben eine lokal gespeicherte Breite. W\xE4hle aus, welche entfernt werden sollen.",
+  "modal.reset_overrides.search_placeholder": "Nach Pfad filtern\u2026",
+  "modal.reset_overrides.select_all": "Alle ausw\xE4hlen",
+  "modal.reset_overrides.empty_filter": "Keine Treffer.",
+  "modal.reset_overrides.remove": "{{count}} entfernen",
+  // Progress modals
+  "progress.changing_keys": "YAML-Frontmatter-Schl\xFCssel werden ge\xE4ndert\u2026",
+  "progress.changing_values": "YAML-Frontmatter-Werte werden ge\xE4ndert\u2026",
+  // Settings — Language
+  "settings.language.name": "Sprache",
+  "settings.language.desc": "Sprache des Plugins w\xE4hlen. \u201EAuto\u201C \xFCbernimmt die Obsidian-Sprache.",
+  // Settings — UI
+  "settings.enable_slider.name": "Schieberegler aktivieren",
+  "settings.enable_slider.desc": "Schieberegler ein-/ausschalten.",
+  "settings.slider_width.name": "Schieberegler-Breite",
+  "settings.slider_width.desc": "Breite des Schiebereglers \xE4ndern.",
+  "settings.enable_text_field.name": "Textfeld aktivieren",
+  "settings.enable_text_field.desc": "Breite per Textfeld-Eingabe \xE4ndern.",
+  "settings.control_mode.name": "Bedienmodus",
+  "settings.control_mode.desc": "Klassischen Schieberegler oder Voreinstellungs-Pills f\xFCr schnelles Umschalten w\xE4hlen.",
+  "settings.control_mode.slider": "Schieberegler",
+  "settings.control_mode.pills": "Pills",
+  "settings.pill_preset.name": "Voreinstellung {{index}}",
+  "settings.pill_preset.desc": "Breitenwert und Einheit f\xFCr diese Pill.",
+  // Settings — Width
+  "settings.default_width_unit.name": "Standard-Breiteneinheit",
+  "settings.default_width_unit.desc": "Einheit f\xFCr die Standardbreite w\xE4hlen (%, px oder ch).",
+  "settings.default_width.name": "Standardbreite",
+  "settings.default_width.desc": "Standardbreite ({{unit}}) f\xFCr Notizen ohne individuelle Breite festlegen. Bereich: {{min}}\u2013{{max}}",
+  // Settings — Range
+  "settings.unit_range.name": "{{unit}}-Bereich",
+  "settings.unit_range.desc": "Min und Max f\xFCr die Einheit {{unit}} (absolute Grenzen: {{min}}\u2013{{max}}).",
+  // Settings — Per-Note
+  "settings.enable_per_note.name": "Individuelle Notizbreite",
+  "settings.enable_per_note.desc": "Wenn aktiviert, k\xF6nnen Notizen eine eigene Breite statt der globalen Standardbreite haben.",
+  "settings.per_note_mode.name": "Wo die Notizbreite gespeichert wird",
+  "settings.per_note_mode.desc": "W\xE4hle, wo Notizbreiten liegen. 'Frontmatter' schreibt sie in die Notiz selbst. 'Lokal' speichert sie pro Notiz im Plugin, ohne die Datei anzufassen. 'Nur in der Ansicht' beh\xE4lt die \xC4nderung, bis die Notiz geschlossen wird, dann wird sie verworfen.",
+  "settings.per_note_mode.option.frontmatter": "Frontmatter",
+  "settings.per_note_mode.option.local": "Lokal",
+  "settings.per_note_mode.option.view_only": "Nur in der Ansicht",
+  "settings.reset_local_overrides.name": "Lokale Notizbreiten zur\xFCcksetzen",
+  "settings.reset_local_overrides.desc": "Entfernt alle lokal gespeicherten Breiten f\xFCr einzelne Notizen.",
+  "settings.reset_local_overrides.button": "Zur\xFCcksetzen",
+  "settings.yaml_key.name": "YAML-Frontmatter-Schl\xFCssel",
+  "settings.yaml_key.desc": "Frontmatter-Schl\xFCssel f\xFCr die Notizbreite.",
+  // Settings — Code Block
+  "settings.enable_code_block.name": "Codeblock-Breite aktivieren",
+  "settings.enable_code_block.desc": "Breite von Codebl\xF6cken unabh\xE4ngig von der Editorbreite steuern.",
+  "settings.code_block_unit.name": "Codeblock-Breiteneinheit",
+  "settings.code_block_unit.desc": "Einheit f\xFCr die Codeblock-Breite w\xE4hlen (%, px oder ch).",
+  "settings.code_block_width.name": "Codeblock-Breite",
+  "settings.code_block_width.desc": "Breite ({{unit}}) f\xFCr Codebl\xF6cke festlegen. Bereich: {{min}}\u2013{{max}}",
+  "settings.reading_mode.name": "Lesemodus",
+  "settings.reading_mode.desc": "Codeblock-Breite im Lese-/Vorschaumodus anwenden.",
+  "settings.source_mode.name": "Quellmodus",
+  "settings.source_mode.desc": "Codeblock-Breite im Quell-/Bearbeitungsmodus anwenden.",
+  "settings.live_preview.name": "Live-Vorschau",
+  "settings.live_preview.desc": "Codeblock-Breite im Live-Vorschaumodus anwenden.",
+  // Plugin info
+  "plugin.loaded": "{{name}} v{{version}} geladen!",
+  "plugin.unloaded": "{{name}} v{{version}} entladen!"
+};
+var ru = {
+  // Buttons
+  "button.cancel": "\u041E\u0442\u043C\u0435\u043D\u0430",
+  "button.apply": "\u041F\u0440\u0438\u043C\u0435\u043D\u0438\u0442\u044C",
+  // Commands
+  "command.change_note_width.name": "\u0418\u0437\u043C\u0435\u043D\u0438\u0442\u044C \u0448\u0438\u0440\u0438\u043D\u0443 \u043E\u0442\u043A\u0440\u044B\u0442\u043E\u0439 \u0437\u0430\u043C\u0435\u0442\u043A\u0438",
+  "command.change_note_width.modal_title": "\u0412\u0432\u0435\u0434\u0438\u0442\u0435 \u0448\u0438\u0440\u0438\u043D\u0443 \u0434\u043B\u044F \u043E\u0442\u043A\u0440\u044B\u0442\u043E\u0439 \u0437\u0430\u043C\u0435\u0442\u043A\u0438",
+  "command.change_default_width.name": "\u0418\u0437\u043C\u0435\u043D\u0438\u0442\u044C \u0448\u0438\u0440\u0438\u043D\u0443 \u0437\u0430\u043C\u0435\u0442\u043A\u0438 \u043F\u043E \u0443\u043C\u043E\u043B\u0447\u0430\u043D\u0438\u044E",
+  "command.change_default_width.modal_title": "\u0412\u0432\u0435\u0434\u0438\u0442\u0435 \u0448\u0438\u0440\u0438\u043D\u0443 \u0437\u0430\u043C\u0435\u0442\u043A\u0438 \u043F\u043E \u0443\u043C\u043E\u043B\u0447\u0430\u043D\u0438\u044E",
+  "command.change_all_width.name": "\u0418\u0437\u043C\u0435\u043D\u0438\u0442\u044C \u0448\u0438\u0440\u0438\u043D\u0443 \u0434\u043B\u044F \u0432\u0441\u0435\u0445 \u0437\u0430\u043C\u0435\u0442\u043E\u043A",
+  "command.change_all_width.modal_title": "\u0412\u0432\u0435\u0434\u0438\u0442\u0435 \u0448\u0438\u0440\u0438\u043D\u0443 \u0434\u043B\u044F \u0432\u0441\u0435\u0445 \u0437\u0430\u043C\u0435\u0442\u043E\u043A",
+  "command.apply_pill_preset.name": "\u041F\u0440\u0438\u043C\u0435\u043D\u0438\u0442\u044C \u043D\u0430\u0431\u043E\u0440 \u043A\u043D\u043E\u043F\u043E\u043A {{index}}",
+  // Notices
+  "notice.slider_too_large": "\u0417\u043D\u0430\u0447\u0435\u043D\u0438\u0435 \u043F\u043E\u043B\u0437\u0443\u043D\u043A\u0430 \u0441\u043B\u0438\u0448\u043A\u043E\u043C \u0431\u043E\u043B\u044C\u0448\u043E\u0435!",
+  "notice.local_overrides_cleared": "\u0423\u0434\u0430\u043B\u0435\u043D\u043E \u043B\u043E\u043A\u0430\u043B\u044C\u043D\u044B\u0445 \u0448\u0438\u0440\u0438\u043D: {{count}}.",
+  "notice.local_overrides_empty": "\u041D\u0435\u0442 \u043B\u043E\u043A\u0430\u043B\u044C\u043D\u044B\u0445 \u0448\u0438\u0440\u0438\u043D \u0434\u043B\u044F \u0441\u0431\u0440\u043E\u0441\u0430.",
+  "modal.reset_overrides.title": "\u0421\u0431\u0440\u043E\u0441 \u043B\u043E\u043A\u0430\u043B\u044C\u043D\u044B\u0445 \u0448\u0438\u0440\u0438\u043D \u0437\u0430\u043C\u0435\u0442\u043E\u043A",
+  "modal.reset_overrides.desc": "\u0423 {{count}} \u0437\u0430\u043C\u0435\u0442\u043E\u043A(\u0438) \u0435\u0441\u0442\u044C \u043B\u043E\u043A\u0430\u043B\u044C\u043D\u043E \u0441\u043E\u0445\u0440\u0430\u043D\u0451\u043D\u043D\u0430\u044F \u0448\u0438\u0440\u0438\u043D\u0430. \u0412\u044B\u0431\u0435\u0440\u0438\u0442\u0435, \u043A\u0430\u043A\u0438\u0435 \u0443\u0434\u0430\u043B\u0438\u0442\u044C.",
+  "modal.reset_overrides.search_placeholder": "\u0424\u0438\u043B\u044C\u0442\u0440 \u043F\u043E \u043F\u0443\u0442\u0438\u2026",
+  "modal.reset_overrides.select_all": "\u0412\u044B\u0431\u0440\u0430\u0442\u044C \u0432\u0441\u0435",
+  "modal.reset_overrides.empty_filter": "\u041D\u0435\u0442 \u0441\u043E\u0432\u043F\u0430\u0434\u0435\u043D\u0438\u0439.",
+  "modal.reset_overrides.remove": "\u0423\u0434\u0430\u043B\u0438\u0442\u044C: {{count}}",
+  // Progress modals
+  "progress.changing_keys": "\u0418\u0437\u043C\u0435\u043D\u0435\u043D\u0438\u0435 \u0432\u0441\u0435\u0445 \u043A\u043B\u044E\u0447\u0435\u0439 YAML \u0441\u0432\u043E\u0439\u0441\u0442\u0432 \u0437\u0430\u043C\u0435\u0442\u043A\u0438\u2026",
+  "progress.changing_values": "\u0418\u0437\u043C\u0435\u043D\u0435\u043D\u0438\u0435 \u0437\u043D\u0430\u0447\u0435\u043D\u0438\u0439 \u0434\u043B\u044F \u0432\u0441\u0435\u0445 YAML \u0441\u0432\u043E\u0439\u0441\u0442\u0432 \u0437\u0430\u043C\u0435\u0442\u043A\u0438\u2026",
+  // Settings — Language
+  "settings.language.name": "\u042F\u0437\u044B\u043A",
+  "settings.language.desc": '\u0412\u044B\u0431\u0435\u0440\u0438\u0442\u0435 \u044F\u0437\u044B\u043A \u043F\u043B\u0430\u0433\u0438\u043D\u0430. "Auto" \u0438\u0441\u043F\u043E\u043B\u044C\u0437\u0443\u0435\u0442 \u044F\u0437\u044B\u043A Obsidian.',
+  // Settings — UI
+  "settings.enable_slider.name": "\u0412\u043A\u043B\u044E\u0447\u0438\u0442\u044C \u043F\u043E\u043B\u0437\u0443\u043D\u043E\u043A",
+  "settings.enable_slider.desc": "\u0412\u043A\u043B\u044E\u0447\u0438\u0442\u044C \u0438\u043B\u0438 \u043E\u0442\u043A\u043B\u044E\u0447\u0438\u0442\u044C \u043F\u043E\u043B\u0437\u0443\u043D\u043E\u043A \u0440\u0435\u0433\u0443\u043B\u0438\u0440\u043E\u0432\u043A\u0438 \u0448\u0438\u0440\u0438\u043D\u044B.",
+  "settings.slider_width.name": "\u0428\u0438\u0440\u0438\u043D\u0430 \u043F\u043E\u043B\u0437\u0443\u043D\u043A\u0430",
+  "settings.slider_width.desc": "\u0418\u0437\u043C\u0435\u043D\u0438\u0442\u044C \u0448\u0438\u0440\u0438\u043D\u0443 \u043F\u043E\u043B\u0437\u0443\u043D\u043A\u0430.",
+  "settings.enable_text_field.name": "\u0412\u043A\u043B\u044E\u0447\u0438\u0442\u044C \u0442\u0435\u043A\u0441\u0442\u043E\u0432\u043E\u0435 \u043F\u043E\u043B\u0435",
+  "settings.enable_text_field.desc": "\u0412\u043A\u043B\u044E\u0447\u0438\u0442\u044C \u0442\u0435\u043A\u0441\u0442\u043E\u0432\u043E\u0435 \u043F\u043E\u043B\u0435 \u0440\u044F\u0434\u043E\u043C \u0441 \u043F\u043E\u043B\u0437\u0443\u043D\u043A\u043E\u043C \u0434\u043B\u044F \u0432\u0432\u043E\u0434\u0430 \u0448\u0438\u0440\u0438\u043D\u044B \u0432\u0440\u0443\u0447\u043D\u0443\u044E.",
+  "settings.control_mode.name": "\u0420\u0435\u0436\u0438\u043C \u0443\u043F\u0440\u0430\u0432\u043B\u0435\u043D\u0438\u044F",
+  "settings.control_mode.desc": "\u0412\u044B\u0431\u0435\u0440\u0438\u0442\u0435 \u043C\u0435\u0436\u0434\u0443 \u043A\u043B\u0430\u0441\u0441\u0438\u0447\u0435\u0441\u043A\u0438\u043C \u043F\u043E\u043B\u0437\u0443\u043D\u043A\u043E\u043C \u0438\u043B\u0438 \u043D\u0430\u0431\u043E\u0440\u043E\u043C \u043A\u043D\u043E\u043F\u043E\u043A \u0434\u043B\u044F \u043F\u0435\u0440\u0435\u043A\u043B\u044E\u0447\u0435\u043D\u0438\u044F \u0448\u0438\u0440\u0438\u043D\u044B.",
+  "settings.control_mode.slider": "\u041F\u043E\u043B\u0437\u0443\u043D\u043E\u043A",
+  "settings.control_mode.pills": "\u041A\u043D\u043E\u043F\u043A\u0438",
+  "settings.pill_preset.name": "\u041A\u043D\u043E\u043F\u043A\u0430 {{index}}",
+  "settings.pill_preset.desc": "\u0417\u043D\u0430\u0447\u0435\u043D\u0438\u0435 \u0448\u0438\u0440\u0438\u043D\u044B \u0438 \u0435\u0434\u0438\u043D\u0438\u0446\u0430 \u0438\u0437\u043C\u0435\u0440\u0435\u043D\u0438\u044F \u0434\u043B\u044F \u044D\u0442\u043E\u0439 \u043A\u043D\u043E\u043F\u043A\u0438.",
+  // Settings — Width
+  "settings.default_width_unit.name": "\u0415\u0434\u0438\u043D\u0438\u0446\u0430 \u0448\u0438\u0440\u0438\u043D\u044B \u043F\u043E \u0443\u043C\u043E\u043B\u0447\u0430\u043D\u0438\u044E",
+  "settings.default_width_unit.desc": "\u0412\u044B\u0431\u0435\u0440\u0438\u0442\u0435 \u0435\u0434\u0438\u043D\u0438\u0446\u0443 \u0434\u043B\u044F \u0448\u0438\u0440\u0438\u043D\u044B \u043F\u043E \u0443\u043C\u043E\u043B\u0447\u0430\u043D\u0438\u044E (%, px \u0438\u043B\u0438 ch).",
+  "settings.default_width.name": "\u0428\u0438\u0440\u0438\u043D\u0430 \u043F\u043E \u0443\u043C\u043E\u043B\u0447\u0430\u043D\u0438\u044E",
+  "settings.default_width.desc": "\u0423\u0441\u0442\u0430\u043D\u043E\u0432\u0438\u0442\u0435 \u0448\u0438\u0440\u0438\u043D\u0443 \u043F\u043E \u0443\u043C\u043E\u043B\u0447\u0430\u043D\u0438\u044E ({{unit}}) \u0434\u043B\u044F \u0437\u0430\u043C\u0435\u0442\u043E\u043A \u0431\u0435\u0437 \u0438\u043D\u0434\u0438\u0432\u0438\u0434\u0443\u0430\u043B\u044C\u043D\u043E\u0439 \u0448\u0438\u0440\u0438\u043D\u044B. \u0414\u0438\u0430\u043F\u0430\u0437\u043E\u043D: {{min}}\u2013{{max}}",
+  // Settings — Range
+  "settings.unit_range.name": "\u0414\u0438\u0430\u043F\u0430\u0437\u043E\u043D {{unit}}",
+  "settings.unit_range.desc": "\u041C\u0438\u043D\u0438\u043C\u0443\u043C \u0438 \u043C\u0430\u043A\u0441\u0438\u043C\u0443\u043C \u0434\u043B\u044F \u0435\u0434\u0438\u043D\u0438\u0446\u044B {{unit}} (\u0430\u0431\u0441\u043E\u043B\u044E\u0442\u043D\u044B\u0435 \u0433\u0440\u0430\u043D\u0438\u0446\u044B: {{min}}\u2013{{max}}).",
+  // Settings — Per-Note
+  "settings.enable_per_note.name": "\u0412\u043A\u043B\u044E\u0447\u0438\u0442\u044C \u0438\u043D\u0434\u0438\u0432\u0438\u0434\u0443\u0430\u043B\u044C\u043D\u0443\u044E \u0448\u0438\u0440\u0438\u043D\u0443 \u0437\u0430\u043C\u0435\u0442\u043E\u043A",
+  "settings.enable_per_note.desc": "\u0415\u0441\u043B\u0438 \u0432\u043A\u043B\u044E\u0447\u0435\u043D\u043E, \u0437\u0430\u043C\u0435\u0442\u043A\u0438 \u043C\u043E\u0433\u0443\u0442 \u0438\u043C\u0435\u0442\u044C \u0441\u043E\u0431\u0441\u0442\u0432\u0435\u043D\u043D\u0443\u044E \u0448\u0438\u0440\u0438\u043D\u0443 \u0432\u043C\u0435\u0441\u0442\u043E \u0433\u043B\u043E\u0431\u0430\u043B\u044C\u043D\u043E\u0439 \u043F\u043E \u0443\u043C\u043E\u043B\u0447\u0430\u043D\u0438\u044E.",
+  "settings.per_note_mode.name": "\u0413\u0434\u0435 \u0445\u0440\u0430\u043D\u0438\u0442\u0441\u044F \u0448\u0438\u0440\u0438\u043D\u0430 \u0437\u0430\u043C\u0435\u0442\u043A\u0438",
+  "settings.per_note_mode.desc": "\u0412\u044B\u0431\u0435\u0440\u0438\u0442\u0435, \u0433\u0434\u0435 \u0445\u0440\u0430\u043D\u044F\u0442\u0441\u044F \u0448\u0438\u0440\u0438\u043D\u044B \u0437\u0430\u043C\u0435\u0442\u043E\u043A. 'Frontmatter' \u0437\u0430\u043F\u0438\u0441\u044B\u0432\u0430\u0435\u0442 \u0438\u0445 \u0432 \u0441\u0430\u043C\u0443 \u0437\u0430\u043C\u0435\u0442\u043A\u0443. '\u041B\u043E\u043A\u0430\u043B\u044C\u043D\u043E' \u0441\u043E\u0445\u0440\u0430\u043D\u044F\u0435\u0442 \u0438\u0445 \u0434\u043B\u044F \u043A\u0430\u0436\u0434\u043E\u0439 \u0437\u0430\u043C\u0435\u0442\u043A\u0438 \u0432 \u043F\u043B\u0430\u0433\u0438\u043D\u0435, \u043D\u0435 \u0442\u0440\u043E\u0433\u0430\u044F \u0444\u0430\u0439\u043B. '\u0422\u043E\u043B\u044C\u043A\u043E \u0432 \u0432\u0438\u0434\u0435' \u0441\u043E\u0445\u0440\u0430\u043D\u044F\u0435\u0442 \u0438\u0437\u043C\u0435\u043D\u0435\u043D\u0438\u0435 \u0434\u043E \u0437\u0430\u043A\u0440\u044B\u0442\u0438\u044F \u0437\u0430\u043C\u0435\u0442\u043A\u0438, \u0437\u0430\u0442\u0435\u043C \u0441\u0431\u0440\u0430\u0441\u044B\u0432\u0430\u0435\u0442.",
+  "settings.per_note_mode.option.frontmatter": "Frontmatter",
+  "settings.per_note_mode.option.local": "\u041B\u043E\u043A\u0430\u043B\u044C\u043D\u043E",
+  "settings.per_note_mode.option.view_only": "\u0422\u043E\u043B\u044C\u043A\u043E \u0432 \u0432\u0438\u0434\u0435",
+  "settings.reset_local_overrides.name": "\u0421\u0431\u0440\u043E\u0441\u0438\u0442\u044C \u043B\u043E\u043A\u0430\u043B\u044C\u043D\u044B\u0435 \u0448\u0438\u0440\u0438\u043D\u044B",
+  "settings.reset_local_overrides.desc": "\u0423\u0434\u0430\u043B\u0438\u0442\u044C \u0432\u0441\u0435 \u043B\u043E\u043A\u0430\u043B\u044C\u043D\u043E \u0441\u043E\u0445\u0440\u0430\u043D\u0451\u043D\u043D\u044B\u0435 \u0448\u0438\u0440\u0438\u043D\u044B \u0434\u043B\u044F \u043E\u0442\u0434\u0435\u043B\u044C\u043D\u044B\u0445 \u0437\u0430\u043C\u0435\u0442\u043E\u043A.",
+  "settings.reset_local_overrides.button": "\u0421\u0431\u0440\u043E\u0441\u0438\u0442\u044C",
+  "settings.yaml_key.name": "\u041A\u043B\u044E\u0447 YAML \u0441\u0432\u043E\u0439\u0441\u0442\u0432\u0430 \u0437\u0430\u043C\u0435\u0442\u043A\u0438",
+  "settings.yaml_key.desc": "\u041A\u043B\u044E\u0447 \u0441\u0432\u043E\u0439\u0441\u0442\u0432\u0430 \u0434\u043B\u044F \u0445\u0440\u0430\u043D\u0435\u043D\u0438\u044F \u0448\u0438\u0440\u0438\u043D\u044B \u0437\u0430\u043C\u0435\u0442\u043A\u0438.",
+  // Settings — Code Block
+  "settings.enable_code_block.name": "\u0412\u043A\u043B\u044E\u0447\u0438\u0442\u044C \u0440\u0435\u0433\u0443\u043B\u0438\u0440\u043E\u0432\u043A\u0443 \u0448\u0438\u0440\u0438\u043D\u044B \u0431\u043B\u043E\u043A\u043E\u0432 \u043A\u043E\u0434\u0430",
+  "settings.enable_code_block.desc": "\u0423\u043F\u0440\u0430\u0432\u043B\u044F\u0442\u044C \u0448\u0438\u0440\u0438\u043D\u043E\u0439 \u0431\u043B\u043E\u043A\u043E\u0432 \u043A\u043E\u0434\u0430 \u043D\u0435\u0437\u0430\u0432\u0438\u0441\u0438\u043C\u043E \u043E\u0442 \u0448\u0438\u0440\u0438\u043D\u044B \u0440\u0435\u0434\u0430\u043A\u0442\u043E\u0440\u0430.",
+  "settings.code_block_unit.name": "\u0415\u0434\u0438\u043D\u0438\u0446\u0430 \u0448\u0438\u0440\u0438\u043D\u044B \u0431\u043B\u043E\u043A\u043E\u0432 \u043A\u043E\u0434\u0430",
+  "settings.code_block_unit.desc": "\u0412\u044B\u0431\u0435\u0440\u0438\u0442\u0435 \u0435\u0434\u0438\u043D\u0438\u0446\u0443 \u0434\u043B\u044F \u0448\u0438\u0440\u0438\u043D\u044B \u0431\u043B\u043E\u043A\u043E\u0432 \u043A\u043E\u0434\u0430 (%, px \u0438\u043B\u0438 ch).",
+  "settings.code_block_width.name": "\u0428\u0438\u0440\u0438\u043D\u0430 \u0431\u043B\u043E\u043A\u043E\u0432 \u043A\u043E\u0434\u0430",
+  "settings.code_block_width.desc": "\u0423\u0441\u0442\u0430\u043D\u043E\u0432\u0438\u0442\u0435 \u0448\u0438\u0440\u0438\u043D\u0443 ({{unit}}) \u0434\u043B\u044F \u0431\u043B\u043E\u043A\u043E\u0432 \u043A\u043E\u0434\u0430. \u0414\u0438\u0430\u043F\u0430\u0437\u043E\u043D: {{min}}\u2013{{max}}",
+  "settings.reading_mode.name": "\u0412 \u0440\u0435\u0436\u0438\u043C\u0435 \u043F\u0440\u043E\u0441\u043C\u043E\u0442\u0440\u0430",
+  "settings.reading_mode.desc": "\u041F\u0440\u0438\u043C\u0435\u043D\u044F\u0442\u044C \u0448\u0438\u0440\u0438\u043D\u0443 \u0431\u043B\u043E\u043A\u043E\u0432 \u043A\u043E\u0434\u0430 \u0432 \u0440\u0435\u0436\u0438\u043C\u0435 \u043F\u0440\u043E\u0441\u043C\u043E\u0442\u0440\u0430.",
+  "settings.source_mode.name": "\u0412 \u0440\u0435\u0436\u0438\u043C\u0435 \u043F\u0440\u043E\u0441\u043C\u043E\u0442\u0440\u0430 \u0438\u0441\u0445\u043E\u0434\u043D\u043E\u0433\u043E \u043A\u043E\u0434\u0430",
+  "settings.source_mode.desc": "\u041F\u0440\u0438\u043C\u0435\u043D\u044F\u0442\u044C \u0448\u0438\u0440\u0438\u043D\u0443 \u0431\u043B\u043E\u043A\u043E\u0432 \u043A\u043E\u0434\u0430 \u0432 \u0440\u0435\u0436\u0438\u043C\u0435 \u043F\u0440\u043E\u0441\u043C\u043E\u0442\u0440\u0430 \u0438\u0441\u0445\u043E\u0434\u043D\u043E\u0433\u043E \u043A\u043E\u0434\u0430.",
+  "settings.live_preview.name": "\u0412 \u0440\u0435\u0436\u0438\u043C\u0435 \u0434\u0438\u043D\u0430\u043C\u0438\u0447\u0435\u0441\u043A\u043E\u0433\u043E \u043F\u0440\u043E\u0441\u043C\u043E\u0442\u0440\u0430",
+  "settings.live_preview.desc": "\u041F\u0440\u0438\u043C\u0435\u043D\u044F\u0442\u044C \u0448\u0438\u0440\u0438\u043D\u0443 \u0431\u043B\u043E\u043A\u043E\u0432 \u043A\u043E\u0434\u0430 \u0432 \u0440\u0435\u0436\u0438\u043C\u0435 \u0434\u0438\u043D\u0430\u043C\u0438\u0447\u0435\u0441\u043A\u043E\u0433\u043E \u043F\u0440\u043E\u0441\u043C\u043E\u0442\u0440\u0430.",
+  // Plugin info
+  "plugin.loaded": "{{name}} v{{version}} \u0437\u0430\u0433\u0440\u0443\u0436\u0435\u043D!",
+  "plugin.unloaded": "{{name}} v{{version}} \u0432\u044B\u0433\u0440\u0443\u0436\u0435\u043D!"
+};
+var translations = {
+  en,
+  de,
+  ru,
+  "en-gb": en
+  // en-GB uses English translations
+};
+function resolveLocale(locale) {
+  const lower = locale.toLowerCase();
+  if (translations[lower]) {
+    return lower;
+  }
+  const prefix = lower.split("-")[0];
+  if (translations[prefix]) {
+    return prefix;
+  }
+  return "en";
+}
+function t(key, params) {
+  const rawLocale = localeOverride ?? window.moment?.locale?.() ?? "en";
+  const locale = resolveLocale(rawLocale);
+  const dict = translations[locale];
+  let text = dict[key] ?? en[key] ?? key;
+  if (params) {
+    for (const [param, value] of Object.entries(params)) {
+      text = text.split(`{{${param}}}`).join(String(value));
+    }
+  }
+  return text;
+}
+
+// src/utility/constants.ts
+var PLUGIN_NAME = "Custom Note Width";
+var DONATION_LINK = "https://ko-fi.com/skater_";
+var COMMAND_IDS = {
+  CHANGE_NOTE_WIDTH: "change-note-width",
+  CHANGE_DEFAULT_NOTE_WIDTH: "change-default-note-width",
+  CHANGE_ALL_NOTE_WIDTH: "change-all-note-width"
+};
+var DOM_IDENTIFIERS = {
+  DUMMY: "dummy",
+  SLIDER: "custom-note-width-slider",
+  SLIDER_VALUE: "custom-note-width-slider-value",
+  WRAPPER: "custom-note-width-wrapper",
+  STATUSBAR_ELEMENT: "plugin-custom-note-width",
+  DONATION_BUTTON: "custom-note-width-donation-button",
+  STATUSBAR: "status-bar",
+  CUSTOM_NOTE_WIDTH: "custom-note-width",
+  MARKDOWN_PREVIEW_VIEW: "markdown-preview-view",
+  CM_SCROLLER: "cm-scroller",
+  PROGRESS_BAR_CONTAINER: "progress-bar-container",
+  PROGRESS_OUTER: "progress-bar-outer",
+  PROGRESS_INNER: "progress-bar-inner",
+  MODAL_CLOSE_BUTTON: "modal-close-button",
+  NWM_CONTAINER: "nwm-container",
+  NWM_INPUT_CONTAINER: "nwm-input-container",
+  NWM_BUTTON_CONTAINER: "nwm-button-container",
+  UNIT_SELECTOR: "custom-note-width-unit-selector",
+  NWM_UNIT_SELECTOR: "nwm-unit-selector",
+  PILLS_CONTAINER: "custom-note-width-pills",
+  PILL_PREFIX: "custom-note-width-pill-"
+};
+function getLoadedMessage(version) {
+  return t("plugin.loaded", { name: PLUGIN_NAME, version });
+}
+function getUnloadedMessage(version) {
+  return t("plugin.unloaded", { name: PLUGIN_NAME, version });
+}
+var KOFI_SVG = '<?xml version="1.0" encoding="UTF-8"?><svg id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 185.71 29.2"><defs><style>.cls-1{fill:none;isolation:isolate;}</style></defs><image id="image0" class="cls-1" width="1081" height="170" transform="scale(.17)" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAABDcAAACoCAYAAAD0MgVSAAAACXBIWXMAAEBwAABAcAH66ZoqAAAgAElEQVR4nO3dCXhU5b0/8G9s8Vb0NrFSLFYhAUWoLFFUCGoJm0vFELRXZCkE69pWCXpv69JKEPd7reDSulUTBK21lbBotSIkirIomrBU1AoBtQqiJq1gW/81/+c3J4czM8zMed8575k5Z+b7eZ55koGzz2HIfPN7f28BFLVXzKsCMAdAofsa7aqbBfY5Ao11vew3qOsqvyIJ1vWy36CuG3M9eG9kZb9BXJfvG7FPeW84eG/EPuW94eC9EfuU94aD94bzrdZ94WW/Xo7X6/phuzfy7T3D6/oZus78jOLw595oBlBdMG9+g87WXQ+lvWJeEYB6AMPUN8v/UNJelz9sxOIbh4P3hoPvG7FPeW84eG/EPuW94eC9EfuU94aD94bzLcONWAw3HAw3YvEzisPfe2NWwbz5NaoLpzyU9op5pQAa1Ko1YtZUX5T/ocQ+5Q8bsfjG4eC94eD7RuxT3hsO3huxT3lvOHhvxD7lveHgveF8y3AjFsMNB8ONWPyM4vD/3pAqjvKCefNb3RbcL+lurWEoaQQbRERERERERESeDZRcon3KpFK3DSUMN9orHpFg42EGG0RERERERESURUoBxz7hRnvFI6UdwQYRERERERERUbZJ4UV9+5RJRUrhRnvFI8UdQ1GIiIiIiIiIiIKiR6q8Ir5yo55DUYiIiIiIiIgogAa2T5k0J9Fh7Q032iseqekYy0JEREREREREFETT26dMKk8YbnQMR5nJl42IiIiIiIiIAq42/vDsyo19/oKIiIiIiIiIKIB6tE+ZVB0TbrRXPCLlHMP4ahERERERERFRSMSGGwCq+MoRERERERERUYhI9cbePEPCjal89YiIiIiIiIgoZPZWb8RPBUtEREREREREFAYyNWwxww0iIiIiIiIiCrNKMNwgIiIiIiIiohBjuEFEREREREREoRaZ/ZXhBhERERERERGFlvTdYLhBRERERERERGHGcIOIiIiIiIiIQq2U4QYRERERERERhVkRww0iIiIiIiIiCjWGG0REREREREQUagw3iIiIiIiIiCjUGG4QERERERERUagx3CAiIiIiIiKiUGO4QURERERERESh9tUgH3zLnl2o/+A1NLVtR8vnuxTWaM/AUQVJuM63uPMhkUf096WFh6OoU+esHxsRERERERGFVyDDDQkzqjc+isZdmwNwNGRKY5Lt9Oj8DZQWHoHyLr0jD/meiIiIiIiISFXgwo3a7StRvXEB2r74PABHQ5mwbc8nkceiD5ojeyvsdAAqu5WisttAVB5WyteAiIiIiIiIUipor3gkydgGL0MeNNYtcL6t/2Adxq29k68Y7SVVHVXdh6KqRxmKO3/Dw4XJ0P3s57oFyZbzeb9BXHefa5Hj5+u2Lu8NB++N2Ke8Nxy8N2Kf8t5w8N5wvtW6L7zs1+vQ6ny6N/LtPcPr+hm6zjHXg/+fZGW/+5oVmIai0l+j6vUHAnAkFCRS0TFr81KUPHstqtbVoWXPx3x9iIiIiIiIKEZgwo2azQs5FIVSqtu+GiXP/pwhBxEREREREcUIRLghVRt1764MwJFQGEjIUbr8RtS8sZSvFxEREREREQUj3JBeG0Q6pMpn1uanIiFHU9t7vHZERERERER5LBCzpdR/+JrrMgMHDkRRUVFGjof809raiubmZmPbb257D8cuvxEz+5yJmr5j+MoRERERERHloUCEGzIsJZVhw4ahoaEh24dJBrW0tEQe8rrKo7Gx0dPGpYqjYddbqB9yKYo6HcCXioiIiIiIKI8EItzY5hJulJeXZ+xYKDOKi4sjj+jXtr6+fu+jra1N+zgad72N0uU3RAKO0sLD+UoSERERERHlicDMlkJUWVmJ2traSEXHww8/jB49emhfE5k6tvzFX7IPBxERERERUR5huEGBI71VqqqqIiHHihUrIv1WdEizUQYcRERERERE+YPhBgWaDFtpamqKVHIUFhYqHyoDDiIiIiIiovzBcINCwa7kGDt2rPLh2gFH6xef80UmIiIiIiLKYQw3KDRkuIo0G9Wp4rADDiIiIiIiIspdDDcodKSKQ6aPVe3F0dz2HqrXP8EXmoiIiIiIKEcx3KBQKi0t1Qo45r6zAg273uKLTURERERElIMYblBoyTAVnYCjat089t8gIiIiIiLKQV/li0pe1dTUYM6cOWhra1PekgQSxcXFkdlQKisrI9+nww44ZDvNzc0pt7BtzyeY85flqOl7Jl9zk8YNSr2xd3YC67eH7KSIiIiIiEKk6zeBE0+MPd6lT+XVK1jQXvFIe+K/SvLHSjTWLQAKFk1NucjMmTMjH6ApeKT/RV1dnefjkrCjuro6sr10tLa2RgISlYBl62mzUdz5EI29ZOjfgtu6BVnab7TR/YCD/gOYfFJ6m97RBjy30fp+4avq+423z7UIyGuUrXWDcG8EZV3eG7FPeW84eG/EPuW94eC94XyrdV942a+X4/W6vsd7o18fYPhJwODjnD9e8xqw4iVg42Yz+9VZb8TJwJjTgK5drOdL/gQsfRbYvSek7xle18/QPRlzPQwc75jvWV87H+h8H23nR0BDA7D06X3XlVBjWhVwzDGJdyEBx+/i+w/m5P8nsxhuUNqamppw7LHHGr2APXr0iLzW6YQcUsExfPhw1+Wmdh+C2kFTNLac5z+IDjgCGHqUFWyYJhUdL7/dEXjwB9G01+WHFAfvjdinvDccvDdin/LecPDecL5luBEr/nqMOAk4f0Ly5R9fZIULXverut5V062wJd7OXcAtc60PxGljuJGSiXBj+DDgxBOAY76jvo6EG3uDinYr2JhVAxx4YOr1Nm0Cbv3fqD/IzXCDPTcobTItq2nbtm3DtGnTIsNMpBpDh6wjQZibuu2r0bLnY77wbiTUmDnOevgRbIgB3YFLRgJ1lwDjjvdnH0REREReSWVEqmBDjB8LlHTPzKVOFmyg41gvuzAzx0H6JNT49V3AtKl6wQY61o0mFRtuwYaQqo7h5Tn/YjHcoEBqbGyMDDOR6hAdMrRFqj/c1LyRX+PPtMiwkyvPsEINCTgytc/JJwN1l1pVIkRERERBMlxxSO6JZqua93FgZ2D21cmDDZuELP36+nsspEdCiJ/9txVqqAQSich6Uq2Bju+TDUVJRKpEchzDDQos6Z8h1Ri1tbXKhygNRqW5qZv6D5o5c0oivboCt52XvYAhEqycCcw82/qeiIiIKAhUKzLcQgcvJNiQig3VY8lUFQm5iwwfuU6/UiORSD8VALoTMnyza86/UAw3KNAk4JBhKjoVHDL7yrBhw1Iu0/bF56jdtoovfjSp0rhtPHBoYQCOpTtwz/lW2EJEuWXIMcDYk53HgQfwBSai3CEBhB9kqIlUbOgEFvaHYMouqbD46X87FRdetLQAu3fzBU2C4QaFglRw6AQcMjzFTe321XzxbZH+GpXBOBabVG7cNpEBB1Gu6HkYcOd0YMZ/ARNHOY+HrgImjubLTESUjAQbUrFhz4iias06XtIgmDbFTLAhocZDUbNUStChQ3f5EPpqzp+hV7s+BV5dD2z/ANjxScfG2q3fNH2nJ1ByBHB0L//2/8xy4I2/ALs/j+0QK/vvexRw+gg/z96TgYWHY07/8TGbaNmzK9LMs/6DJjS3vae8eangkBlUVAMOqd6Q3hvSoDQZ2b8ci960sDlIKjWkx0Y6PvsnUB8/pWsc2b6XhqQXjwJ++mh+v0ZEYXfowcDPf5C8SkMqOMSjz/GlJiKKJpUaEmzoVoQ8vpCVG0Fgz4iSLgkk1r5irbyiMbZqQ75f0aDeKFRmTMlxDDcSefMd4KkXgKYtwD8LOqa3iZ56puP7tVus778i0/AcBAzuD5x3lvf9P7AAaHoD+PQfifdrf//KZmDeEuDgA4Bj+wIX/MD7vg0q6tQZ5V16x23Q6uVQ02dMJFio2bwUddvVhoc0NzdHpolVnRZYqjdmzJiRcpn6vzaj+sjgBkQZceXpev0tdrRZU7cuTPTbgCRTNN37vBVy2FPK6gx9kcoNOT4JUogonEYOch9+IgHHopUdYT4REVnBxuXpBRtJp6SljDrze3p7k2leN/5Zvcriqaes8MStQakEJBKE5DgOS4kmoUb1LcB1dcDarcC/ZN7e9o4PbCke/wbwwWdA/cvA5KuAG+4Cdn2ivl8hy98wF5h0JbDiNeDTz933W9DxaJXU7lVgynTgwXk+XyRzpGKi9ripeH34tZEqDxWzZs1Ci+I/dqnecCONRfPauEF6wz7uXQ78qC5JsOFCQpGFrwI/qgVufxp4Z6f6ugd+Lb9fJ6Kw699T7QRUlyMiynXSmHT2VfrBxkMLGGwEhVRtqA5Hkc83l/4EWPq03vCRnR8BM2tSV2VIYHL3PaG4ZF6xcsM2+1fApg87QgP7D1NUTdgK4v5cgo5N7wOX3wIMLwUunOi+78cXAUtfsNbV2Vf897L+ileAtc3Af18C9A7HlJqlhUeg4eQrUL3hCaUqDqncUJlBRaaSHThwYKTiI5nGXW+bOIVwkmqIykFqhy5VE9cv1AskUnn5beshVRyXjHRfXoIRIgov1aahB7G5KBERBh8HXHaB/nW46wFgzWu8fkExPPUEB3tJQHHr/6XfKDSy/v9aQcqJJ8b+3dKnQnO5TGDlhlRM/Gg2sOkD90qJ+IqJVFUd8mV5E3DBNcmrOOTPf/xzYJEEGx72Ff/Y/U9g9lxgzSuZvpppkyEsUsWhUsFRV1eH1tZWpV1Jnw43DbveysYpZ1/ZUerDUe5bbi7YiCbDW6beC6zfnmKZDeb3S0RERBREI07WDzakt8YtcxlsBIkME1GdqvXhWjMzoEjIIWFG9CPPMNy48pfAJ/80E2gkeuz5Aph+I7A6rumiPJ9xA/DpHnP7il6vvR24++FQBRxCKjgKO7n/5k6lcgMds6y4aWpVb2yaU2SGFBXr37WqLPwiVSGzFlp9OeL7akigMn9lfr4+RERElF/OOhU4X6HqO5odbGzczJslSI75jtrBSKix6c95clH8l9/hxjW3A5HPUonCgi89hAxfxq4nX+56FHhgvrVf+XrXgthqDROBxj7VIxJwPAS8FZ6hF1LBMaf/ua7L1dfXK22vtLQUhYWpm1c2aczaklNUww2prsgEqdCY+msr5JBAQx4ySwobiRIREVGuk2BjvOa0/Dt3Ab+4GdiaogKWsqO4h9puGWwYlb/hxjMNwJZPrBDDNdD40v37+EAjfl35dsU64Ioa62t7dDChsP2k+3JZXvZz+10BuODqqrqXoUfnb6RcvrGxUXl7EnCkIrO25B17BhIVqYaM+EFCDmk8utBlilkiIiKiXCChhm6wIYGGVGxIwEHBo9NIlIzJ33Dj98/7WzWR7LGjNXP7spff8w/gNw8H4KKrq+7l3mSyoUFtOiO3oSl52VT00K+rL8vKCSIiIiJ/yDAUqdrQIUNQGGwEm9vUrDYZVkTG5Ge48cwKYPf/y3zIkM19veg+C0mQlHfp7Xo0qlPCFis082n94vMwXR7vOLUqERERUXZJ41BpIKrDDjb4oTjYvqlYuUFG5edUsC+82vGhH1Ffk3xfoLBMou91ppON/t5tutd09yX9PX73e+Dc7yMMZHpYNybDjaa2d5UClbx0aGG4pmId3d969DzU+bP6V6zhLqbPo/JEYPQA6xrZ5r8IPLce2P2P9LZZdrS1zQFRYzXr1wLPNasd/6iBwEFfs7YTfQ1s67cBG1qsKrJVb6Z3jG7K+ljHMSDq3179amBZk7Vf13Mo7TiHPkDPbyU4hxZgw9aOc8hyA7WyvkDXIuv7SSOSL7fqDWDLB9b3i172/7j69wRGHQeURTU0W/QS8PxrwI5PU6875DvAoQcDY09OHIQuWwc8sNT8MYdF/17AyOOBIf2cA169EVj8ArDlr6lPoudhQL9eQM9vx65v2/kJsKyjEbhsL10VHdMPTjwt8QaeX2vta/UG62s2VHRUVY4cDHRNMhT1saetrxv+AmzN0f5YgwcCXQ+xvp9wZvLl1jQDW961vl+y3N9j6tcbGDEUGBw1rHf5y8DyVcDWd93Xl/W6drG20+/oxMv8drGz3Xz9kH7V5UC/PnrrLF8JPLTAryNK7cRB1usqxp+dfNG164Ct26zvlz6TnWOlvFXQXvFIe+KTT/LHSjTWLQAKFk1NucjMmTNRU1Nj7jWa/FPg33YikCAQyGSgkcl9FR8OzJ4FU+Q1mTUr+faGdemNhpOvjPtT9XujdMUNaE7R7FP1vmhqasKxxx6bcpkVp1SnCDcy9G/Bbd2CZMulsd/R/YBLhqttav5LwMJ1ZvZrat19rkXHuleeCZQleR0lbJj1JLBlR/r7jXbbpMThgZAQ4vonXMKIBPuVsGTyd5OvItuUcCJ+3W8VAaMGAJWD9c5BLGi0ghOlMEbhWlUOASalmNd99m+tcCLeoUVWqCHr61qwAniuyTqHZPdGWpKs27/ECjVGpX5fSUmCDgk8EgYdHo957EnApCRD++QaXf1A4oBDwpCKk6xgw83qPwN3PBG335OtfR/oPuOVJ6s3ActeBTZsMfO+oaPiFGBiivLxOb+1go54I08Axp6S/EN8MhJwyHTxu+3qwhTH3P9Iaz9D+uvtQ4KDJY3W16QM/TuSQGPIAKDk2/qbkRDm+dXAYrUhqRm/N3TWlQ/9QwYCI9J4v7NJ2LO6KSroMPUajQTOOyv5ojf/CtgYPYV+x7oHdrYCkVTrJrPxTWDJMutrOsesLc1746rLkoc10WSoyBUzkx+zXCup2NANNpb8CXh8od46Xq9Tv75WqDHilPQ3I0GHBB5aQUc2fvbWXO+gzsDwYcH/xfHaV4AVDcCmTXF/EdDPKN7WnZWflRv/xr6VG7kaaETv64MPECYyc4oJbg1F85JOBUPl8cDLfwl+9YZUayQLNtAxFEfCjx8/5H1flSckDzbQUe1y8Wjg+t+rb1PWSRVsiItPBX78QNyxDHZfLxUJIuQhIUf9mvS3g46AIlWwIS46HfjJvbF/FglE3KdtTmrScOshIcei1elvx42EGrKfnt28b0u2IY/KoUD9y+aqOSSYSBZsoOPfwYVnAjfMj/2zGd+3qj1USXWHHL9djXLzRVZVQiYMOcZ6XH0fsOX9zOxTdD04dbAhLhwLbHjHCSMkzKg+L/1rU/FdK7CY85i13UQkTLqwUj/UsEkoIg+p5nhQ94OTIqnOmHCGt+BLruWE7wEVw62Kjuc9vl9lg4QaUp1Rcrj3ncs25CFhxOLngSXPe9+mVJC4hRM/HA/MmB37Z2eNSi/UsElgII81rwN3hqtHnDYJNqRio6S73poSaki4kSkSakiD0xLFGT9SkW3IY8zpVsCRC9Uc8jrOuk69aWg2nXiC9bj7HivoyHH513ND+m0EqRdGJvf1ry8C8AIEU8ueLJXlZsuOv6nvWGZVufKM2KEXQTRa4Qd7OYdUoYSqcSe4LyjDSnR6m4we6L6MHH9Zx2+NZNvXnest2IgmocStU6yAIl2jVM6hyBpuYp/DL87zFmzEnMNw4JZp3s4hkciH/7OBX0w0E2xEk23LcJZbfmhm21J94SY6xJAw5OYL9YINm/2BfdSgzAUb0S708GEqHaMU/t3Lh3f7WsjwlZsv9X5tZJvXnm9tL54Mb7n5x+kHG9FGnghc80Pv24kmgcQ1FwAXnG2uoke2c8E5wDUX+l8lZIoc5/QpwDUXmwk2osm2J4wBbrwCKFGc4j2ZkUPdl5EApF/HLxLkA97VP/IWbEQbfCxww/9Y281FMqQjnWBDhqFkKtiIVJVcCFw13UywEb9tGc5y/bXmt51pEhaEIdiINtzQz1oBl4cNRfMs0Ih/vOXTGPuQa9mdZ9PBShWGziwoMnXsr6YC4wb5eVTeqAYJci4Z25dGkKK6TTtkmnlubF8OE6S/hQQcifpcqDhI9Rw6wofrzovty2HqHCTgSPcc9tleNyt4kGEofrL3oxJOpKL6Yc8eelL9fbVhKKl09bh+ujIdqKheW/lAL8d27TSzH74l4OgZNZxDvpc/0x3qkopUcEyfaGZbMvTkpsuA/keZO75ost1rLzR7/n6QMOPGGVZvDV/3c4QVcIwoS38byvd4l45g41K1YRo65Dyu/rHZbQZBusHGLXdafTYyQY5t9jXAYJ9/1pNgQwKO4YZ+OZMNYQs2xDcN/PwbAnk6FWyeBRrRj63hmUu5ZQ+nt/LVcwnGhbuZfBLwh8utkCPolRy5TIanmKhAScSuCDFd/RDv4tPNBRDxIhUhE7yfgwQOUq3h97WIdtH3gLEKvz01YeJIb9Uibs0z/bY7oLNcyQdEGYrihwsqrY3KB3oJNvyoXJAqEK+VIBKSSLDhd2WFBAfXXhTcCg45vmsucRqGZsIF5wJnuU+n79nlVd4rRZJetyOsoS65QkID6ddhN+NUIU1WJdjYmKGm2ZFjrNY7Rq/On2wNVaHMCGMgkwaGG/kQaOyzXjhsy+BQkdIiw2WiYbAqVfM4FxJySCWHXc0xwKcfcGhfUq2hMoTFi0g4cK5/Uwb3L7aah/p9Dj+fkP45SKAhwUY2pk2WnhleKzjcSLWFNP9MlzQktfttZCvk2BLQPlLpNA5VJdUaMnxEemz4+YF+gocPHFKxMX2SyaNJTa61DFMJGgk0JNjIRvAiw1S8VHC4kW3383mGOQk3cmF4ShiCjUhVSXV2rrcMUwljBUeIflmcb/KzoSjaY78PU1NQr/sqLkEYyNSsblQbhba2uk89WdQpJON2TXpnp9UodOiR6W800gQz6gPSy28DW3Za216/PUhnmztMD0VJRj7cS7NSaTRqmumhKCnPocxqNKojEoxkKdiwXXSm9eHdrw/wXqpDJNiYEzVTisycIjOXpNO3I11StfHoc5nbnw6/P8zK9K5+70MCA6m+SDmDSgKRqpVJ6scnr6PMfrL1fWDD27F/Z08RW6EwTlxmYNlarjGTis/k/KW/RjYrSqSCQ2ZUUZm6VZdfFRvR7NlXZBaVsJLZUC77oV5oIDOtSLCxM0PVy5EGp1kKNmxSwdGyzZk+NgzWvmodc3HIe4fkoPwLN44vBR5ZHPUHPocMBWmEEn7uq7fhsZE+aUoxBaytqEitVFymgqUk5r9sVV1I01AThh5lPWwScqx6m2FHJixrtqaJXZWgr44MYZFAYZLmb0ck3NjQ0jH9bCbOocmaJnZV/G+r2q0hLJFzUJzC2Da2zNrmhq3q60ggojsUZdnr1j5kelf7mG3S02JIX2tmFJ3AZMY5wGV36x2HKt0gYtk6YOen1lSyyxJMDX3DPGsqWBnmIjOZ+EU+DC9aaU0Hm2g626CS6WHtR/S9IR9+ZTYUCSxUJfvAHLk2L1iznsQP2ZFhJrKf/hph9uD++uGGBBGqVSuP/TF1GBGZDaXdmv5VKjPcenfILCqyThCGK1WM0B+Ksnw1sOFNYE3zvn8n25KeHTIzik5gMn0qUH2D3nF48dsl1nSuiQIVCSrkoROMjDgpvOGGBBtSsaFj63Yr2JDKjUwZc5r+UJQVLwIb37Cmd40n25KpY2W4iU5g8pOLgCuvzdx5m3Dd9cCYM4BjvmM9KBDyL9zo8g2g4Eug3S5ryINAw7ZfeEYhNex6y3WZ8nK1rr9qlRs52pnbjTQWvb4euG28P9uX5p3RDTwXvmrtM51+H5TYlh3Afc9aX1MtIw+Z6lX6dajMamIbO8T/cGPLh8B9z1hfUy0jj/rVwMVn6A1rkalmVcMNCVHGapRzy3bvfxrYkeJ9Rj6EL+qY7lVmRlGtmpBQRJY1NU2sCqnAkIdUY+iGB4vspndP7Pt3d05Xa1z6wBJg2atGTiUQ5IP2nN8mn8Y1UrnwArDxHW8NSFdvsKaLTfX3q9cDFcOAiYpDTiQQ0ZkaNlJl4TIVtO3BJ9Wnct35CXDTA9bsKKkCjkhQNDj71RvSZ+OsEerLb3wLePD3wM6PE//sJuTvliy3HjLkRHX7EopI/w0T08SmsqbJfQrX5S9bD5lZRbWfhhy/hCF+VJ/4KVINoRlsyBCUux7MbLAhQ2bO0ghWN70BPDQ/dVWJ/N3SZ63pXmXIiWpPDekHYU8VGyZL/2g9Ev3b/b9b1fpcPFwHrEj3favdmgVlWlW4rpuP8rPnRuf986DvRgL/+fXsXndFrV/sQf0HqastBg5U/3CmUrlRWpiHPTdsUlUxqz4z+xp3PHDJSOAP063hLCZmLslnEjr8dF7qYCOeBCE6Q01kGIyfQ2GkquJntamDjXj3/VFvqEn/EuuhQqcyRKo1Zj+aOtiIt2C5FYaoqjwpM8NjJNC4+n7ghkeARS+FqyoiqCS4uPrXyYONaFveBx5I831YKjVSBRvRFjeqV2NIWKATtsh0ryqkYkM12Ig2d74VdKQi1RvZbi464Uz1ZaVa46b7OoINRY8tBR5MECAmI1Ukfg45kGoNt2Ajfvk1GhW1pmdjyQTd6y3BRqYrNsT4cerLLn8RuGWO3nCZx5+0whBVutUeRAnkZ7jRo1tHAPBlVGDwZZLA4Mvk32sFEyr7Ugk0vkyxnIuBPjfwM2TOO8vR9kXqslLVqg0ohBs9Ogd8GrlMWP8u8NPHraAjUyTouG2C9Rjq01SBuUw+UN++OL0TlAqOeo0PF2V9/LmQcg6/TPMDnVRwyEOVyjnIUBTVEER6YeiEFNGWvaZejSHBht/NReV4bpgf3AadYfXAIvcP49FkyIrO8kgzFJEwRJXqMBa7R4cb6a2RbmVFpMrFJdSUYEP6b2SLVBqoNtqUfhg6IUW05ausKg4Vkd4VPjUXlYqQdIaN6KyT6x927eahmSbDR/opTnEuvTB0QopoK15Qr8aQ1zrM08NSIORnuDHquy4VECkChITrpAhAXKstVMITD4FGtFNO8fnCetey52PMece9fLKqSr38qqEh9Q9SxZ0zOEVbkEmwIQHH/Jcye5BSvXHl94DbJrKSQ8d9f7L6H6RLwg3VioOyo5gSkpYAACAASURBVP2pHrj/GY/nsErjHPq6n8OoY9X3fceT6ssmIhUcqtURZT6O5ZXhJw8s9W/7+UqqNVanMfxOd53HntXfh04fDdX+GTIcRIXXISMqPTX6ZTEsHzlEfdm587ztSyo4VCs+hvgww1ZkqEyaw11kmInqUJNMNC/NJvlAP/uqzIc4wzU+E9x1v7d9SQXHzo/UlpV+HUQe5Ge4MfiEjm4jYRxykqbColA0E61c82vXqo0ePXooz5QiVRttbW0plynv4vN0ZmGzcB0w9T7rayZJsCEBh1R0UGoyHMVrHwwJFVSrNyQUMD00RYajrPc4lVrkHFapLRs5B5eqjCGKv8WS4Sg6Q1GSWaR47NKkUx6myfW7n8GGL55/Jb2t7tCo3JCqDd2Gn+iogJB1TVKp2pD9St8Pr+JnVYnn1njUT4MVq0ZkOIrOUJRkFitWb0hAYDokkP4ZXoZRbEzQ/DoR3WaXYRSZLvbyzJ7rYMUQQYajmJi5ZaliEFvSw3oQpSk/ww3Ruzj3A41oY8YYunD+qXqtDs0Ks6RUV1crH4Nb1YYoLcrjfhvJfPZPq4LjnDutr5kcrjL5ZGCm4tjtfJVoRpR0yHZUKyek0aZJ+8yIku45bDZzDvJ3qjOk6My8ksqqP6svqzpcRof01vBSOUPJqfTZSERnWMrGNIINm+qMIiqVGyXfth5u3EIJVVtdfk6QoSklWfh/XfapOkPKBvem6Uq0elcY/kXOcsVwNplM95fIJDm3jZr/x9kBh3z1m+xDNUjZ9IbCQgrWajSKPkbxFw1ECeTfbCm2i6cB1dFTDrV3zFaCuEDB5ft0ZjhR2pdBnTsDpyp2K84CGYoiFRsqwUZhYaHWkJTa2lrXZVi54UIqOORxaCEw9Eig7Cj/h48M6G4FHLM8lv7nqpcNhRvywVYqQMoUqrqCGm5EzqFFradGynBDsTJC9rfK0A979rbKFH6Q86NyQ5qIknlb/pqZ6UhlP+nS7e2RyqGKQ1e2GqoWUTl2OaZMz7ChGqjIvZFoutd02NsarDDspKfBwEeurddwQnV93Sl1gyDSR+Mua8aUfho9qyRwkIBDenBs9XH6fNXKCDmPNYaqeGVbMnWsyrAT3cqNE4+31lGdmUWFDKNZ0WiFMqpDaigQ8rdyo8sh1n9+gZoZxSfjgvlbcJkVpWbzUpSuuEEp2BA1NTUoKlL77aoMSWluTv0DxLAuR6GoU5Y7q4eFTOEqIcdPf+tUdMhDqjz8IAGHVHFQLJkZxeRv21VnKel1qNl9Gj0HxUaYqQIC1aoN0003dyr23VCZRlWHXH82EPWHyeAgFdNDS9Kl+qHe1HVRCY5Ue4WYdKjih3DToYvq8BaTIYGJITUmthF0EnAsX6l3kHYPDp1QRNc3Fas2thqeBl41JFA9PnTMsHLZxWaDDXRMTTv++8D113GYTMjkb+WGuPpK4IqrO3KFHKjQSKR7j8BVbdhNQ2u3r3LtrxFt2LBhWkNS5syZ47pMZTcfmmzlC7snh/11dD/goP8wW9kh/TfWb7ceZDHR6yGaarghPSvkYSKUCOI5dFUMN0wfu+r2TIcbXn7rT6llomojSFSDhOmTrEe+XwfT4deOLIQbuTykxLSHHgM++hgYP1Zvw1LB8dCj+uGICtUhKSZ6baSzPQkWVJcbf46nQ3IlYZOEHLfc7u9+yJj8DjekemPQAODV5twKNGz77w9Uz8j8fjs0tb2L8pXWm4FUaahWZyQiw1FUhpjYWlpaUFdX57pc5WEMN4x5bqN1ny/sGFcZCTu+Bkw+ydse7ICDLDtSN8jVprO9gwIabuhsL9k5HKQ4G4zqDCeqVLdnerYa068B5a8DA1j9mI2hDKqzXaiGEapUKyByfUrVIFvyJ+vgdAOO8ydar9uSNGZFSkX1XvjI8HAM1coN1ePLVG+OY3ycsYyMy99hKbbpPwE6/0d4h5wkU1AA/M/PgEOy12VaqjIad70VeXgJNtDRGLS4uFh5eRm+4mZstwGcBtZPEnZI0HHOXGDWwo7wIw0yPIVTxDo+M9wAUmd7qkM33JhuYqlzDl2TVEAk+/N4po9dZ3umqzeITFDtuZHrVCs3TFc96GwvjP0rcoUEHFKJoWt8JXDWqWYvgmplhOl7dY/Ovap4jJnCcDA0GG6IG2cBXy0If6Bhk2Dj0h+HYupXFQ8//LDy1K/QqNqo6lHm74GTQyov7n0emHpveiHHgAx0D89XuTBbRpjPgbOVEJmXD/0cbPk2DCrMZIiJNAvVNX4ccH4ODOkyHZa0GO4Jkoz0HuFQrNBguIGO4SmXXKgWbgQ10Ig2cRIweEgwjsUDGYry+uuva82OIlSW79H5G+y3kQ3SfFRCDqnk0NHTYDNLIiLKbaZmZiEyTaaIlYBD98PyiJOBq6bz5YgmoYPOFLPpWvq0//sgYxhu2AYPBn50SeLQIgyBhu275YGe9lWVNA+V2U50KjbQ0US0sbHRdbmavmP8PQFKza7kUCXT0JI/TPdyyAYT56BaQWH6eqk2MhWf8Te0RClJFcPc+cCGtzN/nVQrKEyXt+sMNWGVRzCkG3DIDCoScHi9h1T3a/pe1ZkFZfduteXuug94/A/+TNcqwYk0Es1EgELG5HdD0XgScHz6KfBY9Ji4LDcF1SHBxg8vyNjudHpgqJJqDemXoTMrik3CkBkz3BuoStVGVffwV7aEngxPkWahKsGFzMJCFlN9L/ZeW40P66aaUGbzHJJNvZqtH/p1jp1DWCiIdnyi1m9i7gJg9XrNEwj4z13RsvUeotPQlaX1wbF1O/CLW6xZUVRnL0FUwHHXA+nPZqIaHJimE5bo3KtLn7Eee6X7vhGi9xtKipUb8U4/HRg9KvgVGvEyHGyIysrKSBhhgmxn5syZkX4Z6QQbra2tkeNRMWfAfxm+EpS29Ybn+8+EbFeRmN6/zpAfU81MdaoVVPT8lvqyyc5BNbjp2c3IIe+l2sjU9CwtRKaoTm2q2nAzrFT7fPQ83OwJqlZu5FMfkrCQcEIqOLZqzghX0t0KOHRCkWiqoUhxD7MXUrVJqB9VGJQ3GG4kMnkK8N1h4UnwshBsiKKiosgsJl4CjrFjx0Yahko4IRUbsk1dsm55eTm2bXNvLDSsy1HstREkpqc1zYRsD+PoZbj/iGoVhVQNmKoc6KURRqgwcQ6q4Ua2qk62fGB2v0SmKE9FGsApY01SneLV9IwlByn+NnxrCH+ZkA/sgEOGquiQYGP21VbQoesjxXAj3fAkGdXKjRZO/0/p47CUZOyw4IWGAB5clCwFGzbpiSHVFvX19ZGvKiSIQMe66YQZ0exgo7m52XXZwk4HoHbQFE/7I8NUqxCCFIJke+YWCVek2mLLDjPb6684vOwdQ/uDfQ7fArZ8aGZ7/UvUlksVEOzUqNyQ4zcV9Kgeu+rxEWWaauVG/6OAx/6Yuy+P6nUoOdwKekwNY+nXW205Vm4ElwzBkIBDhqjIsBNVEhbYQ1R0whHVyo2SHtY+TA1nOqav2nKs3CAPGG6kEvSA47jjsxps2CSg0J3RxASdYEPU9DkTxZ05x/tevboCA46wnkn/C5nJJNN6dlXb4Ts73ZeJfNhUCEu8Vl6YrpxIx9CjzYQbUoUwQLHs1FQQYSvrY2abkXNQDGhS7W/9VvV9jjoWWLRKfflkJChRHebCyg0Kqg1/UTuwkm9bj1ydyWTjW+rLjigDliz3vk8JSkoUh7lsec/7/shfEnCcP9GaGUVVdMCx5jW1lTa+ob79EacAS571ftoSlJQo/ryxNUNTvFJO4rAUNxIejDsneMfVpy8wXb83Ra6Q5qE6wcbYbgNQfeSIvL1e+xjdD7htPDB5qPWouwi4ZHhmG3dK1UYvxXBD5YO8ajijus9E5JjLFH9L5qfRA80Mjyk7Wn3ZDWqVWcpGlxo6B43fcq1PcQ4Sjq1S/IFv1HHq+0y5nWPVlosc25/N7DNbkjVyjZcLs/fkG6lAUA0sRg7O3Ysj12GN2s8kGGmoqfnIMrXl5Dfva5rM7JP89dCjwJI/6e/isgvVQ5HI/bBObdnh3zVzusNPUVtOjm2t4rERJcBwQ0XluGAFHDIU5eprA3Ag2SFDYHSCjYGFh6N20NTcuxDpkg/3EmTEk8DjnqnA0KMycxyTT1JbTkKL9QrjL1UrGbwMK5ms+J+z3+QD4LgTve1EKh4mDVNbVj5crzf8mxQ5h0qPP+BHziHBvZyInMMGl+oM1QBH9qsaTCQjFRuqIUnYgw1ozCTR8zC/j4T8oDoLioQbUr2Rq1SnoJW+GyM8vv9JxcYIxXBDNXShYHi83nroOn8ScNapaittUhzGIn03Rnj82UcqNlRDEk67Sh4FItwY1kXjN2/ZIgHH+RcABQXZPY4s99jIJntGlHHjxqGtTa0Hg9VnYyqKOuV4IzMdZUcmX1gqN648A5g5zluFgxuZAlY1RFn1llpVhmrlhnyoHt1f/5hHDwhG1YatcrBe5UU0uQZXVKgv/5xPPxhLuKFTeREtcg7j1Jdf9rraMqq9NCaNSH/mFDn2i76nvnwuhBuqs70MOSb3G0/moufXqgdY1ZPNvcbSx+OCc4DHbrMe0w1uOx3LV6tfhwlj1IeUxJNzvOBc9eVXs2ojdKR6Q6o4dI0fZ4Ucbpa/qN5LY/zZ6kNK4smwmWmT1ZdXrSghSoKVGzqGlQOX/jh7AUceBxu1tbUoLi7GokWLlNeRYKPhlCtQWmh42rWwUwktpBfHbedZQYfdl8OESHjyPfWqDbFQMcVXqe6wTT5Zb0pVCTYuHqW+fKZcWaEfcEjVwXXn6k2fuszH3/pdUakfcETOYYLmOSiEG6JesZeGBBS/mKgfcETWm6S+nlSbuFWchIFOz5CLzgr/+eYb+UC/WLE/mUwJe+2F3qaGHTIAuOZC6xE91EX+fLrGByk/LFbspSEBxTWX6AcckfUuVV9PeoHo9AOh4Fi+ErjrQf3DkeEpMkzFzVLFXhqRvh7V+gGHrPezGerrbXrDehB5wHBD1+Ah2Qk48jTYkKlmZVaVadOmKVdrgMFGajqNQ6W6Qqo46i4Gxg1Kf8iKBCoSaNRdorcNCTZUZ0qRYSmqy8oHzOvOcR+iIgHIlWOCGWzYJOCQKgyVKUql2uPWKfrBhuo0qemSgEMeSucwBLh1mn6woXoO0ihUdVm5j24536riUOkVMXYocPdP9AKRBc+rLxtkG7aoH5xUb8w4Fzj04Nw493wh1RvKM4Z8G5j7M2DCGeqVFhKGVJQDD86yAoz+Sf4vkT/PZvWGNArVmR73xhnAhDPVjvmsEcCcn+sFIo8tVV+WgkeahN4yV/+wBh9nNRpNNf2qNApVnTlFtnP9NVYVh8qUrmNOB26/SS8QefxJ9WWJkuBsKekY3DFO8t5fAV9+6f/+8jDYkEqNmpoabNumP86fwYaL9e8CQ1MMTUlEKi7sagup5hDzX3JfT2ZDSTcQkRlS5q/UW0eGsFSeoLasBBcScEgg8lyC8eJDe1tTroaBVG+UdcygsurNxOc6aqD+icgQjfo1mbkAUr1hz6CyKn4scLv1QXdUqf525Rx0Zza540krtFA1tsx6SIVFollXIj060mhCuujl3JklRX6zv3qTFVyokOXkIaHIhndiV5AhLrItChZ5jWWq1+kKJfE2CSvkIaHI84nea9qtLxM0hnGJnocDG7JYrTB3nhVaqJLQQh5SYZHouA89RL2/RrQlzwNb3zV1VpQtMs3rL252DyviybSyUnHxi5uSL3PX/cDsa9S3OeY06yEVFolmXen6TfXmodGWPsNZUsgIhhvpkoDj4IOB/70V+Ne//NtPHgUb0ijUfuhUaUTr0fkbqB9yKYONVGTa19HHeO+poTO0RJcEDrc/lca5bVAPN2zywT8ojUK9kjDGZCAjwYbfVRvxpCJDpyrDTb1GJYZNApYFK9Sbldr6l1gPEyTUyJWqDduyderhhq1/T+sRTz5I3/G7fYMPyq7VG4CSRqBCsVmxTaoyJpxh7tA/U+x74Zet7wGPPWVVZOjo19t6mCChBqs2csfW7U7AIU0+VZV0txqCSo+NRGS7jy+0enXoOKav9TBBQg1WbZAhHJbiRe+jgVtuA/bf35/t53iwIdO5SoVGVVUVioqKIo1C6+rq0g42hnU5Ck0jfs5gQ8X19VYFRxBJsDHrSfUhJtFknfpX/D0p2YdOfw/TpDIjE4GDDEfxq2pDKjMycg5N+lUbNllPtU+HaVKZMHt+dvbtJ6nCMFVxISX8MnSFzUeDR6o3ZIhKtkgViIQL2SbDU6TBaDbIsJib7s33OzH3yBASGaKyVfNnkBNdKgdleEqy8MNvOz8Cbr0j/15L8g0rN7w6pIsVcFz1U3MVHNLP45RhoQo2WlpaIg8hPTJkZhP7efTf24/Gxkaj+5/Z50zU9B1jdJs5TfpuzKq3pn9NNC1stshQFKnYSCfYsEmfDpnVRKdhqI7bl2a30kNeu9sXA7dN8W8fMu3rfYqNxtIhQ0V+WQ/cWuXfPmRa1/v/6G0b9z9tffU67asOqdi44w/qs7aEzaPLgJLDzPTTkGBDpo7NpeqNXHndH+z4LexIj1NWp7XvP2R+n8k8+IT1F16nfdUhFRtz69RnwiB1qtfUz2tvBxxSwVGiOLX9gQe6L/PQAuur12lfdUjFxt33817NlN278+I0GW6YIAHH3LuBq/4HSLPqYC8JNqRh6eAM/kfogVRfVFdXGw8rVMkwFJnqtbxLgKboDBMZorLqbWDyUCvoyCbpr6E6M0oq8uFAApKZZ6s1edRx/e+tvhaqPvPpg4ocgwQcV2pM56pKKkN+qT4rUdpk6IcEHNJI1Pg5bAbuWGhmWxJwSCWFNA3126o3gPufUp9KMhHVdb3swwu5lnOeAH7+AzNVF6b/jaeSiWurM5xCtXlnIpk4Fwk4pILA5HCTVOR6SLCx4e3M7E+VBBw7PtYfopKONU3W/tL9sBjE948gffBt2Q4MVgi7N8b3jTJMrok9RKWfwmxjUh2hQgKOj3bpD1FJx9p1wEOP5HawsUfChG/6vx/V1zdPQiQOSzGlc2fgznuArh7Gu4cs2JAKjPLy8qwFG1KtIcNQGGx4JJUA964Apt4PzH858/uXgOVHtWaCDZt8+E93aEsish0JNuzhKCoBh4QsOkGILgkhrv+d2d/0SrVGJoINm4QQs39r9hykWsNUsGGTISpXPeTflKxy/lKtYaJiQ8IDFdlsVLrlr8DV91tfvdqpeL4m7FAME7ycl3xAVwktNvzF2wlteV9tua2KyyWzuBG45k5/A4dII9Ongem3BC/YsMkQlWvv8G9KVrkGUq3htWJjh+IsLyaalMo2VI51Y4Im2dmyRnGo4toMDWmUCg6ZTcXNCo3m7DJERRqQJmoWaoK85nfdZz1y/cP2xj+rLbfJ43DNqEp5X/cTEl+pOfrsmqweagFQ++5KbNuTfCoi+QAtj1A49TRg7Rrg73/XvA7hCjaEVGysWZOhmRSiTO0+BPVDLkHlYaX42lc6ZXz/WeP37MP/+jew+QPgd2uA9z4BdvwN6HuYf/uT2VbuXQ40vgHs1pieForX4tPdwNOvA/t/Fejz7XSP0ppJRSpB3ov6oU/CjjNdxrD+bhWwWeODwfG9gF4K4agEJuvecY5Djk+uRx8PvWYkKLn1SWCDx07lxx+p1gxUqjbWdXw4k94bzzVZ33s6h83ArU9Yw1H88OlnwAsbgPd2AQd9zcywCgkynngBuPVxa7smSGgxqDdw8H8m35gsU+fjsCMVcu7PrwNa/w706Q7sn8Z7ufTv+KNGTwOv76Fb/woc18fl2v4VqEujGXK0T/8ODOmfepkH671Vbry3ExjUFzj468mXkWCjzkBDyta/AS++Bry/06rWkZk/TJAgY0kDMHc+8KbHf/eZmN0/ch3WAe/tAA46AOhq4DpIqPGHZ4H/+w3w/ofetyeBwyknpJ6RQ5Z5xECA/MUX1td+R6de7t751rXLluh7Qz6Mt7YBx6b49/n4IrXAwZS1rwGd9geO7pXkeBYCKzV7v8g5rlwDvP9X617oaqD6QK7dwiXAL+8G3s+RWcDc3jc++gg4aWjq3oxrXwFWePwlsfxb6tQJ6O3yy9577vEvUMrEe6iaxoL2ikfaEy+a5I+VaKxbAJS/dDMadyUv4Zo5c2ZkWtBQ+fU9wGrFRnb77Qdc8qNQBRvo6K3R3Nycsf1JqCF9NYo7p/MDQYbuZz/X1XrjMHjM0rvCnjrWywwp0k9DhsDI14QNOfXeN7TWldL10f2th0ovDvngtfAVa2rZZNUfA7oDV45JXBZ/33OJp5dNdcwXnwqMHuB+bLLd+H4YBfY5DgRGDbCmHnUjoYI0DdVqUOpynS8+TW26Vmn0ed8z+/555BxKrW0on8PrsQ1Kde+NlFKsK8c3pC9Q1hfo2U1vswuWWxUHq5L9ZszjMct1vOL7iWcZWf1n4P6lSSpEsvheJ7OoSGA0cbTaKotWAo8+5+/7RiLy4bx6PNA/wQeJ1RuBBxYplOwr7HdIP6B6wr5/Ltt+oN6alURb3H7lA/b0iUD/BFODS2XI3EejzsXgvSHXcORgoN+RQH/NqcIXN1g/nMtX3f2mkqn3jWgSbgweCAwZCJRoBrsyC4oM+VkT/TOYoWOW8OnyKqDkiH0Xk8qTO2vjPiClu9+O9c4aBZyXYIil7OPOh1NUbmTuc8o+60qvi+EnASNOdv5YAo0VL7kMSfF4rVIZfJw1Bas9TEWOY8WLwJp1ae4zar8yO8vgQcCJg4CSHnqbkFlQZNjEWt3jyMb/R5rrxdwbSdYtLgZ+cmnigEhCjYfrzJ3rmDOBc/9r30Xk+j9cm6Byw+A1ztZnlH3NCkW4MWzYMDQ0qPxHFjC/eRB4weW4Jc2ThqSHaEzrFBAFBf7HdIWdDkB1r5Go6lGG4s7f8LAlhhvG1x1whPt0shIMvKxaJpzBH0QlmNg7ZWrculqzrbRbgUR0wFGvOkuA4XAjXtnRiQMCGbawKt0yX5/DjXhlfTrOIW6/EmSsSvJ/RjY+pNjGliX/OxnSojwUxNAxS+gyICrgkGAj5bCVAL1PygfgUYP2/XM5/pgZV7L0AVaubb+oUECCDeVKCo39VnzX+V6CBk+zkCT5P6Xk27EBhwQb+wxH8fnekLAjYQ+WdutY0hpuEvBwI5GzUjT4lmAh5Swwho7ZvhYyJW10wBHZf6LhKIY+SErIYZNgY7nbMNkshhuZ2G/W95lg3ehrMea05Ktt2gxs9VpFmSPhhu2Y7wAlxc5zCTb2Nvg0fK5jovr77NxpVYeorpvufhluRMnlcEPMnwcsew5oT3BNQhxswMdwQwKNym6lqOw2MDL0xJEDAYWXdYMWbmRz3aD8IGpyXdPhhup+tWQ43EjnmHPx3vCyLt83HLw3Yp/y3nDw3nC+1f7RLhsf2L2uz3AjrXUz9p7hdf0Ahhsm9xvEdQMUbnC2FL9NngIc1dsaphIdcEgD0htuCm2wYdrAwsMjjUEl1GCDUCIiIiIiItLBcCMTpJfG174G3HMX8K9/AUd0B2bfmPvnnYBM3VrcuQtKCw+P9M4oLTyCYQYRERERERF5wnAjUwaWAvf/JmdOp0Vh2qE7+p8bCS+KOh0Q+WrxWqZGREREREREFIvhBqVFJdxgVQYRERERERFlwn68ypQOlQavMvSEiIiIiIiIyG+BCDdKv949AEdBOpqamlyXLurUmdeUiIiIiIiIfBeIcIMfgsPHrXJjGIejEBERERERUYaEYliKSpUAZY68Hm1tbSn35zQQJSIiIiIiIvJXKMIN+SDd2toagCMhMWfOHNfrwEaiRERERERElCmBCDfKu/R1XUalgSX5T0Km+vp6hdeU4QaRlt3/UFt6R4CD3s9y4ByIiIiIKJQCEW4Ud+7iuozKB2ryX01NjeuQlLHdBrKPCpGu55rVVlj1ZnAv7TLVc9js95EQERERUZ4JTLjRwyXgqKur49CULJNeG3PnznU9iMpupTl+JYh8sKMNuO9Pqbc7/wVruaCSioz7nk19cAsaWLlBRERERMZ9pebos2uyelkLrC9NbdvR/LftKRf98MMPUVlZmZnjohgSLMm137FjR8oL06PzIag9rsrcxSvg67AXr4UjV6/Flh3A5veB/b8KHBEV+Eq1xu9WAcvWJ14vSNdjy4fAm4nOYTPwxEpgmc8NovnvJBavh4PXIhavh4PXwsFrEYvXw8FrEYvXwxGca9H41QAcRERlt+NQ9+7KlMtI9UZ5eTmqqgx+eCZXEmzIdW9udi85r+pexgtK5MX6bdYDS8J7Gde3WA8sivrD9iweEBERERHlusDMllLZbZDr0BQxbdo01NbWZuSYCGhpaVEONgo7HYDqXiN51YiIiIiIiCijAjUVbHXPU5WWk4BDGluyB4e/ZMrX0tJSpWBDzOl/LhuJEhERERERUcYFK9zodVqkZ4OKWbNmRT54SxUHQw5z5FrKNS0uLsaMGTNcZ0axDevSG1Xdh4bmPImIiIiIiCh3FLRXPJJkILSX8dEa68Y1IGnY9QaGv3SL9h7Hjh0bCTtkCAUlJrOdpAqC5O8XLVqkffVkOErLqTcpVm1o3lcx90eG7smgrqvVrCfHr9U+14L3Rlb2G8R1eW/EPuW94eC9EfuU94aD94bzrXZjwHT367UPUz7dG/n2nuF1/QxdZ35GcQTn/5NZgQs3ZN3qDY9i7haXKREpECTYaDj5SpQWHmH+3gDfOGLwB1EHfxCNfcp7w8F7I/Yp7w0H743Yp7w3HLw3nG8ZbsRiuOFguBGLn1EcAQo3AjUsxTan/0RMPeLkYBwMpSR9NtSDDSIiIiIiIiLzAjMVbDwJOITb9LCUHfoVG0RERERERET+CGTlhpD+DbXHXYDpijOoUOYMLDycwQYREREREREFRmDDDZtUcCw88fJIpQBl38w+Z6Fp+C8YbBAREREREVFgBHZYSrTKbsehNeOH8QAABM1JREFUpcvtmPPOnzBny7No++Lz4BxcnpjavQw1fSpQHJmq12uTICIiIiIiIiJzAjlbSiqtX+yJhBy1776IbXs+9nCM5KZH50NQ1X1o5GGFGmqvUWrsRJz2uuxs72Bn+9invDccvDdin/LecPDeiH3Ke8PBe8P5lrOlxOJsKQ7OlhKLn1EcnAo2ioc3jaa27WjYtdl6fPwGKzo8kl4axZ27oLxLb5R3OTrF0BOGG1lZlz+IOviDaOxT3hsO3huxT3lvOHhvxD7lveHgveF8y3AjFsMNB8ONWPyM4mC4EcXwm4YEHemumx1qN4cEDdJk1dwxh2RdvnE4+IOogz+Ixj7lveHgvRH7lPeGg/dG7FPeGw7eG863DDdiMdxwMNyIxc8ojgCFG6HouaGjvEufNNcM481BRERERERERIGfLYWIiIiIiIiIKBWGG0REREREREQUagw3iIiIiIiIiCjUGG4QERERERERUagx3CAiIiIiIiKiUGO4QUREREREREShxnCDiIiIiIiIiMKsieEGEREREREREYVZK8MNIiIiIiIiIgqtgnkLGhhuEBEREREREVFYNYM9N4iIiIiIiIgoxJrAcIOIiIiIiIiIQqweDDeIiIiIiIiIKKTaCuYt2BtubOOrSEREREREREQhU28froQbNXz1iIiIiIiIiChk9uYZ+3UkHW18BYmIiIiIiIgoJOoK5i1osQ91v4LFP2gFUM1Xj4iIiIiIiIhCImYUSqShaMHiH9Tac8MSEREREREREQXY3OiqDcTNllLFV46IiIiIiIiIAmxbot6he8ONgsU/aAIwg68gEREREREREQVUZcG8Ba3xhxZduSEBxxxpysFXkIiIiIiIiIgCZlrBvAVNiQ5pv/g/KFj8Axme0shXkIiIiIiIiIgCYkbBvAW1yQ5ln3CjQyUbjBIRERERERFRAEgD0TmpDqMg1V+2V8yTVGSq/nm0qy+6zxForOtlv0FdN+UrEtBj9nPdmOvBeyMr+w3iunzfiH3Ke8PBeyP2Ke8NB++N2Ke8Nxy8N5xvte4LL/v1crxe1w/bvZFv7xle18/QdeZnFEdm7o1pBfPmJ63YsCWr3IgoWDylik1GiYiIiIiIiCjD2gAMVwk24BZuwAo4pPTjWA5TISIiIiIiIqIMWASguGDe/AbVXekVkVTMk7lkqwEUuiypvlGWAsY+ZZloLJZ8OXhvOPi+EfuU94aD90bsU94bDt4bsU95bzh4bzjfclhKLA5LcXBYSix+RnGYvze2AajSCTVs+m9hFfOKOgIOGbLSI8lSHo6AN0dW9hvUdfnG4eC94eD7RuxT3hsO3huxT3lvOHhvxD7lveHgveF8y3AjFsMNB8ONWPyM4jB3b8hIkTmqQ1AS0X4Lizm0inmVHTOrVMZWc/A/lLTX5Q8bsfjG4eC94eD7RuxT3hsO3huxT3lvOHhvxD7lveHgveF8y3AjFsMNB8ONWPyM4vB2b0iVRj2A2oJ585s8HFSEp3AjWnvFvFIA5QCKgPby9I+AN0dW9hvUdfnG4eC94eD7RuxT3hsO3huxT3lvOHhvxD7lveHgveF8y3AjFsMNB8ONWPyM4tC7N1oBNNmPgnnzWzwcCBEREREREREREREREREREREFA4D/D7xd9TFVENkLAAAAAElFTkSuQmCC"/></svg>';
+
+// src/settings/donationButton.ts
+var DonationButton = class {
+  /** DOM parser used for parsing SVG content. */
+  parser;
+  /**
+   * Constructs a new DonationButton instance.
+   */
+  constructor() {
+    this.parser = new DOMParser();
+  }
+  /**
+   * Creates a donation button element.
+   * @param link - The URL to which the donation button should redirect.
+   * @param img - The image element to use for the donation button.
+   * @returns - The created donation button as an HTMLElement.
+   */
+  createDonateButtonElement(link, img) {
+    const a = document.createElement("a");
+    a.setAttribute("href", link);
+    img.style.height = "auto";
+    img.style.width = "100%";
+    a.appendChild(img);
+    const div = document.createElement("div");
+    div.appendChild(a);
+    return div;
+  }
+  /**
+   * Creates the donation button.
+   * @param containerEl - The container element to which the donation button should be appended.
+   * @returns - The container element with the appended donation button.
+   */
+  createDonationButton(containerEl) {
+    const div = containerEl.createEl("div");
+    div.id = DOM_IDENTIFIERS.DONATION_BUTTON;
+    div.appendChild(this.createDonateButtonElement(DONATION_LINK, this.parser.parseFromString(KOFI_SVG, "text/xml").documentElement));
+    return div;
+  }
+};
+
+// src/utility/utilities.ts
+var import_obsidian = require("obsidian");
+
+// src/utility/config.ts
+var UNIT_CONFIGS = {
+  "%": { min: 0, max: 100, step: 1, defaultValue: 50, label: "%", maxInputLength: 3 },
+  "px": { min: 100, max: 4e3, step: 10, defaultValue: 800, label: "px", maxInputLength: 4 },
+  "ch": { min: 10, max: 200, step: 1, defaultValue: 80, label: "ch", maxInputLength: 3 }
+};
+var UNIT_ABSOLUTE_BOUNDS = {
+  "%": { min: 0, max: 100 },
+  "px": { min: 1, max: 99999 },
+  "ch": { min: 1, max: 9999 }
+};
+var PILLS_PRESET_COUNT = 3;
+var DEFAULT_PILLS_PRESETS = [
+  { value: 30, unit: "%" },
+  { value: 50, unit: "%" },
+  { value: 100, unit: "%" }
+];
+var VALID_UNITS = ["%", "px", "ch"];
+var CONFIG = {
+  /** Delay in milliseconds for debounce operations. */
+  DEBOUNCE_DELAY: 300,
+  /** Threshold for hiding the slider. */
+  SLIDER_HIDE_THRESHOLD: 0.954
+};
+function parseWidthValue(raw, defaultUnit) {
+  if (raw === void 0 || raw === null) {
+    return null;
+  }
+  if (typeof raw === "number" && !isNaN(raw)) {
+    return { value: raw, unit: "%" };
+  }
+  if (typeof raw === "string") {
+    const trimmed = raw.trim();
+    const match = trimmed.match(/^(-?\d+(?:\.\d+)?)\s*(px|ch|%)$/);
+    if (match) {
+      const value = parseFloat(match[1]);
+      const unit = match[2];
+      return { value, unit };
+    }
+    const num = parseFloat(trimmed);
+    if (!isNaN(num)) {
+      return { value: num, unit: defaultUnit };
+    }
+  }
+  return null;
+}
+function formatWidthForYaml(wv) {
+  if (wv.unit === "%") {
+    return wv.value;
+  }
+  return `${wv.value}${wv.unit}`;
+}
+function widthValueToCss(wv, editorDiv) {
+  switch (wv.unit) {
+    case "%": {
+      const charWidth = getCharWidthSync();
+      if (!charWidth) {
+        return null;
+      }
+      const noteWidth = charWidth * (1 + wv.value / 100 * (editorDiv.clientWidth / charWidth - 1));
+      return `${noteWidth}px`;
+    }
+    case "px":
+      return `${wv.value}px`;
+    case "ch":
+      return `${wv.value}ch`;
+  }
+}
+
+// src/utility/utilities.ts
+function isActiveLeafMarkdown(app) {
+  const activeView = app.workspace.getActiveViewOfType(import_obsidian.MarkdownView);
+  return !!activeView;
+}
+function getActiveMarkdownView(app) {
+  return app.workspace.getActiveViewOfType(import_obsidian.MarkdownView);
+}
+function getActiveEditorDiv(app, mode) {
+  const activeView = getActiveMarkdownView(app);
+  if (activeView) {
+    if (mode === "preview") {
+      return activeView.containerEl.querySelector(classSelector(DOM_IDENTIFIERS.MARKDOWN_PREVIEW_VIEW));
+    } else if (mode === "source") {
+      return activeView.containerEl.querySelector(classSelector(DOM_IDENTIFIERS.CM_SCROLLER));
+    }
+  }
+  return null;
+}
+function classSelector(className) {
+  return `.${className}`;
+}
+function getEditorDivForView(view, mode) {
+  if (mode === "preview") {
+    return view.containerEl.querySelector(classSelector(DOM_IDENTIFIERS.MARKDOWN_PREVIEW_VIEW));
+  } else if (mode === "source") {
+    return view.containerEl.querySelector(classSelector(DOM_IDENTIFIERS.CM_SCROLLER));
+  }
+  return null;
+}
+function getCharWidthSync() {
+  const editorDiv = document.querySelector(classSelector(DOM_IDENTIFIERS.MARKDOWN_PREVIEW_VIEW)) || document.querySelector(classSelector(DOM_IDENTIFIERS.CM_SCROLLER));
+  if (!editorDiv) {
+    console.error("Editor not found!", new Error().stack);
+    return null;
+  }
+  const editorFontFamily = window.getComputedStyle(editorDiv).fontFamily;
+  const editorFontSize = window.getComputedStyle(editorDiv).fontSize;
+  const canvas = document.createElement("canvas");
+  const context = canvas.getContext("2d");
+  if (!context) {
+    console.error("Failed to get canvas context!", new Error().stack);
+    return null;
+  }
+  context.font = `${editorFontSize} ${editorFontFamily}`;
+  const metrics = context.measureText("m");
+  const charWidth = metrics.width;
+  canvas.remove();
+  return charWidth;
+}
+function validateWidth(width, unit = "%", unitConfig) {
+  const config = unitConfig ?? UNIT_CONFIGS[unit];
+  return Math.min(config.max, Math.max(config.min, width));
+}
+function validateWidthValue(wv, unitConfig) {
+  return { value: validateWidth(wv.value, wv.unit, unitConfig), unit: wv.unit };
+}
+
+// src/note/yamlFrontMatterProcessor.ts
+var YamlFrontMatterProcessor = class {
+  /**
+   * Constructs a new YamlFrontMatterProcessor instance.
+   * @param app - The Obsidian application instance.
+   */
+  constructor(app) {
+    this.app = app;
+  }
+  /**
+   * Replaces a specified YAML key in all notes with a new key.
+   * @param oldKey - The original key to be replaced.
+   * @param newKey - The new key to replace the original with.
+   * @param progressBarModal - The progress bar modal to indicate progress.
+   */
+  async replaceYamlKeyInAllNotes(oldKey, newKey, progressBarModal) {
+    const files = this.app.vault.getMarkdownFiles();
+    const incrementValue = 100 / files.length;
+    for (const file of files) {
+      if (progressBarModal.isCancelled) {
+        break;
+      }
+      await this.app.fileManager.processFrontMatter(file, (frontMatter) => {
+        if (oldKey in frontMatter) {
+          frontMatter[newKey] = frontMatter[oldKey];
+          delete frontMatter[oldKey];
+        }
+      });
+      progressBarModal.incrementProgress(incrementValue);
+    }
+  }
+  /**
+   * Update the specified YAML key's value in all Markdown files within the vault.
+   * @async
+   * @param {string} yamlKey - The key in the YAML front matter to update.
+   * @param {number} newValue - The new value to set for the specified YAML key.
+   * @param {ProgressBarModal} progressBarModal - The progress bar modal to indicate the progress of the operation.
+   * @returns {Promise<void>} - Resolves when all files have been processed.
+   * @throws Will throw an error if the operation fails.
+   */
+  async updateAllYamlValues(yamlKey, newValue, progressBarModal) {
+    const files = this.app.vault.getMarkdownFiles();
+    const incrementValue = 100 / files.length;
+    for (const file of files) {
+      if (progressBarModal.isCancelled) {
+        break;
+      }
+      await this.app.fileManager.processFrontMatter(file, (frontMatter) => {
+        if (yamlKey in frontMatter) {
+          frontMatter[yamlKey] = newValue;
+        }
+      });
+      progressBarModal.incrementProgress(incrementValue);
+    }
+  }
+  /**
+   * Sets a value for a given YAML key in the active note's front matter.
+   * @param key - The key to set its value.
+   * @param value - The value to set for the specified key.
+   */
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  async setYamlValue(key, value) {
+    const activeView = getActiveMarkdownView(this.app);
+    if (!activeView || !activeView.file) return;
+    await this.app.fileManager.processFrontMatter(activeView.file, (frontMatter) => {
+      frontMatter[key] = value;
+    });
+  }
+};
+
+// src/modals/progressBarModal.ts
+var import_obsidian2 = require("obsidian");
+
+// src/ui/domElementManager.ts
+var DOMElementManager = class {
+  /** Cache to store queried DOM elements. */
+  cachedElements = /* @__PURE__ */ new Map();
+  /**
+   * Searches for a DOM element using the provided selector and caches it.
+   * @param selector - CSS selector to query the element.
+   * @param context - Context (root element) in which to perform the query.
+   * @returns The queried DOM element or null if not found.
+   */
+  querySelector(selector, context = document) {
+    const cacheKey = this.generateCacheKey(selector, context);
+    if (this.cachedElements.has(cacheKey)) {
+      return this.cachedElements.get(cacheKey) || null;
+    }
+    const element = context.querySelector(selector);
+    this.cachedElements.set(cacheKey, element);
+    return element;
+  }
+  /**
+   * Invalidates (removes) an element from the cache.
+   * @param key - The cache key of the element to invalidate.
+   */
+  invalidateCache(key) {
+    this.cachedElements.delete(key);
+  }
+  /**
+   * Generates a cache key based on the selector and context.
+   * @param selector - The CSS selector.
+   * @param context - The context in which to perform the query.
+   * @returns The generated cache key.
+   */
+  generateCacheKey(selector, context = document) {
+    return `${selector}-${context}`;
+  }
+};
+var domElementManager = new DOMElementManager();
+
+// src/modals/progressBarModal.ts
+var ProgressBarModal = class extends import_obsidian2.Modal {
+  /**
+   * Constructs a new ProgressBarModal instance.
+   * @param app - The Obsidian application instance.
+   * @param title - String which represents the modal title
+   */
+  constructor(app, title) {
+    super(app);
+    this.title = title;
+    this.progress = 0;
+  }
+  /** Current progress percentage. */
+  progress = 0;
+  /** Flag indicating if the progress has been cancelled. */
+  isCancelled = false;
+  /**
+   * Adds a cancel button to the modal.
+   */
+  addCancelButton() {
+    const cancelButton = this.contentEl.createEl("button", { text: t("button.cancel") });
+    cancelButton.style.marginTop = "20px";
+    cancelButton.style.float = "right";
+    cancelButton.onclick = () => {
+      this.isCancelled = true;
+      this.close();
+    };
+  }
+  /**
+   * Updates the displayed progress in the modal.
+   */
+  updateProgress() {
+    const innerDiv = this.contentEl.querySelector(classSelector(DOM_IDENTIFIERS.PROGRESS_INNER));
+    if (innerDiv) {
+      innerDiv.style.width = `${this.progress}%`;
+    }
+  }
+  /**
+   * Adds a container for the progress bar to the modal.
+   */
+  addProgressBarContainer() {
+    if (domElementManager.querySelector(classSelector(DOM_IDENTIFIERS.PROGRESS_BAR_CONTAINER), this.contentEl)) {
+      return;
+    }
+    const progressBarContainer = this.contentEl.createDiv({ cls: DOM_IDENTIFIERS.PROGRESS_BAR_CONTAINER });
+    const outerDiv = progressBarContainer.createDiv({ cls: DOM_IDENTIFIERS.PROGRESS_OUTER });
+    outerDiv.createDiv({ cls: DOM_IDENTIFIERS.PROGRESS_INNER });
+  }
+  /**
+   * Increments the displayed progress by a given percentage.
+   * @param percentage - The percentage by which to increment the progress.
+   */
+  incrementProgress(percentage) {
+    this.progress += percentage;
+    this.updateProgress();
+  }
+  /**
+   * Called when the modal is opened.
+   * Sets up the modal elements and event listeners.
+   */
+  onOpen() {
+    this.titleEl.setText(this.title);
+    const closeEl = this.containerEl.querySelector(".modal-close-button");
+    if (closeEl) closeEl.remove();
+    document.body.addEventListener("click", this.handleClickOutside, true);
+  }
+  /**
+   * Handles clicks outside the modal.
+   * @param event - The mouse event object.
+   */
+  handleClickOutside = (event) => {
+    if (this.modalEl && this.modalEl.contains(event.target)) {
+      return;
+    }
+    this.isCancelled = true;
+    this.close();
+    document.body.removeEventListener("click", this.handleClickOutside, true);
+  };
+  /**
+   * Displays the progress bar modal.
+   */
+  display() {
+    this.open();
+    this.addProgressBarContainer();
+    this.addCancelButton();
+    this.updateProgress();
+  }
+  /**
+   * Closes the modal and removes event listeners.
+   */
+  close() {
+    const cacheKey = domElementManager.generateCacheKey(classSelector(DOM_IDENTIFIERS.PROGRESS_INNER), this.contentEl);
+    domElementManager.invalidateCache(cacheKey);
+    document.body.removeEventListener("click", this.handleClickOutside);
+    super.close();
+  }
+};
+
+// src/modals/resetOverridesModal.ts
+var import_obsidian3 = require("obsidian");
+var ResetOverridesModal = class extends import_obsidian3.Modal {
+  /**
+   * Constructs a new ResetOverridesModal.
+   * @param app - The Obsidian application instance.
+   * @param overrides - Map of file paths to their stored WidthValue.
+   * @param onConfirm - Callback invoked with the paths the user chose to remove.
+   */
+  constructor(app, overrides, onConfirm) {
+    super(app);
+    this.overrides = overrides;
+    this.onConfirm = onConfirm;
+  }
+  rows = [];
+  selectAllBox = null;
+  selectAllLabel = null;
+  removeBtn = null;
+  emptyEl = null;
+  filter = "";
+  /** Opens the modal and builds its content. */
+  onOpen() {
+    const { contentEl, titleEl } = this;
+    titleEl.setText(t("modal.reset_overrides.title"));
+    const paths = Object.keys(this.overrides).sort();
+    contentEl.createEl("p", {
+      text: t("modal.reset_overrides.desc", { count: paths.length })
+    });
+    this.renderSearch(contentEl);
+    this.renderSelectAll(contentEl);
+    this.renderList(contentEl, paths);
+    this.renderButtons(contentEl);
+    this.applyFilter();
+  }
+  /** Search input; live-filters the list. */
+  renderSearch(container) {
+    const input = container.createEl("input", { type: "text" });
+    input.placeholder = t("modal.reset_overrides.search_placeholder");
+    input.style.width = "100%";
+    input.style.marginBottom = "8px";
+    input.style.padding = "6px 8px";
+    input.oninput = () => {
+      this.filter = input.value.trim().toLowerCase();
+      this.applyFilter();
+    };
+  }
+  /** Master "select all" checkbox row; operates on the currently visible rows. */
+  renderSelectAll(container) {
+    const row = container.createDiv({ cls: "cnw-reset-select-all" });
+    row.style.display = "flex";
+    row.style.alignItems = "center";
+    row.style.gap = "8px";
+    row.style.padding = "6px 4px";
+    row.style.borderBottom = "1px solid var(--background-modifier-border)";
+    row.style.marginBottom = "6px";
+    row.style.fontWeight = "500";
+    this.selectAllBox = row.createEl("input", { type: "checkbox" });
+    this.selectAllBox.checked = true;
+    this.selectAllBox.id = "cnw-select-all";
+    this.selectAllBox.onchange = () => {
+      const target = this.selectAllBox?.checked ?? false;
+      for (const r of this.visibleRows()) {
+        r.checkbox.checked = target;
+      }
+      this.syncSelectAll();
+      this.refreshRemoveButton();
+    };
+    this.selectAllLabel = row.createEl("label");
+    this.selectAllLabel.htmlFor = "cnw-select-all";
+    this.selectAllLabel.style.cursor = "pointer";
+    this.selectAllLabel.style.userSelect = "none";
+  }
+  /** Scrollable list; one row per override. */
+  renderList(container, paths) {
+    const listEl = container.createDiv({ cls: "cnw-reset-list" });
+    listEl.style.height = "320px";
+    listEl.style.overflowY = "auto";
+    listEl.style.margin = "0 0 8px";
+    listEl.style.paddingRight = "6px";
+    listEl.style.border = "1px solid var(--background-modifier-border)";
+    listEl.style.borderRadius = "4px";
+    for (const path of paths) {
+      const wv = this.overrides[path];
+      const row = listEl.createDiv({ cls: "cnw-reset-row" });
+      row.style.display = "flex";
+      row.style.alignItems = "center";
+      row.style.gap = "8px";
+      row.style.padding = "4px 8px";
+      row.style.borderBottom = "1px solid var(--background-modifier-border-hover)";
+      const checkbox = row.createEl("input", { type: "checkbox" });
+      checkbox.checked = true;
+      checkbox.id = `cnw-reset-${this.rows.length}`;
+      checkbox.onchange = () => {
+        this.syncSelectAll();
+        this.refreshRemoveButton();
+      };
+      const label = row.createEl("label");
+      label.htmlFor = checkbox.id;
+      label.style.cursor = "pointer";
+      label.style.userSelect = "none";
+      label.style.flex = "1";
+      label.style.overflow = "hidden";
+      label.style.textOverflow = "ellipsis";
+      label.style.whiteSpace = "nowrap";
+      label.setText(path);
+      label.title = path;
+      const value = row.createEl("span", { text: `${wv.value}${wv.unit}` });
+      value.style.color = "var(--text-muted)";
+      value.style.fontSize = "var(--font-ui-smaller)";
+      value.style.fontVariantNumeric = "tabular-nums";
+      value.style.minWidth = "48px";
+      value.style.textAlign = "right";
+      this.rows.push({ path, container: row, checkbox });
+    }
+    this.emptyEl = listEl.createDiv({ text: t("modal.reset_overrides.empty_filter") });
+    this.emptyEl.style.padding = "12px";
+    this.emptyEl.style.textAlign = "center";
+    this.emptyEl.style.color = "var(--text-muted)";
+    this.emptyEl.style.display = "none";
+  }
+  /** Cancel / Remove buttons. */
+  renderButtons(container) {
+    const buttonRow = container.createDiv();
+    buttonRow.style.display = "flex";
+    buttonRow.style.justifyContent = "flex-end";
+    buttonRow.style.gap = "8px";
+    const cancelBtn = buttonRow.createEl("button", { text: t("button.cancel") });
+    cancelBtn.onclick = () => this.close();
+    this.removeBtn = buttonRow.createEl("button", { cls: "mod-warning" });
+    this.removeBtn.onclick = async () => {
+      const paths = this.rows.filter((r) => r.checkbox.checked).map((r) => r.path);
+      this.close();
+      await this.onConfirm(paths);
+    };
+  }
+  /** Show or hide each row based on the current filter. */
+  applyFilter() {
+    let visible = 0;
+    for (const r of this.rows) {
+      const match = this.filter === "" || r.path.toLowerCase().includes(this.filter);
+      r.container.style.display = match ? "" : "none";
+      if (match) visible++;
+    }
+    if (this.emptyEl) {
+      this.emptyEl.style.display = visible === 0 ? "" : "none";
+    }
+    this.syncSelectAll();
+    this.refreshRemoveButton();
+  }
+  /** All rows currently passing the filter. */
+  visibleRows() {
+    return this.rows.filter((r) => r.container.style.display !== "none");
+  }
+  /**
+   * Master checkbox reflects the state of the *visible* rows.
+   * Its label counts them, so the user always sees what the toggle will act on.
+   */
+  syncSelectAll() {
+    if (!this.selectAllBox || !this.selectAllLabel) return;
+    const visible = this.visibleRows();
+    const checkedVisible = visible.filter((r) => r.checkbox.checked).length;
+    this.selectAllBox.checked = visible.length > 0 && checkedVisible === visible.length;
+    this.selectAllBox.indeterminate = checkedVisible > 0 && checkedVisible < visible.length;
+    this.selectAllBox.disabled = visible.length === 0;
+    this.selectAllLabel.setText(`${t("modal.reset_overrides.select_all")} (${visible.length})`);
+  }
+  /**
+   * Remove button counts every selected entry, including hidden ones, so a
+   * search filter does not silently understate what the button will delete.
+   */
+  refreshRemoveButton() {
+    if (!this.removeBtn) return;
+    const count = this.rows.filter((r) => r.checkbox.checked).length;
+    this.removeBtn.setText(t("modal.reset_overrides.remove", { count }));
+    this.removeBtn.disabled = count === 0;
+  }
+};
+
+// src/settings/settingsTab.ts
+var CustomNoteWidthSettingTab = class extends import_obsidian4.PluginSettingTab {
+  /**
+   * Constructs a new CustomNoteWidthSettingTab instance.
+   * @param app - The Obsidian application instance.
+   * @param plugin - Reference to the CustomNoteWidth plugin.
+   */
+  constructor(app, plugin) {
+    super(app, plugin);
+    this.plugin = plugin;
+    this.donationButton = new DonationButton();
+    this.yamlProcessor = new YamlFrontMatterProcessor(app);
+  }
+  donationButton;
+  yamlProcessor;
+  /**
+   * Re-renders the settings tab without losing the current scroll position.
+   * Obsidian rebuilds containerEl on display() and resets scroll to the top.
+   */
+  redrawKeepingScroll() {
+    const scroller = this.findScrollableAncestor();
+    const scroll = scroller?.scrollTop ?? 0;
+    this.display();
+    if (scroller && scroll > 0) {
+      requestAnimationFrame(() => {
+        scroller.scrollTop = scroll;
+      });
+    }
+  }
+  /** Finds the ancestor element that actually scrolls the settings tab. */
+  findScrollableAncestor() {
+    let el = this.containerEl;
+    while (el) {
+      const overflowY = window.getComputedStyle(el).overflowY;
+      if ((overflowY === "auto" || overflowY === "scroll") && el.scrollHeight > el.clientHeight) {
+        return el;
+      }
+      el = el.parentElement;
+    }
+    return null;
+  }
+  display() {
+    let updateTimeout;
+    const { containerEl } = this;
+    containerEl.empty();
+    new import_obsidian4.Setting(containerEl).setName(t("settings.language.name")).setDesc(t("settings.language.desc")).addDropdown((dropdown) => {
+      for (const loc of SUPPORTED_LOCALES) {
+        dropdown.addOption(loc.value, loc.label);
+      }
+      dropdown.setValue(this.plugin.settingsManager.getLanguage());
+      dropdown.onChange(async (value) => {
+        setLocaleOverride(value === "auto" ? null : value);
+        await this.plugin.settingsManager.saveSettings({
+          ...this.plugin.settingsManager.settings,
+          language: value
+        });
+        this.redrawKeepingScroll();
+      });
+    });
+    new import_obsidian4.Setting(containerEl).setName(t("settings.enable_slider.name")).setDesc(t("settings.enable_slider.desc")).addToggle((cb) => {
+      cb.setValue(this.plugin.settingsManager.getEnableSlider());
+      cb.onChange(async (value) => {
+        await this.plugin.settingsManager.saveSettings({
+          ...this.plugin.settingsManager.settings,
+          enableSlider: value
+        });
+        this.plugin.uiManager.updateUI();
+        this.redrawKeepingScroll();
+      });
+    });
+    if (this.plugin.settingsManager.getEnableSlider()) {
+      new import_obsidian4.Setting(containerEl).setName(t("settings.control_mode.name")).setDesc(t("settings.control_mode.desc")).addDropdown((dropdown) => {
+        dropdown.addOption("slider", t("settings.control_mode.slider"));
+        dropdown.addOption("pills", t("settings.control_mode.pills"));
+        dropdown.setValue(this.plugin.settingsManager.getControlMode());
+        dropdown.onChange(async (value) => {
+          await this.plugin.settingsManager.saveSettings({
+            ...this.plugin.settingsManager.settings,
+            controlMode: value
+          });
+          this.plugin.uiManager.updateUI();
+          this.redrawKeepingScroll();
+        });
+      });
+    }
+    if (this.plugin.settingsManager.getEnableSlider() && this.plugin.settingsManager.getControlMode() === "pills") {
+      const presets = this.plugin.settingsManager.getPillsPresets();
+      presets.forEach((preset, index) => {
+        new import_obsidian4.Setting(containerEl).setName(t("settings.pill_preset.name", { index: index + 1 })).setDesc(t("settings.pill_preset.desc")).addText((text) => {
+          const config = this.plugin.settingsManager.getUnitConfig(preset.unit);
+          text.setPlaceholder(config.defaultValue.toString()).setValue(preset.value.toString()).onChange(async (value) => {
+            const parsed = parseInt(value);
+            if (value === "" || isNaN(parsed)) return;
+            const currentPresets = [...this.plugin.settingsManager.getPillsPresets()];
+            const unitConfig = this.plugin.settingsManager.getUnitConfig(currentPresets[index].unit);
+            let clamped = parsed;
+            if (clamped < unitConfig.min) clamped = unitConfig.min;
+            if (clamped > unitConfig.max) clamped = unitConfig.max;
+            currentPresets[index] = { ...currentPresets[index], value: clamped };
+            await this.plugin.settingsManager.saveSettings({
+              ...this.plugin.settingsManager.settings,
+              pillsPresets: currentPresets
+            });
+            this.plugin.uiManager.updateUI();
+          });
+        }).addDropdown((dropdown) => {
+          for (const unit of VALID_UNITS) {
+            dropdown.addOption(unit, unit);
+          }
+          dropdown.setValue(preset.unit);
+          dropdown.onChange(async (value) => {
+            const newUnit = value;
+            const currentPresets = [...this.plugin.settingsManager.getPillsPresets()];
+            const config = this.plugin.settingsManager.getUnitConfig(newUnit);
+            let newValue = currentPresets[index].value;
+            if (newValue < config.min || newValue > config.max) {
+              newValue = config.defaultValue;
+            }
+            currentPresets[index] = { value: newValue, unit: newUnit };
+            await this.plugin.settingsManager.saveSettings({
+              ...this.plugin.settingsManager.settings,
+              pillsPresets: currentPresets
+            });
+            this.plugin.uiManager.updateUI();
+            this.redrawKeepingScroll();
+          });
+        });
+      });
+    }
+    if (this.plugin.settingsManager.getEnableSlider() && this.plugin.settingsManager.getControlMode() === "slider") {
+      new import_obsidian4.Setting(containerEl).setName(t("settings.slider_width.name")).setDesc(t("settings.slider_width.desc")).addText(
+        (text) => text.setPlaceholder("85").setValue(this.plugin.settingsManager.getSliderWidth().toString()).onChange(async (value) => {
+          const sliderWidth = parseInt(value);
+          if (value === "") {
+            return;
+          } else if (isNaN(sliderWidth)) {
+            await this.plugin.settingsManager.saveSettings({
+              ...this.plugin.settingsManager.settings,
+              sliderWidth: this.plugin.settingsManager.DEFAULT_SETTINGS.sliderWidth
+            });
+            text.setValue(this.plugin.settingsManager.DEFAULT_SETTINGS.sliderWidth.toString());
+            const slider = this.plugin.uiManager.getSliderElement();
+            if (slider) slider.style.width = this.plugin.settingsManager.DEFAULT_SETTINGS.sliderWidth + "px";
+          } else if (sliderWidth / window.innerWidth > 0.9) {
+            new import_obsidian4.Notice(t("notice.slider_too_large"), 5e3);
+            await this.plugin.settingsManager.saveSettings({
+              ...this.plugin.settingsManager.settings,
+              sliderWidth: this.plugin.settingsManager.DEFAULT_SETTINGS.sliderWidth
+            });
+            text.setValue(this.plugin.settingsManager.DEFAULT_SETTINGS.sliderWidth.toString());
+            const slider = this.plugin.uiManager.getSliderElement();
+            if (slider) slider.style.width = this.plugin.settingsManager.DEFAULT_SETTINGS.sliderWidth + "px";
+          } else {
+            await this.plugin.settingsManager.saveSettings({
+              ...this.plugin.settingsManager.settings,
+              sliderWidth
+            });
+            const slider = this.plugin.uiManager.getSliderElement();
+            if (slider) slider.style.width = sliderWidth + "px";
+          }
+        })
+      );
+    }
+    new import_obsidian4.Setting(containerEl).setName(t("settings.enable_text_field.name")).setDesc(t("settings.enable_text_field.desc")).addToggle((cb) => {
+      cb.setValue(this.plugin.settingsManager.getEnableTextInput());
+      cb.onChange(async (value) => {
+        await this.plugin.settingsManager.saveSettings({
+          ...this.plugin.settingsManager.settings,
+          enableTextInput: value
+        });
+        this.plugin.uiManager.updateUI();
+        this.redrawKeepingScroll();
+      });
+    });
+    new import_obsidian4.Setting(containerEl).setName(t("settings.default_width_unit.name")).setDesc(t("settings.default_width_unit.desc")).addDropdown((dropdown) => {
+      for (const unit of VALID_UNITS) {
+        dropdown.addOption(unit, unit);
+      }
+      dropdown.setValue(this.plugin.settingsManager.getDefaultWidthUnit());
+      dropdown.onChange(async (value) => {
+        const newUnit = value;
+        const config = this.plugin.settingsManager.getUnitConfig(newUnit);
+        let currentWidth = this.plugin.settingsManager.getDefaultWidth();
+        if (currentWidth < config.min || currentWidth > config.max) {
+          currentWidth = config.defaultValue;
+        }
+        await this.plugin.settingsManager.saveSettings({
+          ...this.plugin.settingsManager.settings,
+          defaultWidthUnit: newUnit,
+          defaultWidth: currentWidth
+        });
+        this.plugin.uiManager.updateUI();
+        this.redrawKeepingScroll();
+      });
+    });
+    {
+      const unit = this.plugin.settingsManager.getDefaultWidthUnit();
+      const config = this.plugin.settingsManager.getUnitConfig(unit);
+      new import_obsidian4.Setting(containerEl).setName(t("settings.default_width.name")).setDesc(t("settings.default_width.desc", { unit, min: config.min, max: config.max })).addText(
+        (text) => text.setPlaceholder(config.defaultValue.toString()).setValue(this.plugin.settingsManager.getDefaultWidth().toString()).onChange(async (value) => {
+          const defaultWidth = parseInt(value);
+          if (value === "" || value.trim() === "") {
+            return;
+          } else if (isNaN(defaultWidth)) {
+            await this.plugin.settingsManager.saveSettings({
+              ...this.plugin.settingsManager.settings,
+              defaultWidth: config.defaultValue
+            });
+            text.setValue(config.defaultValue.toString());
+          } else if (defaultWidth < config.min) {
+            await this.plugin.settingsManager.saveSettings({
+              ...this.plugin.settingsManager.settings,
+              defaultWidth: config.min
+            });
+            text.setValue(config.min.toString());
+          } else if (defaultWidth > config.max) {
+            await this.plugin.settingsManager.saveSettings({
+              ...this.plugin.settingsManager.settings,
+              defaultWidth: config.max
+            });
+            text.setValue(config.max.toString());
+          } else {
+            await this.plugin.settingsManager.saveSettings({
+              ...this.plugin.settingsManager.settings,
+              defaultWidth
+            });
+          }
+        })
+      );
+    }
+    for (const rangeUnit of VALID_UNITS) {
+      const bounds = UNIT_ABSOLUTE_BOUNDS[rangeUnit];
+      const currentRanges = this.plugin.settingsManager.settings.unitRanges[rangeUnit];
+      new import_obsidian4.Setting(containerEl).setName(t("settings.unit_range.name", { unit: rangeUnit })).setDesc(t("settings.unit_range.desc", { unit: rangeUnit, min: bounds.min, max: bounds.max })).addText(
+        (text) => text.setPlaceholder(UNIT_CONFIGS[rangeUnit].min.toString()).setValue(currentRanges.min.toString()).onChange(async (value) => {
+          let min = parseInt(value);
+          if (value === "" || isNaN(min)) return;
+          min = Math.max(bounds.min, Math.min(bounds.max, min));
+          if (min >= currentRanges.max) min = currentRanges.max - 1;
+          const updatedRanges = { ...this.plugin.settingsManager.settings.unitRanges };
+          updatedRanges[rangeUnit] = { ...updatedRanges[rangeUnit], min };
+          await this.plugin.settingsManager.saveSettings({
+            ...this.plugin.settingsManager.settings,
+            unitRanges: updatedRanges
+          });
+          this.plugin.uiManager.updateUI();
+        })
+      ).addText(
+        (text) => text.setPlaceholder(UNIT_CONFIGS[rangeUnit].max.toString()).setValue(currentRanges.max.toString()).onChange(async (value) => {
+          let max = parseInt(value);
+          if (value === "" || isNaN(max)) return;
+          max = Math.max(bounds.min, Math.min(bounds.max, max));
+          if (max <= currentRanges.min) max = currentRanges.min + 1;
+          const updatedRanges = { ...this.plugin.settingsManager.settings.unitRanges };
+          updatedRanges[rangeUnit] = { ...updatedRanges[rangeUnit], max };
+          await this.plugin.settingsManager.saveSettings({
+            ...this.plugin.settingsManager.settings,
+            unitRanges: updatedRanges
+          });
+          this.plugin.uiManager.updateUI();
+        })
+      );
+    }
+    new import_obsidian4.Setting(containerEl).setName(t("settings.enable_per_note.name")).setDesc(t("settings.enable_per_note.desc")).addToggle((cb) => {
+      cb.setValue(this.plugin.settingsManager.getEnablePerNoteWidth());
+      cb.onChange(async (value) => {
+        await this.plugin.settingsManager.saveSettings({
+          ...this.plugin.settingsManager.settings,
+          enablePerNoteWidth: value
+        });
+        this.plugin.noteWidthManager.clearAllViewOnlyWidths();
+        this.plugin.noteWidthManager.applyWidthForLeaf();
+        this.redrawKeepingScroll();
+      });
+    });
+    if (this.plugin.settingsManager.getEnablePerNoteWidth()) {
+      new import_obsidian4.Setting(containerEl).setName(t("settings.per_note_mode.name")).setDesc(t("settings.per_note_mode.desc")).addDropdown((dropdown) => {
+        dropdown.addOption("frontmatter", t("settings.per_note_mode.option.frontmatter"));
+        dropdown.addOption("local", t("settings.per_note_mode.option.local"));
+        dropdown.addOption("view-only", t("settings.per_note_mode.option.view_only"));
+        dropdown.setValue(this.plugin.settingsManager.getPerNoteMode());
+        dropdown.onChange(async (value) => {
+          await this.plugin.settingsManager.saveSettings({
+            ...this.plugin.settingsManager.settings,
+            perNoteMode: value
+          });
+          this.plugin.noteWidthManager.clearAllViewOnlyWidths();
+          this.plugin.noteWidthManager.applyWidthForLeaf();
+          this.redrawKeepingScroll();
+        });
+      });
+      if (this.plugin.settingsManager.getPerNoteMode() === "local") {
+        new import_obsidian4.Setting(containerEl).setName(t("settings.reset_local_overrides.name")).setDesc(t("settings.reset_local_overrides.desc")).addButton((btn) => {
+          btn.setButtonText(t("settings.reset_local_overrides.button"));
+          btn.setWarning();
+          btn.onClick(() => {
+            const overrides = this.plugin.settingsManager.getLocalOverrides();
+            if (Object.keys(overrides).length === 0) {
+              new import_obsidian4.Notice(t("notice.local_overrides_empty"));
+              return;
+            }
+            new ResetOverridesModal(this.app, overrides, async (paths) => {
+              if (paths.length === 0) return;
+              for (const path of paths) {
+                await this.plugin.settingsManager.clearLocalOverride(path);
+              }
+              new import_obsidian4.Notice(t("notice.local_overrides_cleared", { count: paths.length }));
+              this.plugin.noteWidthManager.applyWidthForLeaf();
+            }).open();
+          });
+        });
+      }
+      new import_obsidian4.Setting(containerEl).setName(t("settings.yaml_key.name")).setDesc(t("settings.yaml_key.desc")).addText((text) => {
+        text.setPlaceholder("custom-width").setValue(this.plugin.settingsManager.getYAMLKey()).onChange(async (value) => {
+          if (updateTimeout) clearTimeout(updateTimeout);
+          updateTimeout = window.setTimeout(async () => {
+            const oldKey = this.plugin.settingsManager.getYAMLKey();
+            if (!value || value.trim() === "") {
+              return;
+            }
+            if (oldKey !== value) {
+              const progressBarModal = new ProgressBarModal(this.app, t("progress.changing_keys"));
+              progressBarModal.display();
+              await this.yamlProcessor.replaceYamlKeyInAllNotes(oldKey, value, progressBarModal);
+              progressBarModal.close();
+            }
+            await this.plugin.settingsManager.saveSettings({
+              ...this.plugin.settingsManager.settings,
+              yamlKey: value
+            });
+          }, 1500);
+        });
+      });
+    }
+    new import_obsidian4.Setting(containerEl).setName(t("settings.enable_code_block.name")).setDesc(t("settings.enable_code_block.desc")).addToggle((cb) => {
+      cb.setValue(this.plugin.settingsManager.getEnableCodeBlockWidth());
+      cb.onChange(async (value) => {
+        await this.plugin.settingsManager.saveSettings({
+          ...this.plugin.settingsManager.settings,
+          enableCodeBlockWidth: value
+        });
+        this.plugin.noteWidthManager.applyWidthForLeaf();
+        this.redrawKeepingScroll();
+      });
+    });
+    if (this.plugin.settingsManager.getEnableCodeBlockWidth()) {
+      new import_obsidian4.Setting(containerEl).setName(t("settings.code_block_unit.name")).setDesc(t("settings.code_block_unit.desc")).addDropdown((dropdown) => {
+        for (const unit of VALID_UNITS) {
+          dropdown.addOption(unit, unit);
+        }
+        dropdown.setValue(this.plugin.settingsManager.getCodeBlockWidthUnit());
+        dropdown.onChange(async (value) => {
+          const newUnit = value;
+          const config = this.plugin.settingsManager.getUnitConfig(newUnit);
+          let currentWidth = this.plugin.settingsManager.getCodeBlockWidth();
+          if (currentWidth < config.min || currentWidth > config.max) {
+            currentWidth = config.defaultValue;
+          }
+          await this.plugin.settingsManager.saveSettings({
+            ...this.plugin.settingsManager.settings,
+            codeBlockWidthUnit: newUnit,
+            codeBlockWidth: currentWidth
+          });
+          this.plugin.noteWidthManager.applyWidthForLeaf();
+          this.redrawKeepingScroll();
+        });
+      });
+      {
+        const unit = this.plugin.settingsManager.getCodeBlockWidthUnit();
+        const config = this.plugin.settingsManager.getUnitConfig(unit);
+        new import_obsidian4.Setting(containerEl).setName(t("settings.code_block_width.name")).setDesc(t("settings.code_block_width.desc", { unit, min: config.min, max: config.max })).addText(
+          (text) => text.setPlaceholder(config.defaultValue.toString()).setValue(this.plugin.settingsManager.getCodeBlockWidth().toString()).onChange(async (value) => {
+            let width = parseInt(value);
+            if (value === "" || value.trim() === "") {
+              return;
+            } else if (isNaN(width)) {
+              width = config.defaultValue;
+              text.setValue(config.defaultValue.toString());
+            } else if (width < config.min) {
+              width = config.min;
+              text.setValue(config.min.toString());
+            } else if (width > config.max) {
+              width = config.max;
+              text.setValue(config.max.toString());
+            }
+            await this.plugin.settingsManager.saveSettings({
+              ...this.plugin.settingsManager.settings,
+              codeBlockWidth: width
+            });
+            this.plugin.noteWidthManager.applyWidthForLeaf();
+          })
+        );
+      }
+      const modes = this.plugin.settingsManager.getCodeBlockWidthModes();
+      new import_obsidian4.Setting(containerEl).setName(t("settings.reading_mode.name")).setDesc(t("settings.reading_mode.desc")).addToggle((cb) => {
+        cb.setValue(modes.reading);
+        cb.onChange(async (value) => {
+          const updated = { ...this.plugin.settingsManager.settings.codeBlockWidthModes, reading: value };
+          await this.plugin.settingsManager.saveSettings({
+            ...this.plugin.settingsManager.settings,
+            codeBlockWidthModes: updated
+          });
+          this.plugin.noteWidthManager.applyWidthForLeaf();
+        });
+      });
+      new import_obsidian4.Setting(containerEl).setName(t("settings.source_mode.name")).setDesc(t("settings.source_mode.desc")).addToggle((cb) => {
+        cb.setValue(modes.source);
+        cb.onChange(async (value) => {
+          const updated = { ...this.plugin.settingsManager.settings.codeBlockWidthModes, source: value };
+          await this.plugin.settingsManager.saveSettings({
+            ...this.plugin.settingsManager.settings,
+            codeBlockWidthModes: updated
+          });
+          this.plugin.noteWidthManager.applyWidthForLeaf();
+        });
+      });
+      new import_obsidian4.Setting(containerEl).setName(t("settings.live_preview.name")).setDesc(t("settings.live_preview.desc")).addToggle((cb) => {
+        cb.setValue(modes.livePreview);
+        cb.onChange(async (value) => {
+          const updated = { ...this.plugin.settingsManager.settings.codeBlockWidthModes, livePreview: value };
+          await this.plugin.settingsManager.saveSettings({
+            ...this.plugin.settingsManager.settings,
+            codeBlockWidthModes: updated
+          });
+          this.plugin.noteWidthManager.applyWidthForLeaf();
+        });
+      });
+    }
+    containerEl.appendChild(this.donationButton.createDonationButton(containerEl));
+    const versionEl = containerEl.createEl("div");
+    versionEl.style.textAlign = "center";
+    versionEl.style.marginTop = "20px";
+    versionEl.style.fontSize = "11px";
+    versionEl.style.color = "var(--text-muted)";
+    versionEl.setText(`${PLUGIN_NAME} v${this.plugin.manifest.version}`);
+  }
+};
+
+// src/modals/noteWidthModal.ts
+var import_obsidian5 = require("obsidian");
+var NoteWidthModal = class extends import_obsidian5.Modal {
+  /**
+   * Constructs a new NoteWidthModal instance.
+   * @param app - The Obsidian application instance.
+   * @param onWidthEntered - Callback to execute when a width value is entered.
+   * @param modalTitle - Title to display on the modal.
+   * @param defaultUnit - The default unit to preselect.
+   * @param unitConfigs - Unit configuration for each supported width unit.
+   */
+  constructor(app, onWidthEntered, modalTitle, defaultUnit, unitConfigs) {
+    super(app);
+    this.onWidthEntered = onWidthEntered;
+    this.modalTitle = modalTitle;
+    this.unitConfigs = unitConfigs;
+    this.currentUnit = defaultUnit;
+    this.keydownHandler = (ev) => {
+      if (ev.key !== "Enter" || this.currentNumber === null) {
+        return;
+      }
+      ev.preventDefault();
+      this.onWidthEntered({ value: this.currentNumber, unit: this.currentUnit });
+      this.close();
+    };
+  }
+  /** Current value entered in the modal. */
+  currentNumber = null;
+  /** Currently selected unit. */
+  currentUnit;
+  /** Handler for the keydown event. */
+  keydownHandler;
+  /**
+   * Adds an input field and unit selector to the modal.
+   */
+  addInputField() {
+    const inputContainer = this.contentEl.createDiv();
+    inputContainer.id = DOM_IDENTIFIERS.NWM_INPUT_CONTAINER;
+    const config = this.unitConfigs[this.currentUnit];
+    const inputEl = inputContainer.createEl("input", { type: "number" });
+    inputEl.min = config.min.toString();
+    inputEl.max = config.max.toString();
+    inputEl.step = config.step.toString();
+    inputEl.style.flex = "1";
+    inputEl.oninput = (ev) => {
+      const unitConfig = this.unitConfigs[this.currentUnit];
+      let number = parseFloat(ev.target.value);
+      if (isNaN(number)) {
+        this.currentNumber = unitConfig.min;
+        ev.target.value = unitConfig.min.toString();
+        return;
+      }
+      number = Math.max(unitConfig.min, Math.min(unitConfig.max, number));
+      this.currentNumber = number;
+      ev.target.value = number.toString();
+    };
+    const unitSelect = inputContainer.createEl("select");
+    unitSelect.id = DOM_IDENTIFIERS.NWM_UNIT_SELECTOR;
+    unitSelect.style.marginLeft = "8px";
+    for (const unit of VALID_UNITS) {
+      const option = unitSelect.createEl("option", { text: unit, value: unit });
+      if (unit === this.currentUnit) {
+        option.selected = true;
+      }
+    }
+    unitSelect.onchange = () => {
+      this.currentUnit = unitSelect.value;
+      const newConfig = this.unitConfigs[this.currentUnit];
+      inputEl.min = newConfig.min.toString();
+      inputEl.max = newConfig.max.toString();
+      inputEl.step = newConfig.step.toString();
+      if (this.currentNumber !== null) {
+        this.currentNumber = Math.max(newConfig.min, Math.min(newConfig.max, this.currentNumber));
+        inputEl.value = this.currentNumber.toString();
+      }
+    };
+  }
+  /**
+   * Adds a submit button to the modal for confirming the entered note width value.
+   */
+  addSubmitButton() {
+    const buttonContainer = this.contentEl.createDiv();
+    buttonContainer.id = DOM_IDENTIFIERS.NWM_BUTTON_CONTAINER;
+    const submitButton = buttonContainer.createEl("button", { text: t("button.apply") });
+    submitButton.onclick = () => {
+      if (this.currentNumber === null) {
+        return;
+      }
+      this.onWidthEntered({ value: this.currentNumber, unit: this.currentUnit });
+      this.close();
+    };
+  }
+  /**
+   * Called when the modal is opened.
+   * Sets up the modal elements and event listeners.
+   */
+  onOpen() {
+    this.modalEl.id = DOM_IDENTIFIERS.NWM_CONTAINER;
+    this.titleEl.textContent = this.modalTitle;
+    this.addInputField();
+    this.addSubmitButton();
+    document.addEventListener("keydown", this.keydownHandler);
+  }
+  /**
+   * Called when the modal is closed.
+   * Removes event listeners.
+   */
+  onClose() {
+    document.removeEventListener("keydown", this.keydownHandler);
+  }
+};
+
+// src/commands/command.ts
+var Command = class {
+  /** The command identifier. */
+  id;
+  /** Display name of the command. */
+  name;
+  /** Title of the modal associated with the command. */
+  modalTitle;
+  /**
+   * Constructs a new Command instance.
+   * @param id - The command identifier.
+   * @param name - Display name of the command.
+   * @param modalTitle - Title of the modal associated with the command.
+   */
+  constructor(id, name, modalTitle) {
+    this.id = id;
+    this.name = name;
+    this.modalTitle = modalTitle;
+  }
+};
+var ChangeDefaultNoteWidthCommand = class extends Command {
+  /** Reference to the CustomNoteWidth plugin. */
+  plugin;
+  /**
+   * Constructs a new ChangeDefaultNoteWidthCommand instance.
+   * @param plugin - Reference to the CustomNoteWidth plugin.
+   */
+  constructor(plugin) {
+    super(COMMAND_IDS.CHANGE_DEFAULT_NOTE_WIDTH, t("command.change_default_width.name"), t("command.change_default_width.modal_title"));
+    this.plugin = plugin;
+  }
+  /** @inheritdoc */
+  execute(wv) {
+    void this.plugin.noteWidthManager.changeDefaultNoteWidth(wv);
+  }
+  /** @inheritdoc */
+  canExecute() {
+    return true;
+  }
+};
+var ChangeAllNoteWidthCommand = class extends Command {
+  /** Reference to the CustomNoteWidth plugin. */
+  plugin;
+  /**
+   * Constructs a new ChangeAllNoteWidthCommand instance.
+   * @param plugin - Reference to the CustomNoteWidth plugin.
+   */
+  constructor(plugin) {
+    super(COMMAND_IDS.CHANGE_ALL_NOTE_WIDTH, t("command.change_all_width.name"), t("command.change_all_width.modal_title"));
+    this.plugin = plugin;
+  }
+  /** @inheritdoc */
+  execute(wv) {
+    void this.plugin.noteWidthManager.changeAllNoteWidth(wv);
+  }
+  /** @inheritdoc */
+  canExecute() {
+    return true;
+  }
+};
+var ChangeNoteWidthCommand = class extends Command {
+  /** Reference to the CustomNoteWidth plugin. */
+  plugin;
+  /**
+   * Constructs a new ChangeNoteWidthCommand instance.
+   * @param plugin - Reference to the CustomNoteWidth plugin.
+   */
+  constructor(plugin) {
+    super(COMMAND_IDS.CHANGE_NOTE_WIDTH, t("command.change_note_width.name"), t("command.change_note_width.modal_title"));
+    this.plugin = plugin;
+  }
+  /** @inheritdoc */
+  execute(wv) {
+    void this.plugin.noteWidthManager.changeNoteWidth(wv);
+  }
+  /** @inheritdoc */
+  canExecute() {
+    return isActiveLeafMarkdown(this.plugin.app);
+  }
+};
+
+// src/commands/commandsManager.ts
+var CommandsManager = class {
+  /** Reference to the CustomNoteWidth plugin. */
+  plugin;
+  /** Object representing the active state of commands. */
+  activeCommands = {};
+  /** Array containing all the commands. */
+  commands = [];
+  /**
+   * Constructs a new CommandsManager instance.
+   * @param plugin - Reference to the CustomNoteWidth plugin.
+   */
+  constructor(plugin) {
+    this.plugin = plugin;
+    this.commands.push(new ChangeNoteWidthCommand(plugin));
+    this.commands.push(new ChangeDefaultNoteWidthCommand(plugin));
+    this.commands.push(new ChangeAllNoteWidthCommand(plugin));
+    this.registerCommands();
+    this.registerPillCommands();
+  }
+  /**
+   * Registers one command per pill preset slot. Commands are always listed
+   * in the Hotkeys settings (so users can bind keys up-front) but only
+   * execute when pills mode is active.
+   */
+  registerPillCommands() {
+    for (let index = 0; index < PILLS_PRESET_COUNT; index++) {
+      const id = `apply-pill-preset-${index + 1}`;
+      this.plugin.addCommand({
+        id,
+        name: t("command.apply_pill_preset.name", { index: index + 1 }),
+        checkCallback: (checking) => {
+          if (this.plugin.settingsManager.getControlMode() !== "pills") return false;
+          if (!this.plugin.settingsManager.getEnableSlider()) return false;
+          if (checking) return true;
+          this.plugin.eventHandler.applyPillPreset(index);
+          return true;
+        }
+      });
+    }
+  }
+  /**
+   * Registers all the commands in the commands array.
+   */
+  registerCommands() {
+    for (const command of this.commands) {
+      this.addCommand(command);
+    }
+  }
+  /**
+   * Adds and activates a command.
+   * @param command - The command to be added and activated.
+   */
+  addCommand(command) {
+    if (Object.hasOwn(this.activeCommands, command.id)) return;
+    this.activeCommands[command.id] = true;
+    const commandCallback = this.commandCallback.bind(this, command.execute.bind(command), command.modalTitle);
+    this.plugin.addCommand({
+      id: command.id,
+      name: command.name,
+      callback: () => {
+        if (this.activeCommands[command.id]) {
+          commandCallback();
+        }
+      },
+      checkCallback: (checking) => {
+        if (!this.activeCommands[command.id] || command.canExecute && !command.canExecute()) {
+          return false;
+        }
+        if (checking) {
+          return true;
+        }
+        commandCallback();
+        return true;
+      }
+    });
+  }
+  /**
+   * Callback for command execution. Opens the NoteWidthModal and then executes the command action.
+   * @param commandAction - The action to be executed by the command.
+   * @param modalTitle - The title of the modal.
+   */
+  commandCallback(commandAction, modalTitle) {
+    const defaultUnit = this.plugin.settingsManager.getDefaultWidthUnit();
+    const unitConfigs = {};
+    for (const u of VALID_UNITS) {
+      unitConfigs[u] = this.plugin.settingsManager.getUnitConfig(u);
+    }
+    new NoteWidthModal(this.plugin.app, (wv) => {
+      commandAction(wv);
+    }, modalTitle, defaultUnit, unitConfigs).open();
+  }
+};
+
+// src/settings/settingsManager.ts
+var SettingsManager = class {
+  /**
+   * Constructs a new SettingsManager instance.
+   * @param plugin - Reference to the CustomNoteWidth plugin.
+   */
+  constructor(plugin) {
+    this.plugin = plugin;
+  }
+  settings;
+  /** Default settings for the plugin. */
+  DEFAULT_SETTINGS = {
+    language: "auto",
+    defaultWidth: 50,
+    defaultWidthUnit: "%",
+    sliderWidth: 85,
+    yamlKey: "custom-width",
+    enableSlider: true,
+    enableTextInput: true,
+    enablePerNoteWidth: true,
+    perNoteMode: "frontmatter",
+    localOverrides: {},
+    unitRanges: {
+      "%": { min: 0, max: 100 },
+      "px": { min: 100, max: 4e3 },
+      "ch": { min: 10, max: 200 }
+    },
+    enableCodeBlockWidth: false,
+    codeBlockWidth: 800,
+    codeBlockWidthUnit: "px",
+    codeBlockWidthModes: { reading: true, source: true, livePreview: true },
+    controlMode: "slider",
+    pillsPresets: [...DEFAULT_PILLS_PRESETS]
+  };
+  /**
+   * Retrieves a specific setting from the plugin's settings object.
+   * @param key - The setting key to retrieve.
+   * @returns - Value associated with the specified key.
+   */
+  getSetting(key) {
+    const value = this.settings[key];
+    if (value === void 0) {
+      throw new Error(`Invalid setting key: ${key}`);
+    }
+    return value;
+  }
+  /**
+   * Retrieves the default width setting.
+   * @returns - The default width percentage.
+   */
+  getDefaultWidth() {
+    return this.getSetting("defaultWidth");
+  }
+  /**
+   * Retrieves the enable slider setting.
+   * @returns - The enable slider setting value.
+   */
+  getEnableSlider() {
+    return this.getSetting("enableSlider");
+  }
+  /**
+   * Retrieves the YAML key setting.
+   * @returns - The YAML key setting value.
+   */
+  getYAMLKey() {
+    return this.getSetting("yamlKey");
+  }
+  /**
+   * Retrieves the enable text input setting.
+   * @returns - The enable text input setting value.
+   */
+  getEnableTextInput() {
+    return this.getSetting("enableTextInput");
+  }
+  /**
+   * Retrieves the slider width setting.
+   * @returns - The slider width setting value.
+   */
+  getSliderWidth() {
+    return this.getSetting("sliderWidth");
+  }
+  /**
+   * Retrieves the enable per-note width setting.
+   * @returns - Whether per-note width via YAML is enabled.
+   */
+  getEnablePerNoteWidth() {
+    return this.getSetting("enablePerNoteWidth");
+  }
+  /** Retrieves the per-note storage mode. */
+  getPerNoteMode() {
+    return this.getSetting("perNoteMode");
+  }
+  /** Retrieves the local overrides map. */
+  getLocalOverrides() {
+    return this.getSetting("localOverrides");
+  }
+  /**
+   * Retrieves the default width unit setting.
+   * @returns - The default width unit.
+   */
+  getDefaultWidthUnit() {
+    return this.getSetting("defaultWidthUnit");
+  }
+  /**
+   * Retrieves whether code block width is enabled.
+   * @returns - Whether code block width is enabled.
+   */
+  getEnableCodeBlockWidth() {
+    return this.getSetting("enableCodeBlockWidth");
+  }
+  /**
+   * Retrieves the code block width value.
+   * @returns - The code block width value.
+   */
+  getCodeBlockWidth() {
+    return this.getSetting("codeBlockWidth");
+  }
+  /**
+   * Retrieves the code block width unit.
+   * @returns - The code block width unit.
+   */
+  getCodeBlockWidthUnit() {
+    return this.getSetting("codeBlockWidthUnit");
+  }
+  /**
+   * Retrieves the code block width mode flags.
+   * @returns - Object with reading, source, livePreview booleans.
+   */
+  getCodeBlockWidthModes() {
+    return this.getSetting("codeBlockWidthModes");
+  }
+  /**
+   * Retrieves the language setting.
+   * @returns - The language setting value ("auto", "en", "de").
+   */
+  getLanguage() {
+    return this.getSetting("language");
+  }
+  /**
+   * Retrieves the control mode setting.
+   * @returns - The control mode ("slider" or "pills").
+   */
+  getControlMode() {
+    return this.getSetting("controlMode");
+  }
+  /**
+   * Retrieves the pills presets.
+   * @returns - Array of pills presets.
+   */
+  getPillsPresets() {
+    return this.getSetting("pillsPresets");
+  }
+  /**
+   * Returns the effective UnitConfig for a given unit, merging
+   * the hardcoded defaults with the user's custom min/max ranges.
+   * @param unit - The width unit.
+   * @returns The effective UnitConfig.
+   */
+  getUnitConfig(unit) {
+    const base = UNIT_CONFIGS[unit];
+    const ranges = this.settings.unitRanges?.[unit] ?? { min: base.min, max: base.max };
+    return {
+      ...base,
+      min: ranges.min,
+      max: ranges.max,
+      maxInputLength: Math.max(
+        ranges.max.toString().length,
+        ranges.min.toString().length
+      )
+    };
+  }
+  /**
+   * Asynchronously loads the settings, migrating from old format if necessary.
+   */
+  async loadSettings() {
+    const loaded = await this.plugin.loadData();
+    if (loaded && ("widthPercentage" in loaded || "defaultNoteWidth" in loaded || "enableSaveWidthIndividually" in loaded)) {
+      loaded.defaultWidth = loaded.defaultNoteWidth ?? loaded.widthPercentage ?? 100;
+      loaded.enablePerNoteWidth = (loaded.enableSaveWidthIndividually || loaded.enableYAMLWidth) ?? true;
+      loaded.defaultWidthUnit = "%";
+      delete loaded.widthPercentage;
+      delete loaded.defaultNoteWidth;
+      delete loaded.enableSaveWidthIndividually;
+      delete loaded.enableYAMLWidth;
+      delete loaded.enableChangeDefaultNoteWidth;
+      delete loaded.priorityList;
+    }
+    if (loaded && !("defaultWidthUnit" in loaded)) {
+      loaded.defaultWidthUnit = "%";
+    }
+    if (loaded && !("unitRanges" in loaded)) {
+      loaded.unitRanges = {
+        "%": { min: 0, max: 100 },
+        "px": { min: 100, max: 4e3 },
+        "ch": { min: 10, max: 200 }
+      };
+    }
+    if (loaded && !("enableCodeBlockWidth" in loaded)) {
+      loaded.enableCodeBlockWidth = false;
+      loaded.codeBlockWidth = 800;
+      loaded.codeBlockWidthUnit = "px";
+    }
+    if (loaded && !("codeBlockWidthModes" in loaded)) {
+      loaded.codeBlockWidthModes = { reading: true, source: true, livePreview: true };
+    }
+    if (loaded && !("controlMode" in loaded)) {
+      loaded.controlMode = "slider";
+    }
+    if (loaded && !("perNoteMode" in loaded)) {
+      loaded.perNoteMode = loaded.autoSaveYaml === false ? "view-only" : "frontmatter";
+    }
+    if (loaded && "autoSaveYaml" in loaded) {
+      delete loaded.autoSaveYaml;
+    }
+    if (loaded && !("localOverrides" in loaded)) {
+      loaded.localOverrides = {};
+    }
+    if (loaded && (!("pillsPresets" in loaded) || !Array.isArray(loaded.pillsPresets) || loaded.pillsPresets.length !== PILLS_PRESET_COUNT)) {
+      loaded.pillsPresets = [...DEFAULT_PILLS_PRESETS];
+    }
+    this.settings = Object.assign({}, this.DEFAULT_SETTINGS, loaded);
+    setLocaleOverride(this.settings.language === "auto" ? null : this.settings.language);
+  }
+  /**
+   * Asynchronously saves the provided settings.
+   * @param settings - The settings to be saved.
+   */
+  async saveSettings(settings) {
+    this.settings = settings;
+    await this.plugin.saveData(settings);
+  }
+  /** Stores a per-note width in the local overrides map and persists it. */
+  async setLocalOverride(path, wv) {
+    const updated = { ...this.settings.localOverrides, [path]: wv };
+    await this.saveSettings({ ...this.settings, localOverrides: updated });
+  }
+  /** Removes a per-note width from the local overrides map. */
+  async clearLocalOverride(path) {
+    if (!(path in this.settings.localOverrides)) return;
+    const updated = { ...this.settings.localOverrides };
+    delete updated[path];
+    await this.saveSettings({ ...this.settings, localOverrides: updated });
+  }
+  /** Moves a local override to a new path (used on rename). */
+  async renameLocalOverride(oldPath, newPath) {
+    if (!(oldPath in this.settings.localOverrides)) return;
+    const updated = { ...this.settings.localOverrides };
+    updated[newPath] = updated[oldPath];
+    delete updated[oldPath];
+    await this.saveSettings({ ...this.settings, localOverrides: updated });
+  }
+  /** Clears every local override. Returns the number that were removed. */
+  async clearAllLocalOverrides() {
+    const count = Object.keys(this.settings.localOverrides).length;
+    if (count === 0) return 0;
+    await this.saveSettings({ ...this.settings, localOverrides: {} });
+    return count;
+  }
+};
+
+// src/note/noteWidthManager.ts
+var import_obsidian6 = require("obsidian");
+var NoteWidthManager = class {
+  /**
+   * Constructs a new NoteWidthManager instance.
+   * @param app - The Obsidian application instance.
+   * @param plugin - Reference to the CustomNoteWidth plugin.
+   */
+  constructor(app, plugin) {
+    this.app = app;
+    this.plugin = plugin;
+    this.styleElement = document.createElement("style");
+    this.styleElement.id = "custom-note-width-rules";
+    document.head.appendChild(this.styleElement);
+  }
+  /** Persistent <style> element in <head> for per-leaf width rules. */
+  styleElement;
+  /** Maps leaf data-cnw-id to CSS value (e.g., "500px"). */
+  leafRules = /* @__PURE__ */ new Map();
+  /** Maps leaf data-cnw-id to code block CSS value. */
+  leafCodeBlockRules = /* @__PURE__ */ new Map();
+  /** Counter for generating unique leaf IDs. */
+  leafIdCounter = 0;
+  /** Session-only widths (per-note mode 'view-only'), dropped when the note is closed. */
+  viewOnlyWidths = /* @__PURE__ */ new Map();
+  /**
+   * Ensures a view's container element has a data-cnw-id attribute and returns it.
+   * @param view - The MarkdownView to get/assign an ID for.
+   * @returns The unique leaf ID string.
+   */
+  getLeafId(view) {
+    const el = view.containerEl;
+    let id = el.getAttribute("data-cnw-id");
+    if (!id) {
+      id = `cnw-${this.leafIdCounter++}`;
+      el.setAttribute("data-cnw-id", id);
+    }
+    return id;
+  }
+  /**
+   * Rebuilds the <style> element content from all active leaf rules.
+   */
+  rebuildStylesheet() {
+    const rules = [];
+    const codeBlockEnabled = this.plugin.settingsManager.getEnableCodeBlockWidth();
+    this.leafRules.forEach((cssValue, leafId) => {
+      const codeBlockCss = codeBlockEnabled ? this.leafCodeBlockRules.get(leafId) : null;
+      let rule = `.workspace-leaf-content[data-cnw-id="${leafId}"] { --file-line-width: ${cssValue} !important;`;
+      if (codeBlockCss) {
+        rule += ` --cnw-code-block-width: ${codeBlockCss};`;
+      }
+      rule += ` }`;
+      rules.push(rule);
+    });
+    if (codeBlockEnabled && this.leafCodeBlockRules.size > 0) {
+      const modes = this.plugin.settingsManager.getCodeBlockWidthModes();
+      const cbProps = ` width: var(--cnw-code-block-width) !important; max-width: var(--cnw-code-block-width) !important; box-sizing: border-box !important;`;
+      if (modes.reading) {
+        rules.push(`.workspace-leaf-content[data-cnw-id] .markdown-preview-view pre {${cbProps} }`);
+      }
+      if (modes.source && modes.livePreview) {
+        rules.push(`.workspace-leaf-content[data-cnw-id] .cm-line.HyperMD-codeblock {${cbProps} }`);
+      } else if (modes.source) {
+        rules.push(`.workspace-leaf-content[data-cnw-id] .markdown-source-view:not(.is-live-preview) .cm-line.HyperMD-codeblock {${cbProps} }`);
+      } else if (modes.livePreview) {
+        rules.push(`.workspace-leaf-content[data-cnw-id] .markdown-source-view.is-live-preview .cm-line.HyperMD-codeblock {${cbProps} }`);
+      }
+    }
+    this.styleElement.textContent = rules.join("\n");
+  }
+  /**
+   * Synchronously resolves the correct WidthValue for a given file
+   * by reading from Obsidian's metadataCache (YAML frontmatter only).
+   *
+   * @param file - The file to resolve width for.
+   * @returns The WidthValue for the file.
+   */
+  resolveWidthForFile(file) {
+    const defaultWidth = this.plugin.settingsManager.getDefaultWidth();
+    const defaultUnit = this.plugin.settingsManager.getDefaultWidthUnit();
+    const defaultWv = { value: defaultWidth, unit: defaultUnit };
+    if (!this.plugin.settingsManager.getEnablePerNoteWidth()) {
+      return defaultWv;
+    }
+    const mode = this.plugin.settingsManager.getPerNoteMode();
+    if (mode === "local") {
+      const override = this.plugin.settingsManager.getLocalOverrides()[file.path];
+      if (override) {
+        const unitConfig = this.plugin.settingsManager.getUnitConfig(override.unit);
+        return validateWidthValue(override, unitConfig);
+      }
+    } else if (mode === "view-only") {
+      const view = this.viewOnlyWidths.get(file.path);
+      if (view) {
+        const unitConfig = this.plugin.settingsManager.getUnitConfig(view.unit);
+        return validateWidthValue(view, unitConfig);
+      }
+    }
+    const yamlKey = this.plugin.settingsManager.getYAMLKey();
+    const frontmatter = this.app.metadataCache.getFileCache(file)?.frontmatter;
+    if (!frontmatter) {
+      return defaultWv;
+    }
+    const rawValue = frontmatter[yamlKey];
+    const parsed = parseWidthValue(rawValue, defaultUnit);
+    if (parsed) {
+      const unitConfig = this.plugin.settingsManager.getUnitConfig(parsed.unit);
+      return validateWidthValue(parsed, unitConfig);
+    }
+    return defaultWv;
+  }
+  /**
+   * Synchronously applies the correct width for a leaf by resolving
+   * the width from metadata and calculating the CSS value.
+   * Used on tab switch, resize, and layout change events.
+   *
+   * @param leaf - The workspace leaf to apply width for (defaults to active leaf).
+   */
+  applyWidthForLeaf(leaf) {
+    const view = leaf?.view instanceof import_obsidian6.MarkdownView ? leaf.view : getActiveMarkdownView(this.app);
+    if (!view || !view.file) return;
+    const wv = this.resolveWidthForFile(view.file);
+    const editorMode = view.getMode();
+    const editorDiv = getEditorDivForView(view, editorMode);
+    if (!editorDiv) return;
+    const cssValue = widthValueToCss(wv, editorDiv);
+    if (!cssValue) return;
+    const leafId = this.getLeafId(view);
+    view.containerEl.style.setProperty("--file-line-width", cssValue, "important");
+    this.leafRules.set(leafId, cssValue);
+    this.applyCodeBlockWidth(view, editorDiv, leafId);
+    this.rebuildStylesheet();
+    this.plugin.uiManager.setSliderAndTextField(wv.value);
+    this.plugin.uiManager.updateSliderRange(wv.unit);
+    this.plugin.uiManager.setUnitSelector(wv.unit);
+    this.plugin.uiManager.updatePillsActiveState(wv);
+  }
+  /** Stores a view-only width for a file. */
+  setViewOnlyWidth(path, wv) {
+    this.viewOnlyWidths.set(path, wv);
+  }
+  /** Removes the view-only width for a file. */
+  clearViewOnlyWidth(path) {
+    this.viewOnlyWidths.delete(path);
+  }
+  /** Moves a view-only entry to a new path (used on rename). */
+  renameViewOnlyWidth(oldPath, newPath) {
+    const wv = this.viewOnlyWidths.get(oldPath);
+    if (!wv) return;
+    this.viewOnlyWidths.delete(oldPath);
+    this.viewOnlyWidths.set(newPath, wv);
+  }
+  /** Drops view-only entries for files that no longer have any open leaf. */
+  cleanupViewOnlyWidths() {
+    if (this.viewOnlyWidths.size === 0) return;
+    const openPaths = /* @__PURE__ */ new Set();
+    this.app.workspace.iterateAllLeaves((leaf) => {
+      if (leaf.view instanceof import_obsidian6.MarkdownView && leaf.view.file) {
+        openPaths.add(leaf.view.file.path);
+      }
+    });
+    for (const path of this.viewOnlyWidths.keys()) {
+      if (!openPaths.has(path)) {
+        this.viewOnlyWidths.delete(path);
+      }
+    }
+  }
+  /** Removes every view-only entry. Returns the number that were removed. */
+  clearAllViewOnlyWidths() {
+    const count = this.viewOnlyWidths.size;
+    this.viewOnlyWidths.clear();
+    return count;
+  }
+  /**
+   * Removes all custom width styles from all views and clears leaf rules.
+   */
+  removeNoteWidthEditorStyle() {
+    this.leafRules.clear();
+    this.leafCodeBlockRules.clear();
+    this.styleElement.textContent = "";
+    this.app.workspace.iterateAllLeaves((leaf) => {
+      if (leaf.view instanceof import_obsidian6.MarkdownView) {
+        leaf.view.containerEl.removeAttribute("data-cnw-id");
+        leaf.view.containerEl.style.removeProperty("--file-line-width");
+        leaf.view.containerEl.style.removeProperty("--cnw-code-block-width");
+      }
+    });
+  }
+  /**
+   * Removes the <style> element from the DOM. Call on plugin unload.
+   */
+  destroy() {
+    this.removeNoteWidthEditorStyle();
+    this.viewOnlyWidths.clear();
+    this.styleElement.remove();
+  }
+  /**
+   * Applies the code block width CSS variable for a given leaf.
+   * When enabled, computes and sets --cnw-code-block-width.
+   * When disabled, removes the variable.
+   * @param view - The MarkdownView to apply code block width for.
+   * @param editorDiv - The editor DOM element for width calculations.
+   * @param leafId - The unique leaf identifier.
+   */
+  applyCodeBlockWidth(view, editorDiv, leafId) {
+    if (!this.plugin.settingsManager.getEnableCodeBlockWidth()) {
+      view.containerEl.style.removeProperty("--cnw-code-block-width");
+      this.leafCodeBlockRules.delete(leafId);
+      return;
+    }
+    const cbWv = {
+      value: this.plugin.settingsManager.getCodeBlockWidth(),
+      unit: this.plugin.settingsManager.getCodeBlockWidthUnit()
+    };
+    const cbCssValue = widthValueToCss(cbWv, editorDiv);
+    if (cbCssValue) {
+      view.containerEl.style.setProperty("--cnw-code-block-width", cbCssValue);
+      this.leafCodeBlockRules.set(leafId, cbCssValue);
+    }
+  }
+  /**
+   * Updates the custom editor style with a new WidthValue on the active view.
+   * Sets both an inline style and a stylesheet rule for the leaf.
+   * Used for user-driven width changes (slider, commands).
+   * @param wv - The WidthValue to be applied.
+   */
+  updateNoteWidthEditorStyle(wv) {
+    const view = getActiveMarkdownView(this.app);
+    if (!view) return;
+    const editorMode = view.getMode();
+    const editorDiv = getActiveEditorDiv(this.app, editorMode);
+    if (!editorDiv) return;
+    const cssValue = widthValueToCss(wv, editorDiv);
+    if (!cssValue) {
+      console.error("Something went wrong while changing the note width!", new Error().stack);
+      return;
+    }
+    const leafId = this.getLeafId(view);
+    view.containerEl.style.setProperty("--file-line-width", cssValue, "important");
+    this.leafRules.set(leafId, cssValue);
+    this.applyCodeBlockWidth(view, editorDiv, leafId);
+    this.rebuildStylesheet();
+  }
+  /**
+   * Changes the width of all notes via YAML frontmatter.
+   * @param wv - The WidthValue to be applied.
+   */
+  async changeAllNoteWidth(wv) {
+    const unitConfig = this.plugin.settingsManager.getUnitConfig(wv.unit);
+    const validated = validateWidthValue(wv, unitConfig);
+    if (this.plugin.settingsManager.getEnablePerNoteWidth()) {
+      const yamlKey = this.plugin.settingsManager.getYAMLKey();
+      const yamlValue = formatWidthForYaml(validated);
+      const progressBarModal = new ProgressBarModal(this.app, t("progress.changing_values"));
+      progressBarModal.display();
+      await this.plugin.yamlFrontMatterProcessor.updateAllYamlValues(yamlKey, yamlValue, progressBarModal);
+      progressBarModal.close();
+    }
+    this.updateNoteWidthEditorStyle(validated);
+    this.plugin.uiManager.setSliderAndTextField(validated.value);
+    await this.plugin.settingsManager.saveSettings({
+      ...this.plugin.settingsManager.settings,
+      defaultWidth: validated.value,
+      defaultWidthUnit: validated.unit
+    });
+  }
+  /**
+   * Updates the default width of a note.
+   * @param wv - The new WidthValue to set as default.
+   */
+  async changeDefaultNoteWidth(wv) {
+    await this.plugin.settingsManager.saveSettings({
+      ...this.plugin.settingsManager.settings,
+      defaultWidth: wv.value,
+      defaultWidthUnit: wv.unit
+    });
+  }
+  /**
+   * Updates the width of the current note via YAML frontmatter.
+   * @param wv - The new WidthValue to set for the current note.
+   */
+  async changeNoteWidth(wv) {
+    const unitConfig = this.plugin.settingsManager.getUnitConfig(wv.unit);
+    const validated = validateWidthValue(wv, unitConfig);
+    if (this.plugin.settingsManager.getEnablePerNoteWidth()) {
+      const yamlKey = this.plugin.settingsManager.getYAMLKey();
+      const yamlValue = formatWidthForYaml(validated);
+      await this.plugin.yamlFrontMatterProcessor.setYamlValue(yamlKey, yamlValue);
+    }
+    this.plugin.uiManager.setSliderAndTextField(validated.value);
+    this.updateNoteWidthEditorStyle(validated);
+  }
+};
+
+// src/event/eventHandler.ts
+var import_obsidian7 = require("obsidian");
+var EventHandler = class {
+  /**
+   * Constructs a new EventHandler instance.
+   * @param app - The Obsidian application instance.
+   * @param plugin - Reference to the CustomNoteWidth plugin.
+   */
+  constructor(app, plugin) {
+    this.app = app;
+    this.plugin = plugin;
+  }
+  updateTimeout = 0;
+  layoutChangeSuppressed = false;
+  /**
+   * Register event handlers related to the plugin.
+   */
+  registerEventHandlers() {
+    this.plugin.registerEvent(this.app.workspace.on("resize", this.handleResize));
+    this.plugin.registerEvent(this.app.workspace.on("active-leaf-change", this.handleActiveLeafChange));
+    this.plugin.registerEvent(this.app.workspace.on("layout-change", this.handleLayoutChange));
+    this.plugin.registerEvent(this.app.vault.on("rename", this.handleFileRename));
+    this.plugin.registerEvent(this.app.vault.on("delete", this.handleFileDelete));
+  }
+  /**
+   * Deregister event handlers related to the plugin.
+   */
+  deregisterEventHandlers() {
+    this.app.workspace.off("resize", this.handleResize);
+    this.app.workspace.off("active-leaf-change", this.handleActiveLeafChange);
+    this.app.workspace.off("layout-change", this.handleLayoutChange);
+    this.app.vault.off("rename", this.handleFileRename);
+    this.app.vault.off("delete", this.handleFileDelete);
+  }
+  /**
+   * Handles the resize event of the workspace.
+   */
+  handleResize = async () => {
+    if (this.plugin.settingsManager.getSliderWidth() / window.innerWidth > CONFIG.SLIDER_HIDE_THRESHOLD) {
+      new import_obsidian7.Notice(t("notice.slider_too_large"), 5e3);
+      const slider = this.plugin.uiManager.getSliderElement();
+      await this.plugin.settingsManager.saveSettings({
+        ...this.plugin.settingsManager.settings,
+        sliderWidth: this.plugin.settingsManager.DEFAULT_SETTINGS.sliderWidth
+      });
+      if (slider) slider.style.width = this.plugin.settingsManager.DEFAULT_SETTINGS.sliderWidth + "px";
+    }
+    this.plugin.noteWidthManager.applyWidthForLeaf();
+  };
+  /**
+   * Handles the active leaf change event.
+   */
+  handleActiveLeafChange = async (leaf) => {
+    if (this.updateTimeout) clearTimeout(this.updateTimeout);
+    if (isActiveLeafMarkdown(this.app)) {
+      this.plugin.statusBarManager.showStatusBarItem();
+    } else {
+      this.plugin.statusBarManager.hideStatusBarItem();
+    }
+    if (!leaf) return;
+    this.plugin.noteWidthManager.applyWidthForLeaf(leaf);
+    requestAnimationFrame(() => {
+      this.plugin.noteWidthManager.applyWidthForLeaf(leaf);
+    });
+  };
+  /**
+   * Handles the layout-change event: drops view-only widths for files that are no
+   * longer open in any leaf, then re-applies width for the active leaf (unless a
+   * recent YAML write asked to suppress this cycle to avoid a stale metadataCache read).
+   */
+  handleLayoutChange = () => {
+    this.plugin.noteWidthManager.cleanupViewOnlyWidths();
+    if (this.layoutChangeSuppressed) return;
+    this.plugin.noteWidthManager.applyWidthForLeaf();
+  };
+  /** Moves per-note storage to the new path so a later note at the old path cannot inherit it. */
+  handleFileRename = async (file, oldPath) => {
+    if (!(file instanceof import_obsidian7.TFile)) return;
+    await this.plugin.settingsManager.renameLocalOverride(oldPath, file.path);
+    this.plugin.noteWidthManager.renameViewOnlyWidth(oldPath, file.path);
+  };
+  /** Drops per-note storage for a deleted file so its path cannot be inherited. */
+  handleFileDelete = async (file) => {
+    if (!(file instanceof import_obsidian7.TFile)) return;
+    await this.plugin.settingsManager.clearLocalOverride(file.path);
+    this.plugin.noteWidthManager.clearViewOnlyWidth(file.path);
+  };
+  /**
+   * Persists a width change from the status bar, according to the current per-note mode.
+   * With per-note width disabled the value becomes the global default.
+   * @param wv - The WidthValue to save.
+   */
+  saveWidth(wv) {
+    if (this.plugin.settingsManager.getEnablePerNoteWidth()) {
+      const mode = this.plugin.settingsManager.getPerNoteMode();
+      const file = getActiveMarkdownView(this.app)?.file ?? null;
+      if (mode === "local") {
+        if (file) void this.plugin.settingsManager.setLocalOverride(file.path, wv);
+        return;
+      }
+      if (mode === "view-only") {
+        if (file) this.plugin.noteWidthManager.setViewOnlyWidth(file.path, wv);
+        return;
+      }
+      if (this.updateTimeout) clearTimeout(this.updateTimeout);
+      this.updateTimeout = window.setTimeout(async () => {
+        this.layoutChangeSuppressed = true;
+        const yamlKey = this.plugin.settingsManager.getYAMLKey();
+        const yamlValue = formatWidthForYaml(wv);
+        await this.plugin.yamlFrontMatterProcessor.setYamlValue(yamlKey, yamlValue);
+        window.setTimeout(() => {
+          this.layoutChangeSuppressed = false;
+        }, 500);
+      }, 250);
+    } else {
+      void this.plugin.settingsManager.saveSettings({
+        ...this.plugin.settingsManager.settings,
+        defaultWidth: wv.value,
+        defaultWidthUnit: wv.unit
+      });
+    }
+  }
+  /**
+   * Configures the events for the slider element with text input.
+   * @param slider - The slider HTML element.
+   * @param sliderValueText - The text display associated with the slider.
+   */
+  handleTextInputEvent(slider, sliderValueText) {
+    sliderValueText.addEventListener("change", () => {
+      const unit = this.plugin.uiManager.getCurrentUnit();
+      const config = this.plugin.settingsManager.getUnitConfig(unit);
+      const enteredValue = parseInt(sliderValueText.value);
+      if (isNaN(enteredValue) || enteredValue < config.min) {
+        sliderValueText.value = config.min.toString();
+      } else if (enteredValue > config.max) {
+        sliderValueText.value = config.max.toString();
+      }
+    });
+    sliderValueText.addEventListener("input", async () => {
+      const unit = this.plugin.uiManager.getCurrentUnit();
+      const config = this.plugin.settingsManager.getUnitConfig(unit);
+      let enteredValue = parseInt(sliderValueText.value);
+      if (isNaN(enteredValue) || enteredValue < config.min) {
+        enteredValue = config.min;
+      } else if (enteredValue > config.max) {
+        enteredValue = config.max;
+      }
+      const clampedValue = validateWidth(enteredValue, unit, config);
+      slider.value = clampedValue.toString();
+      const wv = { value: clampedValue, unit };
+      this.plugin.noteWidthManager.updateNoteWidthEditorStyle(wv);
+      this.saveWidth(wv);
+      sliderValueText.value = sliderValueText.value.substring(0, config.maxInputLength);
+    });
+    slider.addEventListener("input", async () => {
+      const unit = this.plugin.uiManager.getCurrentUnit();
+      const value = parseInt(slider.value);
+      const wv = { value, unit };
+      this.plugin.noteWidthManager.updateNoteWidthEditorStyle(wv);
+      this.saveWidth(wv);
+      if (sliderValueText instanceof HTMLInputElement) {
+        sliderValueText.value = value.toString();
+      } else if (sliderValueText instanceof HTMLSpanElement) {
+        sliderValueText.textContent = value.toString();
+      }
+    });
+  }
+  /**
+   * Configures the events for text span.
+   * @param slider - The slider HTML element.
+   * @param sliderValueText - The text display associated with the slider.
+   */
+  handleTextSpanEvent(slider, sliderValueText) {
+    slider.addEventListener("input", async () => {
+      const unit = this.plugin.uiManager.getCurrentUnit();
+      const value = parseInt(slider.value);
+      const wv = { value, unit };
+      this.plugin.noteWidthManager.updateNoteWidthEditorStyle(wv);
+      this.saveWidth(wv);
+      sliderValueText.textContent = value.toString();
+    });
+  }
+  /**
+   * Applies the preset at the given index: updates UI, editor style and
+   * persists the width via the standard save flow.
+   * Callable from both pill clicks and command invocations.
+   * @param index - Index of the preset in the pills presets array.
+   */
+  applyPillPreset(index) {
+    const presets = this.plugin.settingsManager.getPillsPresets();
+    const preset = presets[index];
+    if (!preset) return;
+    const config = this.plugin.settingsManager.getUnitConfig(preset.unit);
+    const value = validateWidth(preset.value, preset.unit, config);
+    const wv = { value, unit: preset.unit };
+    this.plugin.uiManager.setUnitSelector(preset.unit);
+    this.plugin.uiManager.updateSliderRange(preset.unit);
+    this.plugin.uiManager.setSliderAndTextField(value);
+    this.plugin.noteWidthManager.updateNoteWidthEditorStyle(wv);
+    this.saveWidth(wv);
+    this.plugin.uiManager.updatePillsActiveState(wv);
+  }
+  /**
+   * Configures the click event for a single pills preset button.
+   * @param pill - The pill button element.
+   * @param index - Index of the preset in the pills presets array.
+   */
+  handlePillClickEvent(pill, index) {
+    pill.addEventListener("click", () => {
+      this.applyPillPreset(index);
+    });
+  }
+  /**
+   * Configures the event handler for the unit selector dropdown.
+   * When the unit changes, the slider range and current value are updated,
+   * and the new width is applied and saved.
+   * @param unitSelector - The unit selector select element.
+   */
+  handleUnitSelectorEvent(unitSelector) {
+    unitSelector.addEventListener("change", () => {
+      const newUnit = unitSelector.value;
+      const config = this.plugin.settingsManager.getUnitConfig(newUnit);
+      this.plugin.uiManager.updateSliderRange(newUnit);
+      const slider = this.plugin.uiManager.getSliderElement();
+      let currentValue = slider ? parseInt(slider.value) : config.defaultValue;
+      if (isNaN(currentValue) || currentValue < config.min || currentValue > config.max) {
+        currentValue = config.defaultValue;
+      }
+      const wv = { value: currentValue, unit: newUnit };
+      this.plugin.uiManager.setSliderAndTextField(currentValue);
+      this.plugin.noteWidthManager.updateNoteWidthEditorStyle(wv);
+      this.saveWidth(wv);
+    });
+  }
+};
+
+// src/statusbar/statusBarManager.ts
+var StatusBarManager = class {
+  wrapper = null;
+  plugin;
+  statusBarItemEl = null;
+  /**
+   * Constructs a new StatusBarManager instance.
+   * @param plugin - Reference to the CustomNoteWidth plugin.
+   */
+  constructor(plugin) {
+    this.plugin = plugin;
+    this.setWrapper(plugin.wrapperManager.getWrapper());
+  }
+  /**
+   * Appends the wrapper to the status bar.
+   */
+  appendToStatusBar() {
+    if (!this.wrapper || !this.plugin.settingsManager.getEnableSlider() && !this.plugin.settingsManager.getEnableTextInput()) {
+      this.wrapper = null;
+      return;
+    }
+    this.statusBarItemEl = this.plugin.addStatusBarItem();
+    this.statusBarItemEl.appendChild(this.wrapper);
+    this.statusBarItemEl.style.paddingLeft = "0px";
+    const statusBar = domElementManager.querySelector(classSelector(DOM_IDENTIFIERS.STATUSBAR));
+    statusBar?.insertBefore(this.statusBarItemEl, statusBar.firstChild);
+  }
+  /**
+   * Removes the status bar item.
+   */
+  removeStatusBarItem() {
+    if (!this.statusBarItemEl)
+      return;
+    this.statusBarItemEl.detach();
+  }
+  /**
+   * Sets the wrapper element for the status bar.
+   * @param wrapper - The wrapper element to set.
+   */
+  setWrapper(wrapper) {
+    this.wrapper = wrapper;
+  }
+  /**
+   * Displays the status bar item.
+   */
+  showStatusBarItem() {
+    if (!this.statusBarItemEl)
+      return;
+    this.statusBarItemEl.style.display = "flex";
+  }
+  /**
+   * Hides the status bar item.
+   */
+  hideStatusBarItem() {
+    if (!this.statusBarItemEl)
+      return;
+    this.statusBarItemEl.style.display = "none";
+  }
+};
+
+// src/statusbar/wrapperManager.ts
+var WrapperManager = class {
+  /** Wrapper element for the status bar. */
+  wrapper = null;
+  /**
+   * Constructs a new WrapperManager instance and creates a wrapper.
+   */
+  constructor() {
+    this.createWrapper();
+  }
+  /**
+   * Creates a wrapper div to hold all elements added to the status bar.
+   */
+  createWrapper() {
+    this.wrapper = document.createElement("div");
+    this.wrapper.id = DOM_IDENTIFIERS.WRAPPER;
+  }
+  /**
+   * Removes the wrapper div from the status bar.
+   */
+  removeWrapper() {
+    if (!this.wrapper) return;
+    this.wrapper.remove();
+    this.wrapper = null;
+  }
+  /**
+   * Appends the provided elements to the wrapper.
+   * @param elements - Array of HTML elements to be appended to the wrapper.
+   */
+  appendToWrapper(...elements) {
+    if (!this.wrapper) return;
+    for (const element of elements) {
+      if (element) {
+        this.wrapper.appendChild(element);
+      }
+    }
+  }
+  /**
+   * Retrieves the wrapper element.
+   * @returns The wrapper element or null if not present.
+   */
+  getWrapper() {
+    return this.wrapper;
+  }
+};
+
+// src/ui/uiElementCreator.ts
+var UIElementCreator = class {
+  /**
+   * Constructs a new UIElementCreator instance and initializes UI elements.
+   * @param plugin - Reference to the CustomNoteWidth plugin.
+   */
+  constructor(plugin) {
+    this.plugin = plugin;
+    this.createUIElements();
+  }
+  /**
+   * Creates the slider UI element with range based on the current default unit.
+   * @returns The created slider element.
+   */
+  createSliderElement() {
+    if (!this.plugin.settingsManager.getEnableSlider()) {
+      const slider2 = document.createElement("input");
+      slider2.id = DOM_IDENTIFIERS.DUMMY;
+      return slider2;
+    }
+    const unit = this.plugin.settingsManager.getDefaultWidthUnit();
+    const unitConfig = this.plugin.settingsManager.getUnitConfig(unit);
+    const defaultWidth = this.plugin.settingsManager.getDefaultWidth();
+    const slider = document.createElement("input");
+    slider.id = DOM_IDENTIFIERS.SLIDER;
+    slider.type = "range";
+    slider.min = unitConfig.min.toString();
+    slider.max = unitConfig.max.toString();
+    slider.step = unitConfig.step.toString();
+    slider.value = defaultWidth.toString();
+    slider.style.width = this.plugin.settingsManager.getSliderWidth() + "px";
+    return slider;
+  }
+  /**
+   * Creates the pills container with preset buttons.
+   * @returns The created container element.
+   */
+  createPillsElement() {
+    const container = document.createElement("div");
+    container.id = DOM_IDENTIFIERS.PILLS_CONTAINER;
+    const presets = this.plugin.settingsManager.getPillsPresets();
+    presets.forEach((preset, index) => {
+      const pill = document.createElement("button");
+      pill.id = DOM_IDENTIFIERS.PILL_PREFIX + index;
+      pill.type = "button";
+      pill.classList.add("custom-note-width-pill");
+      pill.textContent = `${preset.value}${preset.unit}`;
+      pill.dataset.index = index.toString();
+      container.appendChild(pill);
+      this.plugin.eventHandler.handlePillClickEvent(pill, index);
+    });
+    return container;
+  }
+  /**
+   * Creates a unit selector dropdown for the status bar.
+   * @returns The created select element.
+   */
+  createUnitSelector() {
+    const select = document.createElement("select");
+    select.id = DOM_IDENTIFIERS.UNIT_SELECTOR;
+    for (const unit of VALID_UNITS) {
+      const option = document.createElement("option");
+      option.value = unit;
+      option.textContent = unit;
+      select.appendChild(option);
+    }
+    select.value = this.plugin.settingsManager.getDefaultWidthUnit();
+    return select;
+  }
+  /**
+   * Creates either a text input field or a simple span element based on the provided slider.
+   * @param slider - The reference slider element.
+   * @param isInput - Flag indicating whether to create an input field or a span.
+   * @returns The created HTMLElement or null.
+   */
+  createTextInput(slider, isInput) {
+    let text = null;
+    if (slider) {
+      if (isInput) {
+        const unit = this.plugin.settingsManager.getDefaultWidthUnit();
+        const unitConfig = this.plugin.settingsManager.getUnitConfig(unit);
+        text = document.createElement("input");
+        text.type = "number";
+        text.value = slider.value;
+        text.min = unitConfig.min.toString();
+        text.max = unitConfig.max.toString();
+        text.style.height = "160%";
+        text.style.width = "50px";
+        text.style.fontSize = "108%";
+      } else {
+        text = document.createElement("span");
+        text.textContent = slider.value;
+        text.style.fontSize = "102.5%";
+        text.style.marginBottom = "-0.5px";
+      }
+      text.id = DOM_IDENTIFIERS.SLIDER_VALUE;
+    }
+    return text;
+  }
+  /**
+   * Creates and configures either the text input field or the span based on the provided slider and width value.
+   * @param slider - The reference slider element.
+   * @param widthValue - Optional width value to set.
+   * @returns The created HTMLElement or null.
+   */
+  createAndConfigureText(slider, widthValue) {
+    let sliderValueText = null;
+    if (slider && this.plugin.settingsManager.getEnableTextInput()) {
+      sliderValueText = this.createTextInput(slider, this.plugin.settingsManager.getEnableTextInput());
+      if (sliderValueText) {
+        this.plugin.eventHandler.handleTextInputEvent(slider, sliderValueText);
+      }
+    } else if (slider) {
+      sliderValueText = this.createTextInput(slider, this.plugin.settingsManager.getEnableTextInput());
+      if (sliderValueText) {
+        this.plugin.eventHandler.handleTextSpanEvent(slider, sliderValueText);
+      }
+    } else if (this.plugin.settingsManager.getEnableTextInput()) {
+      sliderValueText = this.createTextInput(null, this.plugin.settingsManager.getEnableTextInput());
+      if (sliderValueText && widthValue) {
+        sliderValueText.value = widthValue;
+      }
+    }
+    return sliderValueText;
+  }
+  /**
+   * Creates the UI elements and attaches them to the plugin's wrapper.
+   */
+  createUIElements() {
+    let slider = null;
+    let sliderValueText = null;
+    let pills = null;
+    const controlMode = this.plugin.settingsManager.getControlMode();
+    const useSlider = this.plugin.settingsManager.getEnableSlider() && controlMode === "slider";
+    const usePills = this.plugin.settingsManager.getEnableSlider() && controlMode === "pills";
+    if (useSlider) {
+      slider = this.createSliderElement();
+      if (slider) {
+        sliderValueText = this.createAndConfigureText(slider);
+      }
+    } else if (usePills) {
+      pills = this.createPillsElement();
+    }
+    if (this.plugin.settingsManager.getEnableTextInput() && !slider && !usePills) {
+      const textUnit = this.plugin.settingsManager.getDefaultWidthUnit();
+      const textUnitConfig = this.plugin.settingsManager.getUnitConfig(textUnit);
+      const dummySlider = document.createElement("input");
+      dummySlider.value = this.plugin.settingsManager.getDefaultWidth().toString();
+      dummySlider.min = textUnitConfig.min.toString();
+      dummySlider.max = textUnitConfig.max.toString();
+      sliderValueText = this.createAndConfigureText(dummySlider);
+    }
+    const unitSelector = usePills ? null : this.createUnitSelector();
+    if (unitSelector) {
+      this.plugin.eventHandler.handleUnitSelectorEvent(unitSelector);
+    }
+    const elements = [];
+    if (pills) {
+      elements.push(pills);
+    }
+    if (slider) {
+      elements.push(slider);
+    }
+    if (sliderValueText) {
+      elements.push(sliderValueText);
+    }
+    if (unitSelector) {
+      elements.push(unitSelector);
+    }
+    if (elements.length > 0) {
+      this.plugin.wrapperManager.appendToWrapper(...elements);
+    }
+    this.plugin.statusBarManager.appendToStatusBar();
+    if (pills) {
+      this.plugin.uiManager.updatePillsActiveState();
+    }
+  }
+};
+
+// src/ui/uiManager.ts
+var UIManager = class {
+  /**
+   * Constructs a new UIManager instance.
+   * @param plugin - Reference to the CustomNoteWidth plugin.
+   */
+  constructor(plugin) {
+    this.plugin = plugin;
+  }
+  /**
+   * Retrieves the slider UI element directly from the DOM.
+   * Uses getElementById for reliable, cache-free lookups.
+   * @returns The slider element or null if not found.
+   */
+  getSliderElement() {
+    return document.getElementById(DOM_IDENTIFIERS.SLIDER);
+  }
+  /**
+   * Retrieves the text field input UI element directly from the DOM.
+   * Uses getElementById for reliable, cache-free lookups.
+   * @returns The text field input element or null if not found.
+   */
+  getTextFieldElement() {
+    return document.getElementById(DOM_IDENTIFIERS.SLIDER_VALUE);
+  }
+  /**
+   * Retrieves the unit selector element from the DOM.
+   * @returns The unit selector element or null if not found.
+   */
+  getUnitSelectorElement() {
+    return document.getElementById(DOM_IDENTIFIERS.UNIT_SELECTOR);
+  }
+  /**
+   * Retrieves the pills container element from the DOM.
+   * @returns The pills container or null if not found.
+   */
+  getPillsContainer() {
+    return document.getElementById(DOM_IDENTIFIERS.PILLS_CONTAINER);
+  }
+  /**
+   * Marks the pill matching the given width+unit (or the currently applied
+   * width, inferred from DOM/defaults) as active. Removes the active class
+   * from all other pills.
+   * @param wv - Optional explicit width value. When omitted, falls back to
+   *             text-field/slider DOM values, then to default width.
+   */
+  updatePillsActiveState(wv) {
+    const container = this.getPillsContainer();
+    if (!container) return;
+    const presets = this.plugin.settingsManager.getPillsPresets();
+    let currentValue;
+    let currentUnit;
+    if (wv) {
+      currentValue = wv.value;
+      currentUnit = wv.unit;
+    } else {
+      const textField = this.getTextFieldElement();
+      const slider = this.getSliderElement();
+      currentValue = textField ? parseInt(textField.value) : slider ? parseInt(slider.value) : this.plugin.settingsManager.getDefaultWidth();
+      currentUnit = this.getCurrentUnit();
+    }
+    presets.forEach((preset, index) => {
+      const pill = document.getElementById(DOM_IDENTIFIERS.PILL_PREFIX + index);
+      if (!pill) return;
+      const matches = preset.unit === currentUnit && preset.value === currentValue;
+      pill.classList.toggle("is-active", matches);
+    });
+  }
+  /**
+   * Sets the value for both the slider and text field input elements.
+   * @param value - The numeric value to set.
+   */
+  setSliderAndTextField(value) {
+    const slider = this.getSliderElement();
+    const sliderTextField = this.getTextFieldElement();
+    if (slider) {
+      slider.value = value.toString();
+    }
+    if (sliderTextField) {
+      sliderTextField.value = value.toString();
+    }
+  }
+  /**
+   * Updates the slider's min, max, and step attributes based on the given unit.
+   * Also updates the text field's min/max if present.
+   * @param unit - The width unit to configure the slider for.
+   */
+  updateSliderRange(unit) {
+    const config = this.plugin.settingsManager.getUnitConfig(unit);
+    const slider = this.getSliderElement();
+    const textField = this.getTextFieldElement();
+    if (slider) {
+      slider.min = config.min.toString();
+      slider.max = config.max.toString();
+      slider.step = config.step.toString();
+    }
+    if (textField) {
+      textField.min = config.min.toString();
+      textField.max = config.max.toString();
+    }
+  }
+  /**
+   * Sets the unit selector dropdown to the given unit.
+   * @param unit - The unit to select.
+   */
+  setUnitSelector(unit) {
+    const selector = this.getUnitSelectorElement();
+    if (selector) {
+      selector.value = unit;
+    }
+  }
+  /**
+   * Gets the currently selected unit from the unit selector.
+   * Falls back to the default unit from settings if no selector is found.
+   * @returns The currently selected WidthUnit.
+   */
+  getCurrentUnit() {
+    const selector = this.getUnitSelectorElement();
+    if (selector) {
+      return selector.value;
+    }
+    return this.plugin.settingsManager.getDefaultWidthUnit();
+  }
+  /**
+   * Updates the UI directly to apply changes made in the settings tab.
+   * Rebuilds DOM elements and applies the default width from settings.
+   * Per-note width is re-applied on the next active-leaf-change or layout-change.
+   */
+  updateUI() {
+    this.plugin.wrapperManager.removeWrapper();
+    this.plugin.statusBarManager.removeStatusBarItem();
+    this.plugin.wrapperManager.createWrapper();
+    this.plugin.statusBarManager.setWrapper(this.plugin.wrapperManager.getWrapper());
+    this.plugin.uiElementCreator.createUIElements();
+    const defaultUnit = this.plugin.settingsManager.getDefaultWidthUnit();
+    const unitConfig = this.plugin.settingsManager.getUnitConfig(defaultUnit);
+    const defaultWv = validateWidthValue({
+      value: this.plugin.settingsManager.getDefaultWidth(),
+      unit: defaultUnit
+    }, unitConfig);
+    this.plugin.noteWidthManager.updateNoteWidthEditorStyle(defaultWv);
+  }
+};
+
+// src/main.ts
+var CustomNoteWidth = class extends import_obsidian8.Plugin {
+  settingsManager;
+  noteWidthManager;
+  eventHandler;
+  wrapperManager;
+  statusBarManager;
+  uiElementCreator;
+  commandsManager;
+  settingsTab;
+  uiManager;
+  yamlFrontMatterProcessor;
+  /**
+   * This function is called when the plugin is loaded.
+   * It initializes various managers, handlers, and UI elements.
+   * @returns {Promise<void>} A promise that resolves when the loading process is completed.
+   */
+  async onload() {
+    this.settingsManager = new SettingsManager(this);
+    await this.settingsManager.loadSettings();
+    this.settingsTab = new CustomNoteWidthSettingTab(this.app, this);
+    this.addSettingTab(this.settingsTab);
+    this.wrapperManager = new WrapperManager();
+    this.yamlFrontMatterProcessor = new YamlFrontMatterProcessor(this.app);
+    this.statusBarManager = new StatusBarManager(this);
+    this.noteWidthManager = new NoteWidthManager(this.app, this);
+    this.eventHandler = new EventHandler(this.app, this);
+    this.uiManager = new UIManager(this);
+    this.uiElementCreator = new UIElementCreator(this);
+    this.commandsManager = new CommandsManager(this);
+    this.eventHandler.registerEventHandlers();
+    const defaultWv = {
+      value: this.settingsManager.getDefaultWidth(),
+      unit: this.settingsManager.getDefaultWidthUnit()
+    };
+    this.noteWidthManager.updateNoteWidthEditorStyle(defaultWv);
+    console.log(getLoadedMessage(this.manifest.version));
+  }
+  /**
+   * This function is called when the plugin is unloaded.
+   * It handles the cleanup of various components.
+   * @returns {Promise<void>} A promise that resolves when the unloading process is completed.
+   */
+  async onunload() {
+    this.wrapperManager.removeWrapper();
+    this.noteWidthManager.destroy();
+    this.eventHandler.deregisterEventHandlers();
+    console.log(getUnloadedMessage(this.manifest.version));
+  }
+};
+
 /* nosourcemap */

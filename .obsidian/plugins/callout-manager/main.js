@@ -31,26 +31,26 @@ module.exports = __toCommonJS(main_exports);
 var import_obsidian25 = require("obsidian");
 
 // node_modules/obsidian-extra/dist/esm/functions/getFloatingWindows.js
-function getFloatingWindows(app2) {
+function getFloatingWindows(app) {
   var _a, _b, _c, _d;
-  return (_d = (_c = (_b = (_a = app2 === null || app2 === void 0 ? void 0 : app2.workspace) === null || _a === void 0 ? void 0 : _a.floatingSplit) === null || _b === void 0 ? void 0 : _b.children) === null || _c === void 0 ? void 0 : _c.map((split) => split.win)) !== null && _d !== void 0 ? _d : [];
+  return (_d = (_c = (_b = (_a = app === null || app === void 0 ? void 0 : app.workspace) === null || _a === void 0 ? void 0 : _a.floatingSplit) === null || _b === void 0 ? void 0 : _b.children) === null || _c === void 0 ? void 0 : _c.map((split) => split.win)) !== null && _d !== void 0 ? _d : [];
 }
 
 // node_modules/obsidian-extra/dist/esm/functions/getCurrentThemeID.js
-function getCurrentThemeID(app2) {
-  const theme = app2.customCss.theme;
+function getCurrentThemeID(app) {
+  const theme = app.customCss.theme;
   return theme === "" ? null : theme;
 }
 
 // node_modules/obsidian-extra/dist/esm/functions/getCurrentColorScheme.js
-function getCurrentThemeID2(app2) {
-  const { body } = app2.workspace.containerEl.doc;
+function getCurrentThemeID2(app) {
+  const { body } = app.workspace.containerEl.doc;
   return body.classList.contains("theme-dark") ? "dark" : "light";
 }
 
 // node_modules/obsidian-extra/dist/esm/functions/getThemeManifest.js
-function getThemeManifest(app2, themeID) {
-  const manifests = app2.customCss.themes;
+function getThemeManifest(app, themeID) {
+  const manifests = app.customCss.themes;
   if (!Object.prototype.hasOwnProperty.call(manifests, themeID)) {
     return null;
   }
@@ -58,22 +58,22 @@ function getThemeManifest(app2, themeID) {
 }
 
 // node_modules/obsidian-extra/dist/esm/functions/isThemeInstalled.js
-function isThemeInstalled(app2, themeID) {
-  return getThemeManifest(app2, themeID) !== null;
+function isThemeInstalled(app, themeID) {
+  return getThemeManifest(app, themeID) !== null;
 }
 
 // node_modules/obsidian-extra/dist/esm/functions/getThemeStyleElement.js
-function getThemeStyleElement(app2) {
-  const currentTheme = getCurrentThemeID(app2);
-  if (currentTheme == null || !isThemeInstalled(app2, currentTheme)) {
+function getThemeStyleElement(app) {
+  const currentTheme = getCurrentThemeID(app);
+  if (currentTheme == null || !isThemeInstalled(app, currentTheme)) {
     return null;
   }
-  return app2.customCss.styleEl;
+  return app.customCss.styleEl;
 }
 
 // node_modules/obsidian-extra/dist/esm/functions/isSnippetEnabled.js
-function isSnippetEnabled(app2, snippetID) {
-  return app2.customCss.enabledSnippets.has(snippetID);
+function isSnippetEnabled(app, snippetID) {
+  return app.customCss.enabledSnippets.has(snippetID);
 }
 
 // node_modules/obsidian-extra/dist/esm/functions/fetchObsidianStyleSheet.js
@@ -129,7 +129,7 @@ var __awaiter = function(thisArg, _arguments, P, generator) {
     step((generator = generator.apply(thisArg, _arguments || [])).next());
   });
 };
-function fetchObsidianStyleSheet(app2) {
+function fetchObsidianStyleSheet(app) {
   return __awaiter(this, void 0, void 0, function* () {
     let errors = [];
     const orElse = (cb) => (ex) => {
@@ -198,18 +198,18 @@ function viaDom(path) {
 }
 
 // node_modules/obsidian-extra/dist/esm/functions/getInstalledSnippetIDs.js
-function getInstalledSnippetIDs(app2) {
-  return app2.customCss.snippets;
+function getInstalledSnippetIDs(app) {
+  return app.customCss.snippets;
 }
 
 // node_modules/obsidian-extra/dist/esm/functions/getSnippetStyleElements.js
-function getSnippetStyleElements(app2) {
-  const styleManager = app2.customCss;
-  const snippets = getInstalledSnippetIDs(app2);
+function getSnippetStyleElements(app) {
+  const styleManager = app.customCss;
+  const snippets = getInstalledSnippetIDs(app);
   const map = /* @__PURE__ */ new Map();
   for (let i = 0, elI = 0; i < snippets.length; i++) {
     const snippetID = styleManager.snippets[i];
-    if (isSnippetEnabled(app2, snippetID)) {
+    if (isSnippetEnabled(app, snippetID)) {
       map.set(snippetID, styleManager.extraStyleEls[elI]);
       elI++;
     }
@@ -218,9 +218,9 @@ function getSnippetStyleElements(app2) {
 }
 
 // node_modules/obsidian-extra/dist/esm/functions/openPluginSettings.js
-function openPluginSettings(app2, plugin) {
+function openPluginSettings(app, plugin) {
   var _a, _b;
-  const settingManager = app2.setting;
+  const settingManager = app.setting;
   const pluginId = typeof plugin === "string" ? plugin : plugin.manifest.id;
   if (((_a = settingManager.activeTab) === null || _a === void 0 ? void 0 : _a.id) !== pluginId) {
     settingManager.openTabById("");
@@ -233,27 +233,27 @@ function openPluginSettings(app2, plugin) {
 
 // node_modules/obsidian-extra/dist/esm/functions/createCustomStyleSheet.js
 var Counter = Symbol("CustomStylesheet count");
-function foreachWindow(app2, fn) {
-  fn(app2.workspace.containerEl.doc, true);
-  for (const float of getFloatingWindows(app2)) {
+function foreachWindow(app, fn) {
+  fn(app.workspace.containerEl.doc, true);
+  for (const float of getFloatingWindows(app)) {
     fn(float.document, false);
   }
 }
-function createCustomStyleSheet(app2, plugin) {
+function createCustomStyleSheet(app, plugin) {
   var _a;
   let result;
   const pl = plugin;
   const plId = plugin.manifest.id;
   const ssId = ((_a = pl[Counter]) !== null && _a !== void 0 ? _a : pl[Counter] = 0).toString();
   pl[Counter]++;
-  const styleEl = app2.workspace.containerEl.doc.createElement("style");
+  const styleEl = app.workspace.containerEl.doc.createElement("style");
   const styleElInFloats = [];
   styleEl.setAttribute("data-source-plugin", plId);
   styleEl.setAttribute("data-source-id", ssId);
   function unapply() {
     styleElInFloats.splice(0, styleElInFloats.length).forEach((el) => el.remove());
     styleEl.detach();
-    foreachWindow(app2, (doc) => {
+    foreachWindow(app, (doc) => {
       for (const styleEl2 of Array.from(doc.head.querySelectorAll("style"))) {
         if (result.is(styleEl2)) {
           styleEl2.remove();
@@ -263,7 +263,7 @@ function createCustomStyleSheet(app2, plugin) {
   }
   function reapply() {
     unapply();
-    foreachWindow(app2, (doc, isFloating) => {
+    foreachWindow(app, (doc, isFloating) => {
       let lastEl = doc.head.lastElementChild;
       for (let el = lastEl; el != null; el = el.previousElementSibling) {
         lastEl = el;
@@ -280,12 +280,12 @@ function createCustomStyleSheet(app2, plugin) {
       lastEl === null || lastEl === void 0 ? void 0 : lastEl.insertAdjacentElement("afterend", styleElClone);
     });
   }
-  app2.workspace.on("css-change", reapply);
-  app2.workspace.on("layout-change", reapply);
+  app.workspace.on("css-change", reapply);
+  app.workspace.on("layout-change", reapply);
   result = Object.freeze(Object.defineProperties(() => {
     unapply();
-    app2.workspace.off("css-change", reapply);
-    app2.workspace.off("layout-change", reapply);
+    app.workspace.off("css-change", reapply);
+    app.workspace.off("layout-change", reapply);
   }, {
     css: {
       enumerable: true,
@@ -351,17 +351,18 @@ var import_obsidian4 = require("obsidian");
 var import_obsidian6 = require("obsidian");
 
 // node_modules/obsidian-extra/dist/esm/functions/closeSettings.js
-function closeSettings(app2) {
-  const settingManager = app2.setting;
+function closeSettings(app) {
+  const settingManager = app.setting;
   settingManager.close();
 }
 
 // src/ui/pane-layers.ts
 var import_obsidian5 = require("obsidian");
 var UIPaneLayers = class {
-  constructor(options) {
+  constructor(root, options) {
     this.layers = [];
     this.closeParent = options.close;
+    this.root = root;
     this.navInstance = {
       open: (pane) => this.push(pane),
       close: () => this.pop(),
@@ -501,6 +502,11 @@ var UIPaneLayers = class {
         configurable: true,
         enumerable: true,
         get: attached ? () => this.controlsEl : notAttachedError
+      },
+      root: {
+        configurable: true,
+        enumerable: true,
+        get: attached ? () => this.root : notAttachedError
       }
     });
   }
@@ -513,7 +519,7 @@ var UISettingTab = class extends import_obsidian6.PluginSettingTab {
     this.plugin = plugin;
     this.createDefault = createDefault;
     this.initLayer = null;
-    this.layers = new UIPaneLayers({
+    this.layers = new UIPaneLayers(plugin, {
       close: () => closeSettings(this.app)
     });
   }
@@ -540,12 +546,15 @@ var UISettingTab = class extends import_obsidian6.PluginSettingTab {
       cls: "calloutmanager-setting-tab-viewport vertical-tab-content"
     });
     layers.containerEl = layers.scrollEl.createDiv({ cls: "calloutmanager-setting-tab-content" });
-    controlsEl.createDiv({ cls: "modal-close-button" }, (closeButtonEl) => {
-      closeButtonEl.addEventListener("click", (ev) => {
-        if (!ev.isTrusted)
-          return;
-        closeSettings(this.app);
-      });
+    const closeBtn = new import_obsidian6.ButtonComponent(controlsEl);
+    closeBtn.setIcon("lucide-x");
+    closeBtn.buttonEl.classList.add("modal-close-button");
+    closeBtn.buttonEl.classList.add("mod-raised");
+    closeBtn.buttonEl.classList.add("clickable-icon");
+    closeBtn.onClick((ev) => {
+      if (!ev.isTrusted)
+        return;
+      closeSettings(this.app);
     });
     layers.clear();
     const initLayer = this.initLayer ?? this.createDefault();
@@ -598,6 +607,15 @@ function toHexRGB(color) {
   return parts.map((c) => c.toString(16).padStart(2, "0")).join("");
 }
 var REGEX_RGB = /^\s*rgba?\(\s*([\d.]+%?)\s*[, ]\s*([\d.]+%?)\s*[, ]\s*([\d.]+%?\s*)\)\s*$/i;
+var REGEX_RGBA = /^\s*rgba\(\s*([\d.]+%?)\s*,\s*([\d.]+%?)\s*,\s*([\d.]+%?)\s*,\s*([\d.]+%?)\s*\)\s*$/i;
+var REGEX_HEX = /^\s*#([\da-f]{3}|[\da-f]{4}|[\da-f]{6}|[\da-f]{8})\s*$/i;
+function parseColor(color) {
+  const trimmed2 = color.trim();
+  if (trimmed2.startsWith("#")) {
+    return parseColorHex(color);
+  }
+  return parseColorRGBA(color);
+}
 function parseColorRGB(rgb) {
   const matches2 = REGEX_RGB.exec(rgb);
   if (matches2 === null)
@@ -616,6 +634,67 @@ function parseColorRGB(rgb) {
     b: rgbComponents[2]
   };
 }
+function parseColorRGBA(rgba) {
+  const asRGB = parseColorRGB(rgba);
+  if (asRGB != null) {
+    asRGB.a = 255;
+    return asRGB;
+  }
+  const matches2 = REGEX_RGBA.exec(rgba);
+  if (matches2 === null)
+    return null;
+  const components = matches2.slice(1).map((v) => v.trim());
+  const rgbComponents = rgbComponentStringsToNumber(components.slice(0, 3));
+  if (rgbComponents === null) {
+    return null;
+  }
+  let alphaComponent = 255;
+  const alphaString = components[3];
+  if (alphaString != null) {
+    if (alphaString.endsWith("%")) {
+      alphaComponent = Math.floor(parseFloat(alphaString.substring(0, alphaString.length - 1)) * 255 / 100);
+    } else {
+      alphaComponent = Math.floor(parseFloat(alphaString) * 255);
+    }
+  }
+  const allComponents = [...rgbComponents, alphaComponent];
+  if (void 0 !== allComponents.find((v) => isNaN(v) || v < 0 || v > 255)) {
+    return null;
+  }
+  return {
+    r: allComponents[0],
+    g: allComponents[1],
+    b: allComponents[2],
+    a: allComponents[3]
+  };
+}
+function parseColorHex(hex) {
+  const matches2 = REGEX_HEX.exec(hex);
+  if (matches2 === null)
+    return null;
+  const hexString = matches2[1];
+  let hexDigits;
+  if (hexString.length < 6)
+    hexDigits = hexString.split("").map((c) => `${c}${c}`);
+  else {
+    hexDigits = [hexString.slice(0, 2), hexString.slice(2, 4), hexString.slice(4, 6), hexString.slice(6, 8)].filter(
+      (v) => v != ""
+    );
+  }
+  const hexComponents = hexDigits.map((v) => parseInt(v, 16));
+  if (void 0 !== hexComponents.find((v) => isNaN(v) || v < 0 || v > 255)) {
+    return null;
+  }
+  const hexRGB = {
+    r: hexComponents[0],
+    g: hexComponents[1],
+    b: hexComponents[2]
+  };
+  if (hexComponents.length > 3) {
+    hexRGB.a = hexComponents[3];
+  }
+  return hexRGB;
+}
 function rgbComponentStringsToNumber(components) {
   if (components[0].endsWith("%")) {
     if (void 0 !== components.slice(1, 3).find((c) => !c.endsWith("%"))) {
@@ -631,7 +710,7 @@ function rgbComponentStringsToNumber(components) {
 
 // src/callout-util.ts
 function getColorFromCallout(callout) {
-  return parseColorRGB(`rgb(${callout.color})`);
+  return parseColor(callout.color);
 }
 function getTitleFromCallout(callout) {
   const matches2 = /^(.)(.*)/u.exec(callout.id);
@@ -1224,7 +1303,7 @@ var CalloutPreviewComponent = class extends import_obsidian8.Component {
       calloutEl.style.removeProperty("--callout-color");
       return this;
     }
-    calloutEl.style.setProperty("--callout-color", `${color.r}, ${color.g}, ${color.b}`);
+    calloutEl.style.setProperty("--callout-color", `rgb(${color.r}, ${color.g}, ${color.b})`);
     return this;
   }
   /**
@@ -1410,12 +1489,14 @@ var SHADOW_DOM_RESET_STYLES = `
 /* Use transparent background color. */
 body {
 	background-color: transparent !important;
+	contain: none;
 }
 `;
 
 // src/callout-resolver.ts
 var CalloutResolver = class {
-  constructor() {
+  constructor(app) {
+    this.obsidianApp = app;
     this.hostElement = document.body.createDiv({
       cls: "calloutmanager-callout-resolver"
     });
@@ -1435,7 +1516,7 @@ var CalloutResolver = class {
    * @param styles The new style elements to use.
    */
   reloadStyles() {
-    this.calloutPreview.setColorScheme(getCurrentThemeID2(app));
+    this.calloutPreview.setColorScheme(getCurrentThemeID2(this.obsidianApp));
     this.calloutPreview.updateStyles();
     this.calloutPreview.removeStyles((el) => el.getAttribute("data-callout-manager") === "style-overrides");
   }
@@ -1478,11 +1559,11 @@ var CalloutResolver = class {
 };
 
 // src/callout-settings.ts
-function currentCalloutEnvironment(app2) {
-  const theme = getCurrentThemeID(app2) ?? "<default>";
+function currentCalloutEnvironment(app) {
+  const theme = getCurrentThemeID(app) ?? "<default>";
   return {
     theme,
-    colorScheme: getCurrentThemeID2(app2)
+    colorScheme: getCurrentThemeID2(app)
   };
 }
 function calloutSettingsToCSS(id, settings, environment) {
@@ -1501,7 +1582,7 @@ function calloutSettingsToStyles(settings, environment) {
     }
     const { changes } = setting;
     if (changes.color != null)
-      styles.push(`--callout-color: ${changes.color}`);
+      styles.push(`--callout-color: rgb(${changes.color})`);
     if (changes.icon != null)
       styles.push(`--callout-icon: ${changes.icon}`);
     if (changes.customStyles != null)
@@ -1578,8 +1659,8 @@ function getCalloutsFromCSS(css) {
 
 // src/css-watcher.ts
 var StylesheetWatcher = class {
-  constructor(app2) {
-    this.app = app2;
+  constructor(app) {
+    this.app = app;
     this.listeners = /* @__PURE__ */ new Map();
     this.cachedSnippets = /* @__PURE__ */ new Map();
     this.cachedObsidian = null;
@@ -3309,7 +3390,7 @@ var MiscEditor = class {
 };
 
 // src/panes/edit-callout-pane/section-info.ts
-function renderInfo(app2, callout, containerEl) {
+function renderInfo(app, callout, containerEl) {
   const frag = document.createDocumentFragment();
   const contentEl = frag.createDiv({ cls: "calloutmanager-edit-callout-section" });
   contentEl.createEl("h2", { text: "About this Callout" });
@@ -3327,7 +3408,7 @@ function renderInfo(app2, callout, containerEl) {
         return;
       }
       el.appendText(". It was added to Obsidian by the ");
-      appendSourceInfo(app2, el, callout.sources[0]);
+      appendSourceInfo(app, el, callout.sources[0]);
       el.appendText(".");
       return;
     }
@@ -3336,7 +3417,7 @@ function renderInfo(app2, callout, containerEl) {
     for (const source of callout.sources) {
       const itemEl = sources.createEl("li");
       itemEl.appendText("The ");
-      appendSourceInfo(app2, itemEl, source);
+      appendSourceInfo(app, itemEl, source);
       itemEl.appendText(".");
     }
   });
@@ -3364,7 +3445,7 @@ function appendColorInfo(el, callout) {
     (colorEl) => colorEl.style.setProperty("--resolved-callout-color", callout.color)
   );
 }
-function appendSourceInfo(app2, el, source) {
+function appendSourceInfo(app, el, source) {
   switch (source.type) {
     case "builtin":
       el.appendText("built-in callouts");
@@ -3381,7 +3462,7 @@ function appendSourceInfo(app2, el, source) {
       return true;
     case "theme": {
       el.appendText("theme ");
-      const themeName = getThemeManifest(app2, source.theme)?.name ?? source.theme;
+      const themeName = getThemeManifest(app, source.theme)?.name ?? source.theme;
       el.createSpan({ cls: "calloutmanager-edit-callout--callout-source", text: themeName });
       return true;
     }
@@ -3717,7 +3798,7 @@ var ManageCalloutsPane = class extends UIPane {
     if (action === "edit") {
       this.nav.open(new EditCalloutPane(this.plugin, id, this.viewOnly));
     } else if (action === "insert") {
-      const view = app.workspace.getActiveViewOfType(import_obsidian22.MarkdownView);
+      const view = this.plugin.app.workspace.getActiveViewOfType(import_obsidian22.MarkdownView);
       if (view) {
         const cursor = view.editor.getCursor();
         view.editor.replaceRange(
@@ -3726,7 +3807,7 @@ var ManageCalloutsPane = class extends UIPane {
           cursor
         );
         view.editor.setCursor(cursor.line + 1, 10);
-        closeSettings(app);
+        closeSettings(this.plugin.app);
       }
     }
   }
@@ -3841,7 +3922,25 @@ var import_obsidian24 = require("obsidian");
 var import_obsidian23 = require("obsidian");
 
 // CHANGELOG.md
-var CHANGELOG_default = `# Version 1.1.0
+var CHANGELOG_default = `# Version 1.1.2
+
+> [!fix] Quick Fix for Obsidian 1.13  
+> Thank you to everyone who reported issues after upgrading to Obsidian 1.13. This release should fix any immediate issues.
+
+# Version 1.1.1
+
+> [!new] Export Callouts as CSS  
+> There's now a button to copy your callout changes.
+
+> [!fix] Callout Previews  
+> Previews are back!
+>
+> Thank you, [**@alythobani**](https://github.com/alythobani)!
+
+> [!fix] Settings Pane (Mobile)  
+> It's moved slightly to accomodate the updated Obsidian mobile layout.
+
+# Version 1.1.0
 
 > [!new] In-App Changelogs  
 > Learn about plugin changes and new features straight from the horse's mouth.
@@ -3878,10 +3977,10 @@ The first release available on Obsidian's community plugin browser!
 `;
 
 // src/changelog.ts
-function getSections() {
+function getSections(app, parent) {
   const frag = document.createDocumentFragment();
   const renderedEl = frag.createDiv();
-  import_obsidian23.MarkdownRenderer.renderMarkdown(CHANGELOG_default, renderedEl, "", null);
+  import_obsidian23.MarkdownRenderer.render(app, CHANGELOG_default, renderedEl, "", parent);
   const sections = /* @__PURE__ */ new Map();
   let heading = null;
   let sectionContainer = frag.createEl("details");
@@ -3937,7 +4036,7 @@ var ChangelogPane = class extends UIPane {
     super();
     this.title = "Changelog";
     this.plugin = plugin;
-    const sections = getSections();
+    const sections = getSections(plugin.app, plugin);
     const frag = document.createDocumentFragment();
     this.changelogEl = frag.createDiv({ cls: "calloutmanager-changelog" });
     Array.from(sections.values()).forEach(({ version, containerEl: el }) => {
@@ -4004,12 +4103,25 @@ var ManagePluginPane = class extends UIPane {
     new import_obsidian24.Setting(containerEl).setHeading().setName("What's New").setDesc(`Version ${this.plugin.manifest.version}`).addExtraButton((btn) => {
       btn.setIcon("lucide-more-horizontal").setTooltip("More Changelogs").onClick(() => this.nav.open(new ChangelogPane(plugin)));
     });
-    const latestChanges = getSections().get(this.plugin.manifest.version);
+    const latestChanges = getSections(this.plugin.app, this.root).get(this.plugin.manifest.version);
     if (latestChanges != null) {
       const desc = document.createDocumentFragment();
       desc.appendChild(latestChanges.contentsEl);
       new import_obsidian24.Setting(containerEl).setDesc(desc).then((setting) => setting.controlEl.remove()).then((setting) => setting.settingEl.classList.add("calloutmanager-latest-changes"));
     }
+    new import_obsidian24.Setting(containerEl).setHeading().setName("Export");
+    new import_obsidian24.Setting(containerEl).setName("Callout Styles").setDesc("Export your custom callouts and changes as CSS.").addButton((btn) => {
+      btn.setButtonText("Copy");
+      btn.onClick(async () => {
+        btn.setDisabled(true);
+        try {
+          await navigator.clipboard.writeText("/* Exported Styles from Obsidian Callout Manager */\n" + this.plugin.cssApplier.css);
+          btn.setButtonText("Copied!");
+        } catch (ex) {
+          btn.setButtonText("Error");
+        }
+      });
+    });
     new import_obsidian24.Setting(containerEl).setHeading().setName("Reset");
     new import_obsidian24.Setting(containerEl).setName("Reset Callout Settings").setDesc("Reset all the changes you made to callouts.").addButton(
       withConfirm((btn) => {
@@ -4098,7 +4210,7 @@ var CalloutManagerPlugin = class extends import_obsidian25.Plugin {
     await this.loadSettings();
     await this.saveSettings();
     const { settings } = this;
-    this.calloutResolver = new CalloutResolver();
+    this.calloutResolver = new CalloutResolver(this.app);
     this.register(() => this.calloutResolver.unload());
     this.callouts = new CalloutCollection((id) => {
       const { icon, color } = this.calloutResolver.getCalloutProperties(id);
@@ -4365,5 +4477,6 @@ var CalloutManagerPlugin = class extends import_obsidian25.Plugin {
     return this.api.destroyHandle(version, consumerPlugin);
   }
 };
+
 
 /* nosourcemap */
