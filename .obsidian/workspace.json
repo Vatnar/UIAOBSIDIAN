@@ -473,7 +473,9 @@
       "callout-manager:Insert Callout": false,
       "obsidian-markdown-formatting-assistant-plugin:Open Markdown Formatting Assistant": false,
       "tldraw:Create new tldrawing": false,
-      "obsidian-git:Open Git source control": false
+      "obsidian-git:Open Git source control": false,
+      "drawio-editor:Create new drawio diagram": false,
+      "obsidian-importer:Import notes": false
     }
   },
   "active": "0d5e71a44c7e914e",
