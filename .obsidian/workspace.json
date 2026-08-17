@@ -30,8 +30,21 @@
               "icon": "lucide-file",
               "title": "17.08.26"
             }
+          },
+          {
+            "id": "9beca03b0fe06646",
+            "type": "leaf",
+            "state": {
+              "type": "release-notes",
+              "state": {
+                "currentVersion": "1.13.7"
+              },
+              "icon": "lucide-book-up",
+              "title": "Release Notes 1.13.7"
+            }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -213,7 +226,6 @@
       "daily-notes:Open today's daily note": true,
       "templates:Insert template": true,
       "markdown-importer:Open format converter": true,
-      "obsidian-importer:Open Importer": true,
       "obsidian-kanban:Create new board": true,
       "iconic:Open rulebook": true,
       "pdf-plus:PDF++: Toggle auto-copy": true,
@@ -221,13 +233,12 @@
       "pdf-plus:PDF++: Toggle auto-paste": true,
       "callout-manager:Insert Callout": false,
       "obsidian-markdown-formatting-assistant-plugin:Open Markdown Formatting Assistant": false,
-      "tldraw:Create new tldrawing": false,
       "obsidian-git:Open Git source control": false,
       "drawio-editor:Create new drawio diagram": false,
       "obsidian-importer:Import notes": false
     }
   },
-  "active": "f85efb549ed69ff8",
+  "active": "9beca03b0fe06646",
   "lastOpenFiles": [
     "26H/PS102 Praktisk Psykologi/Untitled Diagram 1786977453986.drawio.svg",
     "26H/PS102 Praktisk Psykologi/17.08.26.md",
