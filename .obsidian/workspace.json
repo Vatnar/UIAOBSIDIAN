@@ -23,8 +23,8 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "25H/IKT202 Software Engineering/Eksamen kommentarer.md",
-                "mode": "preview",
+                "file": "26H/PS102 Praktisk Psykologi/17.08.26.md",
+                "mode": "source",
                 "source": false,
                 "backlinks": true,
                 "backlinkOpts": {
@@ -38,7 +38,7 @@
                 }
               },
               "icon": "lucide-file",
-              "title": "Eksamen kommentarer"
+              "title": "17.08.26"
             }
           },
           {
@@ -282,7 +282,7 @@
             }
           }
         ],
-        "currentTab": 11
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -478,10 +478,11 @@
       "obsidian-importer:Import notes": false
     }
   },
-  "active": "0d5e71a44c7e914e",
+  "active": "2046a4d06a4a4f51",
   "lastOpenFiles": [
-    "26V/Apputvikling/Notater.md",
+    "25H/IKT202 Software Engineering/Eksamen kommentarer.md",
     "26H/PS102 Praktisk Psykologi/17.08.26.md",
+    "26V/Apputvikling/Notater.md",
     "26H/PS102 Praktisk Psykologi",
     "26H",
     "26V/Apputvikling/Supabase.md",
@@ -513,7 +514,6 @@
     "Images/image-27.png",
     "26V/Devops",
     "26V/Statistikk/22.01.26 2D - data.md",
-    "25H/IKT202 Software Engineering/Eksamen kommentarer.md",
     "26V/Statistikk/14.1.26 - Data.md",
     "25H/IKT202 Software Engineering/Forelesning/19.08 Rules of software engineering.md",
     "26V/Advanced Operatingsystems",
