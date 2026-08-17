@@ -11,10 +11,24 @@
             "id": "f85efb549ed69ff8",
             "type": "leaf",
             "state": {
-              "type": "graph",
-              "state": {},
-              "icon": "lucide-git-fork",
-              "title": "Graph view"
+              "type": "markdown",
+              "state": {
+                "file": "26H/PS102 Praktisk Psykologi/17.08.26.md",
+                "mode": "source",
+                "source": false,
+                "backlinks": true,
+                "backlinkOpts": {
+                  "collapseAll": false,
+                  "extraContext": false,
+                  "sortOrder": "alphabetical",
+                  "showSearch": false,
+                  "searchQuery": "",
+                  "backlinkCollapsed": false,
+                  "unlinkedCollapsed": true
+                }
+              },
+              "icon": "lucide-file",
+              "title": "17.08.26"
             }
           }
         ]
@@ -215,9 +229,13 @@
   },
   "active": "f85efb549ed69ff8",
   "lastOpenFiles": [
+    "26H/PS102 Praktisk Psykologi/Untitled Diagram 1786977453986.drawio.svg",
+    "26H/PS102 Praktisk Psykologi/17.08.26.md",
+    "17.08.26-1786977567702.webp",
+    "testdiagram.drawio.svg.drawio",
+    "README.md",
     "tldraw/Tldraw 2026-02-05 10.39AM.md",
     "tldraw/Tldraw 2025-07-30 12.38PM.md",
-    "26H/PS102 Praktisk Psykologi/17.08.26.md",
     "26V/Apputvikling/Notater.md",
     "26V/Devops/Bandit.md",
     "26V/Apputvikling/Ideer.md",
@@ -226,7 +244,6 @@
     "26V/Devops/Docker and Docker Compose.md",
     "26V/Statistikk/14.1.26 - Data.md",
     "24H/IKT102 Operativsystemer/Deadlock.md",
-    "README.md",
     "25H/IKT202 Software Engineering/Eksamen kommentarer.md",
     "26H/PS102 Praktisk Psykologi",
     "26H",
@@ -249,17 +266,13 @@
     "Images/image-31.png",
     "Images/image-30.png",
     "Images/image-29.png",
-    "Images/image-28.png",
-    "Images/image-27.png",
     "26V/Devops",
     "26V/Statistikk/22.01.26 2D - data.md",
-    "25H/IKT202 Software Engineering/Forelesning/19.08 Rules of software engineering.md",
     "26V/Advanced Operatingsystems",
     "26V/Apputvikling",
     "26V/Statistikk",
     "26V",
     "25H/IKT203 Algoritmer og Datastrukturer/Forelesning",
-    "25H/IKT203 Algoritmer og Datastrukturer",
-    "25H/IKT202 Software Engineering/Forelesning/21.10 Organization of Software"
+    "25H/IKT203 Algoritmer og Datastrukturer"
   ]
 }
