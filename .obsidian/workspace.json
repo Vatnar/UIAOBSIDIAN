@@ -269,12 +269,12 @@
                 "backlinks": true,
                 "backlinkOpts": {
                   "collapseAll": false,
-                  "extraContext": false,
+                  "extraContext": true,
                   "sortOrder": "alphabetical",
                   "showSearch": false,
                   "searchQuery": "",
-                  "backlinkCollapsed": false,
-                  "unlinkedCollapsed": true
+                  "backlinkCollapsed": true,
+                  "unlinkedCollapsed": false
                 }
               },
               "icon": "lucide-file",
@@ -476,7 +476,7 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "5f5e7fbb75c67ca3",
+  "active": "0d5e71a44c7e914e",
   "lastOpenFiles": [
     "26V/Apputvikling/Notater.md",
     "26H/PS102 Praktisk Psykologi/17.08.26.md",

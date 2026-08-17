@@ -1,0 +1,173 @@
+/* ---- Inline previews (code blocks & embeds) ---- */
+.drawio-codeblock { position: relative; cursor: pointer; }
+.drawio-embed { position: relative; cursor: pointer; display: inline-block; max-width: 100%; }
+/* Dual-format image embeds (`![[x.drawio.svg]]`): Obsidian renders the native
+   <img>; we only add the click-to-edit hotspot on top, so the span needs a
+   positioning context and the pointer affordance. */
+.drawio-dualformat-embed { position: relative; cursor: pointer; }
+.drawio-preview { width: 100%; overflow: auto; text-align: center; }
+/* The extracted SVG carries explicit width/height/viewBox (see ViewerRenderer),
+   so it renders at its natural diagram size and scales down to fit; centre it. */
+.drawio-preview svg { max-width: 100%; height: auto; display: block; margin: 0 auto; }
+/* "Preview alignment: Left" setting. Body-level (toggled by the plugin on
+   every window) so a settings change realigns already-rendered previews
+   without waiting for a re-render. */
+body.drawio-align-left .drawio-preview { text-align: left; }
+body.drawio-align-left .drawio-preview svg { margin: 0; }
+
+/* Previews whose click action is "Do nothing" shouldn't advertise clickability. */
+.drawio-codeblock.drawio-no-action, .drawio-embed.drawio-no-action,
+.drawio-dualformat-embed.drawio-no-action { cursor: default; }
+
+/* Interactive viewer viewport and controls. */
+.drawio-interactive .drawio-preview { user-select: none; }
+.drawio-interactive-active .drawio-interactive-viewport {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  border-radius: 6px;
+  box-shadow: inset 0 0 0 2px var(--interactive-accent);
+}
+.drawio-interactive-viewport .drawio-interactive-svg {
+  width: 100%; height: 100%; max-width: none;
+  margin: 0; display: block;
+}
+.drawio-interactive-toolbar {
+  position: absolute; z-index: 2; top: 8px; right: 8px;
+  display: none; align-items: center; gap: 4px;
+  padding: 4px; border: 1px solid var(--background-modifier-border);
+  border-radius: 6px; background: var(--background-secondary);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, .2);
+  opacity: .58; transition: opacity .15s ease;
+}
+.drawio-interactive-active .drawio-interactive-toolbar { display: flex; }
+.drawio-interactive-toolbar:hover,
+.drawio-interactive-toolbar:focus-within { opacity: 1; }
+.drawio-interactive-active.drawio-interactive-zoomed .drawio-interactive-viewport { cursor: grab; }
+.drawio-interactive-panning .drawio-interactive-viewport { cursor: grabbing; }
+.drawio-interactive-toolbar button {
+  margin: 0; padding: 3px 7px; font-size: var(--font-ui-small);
+  transition: background-color .1s ease, color .1s ease, transform .06s ease;
+}
+.drawio-interactive-toolbar button:not(:disabled):hover {
+  background: var(--background-modifier-hover);
+}
+.drawio-interactive-toolbar button:not(:disabled):focus-visible {
+  outline: 2px solid var(--interactive-accent); outline-offset: 1px;
+}
+.drawio-interactive-toolbar button:not(:disabled):active {
+  color: var(--text-on-accent); background: var(--interactive-accent);
+  transform: scale(.94);
+}
+.drawio-interactive-toolbar button[hidden] { display: none !important; }
+@media (hover: none) {
+  .drawio-interactive-toolbar { opacity: 1; }
+}
+.drawio-interactive-resize-handle {
+  position: absolute; z-index: 3; left: 0; right: 0;
+  display: none; height: 10px; cursor: ns-resize;
+}
+.drawio-interactive-resize-handle::after {
+  content: ''; position: absolute; left: 50%; bottom: 2px;
+  width: 48px; height: 3px; transform: translateX(-50%);
+  border-radius: 2px; background: var(--interactive-accent);
+  opacity: .7;
+}
+.drawio-interactive-active .drawio-interactive-resize-handle { display: block; }
+.drawio-interactive-resizing { cursor: ns-resize; }
+.drawio-interactive-fullscreen {
+  box-sizing: border-box; display: flex; flex-direction: column;
+  width: 100%; height: 100%; padding: 12px;
+  background: var(--background-primary);
+}
+.drawio-interactive-fullscreen .drawio-interactive-viewport {
+  flex: 1 1 auto; min-height: 0; height: auto !important;
+}
+.drawio-interactive-fullscreen .drawio-interactive-resize-handle { display: none; }
+
+.drawio-error {
+  padding: 8px 12px; color: var(--text-error);
+  border: 1px solid var(--background-modifier-error); border-radius: 6px;
+}
+
+.drawio-edit-action-settings {
+  flex-wrap: wrap;
+}
+.drawio-edit-action-fields {
+  width: 100%; margin-top: 10px; padding-left: 12px;
+  border-left: 2px solid var(--background-modifier-border);
+}
+.drawio-edit-action-row {
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 16px; padding: 8px 0;
+}
+.drawio-edit-action-row + .drawio-edit-action-row {
+  border-top: 1px solid var(--background-modifier-border);
+}
+.drawio-edit-action-label { color: var(--text-normal); font-weight: var(--font-semibold); }
+.drawio-edit-action-description { color: var(--text-muted); font-size: var(--font-ui-smaller); }
+.drawio-edit-action-control { flex: 0 0 auto; }
+.drawio-edit-action-control select { max-width: 240px; }
+@media (max-width: 600px) {
+  .drawio-edit-action-row { align-items: stretch; flex-direction: column; gap: 6px; }
+  .drawio-edit-action-control select { width: 100%; max-width: none; }
+}
+
+/* Multi-page navigation, rendered below the diagram when a file has >1 page. */
+.drawio-page-control {
+  display: flex; align-items: center; justify-content: center; gap: 8px;
+  margin-top: 4px; font-size: var(--font-ui-small); color: var(--text-muted);
+}
+.drawio-page-control button {
+  background: none; border: none; padding: 2px 6px; margin: 0;
+  font: inherit; color: inherit; cursor: pointer; line-height: 1;
+}
+.drawio-page-control button:disabled { opacity: .35; cursor: default; }
+.drawio-page-control button:not(:disabled):hover { color: var(--text-normal); }
+.drawio-page-control .drawio-pin { display: inline-flex; align-items: center; }
+.drawio-page-control .drawio-pin svg { width: 14px; height: 14px; }
+
+/* Dual-format embeds in Live Preview: native <img>, no post-processor class. */
+.internal-embed[src*=".drawio.svg"],
+.internal-embed[src*=".drawio.png"] { cursor: pointer; }
+
+/* Old-Diagrams-plugin migration preview list. */
+.drawio-migrate-list {
+  max-height: 40vh; overflow: auto; margin: 0 0 12px;
+  padding-left: 1.2em; font-size: var(--font-ui-small);
+}
+.drawio-migrate-list li { margin: 4px 0; }
+.drawio-migrate-links { color: var(--text-muted); }
+
+/* ---- Modal editor (code blocks & embeds) ---- */
+.drawio-modal { width: 90vw; height: 90vh; max-width: none; }
+.drawio-modal .modal-content { height: 100%; padding: 0; }
+.drawio-iframe { width: 100%; height: 100%; border: none; display: block; }
+
+/* ---- Headless export (HeadlessExporter) ---- */
+/* Off-screen host for the one-shot export iframe: kept rendered — not
+   display:none — so drawio can lay out and rasterize, but never visible or
+   interactive. */
+.drawio-headless-exporter {
+  position: fixed;
+  top: -10000px;
+  left: -10000px;
+  width: 800px;
+  height: 600px;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+/* ---- Inline editor in the tab (.drawio files, Excalidraw-style) ---- */
+.drawio-file-view { height: 100%; padding: 0; }
+.drawio-file-view .drawio-iframe { width: 100%; height: 100%; }
+
+/* ---- Read-only file view (.drawio files: always on mobile, opt-in on desktop) ---- */
+.drawio-preview-file-view { position: relative; height: 100%; overflow: auto; padding: 12px; }
+.drawio-preview-file-view.drawio-clickable { cursor: pointer; }
+.drawio-mobile-banner {
+  margin-bottom: 12px; padding: 6px 12px;
+  border: 1px solid var(--background-modifier-border); border-radius: 6px;
+  background: var(--background-secondary); color: var(--text-muted);
+  font-size: var(--font-ui-small);
+}
