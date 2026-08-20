@@ -4,17 +4,17 @@
     "type": "split",
     "children": [
       {
-        "id": "0ed9786a7c8ab79a",
+        "id": "93c455a68f183e52",
         "type": "tabs",
         "children": [
           {
-            "id": "f85efb549ed69ff8",
+            "id": "753bb8a4b2f6b53c",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
                 "file": "26H/MA-224 Diskret Matematikk 2/Boksteder.md",
-                "mode": "preview",
+                "mode": "source",
                 "source": false,
                 "backlinks": true,
                 "backlinkOpts": {
@@ -234,10 +234,10 @@
       "obsidian-importer:Import notes": false
     }
   },
-  "active": "f85efb549ed69ff8",
+  "active": "753bb8a4b2f6b53c",
   "lastOpenFiles": [
-    "26H/PS102 Praktisk Psykologi/17.08.26.md",
     "26H/MA-224 Diskret Matematikk 2/Boksteder.md",
+    "26H/PS102 Praktisk Psykologi/17.08.26.md",
     "26H/MA-224 Diskret Matematikk 2",
     "26H/PS102 Praktisk Psykologi/Untitled Diagram 1786977453986.drawio.svg",
     "17.08.26-1786977567702.webp",
