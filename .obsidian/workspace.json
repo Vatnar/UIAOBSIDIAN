@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "26H/PS102 Praktisk Psykologi/17.08.26.md",
+                "file": "26H/MA-224 Diskret Matematikk 2/Boksteder.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": true,
@@ -28,7 +28,7 @@
                 }
               },
               "icon": "lucide-file",
-              "title": "17.08.26"
+              "title": "Boksteder"
             }
           }
         ]
@@ -227,8 +227,10 @@
   },
   "active": "f85efb549ed69ff8",
   "lastOpenFiles": [
-    "26H/PS102 Praktisk Psykologi/Untitled Diagram 1786977453986.drawio.svg",
     "26H/PS102 Praktisk Psykologi/17.08.26.md",
+    "26H/MA-224 Diskret Matematikk 2/Boksteder.md",
+    "26H/MA-224 Diskret Matematikk 2",
+    "26H/PS102 Praktisk Psykologi/Untitled Diagram 1786977453986.drawio.svg",
     "17.08.26-1786977567702.webp",
     "testdiagram.drawio.svg.drawio",
     "README.md",
@@ -270,7 +272,6 @@
     "26V/Apputvikling",
     "26V/Statistikk",
     "26V",
-    "25H/IKT203 Algoritmer og Datastrukturer/Forelesning",
-    "25H/IKT203 Algoritmer og Datastrukturer"
+    "25H/IKT203 Algoritmer og Datastrukturer/Forelesning"
   ]
 }
