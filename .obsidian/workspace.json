@@ -30,21 +30,8 @@
               "icon": "lucide-file",
               "title": "17.08.26"
             }
-          },
-          {
-            "id": "9beca03b0fe06646",
-            "type": "leaf",
-            "state": {
-              "type": "release-notes",
-              "state": {
-                "currentVersion": "1.13.7"
-              },
-              "icon": "lucide-book-up",
-              "title": "Release Notes 1.13.7"
-            }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -238,7 +225,7 @@
       "obsidian-importer:Import notes": false
     }
   },
-  "active": "9beca03b0fe06646",
+  "active": "f85efb549ed69ff8",
   "lastOpenFiles": [
     "26H/PS102 Praktisk Psykologi/Untitled Diagram 1786977453986.drawio.svg",
     "26H/PS102 Praktisk Psykologi/17.08.26.md",
