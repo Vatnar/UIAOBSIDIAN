@@ -3,6 +3,7 @@
 
 Exercises 2.1: p.75, 890
 Exercises 2.3: p. 105, 893
+Exercises 2.4: p. 121
 Table inference: p.78
 58, 59, 62.
 
