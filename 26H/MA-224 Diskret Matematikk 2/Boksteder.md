@@ -1,8 +1,8 @@
 
 
-Solutions 2.1: p.890
-Exercises 2.1: p.75
-Exercises 2.3: p. 105
+
+Exercises 2.1: p.75, 890
+Exercises 2.3: p. 105, 893
 Table inference: p.78
 58, 59, 62.
 
