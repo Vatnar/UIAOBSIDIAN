@@ -14,7 +14,7 @@
               "type": "markdown",
               "state": {
                 "file": "26H/MA-224 Diskret Matematikk 2/Boksteder.md",
-                "mode": "source",
+                "mode": "preview",
                 "source": false,
                 "backlinks": true,
                 "backlinkOpts": {
@@ -194,14 +194,23 @@
               "icon": "viewIcon",
               "title": "Markdown-Autocomplete"
             }
+          },
+          {
+            "id": "1b29c4cccade3084",
+            "type": "leaf",
+            "state": {
+              "type": "code-execute-manage-executors",
+              "state": {},
+              "icon": "command-glyph",
+              "title": "Execution Runtimes"
+            }
           }
         ],
-        "currentTab": 5
+        "currentTab": 7
       }
     ],
     "direction": "horizontal",
-    "width": 200,
-    "collapsed": true
+    "width": 200
   },
   "left-ribbon": {
     "hiddenItems": {
