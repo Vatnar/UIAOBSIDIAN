@@ -14,4 +14,9 @@ Objectives:
 
 - Enterprise Architect (EA)
 - Visual sutdio (VS) and C#
-- 
+
+
+## Design Concepts
+- Design and architecutre is everywhere:
+	- International space station
+	- Weekend party
