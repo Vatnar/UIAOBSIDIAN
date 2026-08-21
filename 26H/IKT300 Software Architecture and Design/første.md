@@ -20,3 +20,5 @@ Objectives:
 - Design and architecutre is everywhere:
 	- International space station
 	- Weekend party
+
+Satisfy functional requirements without violating non-functional constraints. 
