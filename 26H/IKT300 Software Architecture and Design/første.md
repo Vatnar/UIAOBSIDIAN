@@ -27,3 +27,10 @@ Deliberate reckless: We dont have time
 Deliberate Prudent: We must ship now and deal with the consequenses later.
 Inadvertent reckless: What is layering?
 Inadvertent prudent: Now we know how we should have done it. 
+
+### Design Rationale
+Design decisions are explicit choices of how to trade off non-functional aspects of a design.
+
+speed vs size
+low cost vs high quality
+security vs light weight
