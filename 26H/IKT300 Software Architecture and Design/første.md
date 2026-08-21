@@ -22,3 +22,8 @@ Objectives:
 	- Weekend party
 
 Satisfy functional requirements without violating non-functional constraints. 
+
+Deliberate reckless: We dont have time
+Deliberate Prudent: We must ship now and deal with the consequenses later.
+Inadvertent reckless: What is layering?
+Inadvertent prudent: Now we know how we should have done it. 
