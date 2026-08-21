@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "26H/MA-224 Diskret Matematikk 2/Boksteder.md",
+                "file": "26H/IKT300/forste.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": true,
@@ -28,7 +28,7 @@
                 }
               },
               "icon": "lucide-file",
-              "title": "Boksteder"
+              "title": "forste"
             }
           }
         ]
@@ -237,6 +237,8 @@
   "active": "753bb8a4b2f6b53c",
   "lastOpenFiles": [
     "26H/MA-224 Diskret Matematikk 2/Boksteder.md",
+    "26H/IKT300/forste.md",
+    "26H/IKT300",
     "26H/PS102 Praktisk Psykologi/17.08.26.md",
     "26H/MA-224 Diskret Matematikk 2",
     "26H/PS102 Praktisk Psykologi/Untitled Diagram 1786977453986.drawio.svg",
@@ -276,11 +278,9 @@
     "Images/image-30.png",
     "Images/image-29.png",
     "26V/Devops",
-    "26V/Statistikk/22.01.26 2D - data.md",
     "26V/Advanced Operatingsystems",
     "26V/Apputvikling",
     "26V/Statistikk",
-    "26V",
-    "25H/IKT203 Algoritmer og Datastrukturer/Forelesning"
+    "26V"
   ]
 }
