@@ -166,13 +166,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "README.md",
+                "file": "26H/IKT300 Software Architecture and Design/forste.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of README"
+              "title": "Outline"
             }
           },
           {
@@ -206,11 +206,12 @@
             }
           }
         ],
-        "currentTab": 7
+        "currentTab": 3
       }
     ],
     "direction": "horizontal",
-    "width": 200
+    "width": 200,
+    "collapsed": true
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -234,7 +235,7 @@
       "obsidian-importer:Import notes": false
     }
   },
-  "active": "5f5e7fbb75c67ca3",
+  "active": "753bb8a4b2f6b53c",
   "lastOpenFiles": [
     "26H/MA-224 Diskret Matematikk 2/Boksteder.md",
     "26H/IKT300 Software Architecture and Design/forste.md",
