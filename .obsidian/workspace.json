@@ -23,7 +23,7 @@
                   "sortOrder": "alphabetical",
                   "showSearch": false,
                   "searchQuery": "",
-                  "backlinkCollapsed": false,
+                  "backlinkCollapsed": true,
                   "unlinkedCollapsed": true
                 }
               },
@@ -51,7 +51,7 @@
               "type": "file-explorer",
               "state": {
                 "sortOrder": "alphabetical",
-                "autoReveal": false,
+                "autoReveal": true,
                 "showSearch": false,
                 "searchQuery": ""
               },
@@ -237,9 +237,9 @@
   },
   "active": "753bb8a4b2f6b53c",
   "lastOpenFiles": [
-    "26H/PS102 Praktisk Psykologi/17.08.26 Psykologisk trygghet.md",
     "26H/IKT300 Software Architecture and Design/19.08.26 Software Architecture and Design.md",
     "26H/PS102 Praktisk Psykologi/24.08.26 Problemløsning i team.md",
+    "26H/PS102 Praktisk Psykologi/17.08.26 Psykologisk trygghet.md",
     "26H/MA-224 Diskret Matematikk 2/Boksteder.md",
     "26H/IKT300 Software Architecture and Design",
     "26H/MA-224 Diskret Matematikk 2",
