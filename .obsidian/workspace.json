@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "26H/PS102 Praktisk Psykologi/24.08.26 Problemløsning i team.md",
+                "file": "26H/IKT300 Software Architecture and Design/25.08.26.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": true,
@@ -28,7 +28,7 @@
                 }
               },
               "icon": "lucide-file",
-              "title": "24.08.26 Problemløsning i team"
+              "title": "25.08.26"
             }
           }
         ]
@@ -238,6 +238,7 @@
   "active": "753bb8a4b2f6b53c",
   "lastOpenFiles": [
     "26H/IKT300 Software Architecture and Design/19.08.26 Software Architecture and Design.md",
+    "26H/IKT300 Software Architecture and Design/25.08.26.md",
     "26H/PS102 Praktisk Psykologi/24.08.26 Problemløsning i team.md",
     "26H/PS102 Praktisk Psykologi/17.08.26 Psykologisk trygghet.md",
     "26H/MA-224 Diskret Matematikk 2/Boksteder.md",
@@ -270,7 +271,6 @@
     "26V/Statistikk/12.02.26.md",
     "26V/Advanced Operatingsystems/20.01.2026 Advanced Operating Systems.md",
     "26V/Statistikk/29.01.26.md",
-    "26V/Statistikk/05.03.26.md",
     "Images/image 6.png",
     "Images/image 5.png",
     "Images/image-33.png",
