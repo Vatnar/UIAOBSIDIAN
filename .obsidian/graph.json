@@ -5,16 +5,8 @@
   "showAttachments": true,
   "hideUnresolved": false,
   "showOrphans": true,
-  "collapse-color-groups": false,
-  "colorGroups": [
-    {
-      "query": "path:\"25H/IKT202 Software Engineering\"  ",
-      "color": {
-        "a": 1,
-        "rgb": 14701138
-      }
-    }
-  ],
+  "collapse-color-groups": true,
+  "colorGroups": [],
   "collapse-display": false,
   "showArrow": true,
   "textFadeMultiplier": -1.5,
@@ -26,5 +18,5 @@
   "linkStrength": 1,
   "linkDistance": 201,
   "scale": 0.18044323395503145,
-  "close": false
+  "close": true
 }

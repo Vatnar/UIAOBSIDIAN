@@ -1,8 +1,9 @@
 {
-  "cssTheme": "Catppuccin",
+  "cssTheme": "Primary",
   "accentColor": "#da9a1b",
-  "theme": "obsidian",
-  "monospaceFontFamily": "Source Code Pro",
+  "theme": "system",
+  "monospaceFontFamily": "Hack Nerd Font Mono",
   "showRibbon": true,
-  "textFontFamily": "Source Code Pro"
+  "textFontFamily": "Hack Nerd Font Mono",
+  "interfaceFontFamily": "Inter"
 }

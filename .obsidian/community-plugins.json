@@ -22,5 +22,7 @@
   "vimium",
   "vim-yank-highlight",
   "obsidian-latex-suite",
-  "drawio-editor"
+  "drawio-editor",
+  "obsidian-relative-line-numbers",
+  "obsidian-icon-folder"
 ]

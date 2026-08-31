@@ -60,6 +60,7 @@ var en = {
   "notice.slider_too_large": "Slider too large!",
   "notice.local_overrides_cleared": "Removed {{count}} local width override(s).",
   "notice.local_overrides_empty": "No local width overrides to clear.",
+  "notice.yaml_key_forbidden": "This YAML key is not allowed.",
   "modal.reset_overrides.title": "Reset local width overrides",
   "modal.reset_overrides.desc": "{{count}} note(s) have a locally stored width. Pick which ones to remove.",
   "modal.reset_overrides.search_placeholder": "Filter by path\u2026",
@@ -77,8 +78,13 @@ var en = {
   "settings.enable_slider.desc": "Toggle to enable/disable the slider.",
   "settings.slider_width.name": "Slider width",
   "settings.slider_width.desc": "Change the width of the slider.",
-  "settings.enable_text_field.name": "Enable text field",
-  "settings.enable_text_field.desc": "Enable to change the width via text field input.",
+  "settings.statusbar_value.name": "Value display in status bar",
+  "settings.statusbar_value.desc": "How the current width is shown next to the slider.",
+  "settings.statusbar_value.option.editable": "Editable (input field)",
+  "settings.statusbar_value.option.readonly": "Read-only (plain text)",
+  "settings.statusbar_value.option.hidden": "Hidden (slider only)",
+  "settings.enable_statusbar_unit_selector.name": "Show unit selector in status bar",
+  "settings.enable_statusbar_unit_selector.desc": "Show the unit dropdown (%, px, ch) next to the slider. Turn off to keep the unit fixed.",
   "settings.control_mode.name": "Control mode",
   "settings.control_mode.desc": "Choose between the classic slider or preset pills for quick width switching.",
   "settings.control_mode.slider": "Slider",
@@ -139,6 +145,7 @@ var de = {
   "notice.slider_too_large": "Schieberegler zu gro\xDF!",
   "notice.local_overrides_cleared": "{{count}} lokale Breite(n) entfernt.",
   "notice.local_overrides_empty": "Keine lokalen Breiten zum Zur\xFCcksetzen.",
+  "notice.yaml_key_forbidden": "Dieser YAML-Schl\xFCssel ist nicht erlaubt.",
   "modal.reset_overrides.title": "Lokale Notizbreiten zur\xFCcksetzen",
   "modal.reset_overrides.desc": "{{count}} Notiz(en) haben eine lokal gespeicherte Breite. W\xE4hle aus, welche entfernt werden sollen.",
   "modal.reset_overrides.search_placeholder": "Nach Pfad filtern\u2026",
@@ -156,8 +163,13 @@ var de = {
   "settings.enable_slider.desc": "Schieberegler ein-/ausschalten.",
   "settings.slider_width.name": "Schieberegler-Breite",
   "settings.slider_width.desc": "Breite des Schiebereglers \xE4ndern.",
-  "settings.enable_text_field.name": "Textfeld aktivieren",
-  "settings.enable_text_field.desc": "Breite per Textfeld-Eingabe \xE4ndern.",
+  "settings.statusbar_value.name": "Wertanzeige in der Statusleiste",
+  "settings.statusbar_value.desc": "Wie die aktuelle Breite neben dem Schieberegler dargestellt wird.",
+  "settings.statusbar_value.option.editable": "Bearbeitbar (Eingabefeld)",
+  "settings.statusbar_value.option.readonly": "Nur lesen (einfacher Text)",
+  "settings.statusbar_value.option.hidden": "Ausgeblendet (nur Schieberegler)",
+  "settings.enable_statusbar_unit_selector.name": "Einheitenwahl in der Statusleiste anzeigen",
+  "settings.enable_statusbar_unit_selector.desc": "Zeigt die Einheitenauswahl (%, px, ch) neben dem Schieberegler. Ausschalten, um die Einheit fest zu lassen.",
   "settings.control_mode.name": "Bedienmodus",
   "settings.control_mode.desc": "Klassischen Schieberegler oder Voreinstellungs-Pills f\xFCr schnelles Umschalten w\xE4hlen.",
   "settings.control_mode.slider": "Schieberegler",
@@ -218,6 +230,7 @@ var ru = {
   "notice.slider_too_large": "\u0417\u043D\u0430\u0447\u0435\u043D\u0438\u0435 \u043F\u043E\u043B\u0437\u0443\u043D\u043A\u0430 \u0441\u043B\u0438\u0448\u043A\u043E\u043C \u0431\u043E\u043B\u044C\u0448\u043E\u0435!",
   "notice.local_overrides_cleared": "\u0423\u0434\u0430\u043B\u0435\u043D\u043E \u043B\u043E\u043A\u0430\u043B\u044C\u043D\u044B\u0445 \u0448\u0438\u0440\u0438\u043D: {{count}}.",
   "notice.local_overrides_empty": "\u041D\u0435\u0442 \u043B\u043E\u043A\u0430\u043B\u044C\u043D\u044B\u0445 \u0448\u0438\u0440\u0438\u043D \u0434\u043B\u044F \u0441\u0431\u0440\u043E\u0441\u0430.",
+  "notice.yaml_key_forbidden": "\u042D\u0442\u043E\u0442 YAML-\u043A\u043B\u044E\u0447 \u0437\u0430\u043F\u0440\u0435\u0449\u0451\u043D.",
   "modal.reset_overrides.title": "\u0421\u0431\u0440\u043E\u0441 \u043B\u043E\u043A\u0430\u043B\u044C\u043D\u044B\u0445 \u0448\u0438\u0440\u0438\u043D \u0437\u0430\u043C\u0435\u0442\u043E\u043A",
   "modal.reset_overrides.desc": "\u0423 {{count}} \u0437\u0430\u043C\u0435\u0442\u043E\u043A(\u0438) \u0435\u0441\u0442\u044C \u043B\u043E\u043A\u0430\u043B\u044C\u043D\u043E \u0441\u043E\u0445\u0440\u0430\u043D\u0451\u043D\u043D\u0430\u044F \u0448\u0438\u0440\u0438\u043D\u0430. \u0412\u044B\u0431\u0435\u0440\u0438\u0442\u0435, \u043A\u0430\u043A\u0438\u0435 \u0443\u0434\u0430\u043B\u0438\u0442\u044C.",
   "modal.reset_overrides.search_placeholder": "\u0424\u0438\u043B\u044C\u0442\u0440 \u043F\u043E \u043F\u0443\u0442\u0438\u2026",
@@ -235,8 +248,13 @@ var ru = {
   "settings.enable_slider.desc": "\u0412\u043A\u043B\u044E\u0447\u0438\u0442\u044C \u0438\u043B\u0438 \u043E\u0442\u043A\u043B\u044E\u0447\u0438\u0442\u044C \u043F\u043E\u043B\u0437\u0443\u043D\u043E\u043A \u0440\u0435\u0433\u0443\u043B\u0438\u0440\u043E\u0432\u043A\u0438 \u0448\u0438\u0440\u0438\u043D\u044B.",
   "settings.slider_width.name": "\u0428\u0438\u0440\u0438\u043D\u0430 \u043F\u043E\u043B\u0437\u0443\u043D\u043A\u0430",
   "settings.slider_width.desc": "\u0418\u0437\u043C\u0435\u043D\u0438\u0442\u044C \u0448\u0438\u0440\u0438\u043D\u0443 \u043F\u043E\u043B\u0437\u0443\u043D\u043A\u0430.",
-  "settings.enable_text_field.name": "\u0412\u043A\u043B\u044E\u0447\u0438\u0442\u044C \u0442\u0435\u043A\u0441\u0442\u043E\u0432\u043E\u0435 \u043F\u043E\u043B\u0435",
-  "settings.enable_text_field.desc": "\u0412\u043A\u043B\u044E\u0447\u0438\u0442\u044C \u0442\u0435\u043A\u0441\u0442\u043E\u0432\u043E\u0435 \u043F\u043E\u043B\u0435 \u0440\u044F\u0434\u043E\u043C \u0441 \u043F\u043E\u043B\u0437\u0443\u043D\u043A\u043E\u043C \u0434\u043B\u044F \u0432\u0432\u043E\u0434\u0430 \u0448\u0438\u0440\u0438\u043D\u044B \u0432\u0440\u0443\u0447\u043D\u0443\u044E.",
+  "settings.statusbar_value.name": "\u041E\u0442\u043E\u0431\u0440\u0430\u0436\u0435\u043D\u0438\u0435 \u0437\u043D\u0430\u0447\u0435\u043D\u0438\u044F \u0432 \u0441\u0442\u0440\u043E\u043A\u0435 \u0441\u043E\u0441\u0442\u043E\u044F\u043D\u0438\u044F",
+  "settings.statusbar_value.desc": "\u041A\u0430\u043A \u043E\u0442\u043E\u0431\u0440\u0430\u0436\u0430\u0435\u0442\u0441\u044F \u0442\u0435\u043A\u0443\u0449\u0430\u044F \u0448\u0438\u0440\u0438\u043D\u0430 \u0440\u044F\u0434\u043E\u043C \u0441 \u043F\u043E\u043B\u0437\u0443\u043D\u043A\u043E\u043C.",
+  "settings.statusbar_value.option.editable": "\u0420\u0435\u0434\u0430\u043A\u0442\u0438\u0440\u0443\u0435\u043C\u043E\u0435 (\u043F\u043E\u043B\u0435 \u0432\u0432\u043E\u0434\u0430)",
+  "settings.statusbar_value.option.readonly": "\u0422\u043E\u043B\u044C\u043A\u043E \u0447\u0442\u0435\u043D\u0438\u0435 (\u043E\u0431\u044B\u0447\u043D\u044B\u0439 \u0442\u0435\u043A\u0441\u0442)",
+  "settings.statusbar_value.option.hidden": "\u0421\u043A\u0440\u044B\u0442\u043E (\u0442\u043E\u043B\u044C\u043A\u043E \u043F\u043E\u043B\u0437\u0443\u043D\u043E\u043A)",
+  "settings.enable_statusbar_unit_selector.name": "\u041F\u043E\u043A\u0430\u0437\u044B\u0432\u0430\u0442\u044C \u0432\u044B\u0431\u043E\u0440 \u0435\u0434\u0438\u043D\u0438\u0446\u044B \u0432 \u0441\u0442\u0440\u043E\u043A\u0435 \u0441\u043E\u0441\u0442\u043E\u044F\u043D\u0438\u044F",
+  "settings.enable_statusbar_unit_selector.desc": "\u041F\u043E\u043A\u0430\u0437\u044B\u0432\u0430\u0435\u0442 \u0432\u044B\u0431\u043E\u0440 \u0435\u0434\u0438\u043D\u0438\u0446\u044B (%, px, ch) \u0440\u044F\u0434\u043E\u043C \u0441 \u043F\u043E\u043B\u0437\u0443\u043D\u043A\u043E\u043C. \u041E\u0442\u043A\u043B\u044E\u0447\u0438\u0442\u0435, \u0447\u0442\u043E\u0431\u044B \u0437\u0430\u0444\u0438\u043A\u0441\u0438\u0440\u043E\u0432\u0430\u0442\u044C \u0435\u0434\u0438\u043D\u0438\u0446\u0443.",
   "settings.control_mode.name": "\u0420\u0435\u0436\u0438\u043C \u0443\u043F\u0440\u0430\u0432\u043B\u0435\u043D\u0438\u044F",
   "settings.control_mode.desc": "\u0412\u044B\u0431\u0435\u0440\u0438\u0442\u0435 \u043C\u0435\u0436\u0434\u0443 \u043A\u043B\u0430\u0441\u0441\u0438\u0447\u0435\u0441\u043A\u0438\u043C \u043F\u043E\u043B\u0437\u0443\u043D\u043A\u043E\u043C \u0438\u043B\u0438 \u043D\u0430\u0431\u043E\u0440\u043E\u043C \u043A\u043D\u043E\u043F\u043E\u043A \u0434\u043B\u044F \u043F\u0435\u0440\u0435\u043A\u043B\u044E\u0447\u0435\u043D\u0438\u044F \u0448\u0438\u0440\u0438\u043D\u044B.",
   "settings.control_mode.slider": "\u041F\u043E\u043B\u0437\u0443\u043D\u043E\u043A",
@@ -299,8 +317,11 @@ function resolveLocale(locale) {
   }
   return "en";
 }
+function getWindowMoment() {
+  return window.moment;
+}
 function t(key, params) {
-  const rawLocale = localeOverride ?? window.moment?.locale?.() ?? "en";
+  const rawLocale = localeOverride ?? getWindowMoment()?.locale() ?? "en";
   const locale = resolveLocale(rawLocale);
   const dict = translations[locale];
   let text = dict[key] ?? en[key] ?? key;
@@ -368,12 +389,11 @@ var DonationButton = class {
    * @returns - The created donation button as an HTMLElement.
    */
   createDonateButtonElement(link, img) {
-    const a = document.createElement("a");
+    const a = createEl("a");
     a.setAttribute("href", link);
-    img.style.height = "auto";
-    img.style.width = "100%";
+    img.addClass("cnw-donation-image");
     a.appendChild(img);
-    const div = document.createElement("div");
+    const div = createDiv();
     div.appendChild(a);
     return div;
   }
@@ -383,7 +403,7 @@ var DonationButton = class {
    * @returns - The container element with the appended donation button.
    */
   createDonationButton(containerEl) {
-    const div = containerEl.createEl("div");
+    const div = containerEl.createDiv();
     div.id = DOM_IDENTIFIERS.DONATION_BUTTON;
     div.appendChild(this.createDonateButtonElement(DONATION_LINK, this.parser.parseFromString(KOFI_SVG, "text/xml").documentElement));
     return div;
@@ -404,6 +424,7 @@ var UNIT_ABSOLUTE_BOUNDS = {
   "px": { min: 1, max: 99999 },
   "ch": { min: 1, max: 9999 }
 };
+var VALID_STATUS_BAR_VALUE_DISPLAYS = ["editable", "readonly", "hidden"];
 var PILLS_PRESET_COUNT = 3;
 var DEFAULT_PILLS_PRESETS = [
   { value: 30, unit: "%" },
@@ -500,7 +521,7 @@ function getCharWidthSync() {
   }
   const editorFontFamily = window.getComputedStyle(editorDiv).fontFamily;
   const editorFontSize = window.getComputedStyle(editorDiv).fontSize;
-  const canvas = document.createElement("canvas");
+  const canvas = createEl("canvas");
   const context = canvas.getContext("2d");
   if (!context) {
     console.error("Failed to get canvas context!", new Error().stack);
@@ -577,10 +598,12 @@ var YamlFrontMatterProcessor = class {
   }
   /**
    * Sets a value for a given YAML key in the active note's front matter.
+   * `value` is `unknown` because YAML frontmatter accepts any serialisable
+   * shape (number, string, boolean, list, map); callers are responsible for
+   * passing a value Obsidian can serialise.
    * @param key - The key to set its value.
    * @param value - The value to set for the specified key.
    */
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   async setYamlValue(key, value) {
     const activeView = getActiveMarkdownView(this.app);
     if (!activeView || !activeView.file) return;
@@ -621,12 +644,15 @@ var DOMElementManager = class {
   }
   /**
    * Generates a cache key based on the selector and context.
+   * Uses a compact, stable identifier for the context: `doc` for the
+   * root document, otherwise the element's id (if any) plus its tag name.
    * @param selector - The CSS selector.
    * @param context - The context in which to perform the query.
    * @returns The generated cache key.
    */
   generateCacheKey(selector, context = document) {
-    return `${selector}-${context}`;
+    const contextKey = context === document ? "doc" : `${context.id || ""}#${context.tagName}`;
+    return `${selector}-${contextKey}`;
   }
 };
 var domElementManager = new DOMElementManager();
@@ -651,9 +677,7 @@ var ProgressBarModal = class extends import_obsidian2.Modal {
    * Adds a cancel button to the modal.
    */
   addCancelButton() {
-    const cancelButton = this.contentEl.createEl("button", { text: t("button.cancel") });
-    cancelButton.style.marginTop = "20px";
-    cancelButton.style.float = "right";
+    const cancelButton = this.contentEl.createEl("button", { text: t("button.cancel"), cls: "cnw-progress-cancel" });
     cancelButton.onclick = () => {
       this.isCancelled = true;
       this.close();
@@ -665,7 +689,7 @@ var ProgressBarModal = class extends import_obsidian2.Modal {
   updateProgress() {
     const innerDiv = this.contentEl.querySelector(classSelector(DOM_IDENTIFIERS.PROGRESS_INNER));
     if (innerDiv) {
-      innerDiv.style.width = `${this.progress}%`;
+      innerDiv.setCssStyles({ width: `${this.progress}%` });
     }
   }
   /**
@@ -765,11 +789,8 @@ var ResetOverridesModal = class extends import_obsidian3.Modal {
   }
   /** Search input; live-filters the list. */
   renderSearch(container) {
-    const input = container.createEl("input", { type: "text" });
+    const input = container.createEl("input", { type: "text", cls: "cnw-reset-search" });
     input.placeholder = t("modal.reset_overrides.search_placeholder");
-    input.style.width = "100%";
-    input.style.marginBottom = "8px";
-    input.style.padding = "6px 8px";
     input.oninput = () => {
       this.filter = input.value.trim().toLowerCase();
       this.applyFilter();
@@ -778,13 +799,6 @@ var ResetOverridesModal = class extends import_obsidian3.Modal {
   /** Master "select all" checkbox row; operates on the currently visible rows. */
   renderSelectAll(container) {
     const row = container.createDiv({ cls: "cnw-reset-select-all" });
-    row.style.display = "flex";
-    row.style.alignItems = "center";
-    row.style.gap = "8px";
-    row.style.padding = "6px 4px";
-    row.style.borderBottom = "1px solid var(--background-modifier-border)";
-    row.style.marginBottom = "6px";
-    row.style.fontWeight = "500";
     this.selectAllBox = row.createEl("input", { type: "checkbox" });
     this.selectAllBox.checked = true;
     this.selectAllBox.id = "cnw-select-all";
@@ -796,28 +810,15 @@ var ResetOverridesModal = class extends import_obsidian3.Modal {
       this.syncSelectAll();
       this.refreshRemoveButton();
     };
-    this.selectAllLabel = row.createEl("label");
+    this.selectAllLabel = row.createEl("label", { cls: "cnw-reset-select-all-label" });
     this.selectAllLabel.htmlFor = "cnw-select-all";
-    this.selectAllLabel.style.cursor = "pointer";
-    this.selectAllLabel.style.userSelect = "none";
   }
   /** Scrollable list; one row per override. */
   renderList(container, paths) {
     const listEl = container.createDiv({ cls: "cnw-reset-list" });
-    listEl.style.height = "320px";
-    listEl.style.overflowY = "auto";
-    listEl.style.margin = "0 0 8px";
-    listEl.style.paddingRight = "6px";
-    listEl.style.border = "1px solid var(--background-modifier-border)";
-    listEl.style.borderRadius = "4px";
     for (const path of paths) {
       const wv = this.overrides[path];
       const row = listEl.createDiv({ cls: "cnw-reset-row" });
-      row.style.display = "flex";
-      row.style.alignItems = "center";
-      row.style.gap = "8px";
-      row.style.padding = "4px 8px";
-      row.style.borderBottom = "1px solid var(--background-modifier-border-hover)";
       const checkbox = row.createEl("input", { type: "checkbox" });
       checkbox.checked = true;
       checkbox.id = `cnw-reset-${this.rows.length}`;
@@ -825,36 +826,18 @@ var ResetOverridesModal = class extends import_obsidian3.Modal {
         this.syncSelectAll();
         this.refreshRemoveButton();
       };
-      const label = row.createEl("label");
+      const label = row.createEl("label", { cls: "cnw-reset-row-label" });
       label.htmlFor = checkbox.id;
-      label.style.cursor = "pointer";
-      label.style.userSelect = "none";
-      label.style.flex = "1";
-      label.style.overflow = "hidden";
-      label.style.textOverflow = "ellipsis";
-      label.style.whiteSpace = "nowrap";
       label.setText(path);
       label.title = path;
-      const value = row.createEl("span", { text: `${wv.value}${wv.unit}` });
-      value.style.color = "var(--text-muted)";
-      value.style.fontSize = "var(--font-ui-smaller)";
-      value.style.fontVariantNumeric = "tabular-nums";
-      value.style.minWidth = "48px";
-      value.style.textAlign = "right";
+      row.createSpan({ text: `${wv.value}${wv.unit}`, cls: "cnw-reset-value" });
       this.rows.push({ path, container: row, checkbox });
     }
-    this.emptyEl = listEl.createDiv({ text: t("modal.reset_overrides.empty_filter") });
-    this.emptyEl.style.padding = "12px";
-    this.emptyEl.style.textAlign = "center";
-    this.emptyEl.style.color = "var(--text-muted)";
-    this.emptyEl.style.display = "none";
+    this.emptyEl = listEl.createDiv({ text: t("modal.reset_overrides.empty_filter"), cls: "cnw-reset-empty" });
   }
   /** Cancel / Remove buttons. */
   renderButtons(container) {
-    const buttonRow = container.createDiv();
-    buttonRow.style.display = "flex";
-    buttonRow.style.justifyContent = "flex-end";
-    buttonRow.style.gap = "8px";
+    const buttonRow = container.createDiv({ cls: "cnw-reset-button-row" });
     const cancelBtn = buttonRow.createEl("button", { text: t("button.cancel") });
     cancelBtn.onclick = () => this.close();
     this.removeBtn = buttonRow.createEl("button", { cls: "mod-warning" });
@@ -869,18 +852,18 @@ var ResetOverridesModal = class extends import_obsidian3.Modal {
     let visible = 0;
     for (const r of this.rows) {
       const match = this.filter === "" || r.path.toLowerCase().includes(this.filter);
-      r.container.style.display = match ? "" : "none";
+      r.container.toggleClass("cnw-hidden", !match);
       if (match) visible++;
     }
     if (this.emptyEl) {
-      this.emptyEl.style.display = visible === 0 ? "" : "none";
+      this.emptyEl.toggleClass("cnw-visible", visible === 0);
     }
     this.syncSelectAll();
     this.refreshRemoveButton();
   }
   /** All rows currently passing the filter. */
   visibleRows() {
-    return this.rows.filter((r) => r.container.style.display !== "none");
+    return this.rows.filter((r) => !r.container.hasClass("cnw-hidden"));
   }
   /**
    * Master checkbox reflects the state of the *visible* rows.
@@ -923,6 +906,16 @@ var CustomNoteWidthSettingTab = class extends import_obsidian4.PluginSettingTab 
   donationButton;
   yamlProcessor;
   /**
+   * Placeholder for Obsidian 1.13+ declarative settings search integration.
+   * Returns an empty list to preserve 2.4.1 behaviour (settings live inside
+   * `display()`); implementing the declarative API would be a functional
+   * change and is deliberately deferred to a follow-up.
+   * @returns Empty array; individual settings are registered by `display()`.
+   */
+  getSettingDefinitions() {
+    return [];
+  }
+  /**
    * Re-renders the settings tab without losing the current scroll position.
    * Obsidian rebuilds containerEl on display() and resets scroll to the top.
    */
@@ -931,7 +924,7 @@ var CustomNoteWidthSettingTab = class extends import_obsidian4.PluginSettingTab 
     const scroll = scroller?.scrollTop ?? 0;
     this.display();
     if (scroller && scroll > 0) {
-      requestAnimationFrame(() => {
+      window.requestAnimationFrame(() => {
         scroller.scrollTop = scroll;
       });
     }
@@ -1049,7 +1042,7 @@ var CustomNoteWidthSettingTab = class extends import_obsidian4.PluginSettingTab 
             });
             text.setValue(this.plugin.settingsManager.DEFAULT_SETTINGS.sliderWidth.toString());
             const slider = this.plugin.uiManager.getSliderElement();
-            if (slider) slider.style.width = this.plugin.settingsManager.DEFAULT_SETTINGS.sliderWidth + "px";
+            if (slider) slider.setCssStyles({ width: `${this.plugin.settingsManager.DEFAULT_SETTINGS.sliderWidth}px` });
           } else if (sliderWidth / window.innerWidth > 0.9) {
             new import_obsidian4.Notice(t("notice.slider_too_large"), 5e3);
             await this.plugin.settingsManager.saveSettings({
@@ -1058,29 +1051,43 @@ var CustomNoteWidthSettingTab = class extends import_obsidian4.PluginSettingTab 
             });
             text.setValue(this.plugin.settingsManager.DEFAULT_SETTINGS.sliderWidth.toString());
             const slider = this.plugin.uiManager.getSliderElement();
-            if (slider) slider.style.width = this.plugin.settingsManager.DEFAULT_SETTINGS.sliderWidth + "px";
+            if (slider) slider.setCssStyles({ width: `${this.plugin.settingsManager.DEFAULT_SETTINGS.sliderWidth}px` });
           } else {
             await this.plugin.settingsManager.saveSettings({
               ...this.plugin.settingsManager.settings,
               sliderWidth
             });
             const slider = this.plugin.uiManager.getSliderElement();
-            if (slider) slider.style.width = sliderWidth + "px";
+            if (slider) slider.setCssStyles({ width: `${sliderWidth}px` });
           }
         })
       );
     }
-    new import_obsidian4.Setting(containerEl).setName(t("settings.enable_text_field.name")).setDesc(t("settings.enable_text_field.desc")).addToggle((cb) => {
-      cb.setValue(this.plugin.settingsManager.getEnableTextInput());
-      cb.onChange(async (value) => {
+    new import_obsidian4.Setting(containerEl).setName(t("settings.statusbar_value.name")).setDesc(t("settings.statusbar_value.desc")).addDropdown((dropdown) => {
+      for (const mode of VALID_STATUS_BAR_VALUE_DISPLAYS) {
+        dropdown.addOption(mode, t(`settings.statusbar_value.option.${mode}`));
+      }
+      dropdown.setValue(this.plugin.settingsManager.getStatusBarValueDisplay());
+      dropdown.onChange(async (value) => {
         await this.plugin.settingsManager.saveSettings({
           ...this.plugin.settingsManager.settings,
-          enableTextInput: value
+          statusBarValueDisplay: value
         });
         this.plugin.uiManager.updateUI();
-        this.redrawKeepingScroll();
       });
     });
+    if (this.plugin.settingsManager.getEnableSlider() && this.plugin.settingsManager.getControlMode() === "slider") {
+      new import_obsidian4.Setting(containerEl).setName(t("settings.enable_statusbar_unit_selector.name")).setDesc(t("settings.enable_statusbar_unit_selector.desc")).addToggle((cb) => {
+        cb.setValue(this.plugin.settingsManager.getEnableStatusBarUnitSelector());
+        cb.onChange(async (value) => {
+          await this.plugin.settingsManager.saveSettings({
+            ...this.plugin.settingsManager.settings,
+            enableStatusBarUnitSelector: value
+          });
+          this.plugin.uiManager.updateUI();
+        });
+      });
+    }
     new import_obsidian4.Setting(containerEl).setName(t("settings.default_width_unit.name")).setDesc(t("settings.default_width_unit.desc")).addDropdown((dropdown) => {
       for (const unit of VALID_UNITS) {
         dropdown.addOption(unit, unit);
@@ -1220,23 +1227,30 @@ var CustomNoteWidthSettingTab = class extends import_obsidian4.PluginSettingTab 
         });
       }
       new import_obsidian4.Setting(containerEl).setName(t("settings.yaml_key.name")).setDesc(t("settings.yaml_key.desc")).addText((text) => {
-        text.setPlaceholder("custom-width").setValue(this.plugin.settingsManager.getYAMLKey()).onChange(async (value) => {
-          if (updateTimeout) clearTimeout(updateTimeout);
-          updateTimeout = window.setTimeout(async () => {
-            const oldKey = this.plugin.settingsManager.getYAMLKey();
-            if (!value || value.trim() === "") {
-              return;
-            }
-            if (oldKey !== value) {
-              const progressBarModal = new ProgressBarModal(this.app, t("progress.changing_keys"));
-              progressBarModal.display();
-              await this.yamlProcessor.replaceYamlKeyInAllNotes(oldKey, value, progressBarModal);
-              progressBarModal.close();
-            }
-            await this.plugin.settingsManager.saveSettings({
-              ...this.plugin.settingsManager.settings,
-              yamlKey: value
-            });
+        text.setPlaceholder(this.plugin.settingsManager.DEFAULT_SETTINGS.yamlKey).setValue(this.plugin.settingsManager.getYAMLKey()).onChange(async (value) => {
+          if (updateTimeout) window.clearTimeout(updateTimeout);
+          updateTimeout = window.setTimeout(() => {
+            void (async () => {
+              const oldKey = this.plugin.settingsManager.getYAMLKey();
+              if (!value || value.trim() === "") {
+                return;
+              }
+              if (["__proto__", "constructor", "prototype"].includes(value.trim())) {
+                new import_obsidian4.Notice(t("notice.yaml_key_forbidden"), 5e3);
+                text.setValue(oldKey);
+                return;
+              }
+              if (oldKey !== value) {
+                const progressBarModal = new ProgressBarModal(this.app, t("progress.changing_keys"));
+                progressBarModal.display();
+                await this.yamlProcessor.replaceYamlKeyInAllNotes(oldKey, value, progressBarModal);
+                progressBarModal.close();
+              }
+              await this.plugin.settingsManager.saveSettings({
+                ...this.plugin.settingsManager.settings,
+                yamlKey: value
+              });
+            })();
           }, 1500);
         });
       });
@@ -1336,11 +1350,7 @@ var CustomNoteWidthSettingTab = class extends import_obsidian4.PluginSettingTab 
       });
     }
     containerEl.appendChild(this.donationButton.createDonationButton(containerEl));
-    const versionEl = containerEl.createEl("div");
-    versionEl.style.textAlign = "center";
-    versionEl.style.marginTop = "20px";
-    versionEl.style.fontSize = "11px";
-    versionEl.style.color = "var(--text-muted)";
+    const versionEl = containerEl.createDiv({ cls: "cnw-version-info" });
     versionEl.setText(`${PLUGIN_NAME} v${this.plugin.manifest.version}`);
   }
 };
@@ -1384,11 +1394,10 @@ var NoteWidthModal = class extends import_obsidian5.Modal {
     const inputContainer = this.contentEl.createDiv();
     inputContainer.id = DOM_IDENTIFIERS.NWM_INPUT_CONTAINER;
     const config = this.unitConfigs[this.currentUnit];
-    const inputEl = inputContainer.createEl("input", { type: "number" });
+    const inputEl = inputContainer.createEl("input", { type: "number", cls: "cnw-nwm-input" });
     inputEl.min = config.min.toString();
     inputEl.max = config.max.toString();
     inputEl.step = config.step.toString();
-    inputEl.style.flex = "1";
     inputEl.oninput = (ev) => {
       const unitConfig = this.unitConfigs[this.currentUnit];
       let number = parseFloat(ev.target.value);
@@ -1403,7 +1412,6 @@ var NoteWidthModal = class extends import_obsidian5.Modal {
     };
     const unitSelect = inputContainer.createEl("select");
     unitSelect.id = DOM_IDENTIFIERS.NWM_UNIT_SELECTOR;
-    unitSelect.style.marginLeft = "8px";
     for (const unit of VALID_UNITS) {
       const option = unitSelect.createEl("option", { text: unit, value: unit });
       if (unit === this.currentUnit) {
@@ -1650,7 +1658,8 @@ var SettingsManager = class {
     sliderWidth: 85,
     yamlKey: "custom-width",
     enableSlider: true,
-    enableTextInput: true,
+    statusBarValueDisplay: "editable",
+    enableStatusBarUnitSelector: true,
     enablePerNoteWidth: true,
     perNoteMode: "frontmatter",
     localOverrides: {},
@@ -1699,12 +1708,13 @@ var SettingsManager = class {
   getYAMLKey() {
     return this.getSetting("yamlKey");
   }
-  /**
-   * Retrieves the enable text input setting.
-   * @returns - The enable text input setting value.
-   */
-  getEnableTextInput() {
-    return this.getSetting("enableTextInput");
+  /** Retrieves the status-bar value display mode. */
+  getStatusBarValueDisplay() {
+    return this.getSetting("statusBarValueDisplay");
+  }
+  /** Retrieves whether the status bar shows the unit selector. */
+  getEnableStatusBarUnitSelector() {
+    return this.getSetting("enableStatusBarUnitSelector");
   }
   /**
    * Retrieves the slider width setting.
@@ -1807,8 +1817,18 @@ var SettingsManager = class {
    * Asynchronously loads the settings, migrating from old format if necessary.
    */
   async loadSettings() {
-    const loaded = await this.plugin.loadData();
-    if (loaded && ("widthPercentage" in loaded || "defaultNoteWidth" in loaded || "enableSaveWidthIndividually" in loaded)) {
+    const raw = await this.plugin.loadData();
+    if (!raw || typeof raw !== "object") {
+      this.settings = { ...this.DEFAULT_SETTINGS };
+      setLocaleOverride(null);
+      return;
+    }
+    const rawObj = raw;
+    delete rawObj["__proto__"];
+    delete rawObj["constructor"];
+    delete rawObj["prototype"];
+    const loaded = rawObj;
+    if ("widthPercentage" in loaded || "defaultNoteWidth" in loaded || "enableSaveWidthIndividually" in loaded) {
       loaded.defaultWidth = loaded.defaultNoteWidth ?? loaded.widthPercentage ?? 100;
       loaded.enablePerNoteWidth = (loaded.enableSaveWidthIndividually || loaded.enableYAMLWidth) ?? true;
       loaded.defaultWidthUnit = "%";
@@ -1819,37 +1839,57 @@ var SettingsManager = class {
       delete loaded.enableChangeDefaultNoteWidth;
       delete loaded.priorityList;
     }
-    if (loaded && !("defaultWidthUnit" in loaded)) {
+    if (!("defaultWidthUnit" in loaded)) {
       loaded.defaultWidthUnit = "%";
     }
-    if (loaded && !("unitRanges" in loaded)) {
+    if (!("unitRanges" in loaded)) {
       loaded.unitRanges = {
         "%": { min: 0, max: 100 },
         "px": { min: 100, max: 4e3 },
         "ch": { min: 10, max: 200 }
       };
     }
-    if (loaded && !("enableCodeBlockWidth" in loaded)) {
+    if (!("enableCodeBlockWidth" in loaded)) {
       loaded.enableCodeBlockWidth = false;
       loaded.codeBlockWidth = 800;
       loaded.codeBlockWidthUnit = "px";
     }
-    if (loaded && !("codeBlockWidthModes" in loaded)) {
+    if (!("codeBlockWidthModes" in loaded)) {
       loaded.codeBlockWidthModes = { reading: true, source: true, livePreview: true };
     }
-    if (loaded && !("controlMode" in loaded)) {
+    if (!("controlMode" in loaded)) {
       loaded.controlMode = "slider";
     }
-    if (loaded && !("perNoteMode" in loaded)) {
+    if (!("perNoteMode" in loaded)) {
       loaded.perNoteMode = loaded.autoSaveYaml === false ? "view-only" : "frontmatter";
     }
-    if (loaded && "autoSaveYaml" in loaded) {
+    if ("autoSaveYaml" in loaded) {
       delete loaded.autoSaveYaml;
     }
-    if (loaded && !("localOverrides" in loaded)) {
+    if (!("localOverrides" in loaded)) {
       loaded.localOverrides = {};
     }
-    if (loaded && (!("pillsPresets" in loaded) || !Array.isArray(loaded.pillsPresets) || loaded.pillsPresets.length !== PILLS_PRESET_COUNT)) {
+    if (!("statusBarValueDisplay" in loaded)) {
+      if (loaded.enableStatusBarValue === false) {
+        loaded.statusBarValueDisplay = "hidden";
+      } else if (loaded.enableSlider === false && loaded.enableTextInput === false) {
+        loaded.statusBarValueDisplay = "hidden";
+      } else if (loaded.enableTextInput === false) {
+        loaded.statusBarValueDisplay = "readonly";
+      } else {
+        loaded.statusBarValueDisplay = "editable";
+      }
+    }
+    if ("enableTextInput" in loaded) {
+      delete loaded.enableTextInput;
+    }
+    if ("enableStatusBarValue" in loaded) {
+      delete loaded.enableStatusBarValue;
+    }
+    if (!("enableStatusBarUnitSelector" in loaded)) {
+      loaded.enableStatusBarUnitSelector = true;
+    }
+    if (!("pillsPresets" in loaded) || !Array.isArray(loaded.pillsPresets) || loaded.pillsPresets.length !== PILLS_PRESET_COUNT) {
       loaded.pillsPresets = [...DEFAULT_PILLS_PRESETS];
     }
     this.settings = Object.assign({}, this.DEFAULT_SETTINGS, loaded);
@@ -1903,20 +1943,15 @@ var NoteWidthManager = class {
   constructor(app, plugin) {
     this.app = app;
     this.plugin = plugin;
-    this.styleElement = document.createElement("style");
-    this.styleElement.id = "custom-note-width-rules";
-    document.head.appendChild(this.styleElement);
+    this.applyCodeBlockModes();
   }
-  /** Persistent <style> element in <head> for per-leaf width rules. */
-  styleElement;
-  /** Maps leaf data-cnw-id to CSS value (e.g., "500px"). */
-  leafRules = /* @__PURE__ */ new Map();
-  /** Maps leaf data-cnw-id to code block CSS value. */
-  leafCodeBlockRules = /* @__PURE__ */ new Map();
   /** Counter for generating unique leaf IDs. */
   leafIdCounter = 0;
   /** Session-only widths (per-note mode 'view-only'), dropped when the note is closed. */
   viewOnlyWidths = /* @__PURE__ */ new Map();
+  /** Every containerEl the plugin has tagged with `data-cnw-id`, so cleanup
+   *  can find them without a global DOM query. */
+  taggedLeaves = /* @__PURE__ */ new Set();
   /**
    * Ensures a view's container element has a data-cnw-id attribute and returns it.
    * @param view - The MarkdownView to get/assign an ID for.
@@ -1928,39 +1963,9 @@ var NoteWidthManager = class {
     if (!id) {
       id = `cnw-${this.leafIdCounter++}`;
       el.setAttribute("data-cnw-id", id);
+      this.taggedLeaves.add(el);
     }
     return id;
-  }
-  /**
-   * Rebuilds the <style> element content from all active leaf rules.
-   */
-  rebuildStylesheet() {
-    const rules = [];
-    const codeBlockEnabled = this.plugin.settingsManager.getEnableCodeBlockWidth();
-    this.leafRules.forEach((cssValue, leafId) => {
-      const codeBlockCss = codeBlockEnabled ? this.leafCodeBlockRules.get(leafId) : null;
-      let rule = `.workspace-leaf-content[data-cnw-id="${leafId}"] { --file-line-width: ${cssValue} !important;`;
-      if (codeBlockCss) {
-        rule += ` --cnw-code-block-width: ${codeBlockCss};`;
-      }
-      rule += ` }`;
-      rules.push(rule);
-    });
-    if (codeBlockEnabled && this.leafCodeBlockRules.size > 0) {
-      const modes = this.plugin.settingsManager.getCodeBlockWidthModes();
-      const cbProps = ` width: var(--cnw-code-block-width) !important; max-width: var(--cnw-code-block-width) !important; box-sizing: border-box !important;`;
-      if (modes.reading) {
-        rules.push(`.workspace-leaf-content[data-cnw-id] .markdown-preview-view pre {${cbProps} }`);
-      }
-      if (modes.source && modes.livePreview) {
-        rules.push(`.workspace-leaf-content[data-cnw-id] .cm-line.HyperMD-codeblock {${cbProps} }`);
-      } else if (modes.source) {
-        rules.push(`.workspace-leaf-content[data-cnw-id] .markdown-source-view:not(.is-live-preview) .cm-line.HyperMD-codeblock {${cbProps} }`);
-      } else if (modes.livePreview) {
-        rules.push(`.workspace-leaf-content[data-cnw-id] .markdown-source-view.is-live-preview .cm-line.HyperMD-codeblock {${cbProps} }`);
-      }
-    }
-    this.styleElement.textContent = rules.join("\n");
   }
   /**
    * Synchronously resolves the correct WidthValue for a given file
@@ -2019,11 +2024,9 @@ var NoteWidthManager = class {
     if (!editorDiv) return;
     const cssValue = widthValueToCss(wv, editorDiv);
     if (!cssValue) return;
-    const leafId = this.getLeafId(view);
-    view.containerEl.style.setProperty("--file-line-width", cssValue, "important");
-    this.leafRules.set(leafId, cssValue);
-    this.applyCodeBlockWidth(view, editorDiv, leafId);
-    this.rebuildStylesheet();
+    this.getLeafId(view);
+    this.setLeafWidthVars(view.containerEl, cssValue, this.computeCodeBlockCss(editorDiv));
+    this.applyCodeBlockModes();
     this.plugin.uiManager.setSliderAndTextField(wv.value);
     this.plugin.uiManager.updateSliderRange(wv.unit);
     this.plugin.uiManager.setUnitSelector(wv.unit);
@@ -2066,55 +2069,72 @@ var NoteWidthManager = class {
     return count;
   }
   /**
-   * Removes all custom width styles from all views and clears leaf rules.
+   * Removes all custom width styles from every tagged leaf and drops the
+   * `data-cnw-id` attribute so the shared stylesheet rules stop matching.
    */
   removeNoteWidthEditorStyle() {
-    this.leafRules.clear();
-    this.leafCodeBlockRules.clear();
-    this.styleElement.textContent = "";
-    this.app.workspace.iterateAllLeaves((leaf) => {
-      if (leaf.view instanceof import_obsidian6.MarkdownView) {
-        leaf.view.containerEl.removeAttribute("data-cnw-id");
-        leaf.view.containerEl.style.removeProperty("--file-line-width");
-        leaf.view.containerEl.style.removeProperty("--cnw-code-block-width");
-      }
-    });
+    for (const el of this.taggedLeaves) {
+      el.removeAttribute("data-cnw-id");
+      el.setCssProps({
+        "--cnw-note-width": "",
+        "--cnw-code-block-width": ""
+      });
+    }
+    this.taggedLeaves.clear();
   }
   /**
-   * Removes the <style> element from the DOM. Call on plugin unload.
+   * Removes plugin state from the DOM. Call on plugin unload.
    */
   destroy() {
     this.removeNoteWidthEditorStyle();
     this.viewOnlyWidths.clear();
-    this.styleElement.remove();
+    document.body.removeClass("cnw-cb-reading");
+    document.body.removeClass("cnw-cb-source");
+    document.body.removeClass("cnw-cb-livepreview");
   }
   /**
-   * Applies the code block width CSS variable for a given leaf.
-   * When enabled, computes and sets --cnw-code-block-width.
-   * When disabled, removes the variable.
-   * @param view - The MarkdownView to apply code block width for.
-   * @param editorDiv - The editor DOM element for width calculations.
-   * @param leafId - The unique leaf identifier.
+   * Applies the current code block mode flags to the shared body element.
+   * Because the flags are global settings, one call is enough to affect
+   * every open leaf. `toggleClass` is idempotent so the extra calls that
+   * happen during frequent `applyWidthForLeaf` runs are cheap.
    */
-  applyCodeBlockWidth(view, editorDiv, leafId) {
-    if (!this.plugin.settingsManager.getEnableCodeBlockWidth()) {
-      view.containerEl.style.removeProperty("--cnw-code-block-width");
-      this.leafCodeBlockRules.delete(leafId);
-      return;
-    }
+  applyCodeBlockModes() {
+    const enabled = this.plugin.settingsManager.getEnableCodeBlockWidth();
+    const modes = this.plugin.settingsManager.getCodeBlockWidthModes();
+    document.body.toggleClass("cnw-cb-reading", enabled && modes.reading);
+    document.body.toggleClass("cnw-cb-source", enabled && modes.source);
+    document.body.toggleClass("cnw-cb-livepreview", enabled && modes.livePreview);
+  }
+  /**
+   * Computes the CSS value for the code block width, or null when the
+   * feature is disabled.
+   * @param editorDiv - The editor DOM element for width calculations.
+   * @returns The CSS value string, or null when the feature is off.
+   */
+  computeCodeBlockCss(editorDiv) {
+    if (!this.plugin.settingsManager.getEnableCodeBlockWidth()) return null;
     const cbWv = {
       value: this.plugin.settingsManager.getCodeBlockWidth(),
       unit: this.plugin.settingsManager.getCodeBlockWidthUnit()
     };
-    const cbCssValue = widthValueToCss(cbWv, editorDiv);
-    if (cbCssValue) {
-      view.containerEl.style.setProperty("--cnw-code-block-width", cbCssValue);
-      this.leafCodeBlockRules.set(leafId, cbCssValue);
-    }
+    return widthValueToCss(cbWv, editorDiv);
+  }
+  /**
+   * Writes both custom CSS variables in one call. Passing `null` for the
+   * code block value unsets it so a leaf does not keep a stale width after
+   * the feature is turned off.
+   * @param el - The container element that owns the variables.
+   * @param noteWidthCss - The value for `--cnw-note-width`.
+   * @param codeBlockCss - The value for `--cnw-code-block-width`, or null to unset.
+   */
+  setLeafWidthVars(el, noteWidthCss, codeBlockCss) {
+    el.setCssProps({
+      "--cnw-note-width": noteWidthCss,
+      "--cnw-code-block-width": codeBlockCss ?? ""
+    });
   }
   /**
    * Updates the custom editor style with a new WidthValue on the active view.
-   * Sets both an inline style and a stylesheet rule for the leaf.
    * Used for user-driven width changes (slider, commands).
    * @param wv - The WidthValue to be applied.
    */
@@ -2129,11 +2149,9 @@ var NoteWidthManager = class {
       console.error("Something went wrong while changing the note width!", new Error().stack);
       return;
     }
-    const leafId = this.getLeafId(view);
-    view.containerEl.style.setProperty("--file-line-width", cssValue, "important");
-    this.leafRules.set(leafId, cssValue);
-    this.applyCodeBlockWidth(view, editorDiv, leafId);
-    this.rebuildStylesheet();
+    this.getLeafId(view);
+    this.setLeafWidthVars(view.containerEl, cssValue, this.computeCodeBlockCss(editorDiv));
+    this.applyCodeBlockModes();
   }
   /**
    * Changes the width of all notes via YAML frontmatter.
@@ -2202,6 +2220,8 @@ var EventHandler = class {
   layoutChangeSuppressed = false;
   /**
    * Register event handlers related to the plugin.
+   * Handlers registered via `plugin.registerEvent()` are automatically
+   * removed by Obsidian on plugin unload; no manual deregistration needed.
    */
   registerEventHandlers() {
     this.plugin.registerEvent(this.app.workspace.on("resize", this.handleResize));
@@ -2209,16 +2229,6 @@ var EventHandler = class {
     this.plugin.registerEvent(this.app.workspace.on("layout-change", this.handleLayoutChange));
     this.plugin.registerEvent(this.app.vault.on("rename", this.handleFileRename));
     this.plugin.registerEvent(this.app.vault.on("delete", this.handleFileDelete));
-  }
-  /**
-   * Deregister event handlers related to the plugin.
-   */
-  deregisterEventHandlers() {
-    this.app.workspace.off("resize", this.handleResize);
-    this.app.workspace.off("active-leaf-change", this.handleActiveLeafChange);
-    this.app.workspace.off("layout-change", this.handleLayoutChange);
-    this.app.vault.off("rename", this.handleFileRename);
-    this.app.vault.off("delete", this.handleFileDelete);
   }
   /**
    * Handles the resize event of the workspace.
@@ -2231,7 +2241,7 @@ var EventHandler = class {
         ...this.plugin.settingsManager.settings,
         sliderWidth: this.plugin.settingsManager.DEFAULT_SETTINGS.sliderWidth
       });
-      if (slider) slider.style.width = this.plugin.settingsManager.DEFAULT_SETTINGS.sliderWidth + "px";
+      if (slider) slider.setCssStyles({ width: `${this.plugin.settingsManager.DEFAULT_SETTINGS.sliderWidth}px` });
     }
     this.plugin.noteWidthManager.applyWidthForLeaf();
   };
@@ -2239,7 +2249,7 @@ var EventHandler = class {
    * Handles the active leaf change event.
    */
   handleActiveLeafChange = async (leaf) => {
-    if (this.updateTimeout) clearTimeout(this.updateTimeout);
+    if (this.updateTimeout) window.clearTimeout(this.updateTimeout);
     if (isActiveLeafMarkdown(this.app)) {
       this.plugin.statusBarManager.showStatusBarItem();
     } else {
@@ -2247,7 +2257,7 @@ var EventHandler = class {
     }
     if (!leaf) return;
     this.plugin.noteWidthManager.applyWidthForLeaf(leaf);
-    requestAnimationFrame(() => {
+    window.requestAnimationFrame(() => {
       this.plugin.noteWidthManager.applyWidthForLeaf(leaf);
     });
   };
@@ -2260,6 +2270,9 @@ var EventHandler = class {
     this.plugin.noteWidthManager.cleanupViewOnlyWidths();
     if (this.layoutChangeSuppressed) return;
     this.plugin.noteWidthManager.applyWidthForLeaf();
+    window.requestAnimationFrame(() => {
+      this.plugin.noteWidthManager.applyWidthForLeaf();
+    });
   };
   /** Moves per-note storage to the new path so a later note at the old path cannot inherit it. */
   handleFileRename = async (file, oldPath) => {
@@ -2290,15 +2303,16 @@ var EventHandler = class {
         if (file) this.plugin.noteWidthManager.setViewOnlyWidth(file.path, wv);
         return;
       }
-      if (this.updateTimeout) clearTimeout(this.updateTimeout);
-      this.updateTimeout = window.setTimeout(async () => {
+      if (this.updateTimeout) window.clearTimeout(this.updateTimeout);
+      this.updateTimeout = window.setTimeout(() => {
         this.layoutChangeSuppressed = true;
         const yamlKey = this.plugin.settingsManager.getYAMLKey();
         const yamlValue = formatWidthForYaml(wv);
-        await this.plugin.yamlFrontMatterProcessor.setYamlValue(yamlKey, yamlValue);
-        window.setTimeout(() => {
-          this.layoutChangeSuppressed = false;
-        }, 500);
+        void this.plugin.yamlFrontMatterProcessor.setYamlValue(yamlKey, yamlValue).then(() => {
+          window.setTimeout(() => {
+            this.layoutChangeSuppressed = false;
+          }, 500);
+        });
       }, 250);
     } else {
       void this.plugin.settingsManager.saveSettings({
@@ -2309,9 +2323,32 @@ var EventHandler = class {
     }
   }
   /**
-   * Configures the events for the slider element with text input.
+   * Registers the slider's own input listener: applies the width, persists it,
+   * and syncs the optional text display. Independent of the value-display mode,
+   * so the slider works even when the value is hidden.
    * @param slider - The slider HTML element.
-   * @param sliderValueText - The text display associated with the slider.
+   * @param sliderValueText - Optional companion text element (input or span) to keep in sync.
+   */
+  handleSliderInputEvent(slider, sliderValueText) {
+    slider.addEventListener("input", () => {
+      const unit = this.plugin.uiManager.getCurrentUnit();
+      const value = parseInt(slider.value);
+      const wv = { value, unit };
+      this.plugin.noteWidthManager.updateNoteWidthEditorStyle(wv);
+      this.saveWidth(wv);
+      if (sliderValueText?.instanceOf(HTMLInputElement)) {
+        sliderValueText.value = value.toString();
+      } else if (sliderValueText?.instanceOf(HTMLSpanElement)) {
+        sliderValueText.textContent = value.toString();
+      }
+    });
+  }
+  /**
+   * Registers listeners on the editable text input field (clamp on blur/enter,
+   * live-apply on typing). The slider's own input listener is handled by
+   * `handleSliderInputEvent`.
+   * @param slider - The slider HTML element.
+   * @param sliderValueText - The editable text input associated with the slider.
    */
   handleTextInputEvent(slider, sliderValueText) {
     sliderValueText.addEventListener("change", () => {
@@ -2324,7 +2361,7 @@ var EventHandler = class {
         sliderValueText.value = config.max.toString();
       }
     });
-    sliderValueText.addEventListener("input", async () => {
+    sliderValueText.addEventListener("input", () => {
       const unit = this.plugin.uiManager.getCurrentUnit();
       const config = this.plugin.settingsManager.getUnitConfig(unit);
       let enteredValue = parseInt(sliderValueText.value);
@@ -2339,33 +2376,6 @@ var EventHandler = class {
       this.plugin.noteWidthManager.updateNoteWidthEditorStyle(wv);
       this.saveWidth(wv);
       sliderValueText.value = sliderValueText.value.substring(0, config.maxInputLength);
-    });
-    slider.addEventListener("input", async () => {
-      const unit = this.plugin.uiManager.getCurrentUnit();
-      const value = parseInt(slider.value);
-      const wv = { value, unit };
-      this.plugin.noteWidthManager.updateNoteWidthEditorStyle(wv);
-      this.saveWidth(wv);
-      if (sliderValueText instanceof HTMLInputElement) {
-        sliderValueText.value = value.toString();
-      } else if (sliderValueText instanceof HTMLSpanElement) {
-        sliderValueText.textContent = value.toString();
-      }
-    });
-  }
-  /**
-   * Configures the events for text span.
-   * @param slider - The slider HTML element.
-   * @param sliderValueText - The text display associated with the slider.
-   */
-  handleTextSpanEvent(slider, sliderValueText) {
-    slider.addEventListener("input", async () => {
-      const unit = this.plugin.uiManager.getCurrentUnit();
-      const value = parseInt(slider.value);
-      const wv = { value, unit };
-      this.plugin.noteWidthManager.updateNoteWidthEditorStyle(wv);
-      this.saveWidth(wv);
-      sliderValueText.textContent = value.toString();
     });
   }
   /**
@@ -2439,13 +2449,13 @@ var StatusBarManager = class {
    * Appends the wrapper to the status bar.
    */
   appendToStatusBar() {
-    if (!this.wrapper || !this.plugin.settingsManager.getEnableSlider() && !this.plugin.settingsManager.getEnableTextInput()) {
+    if (!this.wrapper || !this.plugin.settingsManager.getEnableSlider() && this.plugin.settingsManager.getStatusBarValueDisplay() === "hidden") {
       this.wrapper = null;
       return;
     }
     this.statusBarItemEl = this.plugin.addStatusBarItem();
     this.statusBarItemEl.appendChild(this.wrapper);
-    this.statusBarItemEl.style.paddingLeft = "0px";
+    this.statusBarItemEl.addClass("cnw-statusbar-item");
     const statusBar = domElementManager.querySelector(classSelector(DOM_IDENTIFIERS.STATUSBAR));
     statusBar?.insertBefore(this.statusBarItemEl, statusBar.firstChild);
   }
@@ -2468,17 +2478,13 @@ var StatusBarManager = class {
    * Displays the status bar item.
    */
   showStatusBarItem() {
-    if (!this.statusBarItemEl)
-      return;
-    this.statusBarItemEl.style.display = "flex";
+    this.statusBarItemEl?.removeClass("cnw-hidden");
   }
   /**
    * Hides the status bar item.
    */
   hideStatusBarItem() {
-    if (!this.statusBarItemEl)
-      return;
-    this.statusBarItemEl.style.display = "none";
+    this.statusBarItemEl?.addClass("cnw-hidden");
   }
 };
 
@@ -2496,7 +2502,7 @@ var WrapperManager = class {
    * Creates a wrapper div to hold all elements added to the status bar.
    */
   createWrapper() {
-    this.wrapper = document.createElement("div");
+    this.wrapper = createDiv();
     this.wrapper.id = DOM_IDENTIFIERS.WRAPPER;
   }
   /**
@@ -2544,21 +2550,21 @@ var UIElementCreator = class {
    */
   createSliderElement() {
     if (!this.plugin.settingsManager.getEnableSlider()) {
-      const slider2 = document.createElement("input");
+      const slider2 = createEl("input");
       slider2.id = DOM_IDENTIFIERS.DUMMY;
       return slider2;
     }
     const unit = this.plugin.settingsManager.getDefaultWidthUnit();
     const unitConfig = this.plugin.settingsManager.getUnitConfig(unit);
     const defaultWidth = this.plugin.settingsManager.getDefaultWidth();
-    const slider = document.createElement("input");
+    const slider = createEl("input");
     slider.id = DOM_IDENTIFIERS.SLIDER;
     slider.type = "range";
     slider.min = unitConfig.min.toString();
     slider.max = unitConfig.max.toString();
     slider.step = unitConfig.step.toString();
     slider.value = defaultWidth.toString();
-    slider.style.width = this.plugin.settingsManager.getSliderWidth() + "px";
+    slider.setCssStyles({ width: `${this.plugin.settingsManager.getSliderWidth()}px` });
     return slider;
   }
   /**
@@ -2566,11 +2572,11 @@ var UIElementCreator = class {
    * @returns The created container element.
    */
   createPillsElement() {
-    const container = document.createElement("div");
+    const container = createDiv();
     container.id = DOM_IDENTIFIERS.PILLS_CONTAINER;
     const presets = this.plugin.settingsManager.getPillsPresets();
     presets.forEach((preset, index) => {
-      const pill = document.createElement("button");
+      const pill = createEl("button");
       pill.id = DOM_IDENTIFIERS.PILL_PREFIX + index;
       pill.type = "button";
       pill.classList.add("custom-note-width-pill");
@@ -2586,10 +2592,10 @@ var UIElementCreator = class {
    * @returns The created select element.
    */
   createUnitSelector() {
-    const select = document.createElement("select");
+    const select = createEl("select");
     select.id = DOM_IDENTIFIERS.UNIT_SELECTOR;
     for (const unit of VALID_UNITS) {
-      const option = document.createElement("option");
+      const option = createEl("option");
       option.value = unit;
       option.textContent = unit;
       select.appendChild(option);
@@ -2609,19 +2615,13 @@ var UIElementCreator = class {
       if (isInput) {
         const unit = this.plugin.settingsManager.getDefaultWidthUnit();
         const unitConfig = this.plugin.settingsManager.getUnitConfig(unit);
-        text = document.createElement("input");
-        text.type = "number";
+        text = createEl("input", { type: "number", cls: "cnw-slider-text-input" });
         text.value = slider.value;
         text.min = unitConfig.min.toString();
         text.max = unitConfig.max.toString();
-        text.style.height = "160%";
-        text.style.width = "50px";
-        text.style.fontSize = "108%";
       } else {
-        text = document.createElement("span");
+        text = createSpan({ cls: "cnw-slider-text-span" });
         text.textContent = slider.value;
-        text.style.fontSize = "102.5%";
-        text.style.marginBottom = "-0.5px";
       }
       text.id = DOM_IDENTIFIERS.SLIDER_VALUE;
     }
@@ -2634,19 +2634,19 @@ var UIElementCreator = class {
    * @returns The created HTMLElement or null.
    */
   createAndConfigureText(slider, widthValue) {
+    const display = this.plugin.settingsManager.getStatusBarValueDisplay();
+    const editable = display === "editable";
     let sliderValueText = null;
-    if (slider && this.plugin.settingsManager.getEnableTextInput()) {
-      sliderValueText = this.createTextInput(slider, this.plugin.settingsManager.getEnableTextInput());
-      if (sliderValueText) {
+    if (slider) {
+      if (display !== "hidden") {
+        sliderValueText = this.createTextInput(slider, editable);
+      }
+      this.plugin.eventHandler.handleSliderInputEvent(slider, sliderValueText);
+      if (sliderValueText && editable) {
         this.plugin.eventHandler.handleTextInputEvent(slider, sliderValueText);
       }
-    } else if (slider) {
-      sliderValueText = this.createTextInput(slider, this.plugin.settingsManager.getEnableTextInput());
-      if (sliderValueText) {
-        this.plugin.eventHandler.handleTextSpanEvent(slider, sliderValueText);
-      }
-    } else if (this.plugin.settingsManager.getEnableTextInput()) {
-      sliderValueText = this.createTextInput(null, this.plugin.settingsManager.getEnableTextInput());
+    } else if (editable) {
+      sliderValueText = this.createTextInput(null, true);
       if (sliderValueText && widthValue) {
         sliderValueText.value = widthValue;
       }
@@ -2671,16 +2671,17 @@ var UIElementCreator = class {
     } else if (usePills) {
       pills = this.createPillsElement();
     }
-    if (this.plugin.settingsManager.getEnableTextInput() && !slider && !usePills) {
+    if (!slider && !usePills && this.plugin.settingsManager.getStatusBarValueDisplay() === "editable") {
       const textUnit = this.plugin.settingsManager.getDefaultWidthUnit();
       const textUnitConfig = this.plugin.settingsManager.getUnitConfig(textUnit);
-      const dummySlider = document.createElement("input");
+      const dummySlider = createEl("input");
       dummySlider.value = this.plugin.settingsManager.getDefaultWidth().toString();
       dummySlider.min = textUnitConfig.min.toString();
       dummySlider.max = textUnitConfig.max.toString();
       sliderValueText = this.createAndConfigureText(dummySlider);
     }
-    const unitSelector = usePills ? null : this.createUnitSelector();
+    const showUnitSelector = !usePills && this.plugin.settingsManager.getEnableStatusBarUnitSelector();
+    const unitSelector = showUnitSelector ? this.createUnitSelector() : null;
     if (unitSelector) {
       this.plugin.eventHandler.handleUnitSelectorEvent(unitSelector);
     }
@@ -2848,6 +2849,7 @@ var UIManager = class {
       unit: defaultUnit
     }, unitConfig);
     this.plugin.noteWidthManager.updateNoteWidthEditorStyle(defaultWv);
+    this.plugin.noteWidthManager.applyWidthForLeaf();
   }
 };
 
@@ -2887,18 +2889,18 @@ var CustomNoteWidth = class extends import_obsidian8.Plugin {
       unit: this.settingsManager.getDefaultWidthUnit()
     };
     this.noteWidthManager.updateNoteWidthEditorStyle(defaultWv);
-    console.log(getLoadedMessage(this.manifest.version));
+    console.debug(getLoadedMessage(this.manifest.version));
   }
   /**
    * This function is called when the plugin is unloaded.
    * It handles the cleanup of various components.
-   * @returns {Promise<void>} A promise that resolves when the unloading process is completed.
+   * Event handlers registered via `plugin.registerEvent()` are removed
+   * automatically by Obsidian; no manual deregistration needed.
    */
-  async onunload() {
+  onunload() {
     this.wrapperManager.removeWrapper();
     this.noteWidthManager.destroy();
-    this.eventHandler.deregisterEventHandlers();
-    console.log(getUnloadedMessage(this.manifest.version));
+    console.debug(getUnloadedMessage(this.manifest.version));
   }
 };
 

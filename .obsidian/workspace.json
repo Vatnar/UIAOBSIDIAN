@@ -37,30 +37,6 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "26H/PS102 Praktisk Psykologi/17.08.26 Psykologisk trygghet.md",
-                "mode": "source",
-                "source": false,
-                "backlinks": true,
-                "backlinkOpts": {
-                  "collapseAll": false,
-                  "extraContext": false,
-                  "sortOrder": "alphabetical",
-                  "showSearch": false,
-                  "searchQuery": "",
-                  "backlinkCollapsed": false,
-                  "unlinkedCollapsed": true
-                }
-              },
-              "icon": "lucide-file",
-              "title": "17.08.26 Psykologisk trygghet"
-            }
-          },
-          {
-            "id": "108b582403843fcc",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
                 "file": "26H/PS102 Praktisk Psykologi/31.08.26 Positiv avviksteori.md",
                 "mode": "source",
                 "source": false,
@@ -78,9 +54,19 @@
               "icon": "lucide-file",
               "title": "31.08.26 Positiv avviksteori"
             }
+          },
+          {
+            "id": "108b582403843fcc",
+            "type": "leaf",
+            "state": {
+              "type": "graph",
+              "state": {},
+              "icon": "lucide-git-fork",
+              "title": "Graph view"
+            }
           }
         ],
-        "currentTab": 2
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -284,10 +270,10 @@
       "obsidian-importer:Import notes": false
     }
   },
-  "active": "108b582403843fcc",
+  "active": "49cdb6950cd21f5d",
   "lastOpenFiles": [
-    "26H/PS102 Praktisk Psykologi/17.08.26 Psykologisk trygghet.md",
     "26H/PS102 Praktisk Psykologi/31.08.26 Positiv avviksteori.md",
+    "26H/PS102 Praktisk Psykologi/17.08.26 Psykologisk trygghet.md",
     "26H/MA-224 Diskret Matematikk 2/Bookmarks diskmat.md",
     "26H/IKT300 Software Architecture and Design/26.08.26 Structures and Views.md",
     "26H/IKT300 Software Architecture and Design/25.08.26 Conceptual integrity, Design, and what is architecture?.md",
@@ -317,16 +303,16 @@
     "26V/Devops/Introduction_This assignment will be graded and wi.md",
     "26V/Devops/Kubernetes bruk.md",
     "26V/Statistikk/26.03.md",
-    "Images/image 7.png",
+    "images/image 7.png",
     "26V/Statistikk/Prosjekt.md",
     "26V/Statistikk/12.02.26.md",
-    "Images/image 6.png",
-    "Images/image 5.png",
-    "Images/image-33.png",
-    "Images/image-32.png",
-    "Images/image-31.png",
-    "Images/image-30.png",
-    "Images/image-29.png",
+    "images/image 6.png",
+    "images/image 5.png",
+    "images/image-33.png",
+    "images/image-32.png",
+    "images/image-31.png",
+    "images/image-30.png",
+    "images/image-29.png",
     "26V/Devops",
     "26V/Advanced Operatingsystems",
     "26V/Apputvikling",

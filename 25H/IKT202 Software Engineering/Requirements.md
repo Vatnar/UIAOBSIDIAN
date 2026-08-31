@@ -9,7 +9,7 @@
 - We will run on Windows
 - <span style="color:rgb(192, 0, 0)">Constraints are stricter requirements
 </span>
-![[Images/image.png|465x313]]
+![[images/image.png|465x313]]
 
 - Non functional requirements decorate function requirements
 	Quality attributes / performance / availability / security
