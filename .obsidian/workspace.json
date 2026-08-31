@@ -37,7 +37,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "26H/MA-224 Diskret Matematikk 2/Bookmarks diskmat.md",
+                "file": "26H/PS102 Praktisk Psykologi/17.08.26 Psykologisk trygghet.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": true,
@@ -52,11 +52,35 @@
                 }
               },
               "icon": "lucide-file",
-              "title": "Bookmarks diskmat"
+              "title": "17.08.26 Psykologisk trygghet"
+            }
+          },
+          {
+            "id": "108b582403843fcc",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "26H/PS102 Praktisk Psykologi/31.08.26 Positiv avviksteori.md",
+                "mode": "source",
+                "source": false,
+                "backlinks": true,
+                "backlinkOpts": {
+                  "collapseAll": false,
+                  "extraContext": false,
+                  "sortOrder": "alphabetical",
+                  "showSearch": false,
+                  "searchQuery": "",
+                  "backlinkCollapsed": false,
+                  "unlinkedCollapsed": true
+                }
+              },
+              "icon": "lucide-file",
+              "title": "31.08.26 Positiv avviksteori"
             }
           }
         ],
-        "currentTab": 1
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -260,14 +284,15 @@
       "obsidian-importer:Import notes": false
     }
   },
-  "active": "49cdb6950cd21f5d",
+  "active": "108b582403843fcc",
   "lastOpenFiles": [
+    "26H/PS102 Praktisk Psykologi/17.08.26 Psykologisk trygghet.md",
+    "26H/PS102 Praktisk Psykologi/31.08.26 Positiv avviksteori.md",
+    "26H/MA-224 Diskret Matematikk 2/Bookmarks diskmat.md",
     "26H/IKT300 Software Architecture and Design/26.08.26 Structures and Views.md",
     "26H/IKT300 Software Architecture and Design/25.08.26 Conceptual integrity, Design, and what is architecture?.md",
     "26H/IKT300 Software Architecture and Design/19.08.26 Software Architecture and Design.md",
     "26H/PS102 Praktisk Psykologi/24.08.26 Problemløsning i team.md",
-    "26H/PS102 Praktisk Psykologi/17.08.26 Psykologisk trygghet.md",
-    "26H/MA-224 Diskret Matematikk 2/Bookmarks diskmat.md",
     "26H/IKT300 Software Architecture and Design",
     "26H/MA-224 Diskret Matematikk 2",
     "26H/PS102 Praktisk Psykologi/Untitled Diagram 1786977453986.drawio.svg",
@@ -295,7 +320,6 @@
     "Images/image 7.png",
     "26V/Statistikk/Prosjekt.md",
     "26V/Statistikk/12.02.26.md",
-    "26V/Advanced Operatingsystems/20.01.2026 Advanced Operating Systems.md",
     "Images/image 6.png",
     "Images/image 5.png",
     "Images/image-33.png",
