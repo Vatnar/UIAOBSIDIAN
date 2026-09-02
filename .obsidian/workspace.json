@@ -37,7 +37,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "26H/PS102 Praktisk Psykologi/31.08.26 Positiv avviksteori.md",
+                "file": "26H/IKT300 Software Architecture and Design/01.08.26 Structures.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": true,
@@ -52,21 +52,59 @@
                 }
               },
               "icon": "lucide-file",
-              "title": "31.08.26 Positiv avviksteori"
+              "title": "01.08.26 Structures"
+            }
+          },
+          {
+            "id": "01fae6f9ad50bcad",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "26H/IKT300 Software Architecture and Design/02.09.26 Quality Attributes.md",
+                "mode": "source",
+                "source": false,
+                "backlinks": true,
+                "backlinkOpts": {
+                  "collapseAll": false,
+                  "extraContext": false,
+                  "sortOrder": "alphabetical",
+                  "showSearch": false,
+                  "searchQuery": "",
+                  "backlinkCollapsed": false,
+                  "unlinkedCollapsed": true
+                }
+              },
+              "icon": "lucide-file",
+              "title": "02.09.26 Quality Attributes"
             }
           },
           {
             "id": "108b582403843fcc",
             "type": "leaf",
             "state": {
-              "type": "graph",
-              "state": {},
-              "icon": "lucide-git-fork",
-              "title": "Graph view"
+              "type": "markdown",
+              "state": {
+                "file": "26H/IKT300 Software Architecture and Design/02.09.26 Quality Attributes.md",
+                "mode": "source",
+                "source": false,
+                "backlinks": true,
+                "backlinkOpts": {
+                  "collapseAll": false,
+                  "extraContext": false,
+                  "sortOrder": "alphabetical",
+                  "showSearch": false,
+                  "searchQuery": "",
+                  "backlinkCollapsed": false,
+                  "unlinkedCollapsed": true
+                }
+              },
+              "icon": "lucide-file",
+              "title": "02.09.26 Quality Attributes"
             }
           }
         ],
-        "currentTab": 1
+        "currentTab": 3
       }
     ],
     "direction": "vertical"
@@ -226,8 +264,8 @@
             "state": {
               "type": "side-panel-control-view",
               "state": {},
-              "icon": "viewIcon",
-              "title": "Markdown-Autocomplete"
+              "icon": "lucide-ghost",
+              "title": "side-panel-control-view"
             }
           },
           {
@@ -236,17 +274,16 @@
             "state": {
               "type": "code-execute-manage-executors",
               "state": {},
-              "icon": "command-glyph",
-              "title": "Execution Runtimes"
+              "icon": "lucide-ghost",
+              "title": "code-execute-manage-executors"
             }
           }
         ],
-        "currentTab": 3
+        "currentTab": 5
       }
     ],
     "direction": "horizontal",
-    "width": 200,
-    "collapsed": true
+    "width": 200
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -258,24 +295,27 @@
       "daily-notes:Open today's daily note": true,
       "templates:Insert template": true,
       "markdown-importer:Open format converter": true,
-      "obsidian-kanban:Create new board": true,
-      "iconic:Open rulebook": true,
-      "pdf-plus:PDF++: Toggle auto-copy": true,
-      "pdf-plus:PDF++: Toggle auto-focus": true,
-      "pdf-plus:PDF++: Toggle auto-paste": true,
+      "obsidian-importer:Import notes": false,
+      "obsidian-git:Open Git source control": false,
+      "obsidian-kanban:Create new board": false,
+      "iconic:Open rulebook": false,
+      "pdf-plus:PDF++: Toggle auto-copy": false,
+      "pdf-plus:PDF++: Toggle auto-focus": false,
+      "pdf-plus:PDF++: Toggle auto-paste": false,
       "callout-manager:Insert Callout": false,
       "obsidian-markdown-formatting-assistant-plugin:Open Markdown Formatting Assistant": false,
-      "obsidian-git:Open Git source control": false,
-      "drawio-editor:Create new drawio diagram": false,
-      "obsidian-importer:Import notes": false
+      "drawio-editor:Create new drawio diagram": false
     }
   },
-  "active": "49cdb6950cd21f5d",
+  "active": "108b582403843fcc",
   "lastOpenFiles": [
+    "26H/IKT300 Software Architecture and Design/Untitled 1.md",
+    "26H/IKT300 Software Architecture and Design/02.09.26 Quality Attributes.md",
+    "26H/IKT300 Software Architecture and Design/01.08.26 Structures.md",
+    "26H/IKT300 Software Architecture and Design/26.08.26 Structures and Views.md",
     "26H/PS102 Praktisk Psykologi/31.08.26 Positiv avviksteori.md",
     "26H/PS102 Praktisk Psykologi/17.08.26 Psykologisk trygghet.md",
     "26H/MA-224 Diskret Matematikk 2/Bookmarks diskmat.md",
-    "26H/IKT300 Software Architecture and Design/26.08.26 Structures and Views.md",
     "26H/IKT300 Software Architecture and Design/25.08.26 Conceptual integrity, Design, and what is architecture?.md",
     "26H/IKT300 Software Architecture and Design/19.08.26 Software Architecture and Design.md",
     "26H/PS102 Praktisk Psykologi/24.08.26 Problemløsning i team.md",
@@ -302,10 +342,7 @@
     "26V/Advanced Operatingsystems/Untitled.md",
     "26V/Devops/Introduction_This assignment will be graded and wi.md",
     "26V/Devops/Kubernetes bruk.md",
-    "26V/Statistikk/26.03.md",
     "images/image 7.png",
-    "26V/Statistikk/Prosjekt.md",
-    "26V/Statistikk/12.02.26.md",
     "images/image 6.png",
     "images/image 5.png",
     "images/image-33.png",
