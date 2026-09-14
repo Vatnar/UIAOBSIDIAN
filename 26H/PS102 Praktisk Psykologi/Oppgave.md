@@ -1,2 +1,3 @@
 bruk `\linespread{1.25}` for ekvialenten til 1.5 line spacing i word
 `\onehalfspacing` 12pt times new roman
+
