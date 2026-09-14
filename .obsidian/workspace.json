@@ -85,7 +85,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "26H/IKT300 Software Architecture and Design/02.09.26 Quality Attributes.md",
+                "file": "26H/PS102 Praktisk Psykologi/14.07.26 Personlighet.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": true,
@@ -100,7 +100,7 @@
                 }
               },
               "icon": "lucide-file",
-              "title": "02.09.26 Quality Attributes"
+              "title": "14.07.26 Personlighet"
             }
           }
         ],
@@ -307,10 +307,11 @@
       "drawio-editor:Create new drawio diagram": false
     }
   },
-  "active": "58b8bdadcbe2f673",
+  "active": "108b582403843fcc",
   "lastOpenFiles": [
-    "26H/IKT300 Software Architecture and Design/Untitled 1.md",
     "26H/IKT300 Software Architecture and Design/02.09.26 Quality Attributes.md",
+    "26H/PS102 Praktisk Psykologi/14.07.26 Personlighet.md",
+    "26H/IKT300 Software Architecture and Design/Untitled 1.md",
     "26H/IKT300 Software Architecture and Design/01.08.26 Structures.md",
     "26H/IKT300 Software Architecture and Design/26.08.26 Structures and Views.md",
     "26H/PS102 Praktisk Psykologi/31.08.26 Positiv avviksteori.md",
@@ -341,7 +342,6 @@
     "26V/Apputvikling/Supabase.md",
     "26V/Advanced Operatingsystems/Untitled.md",
     "26V/Devops/Introduction_This assignment will be graded and wi.md",
-    "26V/Devops/Kubernetes bruk.md",
     "images/image 7.png",
     "images/image 6.png",
     "images/image 5.png",
