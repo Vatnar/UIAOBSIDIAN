@@ -28,7 +28,38 @@
   },
   "appIcons": {},
   "tabIcons": {},
-  "fileIcons": {},
+  "fileIcons": {
+    "24H": {
+      "icon": "lucide-calendar"
+    },
+    "25H": {
+      "icon": "lucide-calendar"
+    },
+    "25V": {
+      "icon": "lucide-calendar"
+    },
+    "26H": {
+      "icon": "lucide-calendar"
+    },
+    "26H/IKT300 Software Architecture and Design": {
+      "icon": "lucide-house",
+      "color": "red"
+    },
+    "26H/MA-224 Diskret Matematikk 2": {
+      "icon": "lucide-square-sigma",
+      "color": "cyan"
+    },
+    "26H/PS102 Praktisk Psykologi": {
+      "icon": "lucide-user",
+      "color": "green"
+    },
+    "26V": {
+      "icon": "lucide-calendar"
+    },
+    "images": {
+      "icon": "lucide-image"
+    }
+  },
   "bookmarkIcons": {},
   "tagIcons": {},
   "propertyIcons": {},
