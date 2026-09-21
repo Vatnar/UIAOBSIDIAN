@@ -11,24 +11,10 @@
             "id": "10e00f7cd8208d40",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "26H/PS102 Praktisk Psykologi/14 og 21.09.26 Personlighet.md",
-                "mode": "source",
-                "source": false,
-                "backlinks": true,
-                "backlinkOpts": {
-                  "collapseAll": false,
-                  "extraContext": false,
-                  "sortOrder": "alphabetical",
-                  "showSearch": false,
-                  "searchQuery": "",
-                  "backlinkCollapsed": false,
-                  "unlinkedCollapsed": true
-                }
-              },
-              "icon": "lucide-file",
-              "title": "14 og 21.09.26 Personlighet"
+              "type": "graph",
+              "state": {},
+              "icon": "lucide-git-fork",
+              "title": "Graph view"
             }
           }
         ]
@@ -237,11 +223,11 @@
   },
   "active": "10e00f7cd8208d40",
   "lastOpenFiles": [
+    "26H/PS102 Praktisk Psykologi/14 og 21.09.26 Personlighet.md",
     "26H/PS102 Praktisk Psykologi/21.09.26.md",
     "26H/IKT300 Software Architecture and Design/15.09.26 Availability.md",
     "26H/PS102 Praktisk Psykologi/Oppgave.md",
     "26H/PS102 Praktisk Psykologi/17.08.26 Psykologisk trygghet.md",
-    "26H/PS102 Praktisk Psykologi/14 og 21.09.26 Personlighet.md",
     "26H/IKT300 Software Architecture and Design/02.09.26 Quality Attributes.md",
     "26H/IKT300 Software Architecture and Design/Untitled 1.md",
     "26H/IKT300 Software Architecture and Design/01.08.26 Structures.md",
