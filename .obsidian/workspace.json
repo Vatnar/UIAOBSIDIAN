@@ -4,17 +4,31 @@
     "type": "split",
     "children": [
       {
-        "id": "38a263f917d865eb",
+        "id": "6204ee0d239d3b64",
         "type": "tabs",
         "children": [
           {
-            "id": "10e00f7cd8208d40",
+            "id": "ceed9302764a2666",
             "type": "leaf",
             "state": {
-              "type": "graph",
-              "state": {},
-              "icon": "lucide-git-fork",
-              "title": "Graph view"
+              "type": "markdown",
+              "state": {
+                "file": "26H/PS102 Praktisk Psykologi/14 og 21.09.26 Personlighet.md",
+                "mode": "source",
+                "source": false,
+                "backlinks": true,
+                "backlinkOpts": {
+                  "collapseAll": false,
+                  "extraContext": false,
+                  "sortOrder": "alphabetical",
+                  "showSearch": false,
+                  "searchQuery": "",
+                  "backlinkCollapsed": false,
+                  "unlinkedCollapsed": true
+                }
+              },
+              "icon": "lucide-file",
+              "title": "14 og 21.09.26 Personlighet"
             }
           }
         ]
@@ -221,7 +235,7 @@
       "drawio-editor:Create new drawio diagram": false
     }
   },
-  "active": "10e00f7cd8208d40",
+  "active": "ceed9302764a2666",
   "lastOpenFiles": [
     "26H/PS102 Praktisk Psykologi/14 og 21.09.26 Personlighet.md",
     "26H/PS102 Praktisk Psykologi/21.09.26.md",
