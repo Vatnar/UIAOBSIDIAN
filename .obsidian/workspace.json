@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "26H/PS102 Praktisk Psykologi/14 og 21.09.26 Personlighet.md",
+                "file": "26H/IKT300 Software Architecture and Design/26.08.26 Structures and Views.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": true,
@@ -28,10 +28,35 @@
                 }
               },
               "icon": "lucide-file",
-              "title": "14 og 21.09.26 Personlighet"
+              "title": "26.08.26 Structures and Views"
+            }
+          },
+          {
+            "id": "8b62732f3897e634",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "26H/IKT300 Software Architecture and Design/22.09.26.md",
+                "mode": "source",
+                "source": false,
+                "backlinks": true,
+                "backlinkOpts": {
+                  "collapseAll": false,
+                  "extraContext": false,
+                  "sortOrder": "alphabetical",
+                  "showSearch": false,
+                  "searchQuery": "",
+                  "backlinkCollapsed": false,
+                  "unlinkedCollapsed": true
+                }
+              },
+              "icon": "lucide-file",
+              "title": "22.09.26"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -235,8 +260,10 @@
       "drawio-editor:Create new drawio diagram": false
     }
   },
-  "active": "ceed9302764a2666",
+  "active": "8b62732f3897e634",
   "lastOpenFiles": [
+    "26H/IKT300 Software Architecture and Design/26.08.26 Structures and Views.md",
+    "26H/IKT300 Software Architecture and Design/22.09.26.md",
     "26H/PS102 Praktisk Psykologi/14 og 21.09.26 Personlighet.md",
     "26H/PS102 Praktisk Psykologi/21.09.26.md",
     "26H/IKT300 Software Architecture and Design/15.09.26 Availability.md",
@@ -245,7 +272,6 @@
     "26H/IKT300 Software Architecture and Design/02.09.26 Quality Attributes.md",
     "26H/IKT300 Software Architecture and Design/Untitled 1.md",
     "26H/IKT300 Software Architecture and Design/01.08.26 Structures.md",
-    "26H/IKT300 Software Architecture and Design/26.08.26 Structures and Views.md",
     "26H/PS102 Praktisk Psykologi/31.08.26 Positiv avviksteori.md",
     "26H/MA-224 Diskret Matematikk 2/Bookmarks diskmat.md",
     "26H/IKT300 Software Architecture and Design/25.08.26 Conceptual integrity, Design, and what is architecture?.md",
@@ -267,7 +293,6 @@
     "26V/Devops/Docker and Docker Compose.md",
     "26V/Statistikk/14.1.26 - Data.md",
     "24H/IKT102 Operativsystemer/Deadlock.md",
-    "25H/IKT202 Software Engineering/Eksamen kommentarer.md",
     "26H/PS102 Praktisk Psykologi",
     "26H",
     "images/image 7.png",
