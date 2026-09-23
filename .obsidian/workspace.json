@@ -37,7 +37,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "26H/IKT300 Software Architecture and Design/22.09.26.md",
+                "file": "26H/IKT300 Software Architecture and Design/22.09.26 Recover from faults.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": true,
@@ -52,11 +52,35 @@
                 }
               },
               "icon": "lucide-file",
-              "title": "22.09.26"
+              "title": "22.09.26 Recover from faults"
+            }
+          },
+          {
+            "id": "0f35a439bedba880",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "26H/IKT300 Software Architecture and Design/23.09.26 Reducing coupling.md",
+                "mode": "source",
+                "source": false,
+                "backlinks": true,
+                "backlinkOpts": {
+                  "collapseAll": false,
+                  "extraContext": false,
+                  "sortOrder": "alphabetical",
+                  "showSearch": false,
+                  "searchQuery": "",
+                  "backlinkCollapsed": false,
+                  "unlinkedCollapsed": true
+                }
+              },
+              "icon": "lucide-file",
+              "title": "23.09.26 Reducing coupling"
             }
           }
         ],
-        "currentTab": 1
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -260,10 +284,11 @@
       "drawio-editor:Create new drawio diagram": false
     }
   },
-  "active": "8b62732f3897e634",
+  "active": "0f35a439bedba880",
   "lastOpenFiles": [
+    "26H/IKT300 Software Architecture and Design/22.09.26 Recover from faults.md",
+    "26H/IKT300 Software Architecture and Design/23.09.26 Reducing coupling.md",
     "26H/IKT300 Software Architecture and Design/26.08.26 Structures and Views.md",
-    "26H/IKT300 Software Architecture and Design/22.09.26.md",
     "26H/PS102 Praktisk Psykologi/14 og 21.09.26 Personlighet.md",
     "26H/PS102 Praktisk Psykologi/21.09.26.md",
     "26H/IKT300 Software Architecture and Design/15.09.26 Availability.md",
@@ -292,7 +317,6 @@
     "26V/Oppgavefrister og progress.md",
     "26V/Devops/Docker and Docker Compose.md",
     "26V/Statistikk/14.1.26 - Data.md",
-    "24H/IKT102 Operativsystemer/Deadlock.md",
     "26H/PS102 Praktisk Psykologi",
     "26H",
     "images/image 7.png",
