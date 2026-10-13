@@ -61,7 +61,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "26H/IKT300 Software Architecture and Design/23.09.26 Reducing coupling.md",
+                "file": "26H/IKT300 Software Architecture and Design/13.10.26.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": true,
@@ -76,7 +76,7 @@
                 }
               },
               "icon": "lucide-file",
-              "title": "23.09.26 Reducing coupling"
+              "title": "13.10.26"
             }
           }
         ],
@@ -283,10 +283,11 @@
       "drawio-editor:Create new drawio diagram": false
     }
   },
-  "active": "5f5e7fbb75c67ca3",
+  "active": "0f35a439bedba880",
   "lastOpenFiles": [
-    "26H/IKT300 Software Architecture and Design/22.09.26 Recover from faults.md",
     "26H/IKT300 Software Architecture and Design/23.09.26 Reducing coupling.md",
+    "26H/IKT300 Software Architecture and Design/13.10.26.md",
+    "26H/IKT300 Software Architecture and Design/22.09.26 Recover from faults.md",
     "26H/IKT300 Software Architecture and Design/26.08.26 Structures and Views.md",
     "26H/PS102 Praktisk Psykologi/14 og 21.09.26 Personlighet.md",
     "26H/PS102 Praktisk Psykologi/21.09.26.md",
@@ -315,7 +316,6 @@
     "26V/Statistikk/05.02.26 Oppsummering.md",
     "26V/Oppgavefrister og progress.md",
     "26V/Devops/Docker and Docker Compose.md",
-    "26V/Statistikk/14.1.26 - Data.md",
     "26H/PS102 Praktisk Psykologi",
     "26H",
     "images/image 7.png",
