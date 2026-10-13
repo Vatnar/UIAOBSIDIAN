@@ -271,7 +271,6 @@
       "canvas:Create new canvas": true,
       "daily-notes:Open today's daily note": true,
       "templates:Insert template": true,
-      "markdown-importer:Open format converter": true,
       "obsidian-importer:Import notes": false,
       "obsidian-git:Open Git source control": false,
       "obsidian-kanban:Create new board": false,
