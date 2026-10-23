@@ -5,3 +5,8 @@ Leverer rapport, bruker det som grunnlag for grilling. Kun karakter på grilling
 Obligatorisk presentasjon av prosjektarbeidet.
 Obligatorisk veiledning (5t).
 Kan ikke levere forbedret versjon av tidligere oppgave.
+
+
+Lage fremdriftsplan, start siste frist, også gå bakover.
+
+Prosjektrapporten, en videopresentasjon og en muntlig presentasjon av prosjektet. Markerer slutten på oppgaven.
