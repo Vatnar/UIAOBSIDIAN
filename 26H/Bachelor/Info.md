@@ -17,3 +17,5 @@ Prosjektrapporten, en videopresentasjon og en muntlig presentasjon av prosjektet
 19.05, (ikke endelig) frist for innlevering).
 01.06 fremføring.
 03.06. promosjon.
+
+egenærklering
