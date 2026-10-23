@@ -61,7 +61,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "26H/IKT300 Software Architecture and Design/13.10.26.md",
+                "file": "26H/Bachelor/Info.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": true,
@@ -76,7 +76,7 @@
                 }
               },
               "icon": "lucide-file",
-              "title": "13.10.26"
+              "title": "Info"
             }
           }
         ],
@@ -285,8 +285,10 @@
   },
   "active": "0f35a439bedba880",
   "lastOpenFiles": [
-    "26H/IKT300 Software Architecture and Design/23.09.26 Reducing coupling.md",
     "26H/IKT300 Software Architecture and Design/13.10.26.md",
+    "26H/Bachelor/Info.md",
+    "26H/Bachelor",
+    "26H/IKT300 Software Architecture and Design/23.09.26 Reducing coupling.md",
     "26H/IKT300 Software Architecture and Design/22.09.26 Recover from faults.md",
     "26H/IKT300 Software Architecture and Design/26.08.26 Structures and Views.md",
     "26H/PS102 Praktisk Psykologi/14 og 21.09.26 Personlighet.md",
@@ -315,7 +317,6 @@
     "26V/Apputvikling/Ideer.md",
     "26V/Statistikk/05.02.26 Oppsummering.md",
     "26V/Oppgavefrister og progress.md",
-    "26V/Devops/Docker and Docker Compose.md",
     "26H/PS102 Praktisk Psykologi",
     "26H",
     "images/image 7.png",
@@ -329,7 +330,6 @@
     "26V/Devops",
     "26V/Advanced Operatingsystems",
     "26V/Apputvikling",
-    "26V/Statistikk",
-    "26V"
+    "26V/Statistikk"
   ]
 }
