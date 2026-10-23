@@ -1,5 +1,14 @@
-/* Sets all the text color to red! */
-.nav-action-button {
+/*
+ * Everything here is scoped under .mfa-scope or a mfa- prefixed class.
+ *
+ * The panel reuses Obsidian's own nav-action-button / nav-action-text-button
+ * classes so it inherits the active theme, but redefining those bare selectors
+ * would restyle the file explorer and the search header across the whole app -
+ * plugin CSS is injected after the app stylesheet, so at equal specificity the
+ * plugin wins. The scope class is what keeps the overrides inside our own UI.
+ */
+
+.mfa-scope .nav-action-button {
   color: var(--text-muted);
   cursor: pointer;
   padding: 0px;
@@ -7,7 +16,7 @@
   border-radius: 4px;
 }
 
-.nav-action-text-button {
+.mfa-scope .nav-action-text-button {
   color: var(--text-muted);
   cursor: pointer;
   padding: 5px;
@@ -16,18 +25,97 @@
   text-align: center;
   border: 1px solid;
 }
-.nav-action-text-button.is-active {
+
+.mfa-scope .nav-action-text-button.is-active {
   background-color: var(--interactive-accent);
   color: var(--text-on-accent);
 }
-.nav-action-text-button.is-active:hover {
+
+.mfa-scope .nav-action-text-button.is-active:hover {
   color: var(--text-on-accent);
 }
-.nav-action-text-button:hover {
+
+.mfa-scope .nav-action-text-button:hover {
   color: var(--text-accent);
 }
 
-.color-icon {
+/* The side panel follows whatever width the user drags its leaf to. */
+#mfa-panel-root {
+  width: 100%;
+}
+
+.markdown-formatting-assistant-panel {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/*
+ * Obsidian pins .nav-buttons-container to a single scrolling line on mobile,
+ * which suits a short toolbar. This panel is a grid of dozens of buttons, so
+ * its rows have to keep wrapping everywhere.
+ *
+ * The core rule is `body.is-mobile .nav-buttons-container`, specificity (0,2,1).
+ * Matching it needs body.is-mobile here too - a plain descendant selector loses
+ * and the buttons stay on one scrolling line, which is the whole bug.
+ */
+.markdown-formatting-assistant-panel .nav-buttons-container,
+body.is-mobile .markdown-formatting-assistant-panel .nav-buttons-container {
+  flex-wrap: wrap;
+  overflow: visible;
+}
+
+/* Where the keyboard is. The panel's buttons are divs carrying Obsidian's own
+   styling, and a div gets no focus ring worth seeing - which would make the tab
+   order useless to the person who needs it most.
+
+   Only expanded sections contribute stops: a collapsed one is display:none and
+   nothing inside it can be focused. */
+.mfa-scope [role='button']:focus-visible {
+  outline: 2px solid var(--interactive-accent);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* Colour swatches reflow with their container instead of sitting in fixed rows.
+   Where a row starts is decided where it lives: in the side panel by the
+   alignment setting further down, in the settings tab by the rule below. */
+.mfa-color-swatches {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+/* In the settings tab they sit beside the colour picker at the right edge of
+   the row, like every other control there. This used to be the rule for all
+   swatches, and it pushed the side panel's to the right edge as well. */
+.setting-item-control .mfa-color-swatches {
+  justify-content: flex-end;
+}
+
+/* Stands in for the swatches when there are none, so the row keeps its shape. */
+.mfa-color-empty {
+  color: var(--text-muted);
+  font-size: 12px;
+}
+
+/* The preset currently in use. The offset plus the ring add up to the swatch
+   margin, so marking one does not shift the row. */
+.mfa-color-icon.is-selected {
+  outline: 2px solid var(--text-normal);
+  outline-offset: 1px;
+}
+
+/* Saved colours are removed by clicking them, which needs saying before the
+   click rather than after. */
+.mfa-color-icon.mfa-removable:hover {
+  outline: 2px solid var(--text-error);
+  outline-offset: 1px;
+}
+
+/* The colour a swatch shows is data, not design - it arrives from the settings
+   or the picker, so the element hands it over as a custom property and the
+   rule below is what actually paints it. */
+.mfa-color-icon {
   color: var(--text-muted);
   cursor: pointer;
   width: 16px;
@@ -39,24 +127,363 @@
   margin: 3px;
   display: inline-block;
   border-radius: 4px;
+  background-color: var(--mfa-swatch, transparent);
+  /* Inset rather than a border, so a pale swatch gains an edge on a light
+     theme without changing the box it occupies. */
+  box-shadow: inset 0 0 0 1px var(--background-modifier-border);
 }
 
-.command-list-view-row {
+/* Rows of the ALT+Q and ALT+C suggestion windows. */
+.mfa-suggestion-row {
   display: flex;
 }
-.command-list-view-container {
+
+.mfa-suggestion-icon-container {
   min-width: 60px;
   display: flex;
 }
 
-.command-list-view-icon {
+.mfa-suggestion-icon {
   height: 24px;
   max-height: 24px;
-  border: 1px solid gray;
+  border: 1px solid var(--background-modifier-border);
   margin-right: auto;
 }
 
-.command-list-view-text {
+.mfa-suggestion-text {
   padding-left: 12px;
-  color: #c7254e;
+}
+
+/* Which table an entry came from, so the four groups stay apart at a glance.
+   These were fixed hex values chosen against a dark background; the green in
+   particular was all but invisible on a light theme. */
+.mfa-suggestion-text--markdown {
+  color: var(--color-red);
+}
+
+.mfa-suggestion-text--html {
+  color: var(--color-blue);
+}
+
+.mfa-suggestion-text--greek,
+.mfa-suggestion-text--latex {
+  color: var(--color-green);
+}
+
+.mfa-suggestion-text--muted {
+  color: var(--text-muted);
+}
+
+/* A callout row and a callout button are tinted by the callout type, which is
+   data the stylesheet cannot know in advance. */
+.mfa-callout-row {
+  background-color: var(--mfa-callout-background, transparent);
+}
+
+.mfa-callout-button {
+  background-color: var(--mfa-callout-background, transparent);
+}
+
+.mfa-callout-icon {
+  vertical-align: middle;
+  color: var(--mfa-callout-color, currentColor);
+}
+
+/* ------------------------------------------------------------------------ */
+/* Side panel                                                                */
+/* ------------------------------------------------------------------------ */
+
+.mfa-section-header {
+  width: 100%;
+  display: flex;
+  flex-wrap: nowrap;
+  align-content: center;
+  position: relative;
+  cursor: move;
+}
+
+.mfa-section-title {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: center;
+  text-align: left;
+  margin: 0;
+}
+
+.mfa-section-arrow {
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin-top: auto;
+  margin-bottom: auto;
+  width: 24px;
+  height: 24px;
+}
+
+.mfa-section-rule {
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+
+.mfa-section-content.is-collapsed {
+  display: none;
+}
+
+/*
+ * Where everything in a section sits: the rows of buttons, the swatches, the
+ * table picker, and the lines of text that go with them - so a right-aligned
+ * panel does not keep a centred link under right-aligned buttons. The colour
+ * checkboxes stay on the left in every case; a list of options is read from
+ * its start.
+ *
+ * Buttons sit in Obsidian's own .nav-buttons-container, which centres them.
+ * These selectors outrank that rule, and each alignment is spelled out rather
+ * than one left to it, so the setting reads the same here as in the dialog.
+ * Issue #94.
+ */
+.markdown-formatting-assistant-panel.is-align-left .nav-buttons-container,
+.markdown-formatting-assistant-panel.is-align-left .mfa-color-swatches {
+  justify-content: flex-start;
+}
+
+.markdown-formatting-assistant-panel.is-align-left .mfa-table-grid {
+  align-items: flex-start;
+}
+
+.markdown-formatting-assistant-panel.is-align-left
+  :is(.mfa-note, .mfa-subheading, .mfa-table-label, .mfa-swatches-title, .mfa-swatches-hint) {
+  text-align: left;
+}
+
+.markdown-formatting-assistant-panel.is-align-center .nav-buttons-container,
+.markdown-formatting-assistant-panel.is-align-center .mfa-color-swatches {
+  justify-content: center;
+}
+
+.markdown-formatting-assistant-panel.is-align-center .mfa-table-grid {
+  align-items: center;
+}
+
+.markdown-formatting-assistant-panel.is-align-center
+  :is(.mfa-note, .mfa-subheading, .mfa-table-label, .mfa-swatches-title, .mfa-swatches-hint) {
+  text-align: center;
+}
+
+.markdown-formatting-assistant-panel.is-align-right .nav-buttons-container,
+.markdown-formatting-assistant-panel.is-align-right .mfa-color-swatches {
+  justify-content: flex-end;
+}
+
+.markdown-formatting-assistant-panel.is-align-right .mfa-table-grid {
+  align-items: flex-end;
+}
+
+.markdown-formatting-assistant-panel.is-align-right
+  :is(.mfa-note, .mfa-subheading, .mfa-table-label, .mfa-swatches-title, .mfa-swatches-hint) {
+  text-align: right;
+}
+
+/* The small link that closes several sections. */
+.mfa-note {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.mfa-note-link {
+  font-size: 10px;
+}
+
+.mfa-subheading {
+  margin-top: 10px;
+  margin-bottom: 5px;
+}
+
+.mfa-subheading:first-child {
+  margin-top: 0;
+}
+
+/* Buttons whose label is centred rather than left-aligned: the callouts and
+   the wider LaTeX entries. */
+.mfa-centered-button {
+  text-align: center;
+}
+
+/* Full-width buttons in the colour section. */
+.mfa-block-button {
+  display: block;
+}
+
+.mfa-color-save {
+  margin-bottom: 20px;
+}
+
+/* An svg sitting on the same line as text. */
+.mfa-inline-svg {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.mfa-icon-image,
+.mfa-icon-svg {
+  width: 24px;
+  height: 24px;
+}
+
+.mfa-checkbox-label {
+  font-size: 12px;
+}
+
+.mfa-swatches-title {
+  margin-bottom: 0;
+}
+
+.mfa-swatches-hint {
+  font-size: 10px;
+  margin-top: 0;
+}
+
+/* The colour picker's own preview strip. The native input sits inside it and
+   is hidden: the strip is the visible control, and clicking it opens the
+   picker through the label. */
+.mfa-color-preview {
+  height: 16px;
+  border-radius: 8px;
+  padding: 5px;
+  margin: 4px;
+  margin-bottom: 10px;
+  background-color: var(--mfa-swatch, transparent);
+}
+
+.mfa-color-input {
+  visibility: hidden;
+  padding: 0;
+  margin: 0;
+}
+
+/* ------------------------------------------------------------------------ */
+/* Table size picker                                                         */
+/* ------------------------------------------------------------------------ */
+
+.mfa-table-label {
+  margin: 4px 0;
+  font-size: 12px;
+}
+
+.mfa-table-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.mfa-table-grid-row {
+  display: flex;
+  gap: 2px;
+}
+
+.mfa-table-cell {
+  width: 16px;
+  height: 16px;
+  border: 1px solid var(--background-modifier-border);
+  border-radius: 2px;
+  cursor: pointer;
+  background-color: transparent;
+}
+
+/* The part of the grid the pointer is covering, which is the table a click
+   would insert. */
+.mfa-table-cell.is-covered {
+  background-color: var(--interactive-accent);
+}
+
+.mfa-table-alignment {
+  margin-top: 8px;
+}
+
+/* ------------------------------------------------------------------------ */
+/* Toolbar above the note                                                    */
+/* ------------------------------------------------------------------------ */
+
+/* Lives inside the markdown view's own container, so it must not assume the
+   panel's scope. It wraps rather than scrolls: a narrow pane should cost a
+   row of height, not hide half the buttons off the edge. */
+.mfa-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2px;
+  padding: 4px 8px;
+  background-color: var(--background-primary);
+  border-bottom: 1px solid var(--background-modifier-border);
+}
+
+/* Where the buttons sit in the row. Spelled out for all three rather than
+   leaving one to the default, so the setting reads the same in the stylesheet
+   as it does in the dialog. */
+.mfa-toolbar.is-align-left {
+  justify-content: flex-start;
+}
+
+.mfa-toolbar.is-align-center {
+  justify-content: center;
+}
+
+.mfa-toolbar.is-align-right {
+  justify-content: flex-end;
+}
+
+/* Wide enough for the two-letter fallback a command without an icon gets. */
+.mfa-toolbar-button {
+  min-width: 28px;
+  font-size: 12px;
+}
+
+/* ---- and its editor in the settings ---- */
+
+.mfa-toolbar-editor {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  margin-bottom: 12px;
+}
+
+.mfa-toolbar-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 4px 8px;
+  border: 1px solid var(--background-modifier-border);
+  border-radius: 4px;
+  cursor: move;
+}
+
+.mfa-toolbar-item-icon {
+  display: inline-flex;
+  width: 16px;
+}
+
+.mfa-toolbar-item-name {
+  flex: 1;
+  font-size: 13px;
+}
+
+/* The command is gone, usually because its plugin was disabled. The row stays
+   so the entry can be recognised and removed. */
+.mfa-toolbar-item.is-unavailable .mfa-toolbar-item-name {
+  color: var(--text-error);
+}
+
+.mfa-toolbar-item-remove {
+  display: inline-flex;
+  cursor: pointer;
+  color: var(--text-muted);
+}
+
+.mfa-toolbar-item-remove:hover {
+  color: var(--text-error);
+}
+
+.mfa-toolbar-empty {
+  color: var(--text-muted);
+  font-size: 12px;
 }

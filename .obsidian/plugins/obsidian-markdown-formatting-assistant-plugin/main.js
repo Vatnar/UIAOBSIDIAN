@@ -2,86 +2,6 @@
 
 var obsidian = require('obsidian');
 
-/******************************************************************************
-Copyright (c) Microsoft Corporation.
-
-Permission to use, copy, modify, and/or distribute this software for any
-purpose with or without fee is hereby granted.
-
-THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES WITH
-REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF MERCHANTABILITY
-AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY SPECIAL, DIRECT,
-INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES WHATSOEVER RESULTING FROM
-LOSS OF USE, DATA OR PROFITS, WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE OR
-OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR
-PERFORMANCE OF THIS SOFTWARE.
-***************************************************************************** */
-/* global Reflect, Promise */
-
-var extendStatics = function(d, b) {
-    extendStatics = Object.setPrototypeOf ||
-        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-        function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
-    return extendStatics(d, b);
-};
-
-function __extends(d, b) {
-    if (typeof b !== "function" && b !== null)
-        throw new TypeError("Class extends value " + String(b) + " is not a constructor or null");
-    extendStatics(d, b);
-    function __() { this.constructor = d; }
-    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-}
-
-var __assign = function() {
-    __assign = Object.assign || function __assign(t) {
-        for (var s, i = 1, n = arguments.length; i < n; i++) {
-            s = arguments[i];
-            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p)) t[p] = s[p];
-        }
-        return t;
-    };
-    return __assign.apply(this, arguments);
-};
-
-function __awaiter(thisArg, _arguments, P, generator) {
-    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
-    return new (P || (P = Promise))(function (resolve, reject) {
-        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
-        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
-        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
-        step((generator = generator.apply(thisArg, _arguments || [])).next());
-    });
-}
-
-function __generator(thisArg, body) {
-    var _ = { label: 0, sent: function() { if (t[0] & 1) throw t[1]; return t[1]; }, trys: [], ops: [] }, f, y, t, g;
-    return g = { next: verb(0), "throw": verb(1), "return": verb(2) }, typeof Symbol === "function" && (g[Symbol.iterator] = function() { return this; }), g;
-    function verb(n) { return function (v) { return step([n, v]); }; }
-    function step(op) {
-        if (f) throw new TypeError("Generator is already executing.");
-        while (_) try {
-            if (f = 1, y && (t = op[0] & 2 ? y["return"] : op[0] ? y["throw"] || ((t = y["return"]) && t.call(y), 0) : y.next) && !(t = t.call(y, op[1])).done) return t;
-            if (y = 0, t) op = [op[0] & 2, t.value];
-            switch (op[0]) {
-                case 0: case 1: t = op; break;
-                case 4: _.label++; return { value: op[1], done: false };
-                case 5: _.label++; y = op[1]; op = [0]; continue;
-                case 7: op = _.ops.pop(); _.trys.pop(); continue;
-                default:
-                    if (!(t = _.trys, t = t.length > 0 && t[t.length - 1]) && (op[0] === 6 || op[0] === 2)) { _ = 0; continue; }
-                    if (op[0] === 3 && (!t || (op[1] > t[0] && op[1] < t[3]))) { _.label = op[1]; break; }
-                    if (op[0] === 6 && _.label < t[1]) { _.label = t[1]; t = op; break; }
-                    if (t && _.label < t[2]) { _.label = t[2]; _.ops.push(op); break; }
-                    if (t[2]) _.ops.pop();
-                    _.trys.pop(); continue;
-            }
-            op = body.call(thisArg, _);
-        } catch (e) { op = [6, e]; y = 0; } finally { f = t = 0; }
-        if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
-    }
-}
-
 function _isPlaceholder(a) {
   return a != null && typeof a === 'object' && a['@@functional/placeholder'] === true;
 }
@@ -436,13 +356,6 @@ function _dispatchable(methodNames, transducerCreator, fn) {
     }
 
     return fn.apply(this, arguments);
-  };
-}
-
-function _reduced(x) {
-  return x && x['@@transducer/reduced'] ? x : {
-    '@@transducer/value': x,
-    '@@transducer/reduced': true
   };
 }
 
@@ -831,18 +744,6 @@ _dispatchable(['fantasy-land/map', 'map'], _xmap, function map(fn, functor) {
 }));
 
 /**
- * Determine if the passed argument is an integer.
- *
- * @private
- * @param {*} n
- * @category Type
- * @return {Boolean}
- */
-var _isInteger = Number.isInteger || function _isInteger(n) {
-  return n << 0 === n;
-};
-
-/**
  * Returns the nth element of the given list or string. If n is negative the
  * element at index length + n is returned.
  *
@@ -874,38 +775,6 @@ var nth =
 _curry2(function nth(offset, list) {
   var idx = offset < 0 ? list.length + offset : offset;
   return _isString(list) ? list.charAt(idx) : list[idx];
-});
-
-/**
- * Returns a function that when supplied an object returns the indicated
- * property of that object, if it exists.
- *
- * @func
- * @memberOf R
- * @since v0.1.0
- * @category Object
- * @typedefn Idx = String | Int | Symbol
- * @sig Idx -> {s: a} -> a | Undefined
- * @param {String|Number} p The property name or array index
- * @param {Object} obj The object to query
- * @return {*} The value at `obj.p`.
- * @see R.path, R.props, R.pluck, R.project, R.nth
- * @example
- *
- *      R.prop('x', {x: 100}); //=> 100
- *      R.prop('x', {}); //=> undefined
- *      R.prop(0, [100]); //=> 100
- *      R.compose(R.inc, R.prop('x'))({ x: 3 }) //=> 4
- */
-
-var prop =
-/*#__PURE__*/
-_curry2(function prop(p, obj) {
-  if (obj == null) {
-    return;
-  }
-
-  return _isInteger(p) ? nth(p, obj) : obj[p];
 });
 
 /**
@@ -1789,167 +1658,6 @@ _curry2(function takeLast(n, xs) {
   return drop(n >= 0 ? xs.length - n : 0, xs);
 });
 
-var XFind =
-/*#__PURE__*/
-function () {
-  function XFind(f, xf) {
-    this.xf = xf;
-    this.f = f;
-    this.found = false;
-  }
-
-  XFind.prototype['@@transducer/init'] = _xfBase.init;
-
-  XFind.prototype['@@transducer/result'] = function (result) {
-    if (!this.found) {
-      result = this.xf['@@transducer/step'](result, void 0);
-    }
-
-    return this.xf['@@transducer/result'](result);
-  };
-
-  XFind.prototype['@@transducer/step'] = function (result, input) {
-    if (this.f(input)) {
-      this.found = true;
-      result = _reduced(this.xf['@@transducer/step'](result, input));
-    }
-
-    return result;
-  };
-
-  return XFind;
-}();
-
-var _xfind =
-/*#__PURE__*/
-_curry2(function _xfind(f, xf) {
-  return new XFind(f, xf);
-});
-
-/**
- * Returns the first element of the list which matches the predicate, or
- * `undefined` if no element matches.
- *
- * Dispatches to the `find` method of the second argument, if present.
- *
- * Acts as a transducer if a transformer is given in list position.
- *
- * @func
- * @memberOf R
- * @since v0.1.0
- * @category List
- * @sig (a -> Boolean) -> [a] -> a | undefined
- * @param {Function} fn The predicate function used to determine if the element is the
- *        desired one.
- * @param {Array} list The array to consider.
- * @return {Object} The element found, or `undefined`.
- * @see R.transduce
- * @example
- *
- *      const xs = [{a: 1}, {a: 2}, {a: 3}];
- *      R.find(R.propEq('a', 2))(xs); //=> {a: 2}
- *      R.find(R.propEq('a', 4))(xs); //=> undefined
- */
-
-var find =
-/*#__PURE__*/
-_curry2(
-/*#__PURE__*/
-_dispatchable(['find'], _xfind, function find(fn, list) {
-  var idx = 0;
-  var len = list.length;
-
-  while (idx < len) {
-    if (fn(list[idx])) {
-      return list[idx];
-    }
-
-    idx += 1;
-  }
-}));
-
-var XFindIndex =
-/*#__PURE__*/
-function () {
-  function XFindIndex(f, xf) {
-    this.xf = xf;
-    this.f = f;
-    this.idx = -1;
-    this.found = false;
-  }
-
-  XFindIndex.prototype['@@transducer/init'] = _xfBase.init;
-
-  XFindIndex.prototype['@@transducer/result'] = function (result) {
-    if (!this.found) {
-      result = this.xf['@@transducer/step'](result, -1);
-    }
-
-    return this.xf['@@transducer/result'](result);
-  };
-
-  XFindIndex.prototype['@@transducer/step'] = function (result, input) {
-    this.idx += 1;
-
-    if (this.f(input)) {
-      this.found = true;
-      result = _reduced(this.xf['@@transducer/step'](result, this.idx));
-    }
-
-    return result;
-  };
-
-  return XFindIndex;
-}();
-
-var _xfindIndex =
-/*#__PURE__*/
-_curry2(function _xfindIndex(f, xf) {
-  return new XFindIndex(f, xf);
-});
-
-/**
- * Returns the index of the first element of the list which matches the
- * predicate, or `-1` if no element matches.
- *
- * Acts as a transducer if a transformer is given in list position.
- *
- * @func
- * @memberOf R
- * @since v0.1.1
- * @category List
- * @sig (a -> Boolean) -> [a] -> Number
- * @param {Function} fn The predicate function used to determine if the element is the
- * desired one.
- * @param {Array} list The array to consider.
- * @return {Number} The index of the element found, or `-1`.
- * @see R.transduce, R.indexOf
- * @example
- *
- *      const xs = [{a: 1}, {a: 2}, {a: 3}];
- *      R.findIndex(R.propEq('a', 2))(xs); //=> 1
- *      R.findIndex(R.propEq('a', 4))(xs); //=> -1
- */
-
-var findIndex =
-/*#__PURE__*/
-_curry2(
-/*#__PURE__*/
-_dispatchable([], _xfindIndex, function findIndex(fn, list) {
-  var idx = 0;
-  var len = list.length;
-
-  while (idx < len) {
-    if (fn(list[idx])) {
-      return idx;
-    }
-
-    idx += 1;
-  }
-
-  return -1;
-}));
-
 /**
  * Returns a new function much like the supplied one, except that the first two
  * arguments' order is reversed.
@@ -2133,69 +1841,6 @@ _curry2(function mergeLeft(l, r) {
 });
 
 /**
- * Returns `true` if the specified object property is equal, in
- * [`R.equals`](#equals) terms, to the given value; `false` otherwise.
- * You can test multiple properties with [`R.whereEq`](#whereEq).
- *
- * @func
- * @memberOf R
- * @since v0.1.0
- * @category Relation
- * @sig String -> a -> Object -> Boolean
- * @param {String} name
- * @param {*} val
- * @param {*} obj
- * @return {Boolean}
- * @see R.whereEq, R.propSatisfies, R.equals
- * @example
- *
- *      const abby = {name: 'Abby', age: 7, hair: 'blond'};
- *      const fred = {name: 'Fred', age: 12, hair: 'brown'};
- *      const rusty = {name: 'Rusty', age: 10, hair: 'brown'};
- *      const alois = {name: 'Alois', age: 15, disposition: 'surly'};
- *      const kids = [abby, fred, rusty, alois];
- *      const hasBrownHair = R.propEq('hair', 'brown');
- *      R.filter(hasBrownHair, kids); //=> [fred, rusty]
- */
-
-var propEq =
-/*#__PURE__*/
-_curry3(function propEq(name, val, obj) {
-  return equals(val, prop(name, obj));
-});
-
-/**
- * Replace a substring or regex match in a string with a replacement.
- *
- * The first two parameters correspond to the parameters of the
- * `String.prototype.replace()` function, so the second parameter can also be a
- * function.
- *
- * @func
- * @memberOf R
- * @since v0.7.0
- * @category String
- * @sig RegExp|String -> String -> String -> String
- * @param {RegExp|String} pattern A regular expression or a substring to match.
- * @param {String} replacement The string to replace the matches with.
- * @param {String} str The String to do the search and replacement in.
- * @return {String} The result.
- * @example
- *
- *      R.replace('foo', 'bar', 'foo foo foo'); //=> 'bar foo foo'
- *      R.replace(/foo/, 'bar', 'foo foo foo'); //=> 'bar foo foo'
- *
- *      // Use the "g" (global) flag to replace all occurrences:
- *      R.replace(/foo/g, 'bar', 'foo foo foo'); //=> 'bar bar bar'
- */
-
-var replace =
-/*#__PURE__*/
-_curry3(function replace(regex, replacement, str) {
-  return str.replace(regex, replacement);
-});
-
-/**
  * Sorts the list according to the supplied function.
  *
  * @func
@@ -2294,9 +1939,9 @@ var mdiMarker = "M18.5,1.15C17.97,1.15 17.46,1.34 17.07,1.73L11.26,7.55L16.91,13
 var mdiMenu = "M3,6H21V8H3V6M3,11H21V13H3V11M3,16H21V18H3V16Z";
 var mdiXml = "M12.89,3L14.85,3.4L11.11,21L9.15,20.6L12.89,3M19.59,12L16,8.41V5.58L22.42,12L16,18.41V15.58L19.59,12M1.58,12L8,5.58V8.41L4.41,12L8,15.58V18.41L1.58,12Z";
 
-var greek = {
+const greek = {
     alpha: 'M 14.401734,12.57328 13.755395,9.1800053 Q 13.094368,5.7132827 10.479636,5.6985932 8.5112431,5.6839037 7.6151835,7.3144385 6.4840918,9.3269003 6.4840918,12.015079 q 0,3.231691 1.1017126,4.774088 1.1164022,1.571777 2.8938316,1.571777 1.968394,0 3.026038,-3.128864 z m 1.513018,-4.4949874 1.454261,-4.3040242 h 2.409078 l -3.011348,8.9165276 0.58758,3.217001 q 0.132206,0.719786 0.646339,1.322056 0.602269,0.705096 1.072333,0.705096 h 1.292676 v 2.291562 h -1.615845 q -1.380813,0 -2.614731,-1.233918 -0.60227,-0.616959 -0.851991,-1.909635 -0.646338,1.571776 -2.056531,2.908521 -0.646338,0.616959 -2.746937,0.60227 -3.4373431,-0.02938 -5.1266359,-2.232805 -1.7186718,-2.291562 -1.7186718,-6.345865 0,-4.362782 1.8655668,-6.3458648 2.0712198,-2.2181148 4.9797409,-2.2621833 4.568436,-0.073448 5.435116,4.6712617 z',
-    Alpha: "M 12,5.0899277 8.5418087,14.467431 H 15.470813 Z M 10.561191,2.5783215 h 2.89024 L 20.632858,21.421678 H 17.98242 L 16.265945,16.587782 H 7.7719191 L 6.0554443,21.421678 H 3.3671424 Z",
+    Alpha: `M 12,5.0899277 8.5418087,14.467431 H 15.470813 Z M 10.561191,2.5783215 h 2.89024 L 20.632858,21.421678 H 17.98242 L 16.265945,16.587782 H 7.7719191 L 6.0554443,21.421678 H 3.3671424 Z`,
     Beta: 'm 7.8859735,12.420825 v 6.871367 h 4.0700605 q 2.047592,0 3.027421,-0.841648 0.992391,-0.85421 0.992391,-2.600316 0,-1.758668 -0.992391,-2.587755 -0.979829,-0.841648 -3.027421,-0.841648 z m 0,-7.7130155 v 5.6528615 h 3.7560125 q 1.859163,0 2.763621,-0.6909053 0.91702,-0.7034672 0.91702,-2.1355255 0,-1.4194963 -0.91702,-2.1229635 Q 13.501149,4.7078095 11.641986,4.7078095 Z M 5.3484667,2.6225317 h 6.4819483 q 2.901802,0 4.472041,1.2059437 1.570239,1.2059438 1.570239,3.4294027 0,1.7209823 -0.803962,2.7384974 -0.803963,1.0175155 -2.36164,1.2687535 1.871725,0.401981 2.901802,1.683296 1.042639,1.268754 1.042639,3.178165 0,2.512383 -1.70842,3.881631 -1.708421,1.369249 -4.861461,1.369249 H 5.3484667 Z',
     beta: 'm 9.2302992,16.654701 v 4.585227 H 7.5166283 V 6.9840389 q 0,-4.2239673 3.9460747,-4.2239673 4.001653,0 4.020179,3.5662882 0.02779,2.5380856 -1.59325,3.4643942 2.584401,0.833678 2.593664,3.306922 0.01853,4.399966 -4.464808,4.390703 -1.963774,-0.0093 -2.7881888,-0.833678 z m 0,-2.223141 q 1.0282028,1.611777 2.8530308,1.602514 2.667769,0 2.667769,-2.908609 0,-2.61219 -4.298072,-2.408402 V 9.142338 q 3.3625,0.055578 3.3625,-2.9641876 0,-2.0378789 -2.167562,-2.0286159 -2.4176658,0 -2.4176658,2.8900829 z',
     chi: 'M 13.641778,18.976096 11.900675,14.500644 8.3133019,21.044386 H 5.7776018 L 10.849002,11.789665 8.7222858,6.2859105 Q 8.1497084,4.8135685 6.3501792,4.8135685 H 5.7776018 V 2.9672983 l 0.8179678,0.02337 q 3.0147955,0.081797 3.7743374,2.0332342 l 1.729417,4.4754523 3.587373,-6.5437422 h 2.5357 l -5.0714,9.2547209 2.126716,5.503755 q 0.572578,1.472342 2.372107,1.472342 h 0.572577 v 1.84627 l -0.817967,-0.02337 q -3.014796,-0.0818 -3.762652,-2.033235 z',
@@ -2348,30 +1993,110 @@ var greek = {
     zeta: 'm 13.354145,15.871523 q 1.172112,0.0089 1.873604,0.674853 0.74589,0.701491 0.74589,1.767048 0,1.021158 -0.657094,1.731529 -0.710371,0.772529 -2.157752,0.772529 0,-0.665973 0,-1.340826 0.612695,0.0444 0.98564,-0.346306 0.284148,-0.310787 0.284148,-0.639334 0,-0.470621 -0.284148,-0.861325 -0.275269,-0.372944 -0.790288,-0.372944 -5.3810606,0 -5.3899402,-4.999237 0,-4.3687818 5.0702732,-7.432257 H 8.3105107 V 3.1825199 H 16.035796 V 4.825253 q -6.4288581,3.2321883 -6.4288581,7.432257 0,3.614013 3.7472071,3.614013 z',
     Zeta: 'M 5.1680194,3.3042234 H 18.83198 V 5.0981279 L 7.8355786,18.715494 H 19.099901 v 1.980284 H 4.9000986 V 18.901873 L 15.8965,5.2845076 H 5.1680194 Z',
 };
-var latex = {};
+const latex = {};
 
 var iconPaths = /*#__PURE__*/Object.freeze({
-    __proto__: null,
-    greek: greek,
-    latex: latex
+  __proto__: null,
+  greek: greek,
+  latex: latex
 });
 
+/**
+ * The scrap of markup that button labels carry, split into pieces a caller can
+ * build with the DOM API. A leaf module with no imports, so the tests can reach
+ * it - see the note in textPlacement.ts.
+ *
+ * Labels such as 'x<sup>y</sup>' used to reach the page through innerHTML.
+ * Obsidian's guidelines rule that out - "Avoid innerHTML, outerHTML and
+ * insertAdjacentHTML" - and while today's labels are all plugin constants, a
+ * table is only ever one contribution away from holding something else.
+ */
+/**
+ * Splits a label into plain text and its superscript and subscript runs.
+ *
+ * Only `<sup>` and `<sub>` are recognised, because those are the only tags the
+ * tables use. Anything else stays literal text, which is the safe direction to
+ * fail in: a caller writing it as a text node shows the user a stray tag rather
+ * than executing it.
+ */
+function splitMarkup(label) {
+    const source = label || '';
+    const parts = [];
+    const tags = /<(sup|sub)>([\s\S]*?)<\/\1>/g;
+    let copied = 0;
+    for (let match = tags.exec(source); match; match = tags.exec(source)) {
+        if (match.index > copied) {
+            parts.push({ tag: 'text', value: source.slice(copied, match.index) });
+        }
+        parts.push({ tag: match[1], value: match[2] });
+        copied = match.index + match[0].length;
+    }
+    if (copied < source.length) {
+        parts.push({ tag: 'text', value: source.slice(copied) });
+    }
+    return parts;
+}
+
 function pathToSvg(icon) {
-    return "\n    <svg style=\"width:24px;height:24px\" viewBox=\"0 0 24 24\" xmlns=\"http://www.w3.org/2000/svg\">\n        <path fill=\"currentColor\" d=\"".concat(icon, "\" />\n    </svg>");
+    // The size comes from the stylesheet rather than from a style attribute
+    // written here - this was the last place the plugin set a fixed style from
+    // JavaScript, which Obsidian's guidelines ask plugins not to do.
+    return `
+    <svg class="mfa-icon-svg" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path fill="currentColor" d="${icon}" />
+    </svg>`;
 }
 function importIconPaths() {
-    var res = {};
-    console.log(iconPaths);
-    forEachObjIndexed(function (value, key, obj) {
+    let res = {};
+    forEachObjIndexed((value, key, obj) => {
         // @ts-ignore
         res = mergeLeft(res, map(pathToSvg, value));
     }, iconPaths);
     return res;
 }
-var icons = __assign(__assign({}, importIconPaths()), { division: pathToSvg(mdiDivision), multiplication: pathToSvg(mdiCircleSmall), h1: pathToSvg(mdiFormatHeader1), h2: pathToSvg(mdiFormatHeader2), h3: pathToSvg(mdiFormatHeader3), h4: pathToSvg(mdiFormatHeader4), h5: pathToSvg(mdiFormatHeader5), h6: pathToSvg(mdiFormatHeader6), bold: pathToSvg(mdiFormatBold), italic: pathToSvg(mdiFormatItalic), strikethrough: pathToSvg(mdiFormatStrikethroughVariant), codeInline: pathToSvg(mdiCodeTags), codeBlock: pathToSvg(mdiXml), link: pathToSvg(mdiLinkVariant), mermaidBlock: pathToSvg(mdiGraph), fileLink: pathToSvg(mdiFileLink), image: pathToSvg(mdiImage), quote: pathToSvg(mdiFormatIndentIncrease), bulletList: pathToSvg(mdiFormatListBulleted), numberList: pathToSvg(mdiFormatListNumbered), checkList: pathToSvg(mdiFormatListBulletedSquare), viewIcon: pathToSvg(mdiLanguageMarkdown), underline: pathToSvg(mdiFormatUnderline), menu: pathToSvg(mdiMenu), expandArrowDown: pathToSvg(mdiChevronDown), expandArrowUp: pathToSvg(mdiChevronUp), highlight: pathToSvg(mdiMarker) });
-var addIcons = function () {
-    Object.keys(icons).forEach(function (key) {
+const icons = {
+    ...importIconPaths(),
+    division: pathToSvg(mdiDivision),
+    multiplication: pathToSvg(mdiCircleSmall),
+    h1: pathToSvg(mdiFormatHeader1),
+    h2: pathToSvg(mdiFormatHeader2),
+    h3: pathToSvg(mdiFormatHeader3),
+    h4: pathToSvg(mdiFormatHeader4),
+    h5: pathToSvg(mdiFormatHeader5),
+    h6: pathToSvg(mdiFormatHeader6),
+    bold: pathToSvg(mdiFormatBold),
+    italic: pathToSvg(mdiFormatItalic),
+    strikethrough: pathToSvg(mdiFormatStrikethroughVariant),
+    codeInline: pathToSvg(mdiCodeTags),
+    codeBlock: pathToSvg(mdiXml),
+    link: pathToSvg(mdiLinkVariant),
+    mermaidBlock: pathToSvg(mdiGraph),
+    fileLink: pathToSvg(mdiFileLink),
+    image: pathToSvg(mdiImage),
+    quote: pathToSvg(mdiFormatIndentIncrease),
+    bulletList: pathToSvg(mdiFormatListBulleted),
+    numberList: pathToSvg(mdiFormatListNumbered),
+    checkList: pathToSvg(mdiFormatListBulletedSquare),
+    viewIcon: pathToSvg(mdiLanguageMarkdown),
+    underline: pathToSvg(mdiFormatUnderline),
+    menu: pathToSvg(mdiMenu),
+    expandArrowDown: pathToSvg(mdiChevronDown),
+    expandArrowUp: pathToSvg(mdiChevronUp),
+    highlight: pathToSvg(mdiMarker),
+};
+const addIcons = () => {
+    Object.keys(icons).forEach((key) => {
         obsidian.addIcon(key, icons[key]);
+    });
+};
+/**
+ * addIcon is a module-level function, not a Plugin method, so Component's
+ * automatic teardown does not cover it - without this the icons stay in the
+ * app's global registry after the plugin is disabled.
+ */
+const removeIcons = () => {
+    Object.keys(icons).forEach((key) => {
+        obsidian.removeIcon(key);
     });
 };
 /**
@@ -2379,21 +2104,137 @@ var addIcons = function () {
  *
  * @param svgText svg image as a string
  */
-var svgToElement = function (key) {
-    if (key.toString().contains('.svg')) {
-        var img = document.createElement('img');
+const svgToElement = (key) => {
+    if (key.toString().includes('.svg')) {
+        const img = document.createElement('img');
         img.src = key.toString();
-        img.style.width = '24px';
-        img.style.height = '24px';
+        img.addClass('mfa-icon-image');
         return img;
     }
     else {
-        var parser = new DOMParser();
+        const parser = new DOMParser();
         return parser.parseFromString(icons[key], 'text/xml').documentElement;
     }
 };
+/**
+ * Writes a button label, honouring the `<sup>` and `<sub>` some of them carry.
+ *
+ * Built node by node rather than handed to innerHTML: see the note in
+ * markup.ts for why that matters even for the plugin's own constants.
+ */
+const appendLabel = (parent, label) => {
+    splitMarkup(label).forEach((part) => {
+        if (part.tag === 'text') {
+            parent.appendText(part.value);
+        }
+        else {
+            parent.createEl(part.tag).setText(part.value);
+        }
+    });
+};
 
-var formatSettings = {
+/**
+ * The editor of the markdown pane the user was last in, or null when there is
+ * none to write to.
+ *
+ * The buttons live in a side panel, so the markdown pane is never the *active*
+ * leaf while one is clicked - hence "most recent" rather than "active". Reading
+ * mode is excluded because inserting into it would be discarded.
+ */
+function getTargetEditor(workspace) {
+    const view = workspace.getMostRecentLeaf()?.view;
+    if (!(view instanceof obsidian.MarkdownView))
+        return null;
+    if (view.getMode() !== 'source')
+        return null;
+    return view.editor;
+}
+/**
+ * Stamps every entry of a formatter table with its own key as `id`.
+ *
+ * The key is already a stable identifier, so deriving `id` from it keeps the
+ * two from ever drifting apart. This is what lets `des` become a plain display
+ * label that translations may replace, while dispatch and lookups keep using
+ * `id`.
+ */
+/**
+ * What survives on the line around the range about to be replaced.
+ *
+ * Needed to decide whether a block insert has to break onto its own line: the
+ * whole line is the wrong question, since the selection being replaced may be
+ * the entire line, or only part of it.
+ */
+function surroundingText(editor) {
+    const from = editor.getCursor('from');
+    const to = editor.getCursor('to');
+    return {
+        before: editor.getLine(from.line).slice(0, from.ch),
+        after: editor.getLine(to.line).slice(to.ch),
+    };
+}
+function withIds(settings) {
+    Object.keys(settings).forEach((key) => {
+        // @ts-ignore - the mapped return type is what makes `id` visible
+        settings[key].id = key;
+    });
+    return settings;
+}
+
+/**
+ * Turning lines into quotes, bullets, numbers and tasks - and back. A leaf
+ * module with no imports, so the tests can reach it - see the note in
+ * textPlacement.ts.
+ *
+ * All of this is per line by definition: a list marker means something only at
+ * the start of one. The editor's job is to decide which lines are involved;
+ * this decides what happens to them.
+ */
+/**
+ * What may sit in front of a marker.
+ *
+ * For a list that includes any quote markers, because a list inside a quote is
+ * written `> - item`. Putting the bullet first would produce `- > item`, which
+ * is a list containing a quote - a different thing, and not what the button
+ * was asked for.
+ *
+ * A quote marker has only indentation in front of it; it is the outermost
+ * thing on the line by nature.
+ */
+const lead = (kind) => (kind === 'quote' ? '\\s*' : '\\s*(?:>\\s*)*');
+/** A line with nothing on it takes no marker - an empty bullet helps nobody. */
+const isBlank = (line) => line.trim() === '';
+/**
+ * Adds the marker to every line, or removes it from every line if they all
+ * have it already.
+ *
+ * Toggling off requires all of them to be marked, so that adding to a
+ * half-converted selection finishes the job rather than undoing it. Blank
+ * lines are not counted either way: one empty line in the middle of a list
+ * would otherwise be enough to make the button stop turning it off.
+ */
+function toggleLineMarker(lines, symbol, kind) {
+    // The symbol goes into a regex, so its own special characters have to be
+    // escaped - '1. ' would otherwise let the dot match anything.
+    const escaped = symbol.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    const marker = new RegExp('^(' + lead(kind) + ')' + escaped);
+    const prefix = new RegExp('^(' + lead(kind) + ')');
+    const has = (line) => marker.test(line);
+    const add = (line) => kind === 'quote'
+        ? symbol + line
+        : line.replace(prefix, (_full, before) => before + symbol);
+    const remove = (line) => line.replace(marker, '$1');
+    const written = lines.filter((line) => !isBlank(line));
+    const allMarked = written.length > 0 && written.every(has);
+    return lines.map((line) => {
+        if (isBlank(line))
+            return line;
+        if (allMarked)
+            return remove(line);
+        return has(line) ? line : add(line);
+    });
+}
+
+const formatSettings = withIds({
     h1: {
         des: 'h1',
         icon: 'h1',
@@ -2518,8 +2359,9 @@ var formatSettings = {
         des: 'mermaid_block',
         icon: 'mermaidBlock',
         symbol: '```mermaid \n```',
-        shift: 4,
-        selectionInput: 4,
+        // '```mermaid ' is 11 chars - splitting anywhere else tears the fence apart
+        shift: 11,
+        selectionInput: 11,
         newLine: true,
         enclose: true,
         objectType: 'formatterSetting',
@@ -2604,20 +2446,20 @@ var formatSettings = {
         enclose: false,
         objectType: 'formatterSetting',
     },
-};
+});
 function iconFormatter(editor, item) {
     if (editor) {
-        var isSelection = editor.somethingSelected;
-        var selection = editor.getSelection();
-        var curserStart = editor.getCursor('from');
-        editor.getCursor('to');
-        var line = editor.getLine(curserStart.line);
+        const isSelection = editor.somethingSelected();
+        const selection = editor.getSelection();
+        const curserStart = editor.getCursor('from');
+        const curserEnd = editor.getCursor('to');
+        const line = editor.getLine(curserStart.line);
         editor.focus();
-        if (['h1', 'h2', 'h3', 'h4', 'h5', 'h6'].contains(item.des)) {
-            var reStringExact = '^\\s*' + item.symbol + '+\\s*';
-            var reStringAny = '^\\s*#+\\s*';
-            var cleanedLine = line.replace(new RegExp(reStringAny, 'g'), '');
-            var replacement = item.symbol + cleanedLine;
+        if (['h1', 'h2', 'h3', 'h4', 'h5', 'h6'].includes(item.id)) {
+            const reStringExact = '^\\s*' + item.symbol + '+\\s*';
+            const reStringAny = '^\\s*#+\\s*';
+            const cleanedLine = line.replace(new RegExp(reStringAny, 'g'), '');
+            let replacement = item.symbol + cleanedLine;
             // To delete the headings if the same heading is clicked twice
             if (new RegExp(reStringExact, 'g').test(line)) {
                 replacement = cleanedLine;
@@ -2625,9 +2467,9 @@ function iconFormatter(editor, item) {
             // replace the hole line with the updated new line
             editor.replaceRange(replacement, { line: curserStart.line, ch: 0 }, { line: curserStart.line, ch: line.length });
             // Calculate the shift of the course depending on how many # are in the old and new line
-            var oldNumberOfHeadings = match(/([#])/g, line).length;
-            var newNumberOfHeadings = match(/([#])/g, replacement).length;
-            var courserCorrection = newNumberOfHeadings - oldNumberOfHeadings;
+            const oldNumberOfHeadings = match(/([#])/g, line).length;
+            const newNumberOfHeadings = match(/([#])/g, replacement).length;
+            let courserCorrection = newNumberOfHeadings - oldNumberOfHeadings;
             // If the old or the new line doesn't contain any heading than the course correction has to be corrected by the space after the # (### sdfsd)
             if (newNumberOfHeadings === 0)
                 courserCorrection -= 1;
@@ -2640,13 +2482,13 @@ function iconFormatter(editor, item) {
             'bold',
             'italic',
             'strikethrough',
-            'code_inline',
+            'codeInline',
             'link',
-            'internal_link',
+            'internalLink',
             'image',
             'underline',
             'highlight',
-        ].contains(item.des)) {
+        ].includes(item.id)) {
             if (isSelection) {
                 editor.replaceSelection(item.symbol.substring(0, item.selectionInput) +
                     selection +
@@ -2658,13 +2500,13 @@ function iconFormatter(editor, item) {
                 editor.setCursor(curserStart.line, curserStart.ch + item.shift);
             }
         }
-        else if (['code_block'].contains(item.des) ||
-            ['mermaid_block'].contains(item.des)) {
+        else if (item.id === 'codeBlock' ||
+            item.id === 'mermaidBlock') {
             if (isSelection) {
-                var re = new RegExp('^(```).*(```)$', 'gs');
-                var match$1 = selection.trim().match(re);
-                var replacment = selection.trim();
-                if (match$1) {
+                const re = new RegExp('^(```).*(```)$', 'gs');
+                const match = selection.trim().match(re);
+                let replacment = selection.trim();
+                if (match) {
                     replacment = editor
                         .getSelection()
                         .trim()
@@ -2681,63 +2523,61 @@ function iconFormatter(editor, item) {
                 }
             }
             else {
-                var pos = curserStart;
-                var replacement = item.symbol;
-                if (line.trim()) {
-                    pos.ch = line.length;
-                    replacement = '\n' + replacement;
-                }
-                else {
-                    pos.ch = 0;
-                }
+                // If the current line already holds text, the block is appended on a
+                // fresh line below it, otherwise it replaces the empty line in place.
+                const hasContent = line.trim().length > 0;
+                const pos = {
+                    line: curserStart.line,
+                    ch: hasContent ? line.length : 0,
+                };
+                const replacement = hasContent ? '\n' + item.symbol : item.symbol;
                 editor.replaceRange(replacement, pos);
-                editor.setCursor(curserStart.line, curserStart.ch + item.shift);
+                // The opening fence always ends up on its own line, so the shift is
+                // counted from the start of that line - not from the old cursor.
+                editor.setCursor(hasContent ? curserStart.line + 1 : curserStart.line, item.shift);
             }
         }
-        else if (['blockquote', 'bullet_list', 'number_list', 'check_list'].contains(item.des)) {
-            var reString_1 = ('^\\s*' + item.symbol + '\\s*')
-                .replace('[', '\\[')
-                .replace(']', '\\]');
-            if (isSelection) {
-                var selectionLines = selection.split('\n');
-                var notAllAreItems = selectionLines.map(function (lineOfSelection) {
-                    var re = new RegExp(reString_1, 'g');
-                    return re.test(lineOfSelection);
-                });
-                if (!notAllAreItems.contains(false)) {
-                    var convertetSelectionLines = selectionLines.map(function (newLine) {
-                        var re = new RegExp(reString_1, 'g');
-                        return newLine.replace(re, '');
-                    });
-                    editor.replaceSelection(convertetSelectionLines.join('\n'));
-                }
-                else {
-                    var convertetSelectionLines = selectionLines.map(function (newLine) {
-                        var re = new RegExp(reString_1, 'g');
-                        if (!re.test(newLine.trim())) {
-                            return item.symbol + newLine.trim();
-                        }
-                        else {
-                            return newLine;
-                        }
-                    });
-                    editor.replaceSelection(convertetSelectionLines.join('\n'));
-                }
-            }
-            else {
-                var re = new RegExp(reString_1, 'gm');
-                var match$1 = line.trim().match(re);
-                var replacment = item.symbol + line.replace(re, '');
-                if (match$1) {
-                    replacment = line.replace(re, '');
-                }
-                editor.replaceRange(replacment, { line: curserStart.line, ch: 0 }, { line: curserStart.line, ch: line.length });
-            }
+        else if (['blockquote', 'bulletList', 'numberList', 'checkList'].includes(item.id)) {
+            // These markers only mean anything at the start of a line, so the whole
+            // of every touched line is what gets rewritten - not the selection.
+            // Dragging from the middle of one word to the middle of another used to
+            // put the bullet wherever the drag began.
+            //
+            // A selection ending at column zero stops short of that line rather than
+            // including it, which is what shift+down and a triple click produce.
+            const endsBeforeLastLine = curserEnd.ch === 0 && curserEnd.line > curserStart.line;
+            const lastLine = endsBeforeLastLine ? curserEnd.line - 1 : curserEnd.line;
+            const from = { line: curserStart.line, ch: 0 };
+            const to = { line: lastLine, ch: editor.getLine(lastLine).length };
+            const converted = toggleLineMarker(editor.getRange(from, to).split('\n'), item.symbol, item.id === 'blockquote' ? 'quote' : 'list');
+            editor.replaceRange(converted.join('\n'), from, to);
         }
     }
 }
 
-var htmlFormatterSettings = {
+/**
+ * A pair of tags with the caret placed between them.
+ *
+ * The offset is derived rather than counted: '<div style="text-align: justify">'
+ * is not a length anyone should be working out by hand, and a wrong one puts
+ * the caret in the middle of an attribute.
+ */
+const wrapper = (des, open, close) => ({
+    des,
+    symbol: open + close,
+    shift: open.length,
+    selectionInput: open.length,
+    objectType: 'htmlFormatterSetting',
+});
+const htmlFormatterSettings = withIds({
+    // Obsidian has no page break of its own, so this is the html people were
+    // copying by hand - issues #49 and #35.
+    pageBreak: wrapper('page break', '<div style="page-break-after: always;">', '</div>'),
+    // Issue #44, which listed exactly these.
+    alignLeft: wrapper('align left', '<div style="text-align: left">', '</div>'),
+    alignCenter: wrapper('align center', '<div style="text-align: center">', '</div>'),
+    alignRight: wrapper('align right', '<div style="text-align: right">', '</div>'),
+    alignJustify: wrapper('align justify', '<div style="text-align: justify">', '</div>'),
     br: {
         des: '<br/>',
         symbol: '<br/>',
@@ -2761,9 +2601,12 @@ var htmlFormatterSettings = {
     },
     img: {
         des: '<img>',
-        symbol: '<img src="" alt="" width="" height=""></img>',
+        // img is a void element - a closing tag is rendered as literal text
+        symbol: '<img src="" alt="" width="" height="">',
+        // 10 = length of '<img src="', so both the cursor and a selection land
+        // inside the src attribute
         shift: 10,
-        selectionInput: 38,
+        selectionInput: 10,
         objectType: 'htmlFormatterSetting',
     },
     a: {
@@ -2857,17 +2700,110 @@ var htmlFormatterSettings = {
         selectionInput: 3,
         objectType: 'htmlFormatterSetting',
     },
-};
+    i: {
+        des: '<i>',
+        symbol: '<i></i>',
+        shift: 3,
+        selectionInput: 3,
+        objectType: 'htmlFormatterSetting',
+    },
+    b: {
+        des: '<b>',
+        symbol: '<b></b>',
+        shift: 3,
+        selectionInput: 3,
+        objectType: 'htmlFormatterSetting',
+    },
+    em: {
+        des: '<em>',
+        symbol: '<em></em>',
+        shift: 4,
+        selectionInput: 4,
+        objectType: 'htmlFormatterSetting',
+    },
+    strong: {
+        des: '<strong>',
+        symbol: '<strong></strong>',
+        shift: 8,
+        selectionInput: 8,
+        objectType: 'htmlFormatterSetting',
+    },
+    mark: {
+        des: '<mark>',
+        symbol: '<mark></mark>',
+        shift: 6,
+        selectionInput: 6,
+        objectType: 'htmlFormatterSetting',
+    },
+    sup: {
+        des: '<sup>',
+        symbol: '<sup></sup>',
+        shift: 5,
+        selectionInput: 5,
+        objectType: 'htmlFormatterSetting',
+    },
+    sub: {
+        des: '<sub>',
+        symbol: '<sub></sub>',
+        shift: 5,
+        selectionInput: 5,
+        objectType: 'htmlFormatterSetting',
+    },
+    kbd: {
+        des: '<kbd>',
+        symbol: '<kbd></kbd>',
+        shift: 5,
+        selectionInput: 5,
+        objectType: 'htmlFormatterSetting',
+    },
+    pre: {
+        des: '<pre>',
+        symbol: '<pre></pre>',
+        shift: 5,
+        selectionInput: 5,
+        objectType: 'htmlFormatterSetting',
+    },
+    center: {
+        des: '<center>',
+        symbol: '<center></center>',
+        shift: 8,
+        selectionInput: 8,
+        objectType: 'htmlFormatterSetting',
+    },
+    dfn: {
+        des: '<dfn>',
+        symbol: '<dfn></dfn>',
+        shift: 5,
+        selectionInput: 5,
+        objectType: 'htmlFormatterSetting',
+    },
+    abbr: {
+        des: '<abbr>',
+        symbol: '<abbr title=""></abbr>',
+        // The cursor goes into the title attribute, while a selection becomes the
+        // visible text after the opening tag - hence the two differ here.
+        shift: 13,
+        selectionInput: 15,
+        objectType: 'htmlFormatterSetting',
+    },
+    hr: {
+        des: '<hr/>',
+        symbol: '<hr/>',
+        shift: 5,
+        selectionInput: 5,
+        objectType: 'htmlFormatterSetting',
+    },
+});
 function htmlFormatter(editor, item) {
     if (editor) {
-        var isSelection = editor.somethingSelected;
-        var selection = editor.getSelection();
-        var curserStart = editor.getCursor('from');
+        const isSelection = editor.somethingSelected();
+        const selection = editor.getSelection();
+        const curserStart = editor.getCursor('from');
         editor.getCursor('to');
         editor.getLine(curserStart.line);
         editor.focus();
         if (isSelection) {
-            var replacment = selection.trim();
+            let replacment = selection.trim();
             editor.replaceSelection(item.symbol.substring(0, item.selectionInput) +
                 replacment +
                 item.symbol.substring(item.selectionInput));
@@ -2880,7 +2816,7 @@ function htmlFormatter(editor, item) {
     }
 }
 
-var greekLowerCaseFormatterSettings = {
+const greekLowerCaseFormatterSettings = withIds({
     alpha: {
         des: 'alpha',
         icon: 'alpha',
@@ -3042,8 +2978,8 @@ var greekLowerCaseFormatterSettings = {
         shift: 6,
         objectType: 'greekFormatterSetting',
     },
-};
-var greekUpperCaseFormatterSettings = {
+});
+const greekUpperCaseFormatterSettings = withIds({
     // Alpha: {
     //   des: 'Alpha',
     //   icon: 'Alpha',
@@ -3199,21 +3135,51 @@ var greekUpperCaseFormatterSettings = {
         shift: 6,
         objectType: 'greekFormatterSetting',
     },
-};
+});
 function greekFormatter(editor, item) {
     if (editor) {
-        editor.somethingSelected;
-        editor.getSelection();
-        var curserStart = editor.getCursor('from');
-        editor.getCursor('to');
-        editor.getLine(curserStart.line);
+        const curserStart = editor.getCursor('from');
         editor.focus();
         editor.replaceRange(item.symbol, curserStart);
         editor.setCursor(curserStart.line, curserStart.ch + item.shift);
     }
 }
 
-var latexFormatterSettings = {
+/**
+ * An operator inserted whole, with the caret left after it.
+ *
+ * The offsets are derived rather than counted. Every one of them used to be a
+ * hand-written number, which is fine until '\\Leftrightarrow' needs one.
+ *
+ * Most of these are `suggestOnly`. Issue #21 asked for many more operators
+ * "only to the command suggestions to avoid saturating the side panel", which
+ * is the right instinct: the useful set is far larger than a panel of buttons
+ * can show without becoming a wall of symbols.
+ */
+const operator = (des, symbol, text, inPanel = false) => ({
+    des,
+    text,
+    symbol,
+    shift: symbol.length,
+    selectionInput: symbol.length,
+    type: 'text',
+    newLine: false,
+    suggestOnly: !inPanel,
+    objectType: 'latexFormatterSetting',
+});
+/** An operator with braces to fill in, with the caret inside the first pair. */
+const braced = (des, before, after, text, inPanel = false) => ({
+    des,
+    text,
+    symbol: before + after,
+    shift: before.length,
+    selectionInput: before.length,
+    type: 'text',
+    newLine: false,
+    suggestOnly: !inPanel,
+    objectType: 'latexFormatterSetting',
+});
+const latexFormatterSettings = withIds({
     inlineEquation: {
         des: 'inline equation',
         text: '$$x$$',
@@ -3245,7 +3211,7 @@ var latexFormatterSettings = {
         objectType: 'latexFormatterSetting',
     },
     multiplication: {
-        des: 'times',
+        des: 'times cross product',
         text: 'multiplication',
         symbol: '\\times',
         shift: 6,
@@ -3265,7 +3231,9 @@ var latexFormatterSettings = {
         objectType: 'latexFormatterSetting',
     },
     div: {
-        des: 'division',
+        // Raises to the power of -1 - this is the reciprocal, not a division.
+        // 'division' is the fraction entry above, whose icon is named that way.
+        des: 'inverse',
         text: 'x<sup>-1</sup>',
         symbol: '^{-1}',
         shift: 5,
@@ -3281,16 +3249,6 @@ var latexFormatterSettings = {
         shift: 2,
         selectionInput: 2,
         type: 'text',
-        newLine: false,
-        objectType: 'latexFormatterSetting',
-    },
-    pi: {
-        des: 'pi',
-        text: 'pi',
-        symbol: '\\pi',
-        shift: 3,
-        selectionInput: 3,
-        type: 'icon',
         newLine: false,
         objectType: 'latexFormatterSetting',
     },
@@ -3365,7 +3323,7 @@ var latexFormatterSettings = {
         objectType: 'latexFormatterSetting',
     },
     sin2: {
-        des: 'cos^2',
+        des: 'sin^2',
         text: 'sin<sup>2</sup>',
         symbol: '\\sin^2()',
         shift: 7,
@@ -3454,17 +3412,121 @@ var latexFormatterSettings = {
         newLine: false,
         objectType: 'latexFormatterSetting',
     },
-};
+    sum: {
+        des: 'sum',
+        text: '∑',
+        symbol: '\\sum_{}^{}',
+        shift: 6,
+        selectionInput: 6,
+        type: 'text',
+        newLine: true,
+        objectType: 'latexFormatterSetting',
+    },
+    integral: {
+        des: 'integral',
+        text: '∫',
+        symbol: '\\int_{}^{}',
+        shift: 6,
+        selectionInput: 6,
+        type: 'text',
+        newLine: false,
+        objectType: 'latexFormatterSetting',
+    },
+    sqrt: {
+        des: 'square root',
+        text: '√',
+        symbol: '\\sqrt{}',
+        shift: 6,
+        selectionInput: 6,
+        type: 'text',
+        newLine: false,
+        objectType: 'latexFormatterSetting',
+    },
+    cdot: {
+        des: 'cdot',
+        text: '·',
+        symbol: '\\cdot',
+        shift: 5,
+        selectionInput: 5,
+        type: 'text',
+        newLine: false,
+        objectType: 'latexFormatterSetting',
+    },
+    hat: {
+        des: 'hat',
+        text: 'hat',
+        symbol: '\\hat{}',
+        shift: 5,
+        selectionInput: 5,
+        type: 'text',
+        newLine: false,
+        objectType: 'latexFormatterSetting',
+    },
+    // ---- calculus, on the panel ------------------------------------------
+    // Named in issues #38 and #21 as the gap that made the section "quite
+    // limited". Four is what fits without turning the panel into a wall.
+    infinity: braced('infinity', '\\infty', '', '∞', true),
+    limit: braced('limit', '\\lim_{', '}', 'lim', true),
+    partial: operator('partial derivative', '\\partial', '∂', true),
+    product: braced('product', '\\prod_{', '}^{}', '∏', true),
+    // ---- everything below is ALT+Q only ----------------------------------
+    nabla: operator('nabla del', '\\nabla', '∇'),
+    contourIntegral: braced('contour integral', '\\oint_{', '}^{}', '∮'),
+    doubleIntegral: braced('double integral', '\\iint_{', '}^{}', '∬'),
+    leq: operator('less than or equal', '\\leq', '≤'),
+    geq: operator('greater than or equal', '\\geq', '≥'),
+    neq: operator('not equal', '\\neq', '≠'),
+    approx: operator('approximately equal', '\\approx', '≈'),
+    equiv: operator('equivalent', '\\equiv', '≡'),
+    propto: operator('proportional to', '\\propto', '∝'),
+    simeq: operator('similar to', '\\sim', '∼'),
+    elementOf: operator('element of', '\\in', '∈'),
+    notElementOf: operator('not element of', '\\notin', '∉'),
+    subset: operator('subset', '\\subset', '⊂'),
+    subseteq: operator('subset or equal', '\\subseteq', '⊆'),
+    union: operator('union', '\\cup', '∪'),
+    intersection: operator('intersection', '\\cap', '∩'),
+    emptySet: operator('empty set', '\\emptyset', '∅'),
+    forAll: operator('for all', '\\forall', '∀'),
+    exists: operator('there exists', '\\exists', '∃'),
+    negation: operator('not negation', '\\neg', '¬'),
+    logicalAnd: operator('logical and', '\\land', '∧'),
+    logicalOr: operator('logical or', '\\lor', '∨'),
+    arrowTo: operator('arrow to', '\\to', '→'),
+    implies: operator('implies', '\\Rightarrow', '⇒'),
+    iff: operator('if and only if', '\\Leftrightarrow', '⇔'),
+    mapsTo: operator('maps to', '\\mapsto', '↦'),
+    plusMinus: operator('plus minus', '\\pm', '±'),
+    minusPlus: operator('minus plus', '\\mp', '∓'),
+    angle: operator('angle', '\\angle', '∠'),
+    degree: operator('degree', '^\\circ', '°'),
+    ellipsis: operator('dots ellipsis', '\\dots', '…'),
+    binomial: braced('binomial coefficient', '\\binom{', '}{}', 'binom'),
+    overline: braced('overline', '\\overline{', '}', 'overline'),
+    underline: braced('underline', '\\underline{', '}', 'underline'),
+    textMode: braced('text inside maths', '\\text{', '}', 'text'),
+    blackboardBold: braced('blackboard bold', '\\mathbb{', '}', 'ℝ'),
+    vec: {
+        des: 'vector',
+        text: 'vec',
+        symbol: '\\vec{}',
+        shift: 5,
+        selectionInput: 5,
+        type: 'text',
+        newLine: false,
+        objectType: 'latexFormatterSetting',
+    },
+});
 function latexFormatter(editor, item) {
     if (editor) {
-        var isSelection = editor.somethingSelected;
-        var selection = editor.getSelection();
-        var curserStart = editor.getCursor('from');
+        const isSelection = editor.somethingSelected();
+        const selection = editor.getSelection();
+        const curserStart = editor.getCursor('from');
         editor.getCursor('to');
         editor.getLine(curserStart.line);
         editor.focus();
         if (isSelection) {
-            var replacment = selection.trim();
+            let replacment = selection.trim();
             editor.replaceSelection(item.symbol.substring(0, item.selectionInput) +
                 replacment +
                 item.symbol.substring(item.selectionInput));
@@ -3477,16 +3539,176 @@ function latexFormatter(editor, item) {
     }
 }
 
-var calloutsFormatterSettings = {
+/**
+ * Pure text and cursor arithmetic, with no imports of its own.
+ *
+ * Node runs the test suite by stripping types rather than compiling, and its
+ * ESM resolver needs an explicit extension on every relative import - which the
+ * build configuration forbids. Keeping the testable logic in a dependency-free
+ * leaf module sidesteps that entirely: the tests import this file and nothing
+ * else, while the editor-facing wrappers around it stay untested but trivial.
+ */
+const CURSOR_PLACEHOLDER = '{cursor}';
+const SELECTION_PLACEHOLDER = '{selection}';
+/**
+ * The markers a value has to carry onto its own continuation lines.
+ *
+ * Only blockquotes qualify, and only when the placeholder sits behind nothing
+ * but their markers. A quote is the one construct that must repeat its prefix
+ * on every single line: drop a two-paragraph selection into `> {selection}` and
+ * everything past the blank line falls straight out of the callout. A fenced
+ * block, by contrast, must not be prefixed at all - hence the deliberately
+ * narrow test rather than "reuse whatever leads the line".
+ */
+function continuationPrefix(lineSoFar) {
+    return /^[ \t]*>[>\s]*$/.test(lineSoFar) ? lineSoFar : '';
+}
+/**
+ * Resolves the placeholders of an insertion template.
+ *
+ * `{selection}` becomes the selected text - every occurrence, so a template may
+ * mention it twice. `{cursor}` marks where the caret ends up; the first one
+ * wins and any further ones are simply dropped. A template without a `{cursor}`
+ * leaves the caret at the end, which is what typing would do.
+ *
+ * Everything happens in one pass over the TEMPLATE, which is what keeps the
+ * substituted text inert: the selection is the user's own document text and may
+ * well contain the word `{cursor}`, and a second pass would then treat it as
+ * markup and mangle their note.
+ */
+function expandTemplate(template, selection) {
+    // Kept in step with the exported placeholder constants above.
+    const tokens = /\{(cursor|selection)\}/g;
+    let text = '';
+    let cursorOffset = -1;
+    let copied = 0;
+    for (let token = tokens.exec(template); token; token = tokens.exec(template)) {
+        text += template.slice(copied, token.index);
+        copied = token.index + token[0].length;
+        if (token[1] === 'cursor') {
+            if (cursorOffset < 0)
+                cursorOffset = text.length;
+            continue;
+        }
+        const prefix = continuationPrefix(text.slice(text.lastIndexOf('\n') + 1));
+        text += prefix ? selection.split('\n').join('\n' + prefix) : selection;
+    }
+    text += template.slice(copied);
+    return { text, cursorOffset: cursorOffset < 0 ? text.length : cursorOffset };
+}
+/**
+ * Turns an offset inside inserted text into an editor position.
+ *
+ * Inserted text may span several lines, so the offset cannot simply be added to
+ * the starting column: once a newline is crossed, the column restarts from the
+ * beginning of the last line.
+ */
+function resolveCursorPosition(text, cursorOffset, start) {
+    const before = text.slice(0, cursorOffset);
+    const lastBreak = before.lastIndexOf('\n');
+    if (lastBreak < 0) {
+        return { line: start.line, ch: start.ch + before.length };
+    }
+    return {
+        line: start.line + (before.split('\n').length - 1),
+        ch: before.length - lastBreak - 1,
+    };
+}
+/**
+ * Gives multi-line inserts a line of their own.
+ *
+ * A table, a callout or a fenced block only renders when it starts at the
+ * beginning of a line and is not followed by stray text, so whatever survives
+ * the insertion on either side has to be pushed out of the way. Single-line
+ * inserts are left alone - wrapping a word in asterisks must stay inline.
+ *
+ * `textBefore` and `textAfter` are what remains of the line around the point
+ * being replaced, not the whole line: inserting mid-sentence has to break on
+ * both sides, and replacing a whole line needs no break at all.
+ */
+function placeBlock(body, cursorOffset, textBefore, textAfter) {
+    if (!body.includes('\n')) {
+        return { text: body, cursorOffset };
+    }
+    const lead = textBefore.trim() ? '\n' : '';
+    const trail = textAfter.trim() ? '\n' : '';
+    return {
+        text: lead + body + trail,
+        cursorOffset: lead.length + cursorOffset,
+    };
+}
+/**
+ * Builds the template for a callout block.
+ *
+ * The keyword inside `[!...]` is what Obsidian matches to pick the icon and the
+ * colour, so it always stays English. Anything after it is a free-form title
+ * that Obsidian renders in place of the default one - which is exactly how a
+ * translated heading gets into the note without breaking the callout.
+ *
+ * With a title the caret goes straight to the body, since the heading is
+ * already written. Without one it stops on the heading so it can be typed.
+ */
+function buildCalloutTemplate(id, title) {
+    const heading = title.trim();
+    return heading
+        ? `> [!${id}] ${heading}\n> ${CURSOR_PLACEHOLDER}${SELECTION_PLACEHOLDER}`
+        : `> [!${id}] ${CURSOR_PLACEHOLDER}\n> ${SELECTION_PLACEHOLDER}`;
+}
+const TABLE_ALIGNMENTS = [
+    'default',
+    'left',
+    'center',
+    'right',
+];
+/**
+ * All four are three characters wide, so the columns of the generated source
+ * line up whatever the alignment is.
+ */
+const DELIMITERS = {
+    default: '---',
+    left: ':--',
+    center: ':-:',
+    right: '--:',
+};
+const CELL_WIDTH = 3;
+const MAX_TABLE_ROWS = 6;
+const MAX_TABLE_COLUMNS = 6;
+function tableRow(cells) {
+    return '|' + cells.map((cell) => ` ${cell} `).join('|') + '|';
+}
+/**
+ * Builds the source of an empty markdown table.
+ *
+ * `rows` counts the header, so 1 means a header on its own - valid markdown,
+ * and what the top row of the size picker promises. The delimiter row is never
+ * counted, it is structural.
+ */
+function buildTable(rows, columns, alignment = 'default') {
+    const safeRows = Math.max(1, Math.floor(rows));
+    const safeColumns = Math.max(1, Math.floor(columns));
+    const empty = ' '.repeat(CELL_WIDTH);
+    const delimiter = DELIMITERS[alignment] || DELIMITERS.default;
+    const lines = [
+        tableRow(new Array(safeColumns).fill(empty)),
+        tableRow(new Array(safeColumns).fill(delimiter)),
+    ];
+    for (let line = 2; line < safeRows + 1; line++) {
+        lines.push(tableRow(new Array(safeColumns).fill(empty)));
+    }
+    return {
+        text: lines.join('\n'),
+        // Right after the leading '| ' of the first header cell.
+        cursorOffset: 2,
+    };
+}
+
+const calloutsFormatterSettings = withIds({
     note: {
         des: 'note',
         text: 'Note',
         icon: 'lucide-pencil',
         color: 'rgb(68,138,255)',
         bgColor: 'rgba(68,138,255,0.1)',
-        symbol: '> [!note] \n>  ',
-        shift: 13,
-        selectionInput: 13,
         newLine: false,
         objectType: 'calloutsFormatterSetting',
     },
@@ -3496,9 +3718,6 @@ var calloutsFormatterSettings = {
         icon: 'lucide-info',
         color: 'rgb(0,184,212)',
         bgColor: 'rgba(0,184,212,0.1)',
-        symbol: '> [!info] \n>  ',
-        shift: 13,
-        selectionInput: 13,
         newLine: false,
         objectType: 'calloutsFormatterSetting',
     },
@@ -3508,9 +3727,6 @@ var calloutsFormatterSettings = {
         icon: 'lucide-check-circle-2',
         color: 'rgb(0,184,212)',
         bgColor: 'rgba(0,184,212,0.1)',
-        symbol: '> [!todo] \n>  ',
-        shift: 13,
-        selectionInput: 13,
         newLine: false,
         objectType: 'calloutsFormatterSetting',
     },
@@ -3520,9 +3736,6 @@ var calloutsFormatterSettings = {
         icon: 'lucide-clipboard-list',
         color: 'rgb(0, 176, 255)',
         bgColor: 'rgba(0, 176, 255,0.1)',
-        symbol: '> [!abstract] \n>  ',
-        shift: 17,
-        selectionInput: 17,
         newLine: false,
         objectType: 'calloutsFormatterSetting',
     },
@@ -3532,9 +3745,6 @@ var calloutsFormatterSettings = {
         icon: 'lucide-clipboard-list',
         color: 'rgb(0, 176, 255)',
         bgColor: 'rgba(0, 176, 255,0.1)',
-        symbol: '> [!summary] \n>  ',
-        shift: 16,
-        selectionInput: 16,
         newLine: false,
         objectType: 'calloutsFormatterSetting',
     },
@@ -3544,9 +3754,6 @@ var calloutsFormatterSettings = {
         icon: 'lucide-clipboard-list',
         color: 'rgb(0, 176, 255)',
         bgColor: 'rgba(0, 176, 255,0.1)',
-        symbol: '> [!tldr] \n>  ',
-        shift: 13,
-        selectionInput: 13,
         newLine: false,
         objectType: 'calloutsFormatterSetting',
     },
@@ -3557,9 +3764,6 @@ var calloutsFormatterSettings = {
         icon: 'lucide-flame',
         color: 'rgb(0, 191, 165)',
         bgColor: 'rgba(0, 191, 165,0.1)',
-        symbol: '> [!tip] \n>  ',
-        shift: 12,
-        selectionInput: 12,
         newLine: false,
         objectType: 'calloutsFormatterSetting',
     },
@@ -3569,9 +3773,6 @@ var calloutsFormatterSettings = {
         icon: 'lucide-flame',
         color: 'rgb(0, 191, 165)',
         bgColor: 'rgba(0, 191, 165,0.1)',
-        symbol: '> [!hint] \n>  ',
-        shift: 13,
-        selectionInput: 13,
         newLine: false,
         objectType: 'calloutsFormatterSetting',
     },
@@ -3581,9 +3782,6 @@ var calloutsFormatterSettings = {
         icon: 'lucide-flame',
         color: 'rgb(0, 191, 165)',
         bgColor: 'rgba(0, 191, 165,0.1)',
-        symbol: '> [!important] \n>  ',
-        shift: 18,
-        selectionInput: 18,
         newLine: false,
         objectType: 'calloutsFormatterSetting',
     },
@@ -3593,9 +3791,6 @@ var calloutsFormatterSettings = {
         icon: 'lucide-check',
         color: 'rgb(0, 200, 83)',
         bgColor: 'rgba(0, 200, 83,0.1)',
-        symbol: '> [!success] \n>  ',
-        shift: 16,
-        selectionInput: 16,
         newLine: false,
         objectType: 'calloutsFormatterSetting',
     },
@@ -3605,9 +3800,6 @@ var calloutsFormatterSettings = {
         icon: 'lucide-check',
         color: 'rgb(0, 200, 83)',
         bgColor: 'rgba(0, 200, 83,0.1)',
-        symbol: '> [!check] \n>  ',
-        shift: 14,
-        selectionInput: 14,
         newLine: false,
         objectType: 'calloutsFormatterSetting',
     },
@@ -3617,9 +3809,6 @@ var calloutsFormatterSettings = {
         icon: 'lucide-check',
         color: 'rgb(0, 200, 83)',
         bgColor: 'rgba(0, 200, 83,0.1)',
-        symbol: '> [!done] \n>  ',
-        shift: 13,
-        selectionInput: 13,
         newLine: false,
         objectType: 'calloutsFormatterSetting',
     },
@@ -3629,9 +3818,6 @@ var calloutsFormatterSettings = {
         icon: 'help-circle',
         color: 'rgb(100, 221, 23)',
         bgColor: 'rgba(100, 221, 23,0.1)',
-        symbol: '> [!question] \n>  ',
-        shift: 17,
-        selectionInput: 17,
         newLine: false,
         objectType: 'calloutsFormatterSetting',
     },
@@ -3641,9 +3827,6 @@ var calloutsFormatterSettings = {
         icon: 'help-circle',
         color: 'rgb(100, 221, 23)',
         bgColor: 'rgba(100, 221, 23,0.1)',
-        symbol: '> [!help] \n>  ',
-        shift: 13,
-        selectionInput: 13,
         newLine: false,
         objectType: 'calloutsFormatterSetting',
     },
@@ -3653,9 +3836,6 @@ var calloutsFormatterSettings = {
         icon: 'help-circle',
         color: 'rgb(100, 221, 23)',
         bgColor: 'rgba(100, 221, 23,0.1)',
-        symbol: '> [!faq] \n>  ',
-        shift: 12,
-        selectionInput: 12,
         newLine: false,
         objectType: 'calloutsFormatterSetting',
     },
@@ -3665,9 +3845,6 @@ var calloutsFormatterSettings = {
         icon: 'lucide-alert-triangle',
         color: 'rgb(255, 145, 0)',
         bgColor: 'rgba(255, 145, 0,0.1)',
-        symbol: '> [!warning] \n>  ',
-        shift: 16,
-        selectionInput: 16,
         newLine: false,
         objectType: 'calloutsFormatterSetting',
     },
@@ -3677,9 +3854,6 @@ var calloutsFormatterSettings = {
         icon: 'lucide-alert-triangle',
         color: 'rgb(255, 145, 0)',
         bgColor: 'rgba(255, 145, 0,0.1)',
-        symbol: '> [!caution] \n>  ',
-        shift: 16,
-        selectionInput: 16,
         newLine: false,
         objectType: 'calloutsFormatterSetting',
     },
@@ -3689,9 +3863,6 @@ var calloutsFormatterSettings = {
         icon: 'lucide-alert-triangle',
         color: 'rgb(255, 145, 0)',
         bgColor: 'rgba(255, 145, 0,0.1)',
-        symbol: '> [!attention] \n>  ',
-        shift: 18,
-        selectionInput: 18,
         newLine: false,
         objectType: 'calloutsFormatterSetting',
     },
@@ -3701,9 +3872,6 @@ var calloutsFormatterSettings = {
         icon: 'lucide-x',
         color: 'rgb(255, 82, 82)',
         bgColor: 'rgba(255, 82, 82,0.1)',
-        symbol: '> [!failure] \n>  ',
-        shift: 16,
-        selectionInput: 16,
         newLine: false,
         objectType: 'calloutsFormatterSetting',
     },
@@ -3713,9 +3881,6 @@ var calloutsFormatterSettings = {
         icon: 'lucide-x',
         color: 'rgb(255, 82, 82)',
         bgColor: 'rgba(255, 82, 82,0.1)',
-        symbol: '> [!fail] \n>  ',
-        shift: 13,
-        selectionInput: 13,
         newLine: false,
         objectType: 'calloutsFormatterSetting',
     },
@@ -3725,9 +3890,6 @@ var calloutsFormatterSettings = {
         icon: 'lucide-x',
         color: 'rgb(255, 82, 82)',
         bgColor: 'rgba(255, 82, 82,0.1)',
-        symbol: '> [!missing] \n>  ',
-        shift: 16,
-        selectionInput: 16,
         newLine: false,
         objectType: 'calloutsFormatterSetting',
     },
@@ -3737,9 +3899,6 @@ var calloutsFormatterSettings = {
         icon: 'lucide-zap',
         color: 'rgb(255, 23, 68)',
         bgColor: 'rgba(255, 23, 68,0.1)',
-        symbol: '> [!danger] \n>  ',
-        shift: 15,
-        selectionInput: 15,
         newLine: false,
         objectType: 'calloutsFormatterSetting',
     },
@@ -3749,9 +3908,6 @@ var calloutsFormatterSettings = {
         icon: 'lucide-zap',
         color: 'rgb(255, 23, 68)',
         bgColor: 'rgba(255, 23, 68,0.1)',
-        symbol: '> [!error] \n>  ',
-        shift: 14,
-        selectionInput: 14,
         newLine: false,
         objectType: 'calloutsFormatterSetting',
     },
@@ -3761,9 +3917,6 @@ var calloutsFormatterSettings = {
         icon: 'lucide-bug',
         color: 'rgb(245, 0, 87)',
         bgColor: 'rgba(245, 0, 87,0.1)',
-        symbol: '> [!bug] \n>  ',
-        shift: 12,
-        selectionInput: 12,
         newLine: false,
         objectType: 'calloutsFormatterSetting',
     },
@@ -3773,9 +3926,6 @@ var calloutsFormatterSettings = {
         icon: 'lucide-list',
         color: 'rgb(124, 77, 255)',
         bgColor: 'rgba(124, 77, 255,0.1)',
-        symbol: '> [!example] \n>  ',
-        shift: 16,
-        selectionInput: 16,
         newLine: false,
         objectType: 'calloutsFormatterSetting',
     },
@@ -3785,224 +3935,1576 @@ var calloutsFormatterSettings = {
         icon: 'quote-glyph',
         color: 'rgb(158, 158, 158)',
         bgColor: 'rgba(158, 158, 158,0.1)',
-        symbol: '> [!quote] \n>  ',
-        shift: 14,
-        selectionInput: 14,
         newLine: false,
         objectType: 'calloutsFormatterSetting',
     },
-    glyph: {
-        des: 'glyph',
-        text: 'Glyph',
-        icon: 'quote-glyph',
-        color: 'rgb(158, 158, 158)',
-        bgColor: 'rgba(158, 158, 158,0.1)',
-        symbol: '> [!glyph] \n>  ',
-        shift: 14,
-        selectionInput: 14,
-        newLine: false,
-        objectType: 'calloutsFormatterSetting',
-    },
-};
-function calloutsFormatter(editor, item) {
-    if (editor) {
-        var isSelection = editor.somethingSelected;
-        var selection = editor.getSelection();
-        var curserStart = editor.getCursor('from');
-        editor.getCursor('to');
-        editor.getLine(curserStart.line);
-        editor.focus();
-        if (isSelection) {
-            var replacment = selection.trim();
-            editor.replaceSelection(item.symbol.substring(0, item.selectionInput) +
-                replacment +
-                item.symbol.substring(item.selectionInput));
-            editor.setCursor(curserStart.line, curserStart.ch + item.shift);
-        }
-        else {
-            editor.replaceRange(item.symbol, curserStart);
-            editor.setCursor(curserStart.line, curserStart.ch + item.shift);
-        }
-    }
-}
-
-function checkIfSelection(editor) {
-    var selection = editor.getSelection();
-    if (!selection || selection === '') {
-        return false;
-    }
-    else {
-        return true;
-    }
-}
-function checkIfMarkdownSource(leaf) {
-    return (
-    // @ts-ignore
-    leaf.view instanceof obsidian.MarkdownView && leaf.view.currentMode.type === 'source');
+});
+/**
+ * Inserts a callout block.
+ *
+ * `title` is written after the keyword so Obsidian renders it instead of its
+ * own English default - that is how a translated heading reaches the note. Pass
+ * an empty string to keep the bare syntax and let the caret land on the
+ * heading instead.
+ */
+function calloutsFormatter(editor, item, title = '') {
+    if (!editor)
+        return;
+    const selection = editor.getSelection();
+    const start = editor.getCursor('from');
+    const { before, after } = surroundingText(editor);
+    editor.focus();
+    const expanded = expandTemplate(buildCalloutTemplate(item.id, title), selection.trim());
+    // A callout is a block - it must not be glued into the middle of a sentence.
+    const { text, cursorOffset } = placeBlock(expanded.text, expanded.cursorOffset, before, after);
+    editor.replaceSelection(text);
+    editor.setCursor(resolveCursorPosition(text, cursorOffset, start));
 }
 
 function colorFormatter(editor, color) {
-    if (editor) {
-        var isSelection = checkIfSelection(editor);
-        var selection = editor.getSelection();
-        var curserStart = editor.getCursor('from');
-        editor.getCursor('to');
-        editor.getLine(curserStart.line);
-        editor.focus();
-        if (isSelection) {
-            selection.trim();
-            editor.replaceSelection(color);
-            editor.setCursor(curserStart);
-        }
-        else {
-            editor.replaceRange(color, curserStart);
-            editor.setCursor(curserStart);
-        }
-    }
+    if (!editor)
+        return;
+    const curserStart = editor.getCursor('from');
+    editor.focus();
+    // Both paths land on the same result - replaceSelection inserts at the
+    // cursor when nothing is selected.
+    editor.replaceSelection(color);
+    editor.setCursor(curserStart);
 }
 
-var SidePanelControlViewType = 'side-panel-control-view';
-var SidePanelControlView = /** @class */ (function (_super) {
-    __extends(SidePanelControlView, _super);
-    function SidePanelControlView(leaf, plugin) {
-        var _this = _super.call(this, leaf) || this;
-        _this.plugin = plugin;
-        return _this;
+/**
+ * What clicking a colour writes into the note. A leaf module with no imports,
+ * so the tests can reach it - see the note in textPlacement.ts.
+ *
+ * The four checkboxes in the Colors section describe two quite different
+ * jobs, and the old code ran them together. Three of them build a fragment of
+ * CSS to be pasted into a tag you are already writing; the fourth wraps text.
+ * Splitting them is what lets a selection be coloured rather than destroyed.
+ */
+function declarations(color, options) {
+    if (options.color && options.background) {
+        return `color: ${color}; background-color: ${color}`;
     }
-    SidePanelControlView.prototype.getViewType = function () {
+    if (options.background)
+        return `background-color: ${color}`;
+    if (options.color)
+        return `color: ${color}`;
+    return color;
+}
+/**
+ * The code to insert when nothing is selected.
+ *
+ * `<font color>` takes a colour and not a declaration, so it uses the colour
+ * as picked. Ticking the style attribute together with the tag used to emit
+ * `<font color="style="color: #fff"">`, which is not markup at all.
+ */
+function colorCode(color, options) {
+    if (options.html)
+        return `<font color="${color}"></font>`;
+    const body = declarations(color, options);
+    return options.styleAttribute ? `style="${body}"` : body;
+}
+/**
+ * How to colour text that is selected.
+ *
+ * There is only one useful answer to "colour this", so it does not depend on
+ * whether the tag checkbox happens to be ticked: a fragment like
+ * `color: #ff0000` cannot wrap anything, and writing it over the selection is
+ * what used to lose people their text.
+ *
+ * The background is the one choice that changes the wrapper. `<font color>`
+ * can only set the text colour, so asking for a background has to produce a
+ * span - otherwise the click would quietly do something else.
+ */
+function wrapWithColor(color, selection, options) {
+    if (options.background) {
+        return `<span style="${declarations(color, options)}">${selection}</span>`;
+    }
+    return `<font color="${color}">${selection}</font>`;
+}
+
+function tableFormatter(editor, rows, columns, alignment) {
+    if (!editor)
+        return;
+    const start = editor.getCursor('from');
+    const { before, after } = surroundingText(editor);
+    editor.focus();
+    const table = buildTable(rows, columns, alignment);
+    const { text, cursorOffset } = placeBlock(table.text, table.cursorOffset, before, after);
+    editor.replaceSelection(text);
+    editor.setCursor(resolveCursorPosition(text, cursorOffset, start));
+}
+
+/**
+ * Moving one item of a list to another position. A leaf module with no imports,
+ * so the tests can reach it - see the note in textPlacement.ts.
+ *
+ * Its own file because three separate lists are reordered by dragging - the
+ * toolbar buttons, the saved colours and the panel's sections - and each used
+ * to carry its own copy of the arithmetic. Two of those copies were wrong in
+ * the same way.
+ */
+/**
+ * Removes the item at `from` and inserts it at `to`.
+ *
+ * Deliberately not a swap. A swap is the same thing only for neighbours: drag
+ * the first item onto the last and a swap sends the last one to the front,
+ * while everything between it stays put. What the gesture asks for is that the
+ * dragged item lands there and the rest close up behind it.
+ *
+ * An index that does not resolve leaves the list alone, because a drop can
+ * arrive from anywhere - another application, a file dragged out of the
+ * explorer, a stray text selection.
+ */
+function moveItem(items, from, to) {
+    const next = [...items];
+    if (!Number.isInteger(from) ||
+        !Number.isInteger(to) ||
+        from < 0 ||
+        from >= next.length ||
+        to < 0 ||
+        to >= next.length ||
+        from === to) {
+        return next;
+    }
+    const [moved] = next.splice(from, 1);
+    next.splice(to, 0, moved);
+    return next;
+}
+
+/**
+ * Where the side panel's buttons sit. A leaf module with no imports, so the
+ * tests can reach it - see the note in textPlacement.ts.
+ *
+ * The same three choices as the toolbar's, and deliberately so: they share
+ * their labels in the translation files and their naming in the stylesheet,
+ * and a test holds the two lists together. They stay separate values because
+ * the defaults differ - the toolbar starts on the left, where the text starts,
+ * and the panel stays centred, as it has always been drawn.
+ */
+const PANEL_ALIGNMENTS = ['left', 'center', 'right'];
+// Centred, so nobody's panel changes under them on update. Issue #94 asked for
+// the choice, not for a different default.
+const DEFAULT_PANEL_ALIGNMENT = 'center';
+/** Anything unrecognised falls back to the default rather than to no layout. */
+function normalisePanelAlignment(value) {
+    return PANEL_ALIGNMENTS.includes(value)
+        ? value
+        : DEFAULT_PANEL_ALIGNMENT;
+}
+
+/**
+ * English is the base dictionary: its keys define the translation key type, and
+ * every other locale falls back to it for anything it leaves out.
+ */
+const en = {
+    // Product name. Locales normally leave this alone and inherit it.
+    'view.displayName': 'Markdown Formatting Assistant',
+    // Commands and ribbon
+    'command.openPanel': 'Open Markdown Formatting Assistant',
+    'command.openCommandSelector': 'Open Command Selector',
+    'command.openCalloutsSelector': 'Open Callouts Selector',
+    // Section headers
+    'section.textEdit': 'Text Edit',
+    'section.tables': 'Tables',
+    'section.html': 'HTML',
+    'section.latex': 'Latex',
+    'section.greekLetters': 'Greek Letters',
+    'section.colors': 'Colors',
+    'section.callouts': 'Callouts',
+    // Panel body
+    'panel.noLeaf': 'Could not open the panel: the sidebar is unavailable.',
+    'tables.pick': 'Pick a size',
+    'tables.size': '{rows} x {columns}',
+    'tables.align.default': 'Plain',
+    'tables.align.left': 'Left',
+    'tables.align.center': 'Center',
+    'tables.align.right': 'Right',
+    'html.reportMissingTag': 'Do you miss a Tag? report it!',
+    'latex.introduction': 'Introduction into latex mathematics',
+    'latex.reportMissingFunction': 'Do you miss a latex function? report it!',
+    'greek.lowerCase': 'Lower Case',
+    'greek.upperCase': 'Upper Case',
+    'greek.overview': 'Overview of greek letters',
+    // Colour picker
+    'colors.select': 'Select a Color',
+    'colors.save': 'Save Color',
+    'colors.optionColor': ' Add "color: {your color}"',
+    'colors.optionBackgroundColor': ' Add "background-color: {your color}"',
+    'colors.optionStyleTag': ' Add tag: "style={your color}"',
+    'colors.optionHtmlTag': ' Add HTML: "<font color={your color}></font>"',
+    'colors.lastUsed': 'Last used colors:',
+    'colors.saved': 'Saved Colors:',
+    'colors.editInSettings': 'Saved colors can be directly edited in the settings.',
+    'colors.help': 'Do you need some Help?',
+    'colors.copied': 'Copied {color} to clipboard',
+    'colors.copyFailed': 'Could not copy the color to clipboard',
+    // Settings
+    'settings.title': 'Markdown Formatting Assistant Settings',
+    'settings.language.name': 'Language',
+    'settings.language.desc': 'Language of the plugin interface. (restart required)',
+    'settings.language.auto': 'Same as Obsidian',
+    'settings.sidePaneSide.name': 'Side Pane Side',
+    'settings.sidePaneSide.desc': 'Choose on which side the Side Pane appears.',
+    'settings.sidePaneSide.placeholder': 'Enter left or right',
+    'settings.panelAlign.name': 'Panel button alignment',
+    'settings.panelAlign.desc': 'Where the buttons sit in the sections of the side panel.',
+    'settings.toggleSection.name': 'Toggle {section} Section',
+    'settings.toggleSection.desc': 'Activate or deactivate the {section} section. (restart required)',
+    'settings.calloutTitles.name': 'Write callout headings',
+    'settings.calloutTitles.desc': 'Insert the callout name as its heading, so a note shows it in your language. The keyword inside [!note] always stays English - that is what Obsidian matches on.',
+    'settings.savedColors.name': 'Saved Colors',
+    'settings.savedColors.desc': 'Colours kept for the palette in the side panel. Pick one to add it, click a swatch to remove it.',
+    'settings.savedColors.empty': 'No saved colours yet.',
+    'settings.savedColors.removeHint': 'click to remove',
+    'settings.toolbar.name': 'Toolbar above the note',
+    'settings.toolbar.desc': 'A row of buttons at the top of the editor, so the side panel can stay closed. Desktop only - on mobile Obsidian already has a toolbar above the keyboard.',
+    'settings.toolbar.empty': 'No buttons yet. Add one below.',
+    'settings.toolbar.unavailable': 'Unavailable: {id}',
+    'settings.toolbar.remove': 'Remove from the toolbar',
+    'settings.toolbar.add': 'Add a button',
+    'settings.toolbar.addDesc': 'Any command in the vault can go on the toolbar, including Obsidian’s own and other plugins’. Drag the rows to reorder them. Up to {max} buttons.',
+    'settings.toolbar.pick': 'Search every command',
+    'settings.toolbar.align.name': 'Button alignment',
+    'settings.toolbar.align.desc': 'Where the buttons sit in the row.',
+    // Shared by the toolbar's alignment and the side panel's.
+    'settings.align.left': 'Left',
+    'settings.align.center': 'Center',
+    'settings.align.right': 'Right',
+    // Callout button labels. Only the label is translated - the callout type
+    // inside '> [!note]' is a keyword Obsidian matches in English.
+    'callout.note': 'Note',
+    'callout.info': 'Info',
+    'callout.todo': 'Todo',
+    'callout.abstract': 'Abstract',
+    'callout.summary': 'Summary',
+    'callout.tldr': 'TLDR',
+    'callout.tip': 'Tip',
+    'callout.hint': 'Hint',
+    'callout.important': 'Important',
+    'callout.success': 'Success',
+    'callout.check': 'Check',
+    'callout.done': 'Done',
+    'callout.question': 'Question',
+    'callout.help': 'Help',
+    'callout.faq': 'FAQ',
+    'callout.warning': 'Warning',
+    'callout.caution': 'Caution',
+    'callout.attention': 'Attention',
+    'callout.failure': 'Failure',
+    'callout.fail': 'Fail',
+    'callout.missing': 'Missing',
+    'callout.danger': 'Danger',
+    'callout.error': 'Error',
+    'callout.bug': 'Bug',
+    'callout.example': 'Example',
+    'callout.quote': 'Quote',
+};
+
+const be = {
+    'command.openPanel': 'Адкрыць Markdown Formatting Assistant',
+    'command.openCommandSelector': 'Адкрыць выбар каманд',
+    'command.openCalloutsSelector': 'Адкрыць выбар выносак',
+    'section.textEdit': 'Тэкст',
+    'section.tables': 'Табліцы',
+    'section.html': 'HTML',
+    'section.latex': 'LaTeX',
+    'section.greekLetters': 'Грэчаскія літары',
+    'section.colors': 'Колеры',
+    'section.callouts': 'Выноскі',
+    'panel.noLeaf': 'Не ўдалося адкрыць панэль: бакавая панэль недаступная.',
+    'tables.pick': 'Выберыце памер',
+    'tables.size': '{rows} x {columns}',
+    'tables.align.default': 'Без',
+    'tables.align.left': 'Злева',
+    'tables.align.center': 'Па цэнтры',
+    'tables.align.right': 'Справа',
+    'html.reportMissingTag': 'Не хапае тэга? Паведаміце!',
+    'latex.introduction': 'Уводзіны ў матэматыку LaTeX',
+    'latex.reportMissingFunction': 'Не хапае функцыі LaTeX? Паведаміце!',
+    'greek.lowerCase': 'Малыя літары',
+    'greek.upperCase': 'Вялікія літары',
+    'greek.overview': 'Агляд грэчаскага алфавіта',
+    'colors.select': 'Выбраць колер',
+    'colors.save': 'Захаваць колер',
+    'colors.optionColor': ' Дадаць "color: {your color}"',
+    'colors.optionBackgroundColor': ' Дадаць "background-color: {your color}"',
+    'colors.optionStyleTag': ' Дадаць атрыбут: "style={your color}"',
+    'colors.optionHtmlTag': ' Дадаць HTML: "<font color={your color}></font>"',
+    'colors.lastUsed': 'Апошнія колеры:',
+    'colors.saved': 'Захаваныя колеры:',
+    'colors.editInSettings': 'Захаваныя колеры можна рэдагаваць проста ў наладах.',
+    'colors.help': 'Патрэбна дапамога?',
+    'colors.copied': 'Колер {color} скапіяваны ў буфер абмену',
+    'colors.copyFailed': 'Не ўдалося скапіяваць колер у буфер абмену',
+    'settings.title': 'Налады Markdown Formatting Assistant',
+    'settings.language.name': 'Мова',
+    'settings.language.desc': 'Мова інтэрфейсу плагіна. (патрэбны перазапуск)',
+    'settings.language.auto': 'Як у Obsidian',
+    'settings.sidePaneSide.name': 'Бок панэлі',
+    'settings.sidePaneSide.desc': 'З якога боку адкрываецца бакавая панэль.',
+    'settings.sidePaneSide.placeholder': 'Увядзіце left або right',
+    'settings.panelAlign.name': 'Выраўноўванне кнопак панэлі',
+    'settings.panelAlign.desc': 'Дзе стаяць кнопкі ў секцыях бакавой панэлі.',
+    'settings.toggleSection.name': 'Секцыя «{section}»',
+    'settings.toggleSection.desc': 'Уключыць або выключыць секцыю «{section}». (патрэбны перазапуск)',
+    'settings.savedColors.name': 'Захаваныя колеры',
+    'settings.savedColors.desc': 'Колеры, захаваныя праз палітру. Парадак таксама ўлічваецца. Патрэбны перазапуск Obsidian.',
+    'callout.note': 'Нататка',
+    'callout.info': 'Інфармацыя',
+    'callout.todo': 'Задача',
+    'callout.abstract': 'Анатацыя',
+    'callout.summary': 'Зводка',
+    'callout.tldr': 'Сцісла',
+    'callout.tip': 'Парада',
+    'callout.hint': 'Падказка',
+    'callout.important': 'Важна',
+    'callout.success': 'Поспех',
+    'callout.check': 'Праверана',
+    'callout.done': 'Гатова',
+    'callout.question': 'Пытанне',
+    'callout.help': 'Дапамога',
+    'callout.faq': 'ЧаПы',
+    'callout.warning': 'Папярэджанне',
+    'callout.caution': 'Асцярожна',
+    'callout.attention': 'Увага',
+    'callout.failure': 'Няўдача',
+    'callout.fail': 'Правал',
+    'callout.missing': 'Адсутнічае',
+    'callout.danger': 'Небяспека',
+    'callout.error': 'Памылка',
+    'callout.bug': 'Баг',
+    'callout.example': 'Прыклад',
+    'callout.quote': 'Цытата',
+    'settings.savedColors.empty': 'Захаваных колераў пакуль няма.',
+    'settings.savedColors.removeHint': 'націсніце, каб выдаліць',
+    'settings.toolbar.name': 'Панэль над нататкай',
+    'settings.toolbar.desc': 'Шэраг кнопак уверсе рэдактара, каб бакавую панэль можна было закрыць. Толькі на камп’ютары — на мабільных у Obsidian ужо ёсць свая панэль над клавіятурай.',
+    'settings.toolbar.empty': 'Кнопак пакуль няма. Дадайце ніжэй.',
+    'settings.toolbar.unavailable': 'Недаступная: {id}',
+    'settings.toolbar.remove': 'Прыбраць з панэлі',
+    'settings.toolbar.add': 'Дадаць кнопку',
+    'settings.toolbar.addDesc': 'На панэль можна пакласці любую каманду сховішча, у тым ліку каманды самога Obsidian і іншых плагінаў. Парадак мяняецца перацягваннем. Да {max} кнопак.',
+    'settings.toolbar.pick': 'Пошук па ўсіх камандах',
+    'settings.toolbar.align.name': 'Выраўноўванне кнопак',
+    'settings.toolbar.align.desc': 'Дзе кнопкі стаяць у радзе.',
+    'settings.align.left': 'Па левым краі',
+    'settings.align.center': 'Па цэнтры',
+    'settings.align.right': 'Па правым краі',
+    'settings.calloutTitles.name': 'Пісаць загаловак выноскі',
+    'settings.calloutTitles.desc': 'Устаўляць назву выноскі як загаловак, каб у нататцы яна адлюстроўвалася на вашай мове. Ключавое слова ўнутры [!note] заўсёды застаецца англійскім — менавіта па ім Obsidian вызначае тып.',
+};
+
+const de = {
+    'command.openPanel': 'Markdown Formatting Assistant öffnen',
+    'command.openCommandSelector': 'Befehlsauswahl öffnen',
+    'command.openCalloutsSelector': 'Callout-Auswahl öffnen',
+    'section.textEdit': 'Textbearbeitung',
+    'section.tables': 'Tabellen',
+    'section.html': 'HTML',
+    'section.latex': 'LaTeX',
+    'section.greekLetters': 'Griechische Buchstaben',
+    'section.colors': 'Farben',
+    'section.callouts': 'Callouts',
+    'panel.noLeaf': 'Das Panel konnte nicht geöffnet werden: die Seitenleiste ist nicht verfügbar.',
+    'tables.pick': 'Größe wählen',
+    'tables.size': '{rows} x {columns}',
+    'tables.align.default': 'Ohne',
+    'tables.align.left': 'Links',
+    'tables.align.center': 'Zentriert',
+    'tables.align.right': 'Rechts',
+    'html.reportMissingTag': 'Fehlt ein Tag? Melde es!',
+    'latex.introduction': 'Einführung in die LaTeX-Mathematik',
+    'latex.reportMissingFunction': 'Fehlt eine LaTeX-Funktion? Melde es!',
+    'greek.lowerCase': 'Kleinbuchstaben',
+    'greek.upperCase': 'Großbuchstaben',
+    'greek.overview': 'Übersicht der griechischen Buchstaben',
+    'colors.select': 'Farbe wählen',
+    'colors.save': 'Farbe speichern',
+    'colors.optionColor': ' "color: {your color}" hinzufügen',
+    'colors.optionBackgroundColor': ' "background-color: {your color}" hinzufügen',
+    'colors.optionStyleTag': ' Attribut hinzufügen: "style={your color}"',
+    'colors.optionHtmlTag': ' HTML hinzufügen: "<font color={your color}></font>"',
+    'colors.lastUsed': 'Zuletzt verwendete Farben:',
+    'colors.saved': 'Gespeicherte Farben:',
+    'colors.editInSettings': 'Gespeicherte Farben lassen sich direkt in den Einstellungen bearbeiten.',
+    'colors.help': 'Brauchst du Hilfe?',
+    'colors.copied': '{color} in die Zwischenablage kopiert',
+    'colors.copyFailed': 'Farbe konnte nicht in die Zwischenablage kopiert werden',
+    'settings.title': 'Markdown Formatting Assistant – Einstellungen',
+    'settings.language.name': 'Sprache',
+    'settings.language.desc': 'Sprache der Plugin-Oberfläche. (Neustart erforderlich)',
+    'settings.language.auto': 'Wie Obsidian',
+    'settings.sidePaneSide.name': 'Seite der Seitenleiste',
+    'settings.sidePaneSide.desc': 'Lege fest, auf welcher Seite die Seitenleiste erscheint.',
+    'settings.sidePaneSide.placeholder': 'left oder right eingeben',
+    'settings.panelAlign.name': 'Ausrichtung der Schaltflächen in der Seitenleiste',
+    'settings.panelAlign.desc': 'Wo die Schaltflächen in den Bereichen der Seitenleiste sitzen.',
+    'settings.toggleSection.name': 'Bereich „{section}“',
+    'settings.toggleSection.desc': 'Bereich „{section}“ aktivieren oder deaktivieren. (Neustart erforderlich)',
+    'settings.savedColors.name': 'Gespeicherte Farben',
+    'settings.savedColors.desc': 'Über die Farbauswahl gespeicherte Farben. Die Reihenfolge wird ebenfalls berücksichtigt. Erfordert einen Neustart von Obsidian.',
+    'callout.note': 'Notiz',
+    'callout.info': 'Info',
+    'callout.todo': 'Aufgabe',
+    'callout.abstract': 'Kurzfassung',
+    'callout.summary': 'Zusammenfassung',
+    'callout.tldr': 'Kurz gesagt',
+    'callout.tip': 'Tipp',
+    'callout.hint': 'Hinweis',
+    'callout.important': 'Wichtig',
+    'callout.success': 'Erfolg',
+    'callout.check': 'Geprüft',
+    'callout.done': 'Erledigt',
+    'callout.question': 'Frage',
+    'callout.help': 'Hilfe',
+    'callout.faq': 'FAQ',
+    'callout.warning': 'Warnung',
+    'callout.caution': 'Vorsicht',
+    'callout.attention': 'Achtung',
+    'callout.failure': 'Fehlschlag',
+    'callout.fail': 'Nicht bestanden',
+    'callout.missing': 'Fehlend',
+    'callout.danger': 'Gefahr',
+    'callout.error': 'Fehler',
+    'callout.bug': 'Bug',
+    'callout.example': 'Beispiel',
+    'callout.quote': 'Zitat',
+    'settings.savedColors.empty': 'Noch keine gespeicherten Farben.',
+    'settings.savedColors.removeHint': 'zum Entfernen klicken',
+    'settings.toolbar.name': 'Leiste über der Notiz',
+    'settings.toolbar.desc': 'Eine Reihe Schaltflächen oben im Editor, damit das Seitenpanel geschlossen bleiben kann. Nur am Desktop – auf Mobilgeräten hat Obsidian bereits eine Leiste über der Tastatur.',
+    'settings.toolbar.empty': 'Noch keine Schaltflächen. Füge unten eine hinzu.',
+    'settings.toolbar.unavailable': 'Nicht verfügbar: {id}',
+    'settings.toolbar.remove': 'Von der Leiste entfernen',
+    'settings.toolbar.add': 'Schaltfläche hinzufügen',
+    'settings.toolbar.addDesc': 'Jeder Befehl im Vault kann auf die Leiste, auch Obsidians eigene und die anderer Plugins. Die Reihenfolge änderst du per Ziehen. Bis zu {max} Schaltflächen.',
+    'settings.toolbar.pick': 'Alle Befehle durchsuchen',
+    'settings.toolbar.align.name': 'Ausrichtung der Schaltflächen',
+    'settings.toolbar.align.desc': 'Wo die Schaltflächen in der Reihe sitzen.',
+    'settings.align.left': 'Links',
+    'settings.align.center': 'Mittig',
+    'settings.align.right': 'Rechts',
+    'settings.calloutTitles.name': 'Callout-Überschrift schreiben',
+    'settings.calloutTitles.desc': 'Den Namen des Callouts als Überschrift einfügen, damit die Notiz ihn in deiner Sprache zeigt. Das Schlüsselwort in [!note] bleibt immer englisch - daran erkennt Obsidian den Typ.',
+};
+
+const es = {
+    'command.openPanel': 'Abrir Markdown Formatting Assistant',
+    'command.openCommandSelector': 'Abrir selector de comandos',
+    'command.openCalloutsSelector': 'Abrir selector de llamadas',
+    'section.textEdit': 'Texto',
+    'section.tables': 'Tablas',
+    'section.html': 'HTML',
+    'section.latex': 'LaTeX',
+    'section.greekLetters': 'Letras griegas',
+    'section.colors': 'Colores',
+    'section.callouts': 'Llamadas',
+    'panel.noLeaf': 'No se pudo abrir el panel: la barra lateral no está disponible.',
+    'tables.pick': 'Elige un tamaño',
+    'tables.size': '{rows} x {columns}',
+    'tables.align.default': 'Sin',
+    'tables.align.left': 'Izquierda',
+    'tables.align.center': 'Centro',
+    'tables.align.right': 'Derecha',
+    'html.reportMissingTag': '¿Falta una etiqueta? ¡Avísanos!',
+    'latex.introduction': 'Introducción a las matemáticas en LaTeX',
+    'latex.reportMissingFunction': '¿Falta una función de LaTeX? ¡Avísanos!',
+    'greek.lowerCase': 'Minúsculas',
+    'greek.upperCase': 'Mayúsculas',
+    'greek.overview': 'Resumen del alfabeto griego',
+    'colors.select': 'Elegir un color',
+    'colors.save': 'Guardar color',
+    'colors.optionColor': ' Añadir "color: {your color}"',
+    'colors.optionBackgroundColor': ' Añadir "background-color: {your color}"',
+    'colors.optionStyleTag': ' Añadir atributo: "style={your color}"',
+    'colors.optionHtmlTag': ' Añadir HTML: "<font color={your color}></font>"',
+    'colors.lastUsed': 'Colores recientes:',
+    'colors.saved': 'Colores guardados:',
+    'colors.editInSettings': 'Los colores guardados se pueden editar directamente en los ajustes.',
+    'colors.help': '¿Necesitas ayuda?',
+    'colors.copied': 'Color {color} copiado al portapapeles',
+    'colors.copyFailed': 'No se pudo copiar el color al portapapeles',
+    'settings.title': 'Ajustes de Markdown Formatting Assistant',
+    'settings.language.name': 'Idioma',
+    'settings.language.desc': 'Idioma de la interfaz del plugin. (requiere reiniciar)',
+    'settings.language.auto': 'Igual que Obsidian',
+    'settings.sidePaneSide.name': 'Lado del panel lateral',
+    'settings.sidePaneSide.desc': 'Elige en qué lado aparece el panel lateral.',
+    'settings.sidePaneSide.placeholder': 'Introduce left o right',
+    'settings.panelAlign.name': 'Alineación de los botones del panel',
+    'settings.panelAlign.desc': 'Dónde se colocan los botones en las secciones del panel lateral.',
+    'settings.toggleSection.name': 'Sección «{section}»',
+    'settings.toggleSection.desc': 'Activar o desactivar la sección «{section}». (requiere reiniciar)',
+    'settings.savedColors.name': 'Colores guardados',
+    'settings.savedColors.desc': 'Colores guardados mediante el selector de color. También se tiene en cuenta el orden. Requiere reiniciar Obsidian.',
+    'callout.note': 'Nota',
+    'callout.info': 'Información',
+    'callout.todo': 'Tarea',
+    'callout.abstract': 'Resumen',
+    'callout.summary': 'Síntesis',
+    'callout.tldr': 'En resumen',
+    'callout.tip': 'Consejo',
+    'callout.hint': 'Sugerencia',
+    'callout.important': 'Importante',
+    'callout.success': 'Éxito',
+    'callout.check': 'Comprobado',
+    'callout.done': 'Hecho',
+    'callout.question': 'Pregunta',
+    'callout.help': 'Ayuda',
+    'callout.faq': 'Preguntas frecuentes',
+    'callout.warning': 'Advertencia',
+    'callout.caution': 'Precaución',
+    'callout.attention': 'Atención',
+    'callout.failure': 'Fallo',
+    'callout.fail': 'No superado',
+    'callout.missing': 'Ausente',
+    'callout.danger': 'Peligro',
+    'callout.error': 'Error',
+    'callout.bug': 'Error de software',
+    'callout.example': 'Ejemplo',
+    'callout.quote': 'Cita',
+    'settings.savedColors.empty': 'Todavía no hay colores guardados.',
+    'settings.savedColors.removeHint': 'pulsa para quitar',
+    'settings.toolbar.name': 'Barra sobre la nota',
+    'settings.toolbar.desc': 'Una fila de botones en la parte superior del editor, para poder cerrar el panel lateral. Solo en escritorio: en móvil Obsidian ya tiene una barra sobre el teclado.',
+    'settings.toolbar.empty': 'Todavía no hay botones. Añade uno abajo.',
+    'settings.toolbar.unavailable': 'No disponible: {id}',
+    'settings.toolbar.remove': 'Quitar de la barra',
+    'settings.toolbar.add': 'Añadir un botón',
+    'settings.toolbar.addDesc': 'Cualquier comando del almacén puede ir en la barra, incluidos los de Obsidian y los de otros plugins. Arrastra las filas para reordenarlas. Hasta {max} botones.',
+    'settings.toolbar.pick': 'Buscar en todos los comandos',
+    'settings.toolbar.align.name': 'Alineación de los botones',
+    'settings.toolbar.align.desc': 'Dónde se colocan los botones en la fila.',
+    'settings.align.left': 'Izquierda',
+    'settings.align.center': 'Centro',
+    'settings.align.right': 'Derecha',
+    'settings.calloutTitles.name': 'Escribir el título de la llamada',
+    'settings.calloutTitles.desc': 'Insertar el nombre de la llamada como título, para que la nota lo muestre en tu idioma. La palabra clave dentro de [!note] siempre queda en inglés: es la que reconoce Obsidian.',
+};
+
+const fr = {
+    'command.openPanel': 'Ouvrir Markdown Formatting Assistant',
+    'command.openCommandSelector': 'Ouvrir le sélecteur de commandes',
+    'command.openCalloutsSelector': 'Ouvrir le sélecteur d’encadrés',
+    'section.textEdit': 'Texte',
+    'section.tables': 'Tableaux',
+    'section.html': 'HTML',
+    'section.latex': 'LaTeX',
+    'section.greekLetters': 'Lettres grecques',
+    'section.colors': 'Couleurs',
+    'section.callouts': 'Encadrés',
+    'panel.noLeaf': 'Impossible d’ouvrir le panneau : la barre latérale n’est pas disponible.',
+    'tables.pick': 'Choisir une taille',
+    'tables.size': '{rows} x {columns}',
+    'tables.align.default': 'Aucun',
+    'tables.align.left': 'Gauche',
+    'tables.align.center': 'Centre',
+    'tables.align.right': 'Droite',
+    'html.reportMissingTag': 'Une balise manque ? Signalez-le !',
+    'latex.introduction': 'Introduction aux mathématiques en LaTeX',
+    'latex.reportMissingFunction': 'Une fonction LaTeX manque ? Signalez-le !',
+    'greek.lowerCase': 'Minuscules',
+    'greek.upperCase': 'Majuscules',
+    'greek.overview': 'Aperçu de l’alphabet grec',
+    'colors.select': 'Choisir une couleur',
+    'colors.save': 'Enregistrer la couleur',
+    'colors.optionColor': ' Ajouter "color: {your color}"',
+    'colors.optionBackgroundColor': ' Ajouter "background-color: {your color}"',
+    'colors.optionStyleTag': ' Ajouter l’attribut : "style={your color}"',
+    'colors.optionHtmlTag': ' Ajouter du HTML : "<font color={your color}></font>"',
+    'colors.lastUsed': 'Couleurs récentes :',
+    'colors.saved': 'Couleurs enregistrées :',
+    'colors.editInSettings': 'Les couleurs enregistrées se modifient directement dans les paramètres.',
+    'colors.help': 'Besoin d’aide ?',
+    'colors.copied': 'Couleur {color} copiée dans le presse-papiers',
+    'colors.copyFailed': 'Impossible de copier la couleur dans le presse-papiers',
+    'settings.title': 'Paramètres de Markdown Formatting Assistant',
+    'settings.language.name': 'Langue',
+    'settings.language.desc': 'Langue de l’interface du plugin. (redémarrage requis)',
+    'settings.language.auto': 'Comme Obsidian',
+    'settings.sidePaneSide.name': 'Côté du volet latéral',
+    'settings.sidePaneSide.desc': 'Choisissez de quel côté apparaît le volet latéral.',
+    'settings.sidePaneSide.placeholder': 'Saisissez left ou right',
+    'settings.panelAlign.name': 'Alignement des boutons du volet',
+    'settings.panelAlign.desc': 'Où les boutons se placent dans les sections du volet latéral.',
+    'settings.toggleSection.name': 'Section « {section} »',
+    'settings.toggleSection.desc': 'Activer ou désactiver la section « {section} ». (redémarrage requis)',
+    'settings.savedColors.name': 'Couleurs enregistrées',
+    'settings.savedColors.desc': 'Couleurs enregistrées via le sélecteur de couleur. L’ordre est également pris en compte. Nécessite un redémarrage d’Obsidian.',
+    'callout.note': 'Note',
+    'callout.info': 'Info',
+    'callout.todo': 'À faire',
+    'callout.abstract': 'Résumé',
+    'callout.summary': 'Synthèse',
+    'callout.tldr': 'En bref',
+    'callout.tip': 'Astuce',
+    'callout.hint': 'Indice',
+    'callout.important': 'Important',
+    'callout.success': 'Succès',
+    'callout.check': 'Vérifié',
+    'callout.done': 'Terminé',
+    'callout.question': 'Question',
+    'callout.help': 'Aide',
+    'callout.faq': 'FAQ',
+    'callout.warning': 'Avertissement',
+    'callout.caution': 'Prudence',
+    'callout.attention': 'Attention',
+    'callout.failure': 'Échec',
+    'callout.fail': 'Non validé',
+    'callout.missing': 'Manquant',
+    'callout.danger': 'Danger',
+    'callout.error': 'Erreur',
+    'callout.bug': 'Bogue',
+    'callout.example': 'Exemple',
+    'callout.quote': 'Citation',
+    'settings.savedColors.empty': 'Aucune couleur enregistrée pour l’instant.',
+    'settings.savedColors.removeHint': 'cliquer pour retirer',
+    'settings.toolbar.name': 'Barre au-dessus de la note',
+    'settings.toolbar.desc': 'Une rangée de boutons en haut de l’éditeur, pour pouvoir garder le panneau latéral fermé. Bureau uniquement : sur mobile, Obsidian dispose déjà d’une barre au-dessus du clavier.',
+    'settings.toolbar.empty': 'Aucun bouton pour l’instant. Ajoutez-en un ci-dessous.',
+    'settings.toolbar.unavailable': 'Indisponible : {id}',
+    'settings.toolbar.remove': 'Retirer de la barre',
+    'settings.toolbar.add': 'Ajouter un bouton',
+    'settings.toolbar.addDesc': 'N’importe quelle commande du coffre peut aller sur la barre, y compris celles d’Obsidian et des autres extensions. Glissez les lignes pour les réordonner. Jusqu’à {max} boutons.',
+    'settings.toolbar.pick': 'Rechercher parmi toutes les commandes',
+    'settings.toolbar.align.name': 'Alignement des boutons',
+    'settings.toolbar.align.desc': 'Où les boutons se placent dans la rangée.',
+    'settings.align.left': 'Gauche',
+    'settings.align.center': 'Centre',
+    'settings.align.right': 'Droite',
+    'settings.calloutTitles.name': 'Écrire le titre de l’encadré',
+    'settings.calloutTitles.desc': 'Insérer le nom de l’encadré comme titre, afin que la note l’affiche dans votre langue. Le mot-clé dans [!note] reste toujours en anglais : c’est lui qu’Obsidian reconnaît.',
+};
+
+const it = {
+    'command.openPanel': 'Apri Markdown Formatting Assistant',
+    'command.openCommandSelector': 'Apri il selettore dei comandi',
+    'command.openCalloutsSelector': 'Apri il selettore dei riquadri',
+    'section.textEdit': 'Testo',
+    'section.tables': 'Tabelle',
+    'section.html': 'HTML',
+    'section.latex': 'LaTeX',
+    'section.greekLetters': 'Lettere greche',
+    'section.colors': 'Colori',
+    'section.callouts': 'Riquadri',
+    'panel.noLeaf': 'Impossibile aprire il pannello: la barra laterale non è disponibile.',
+    'tables.pick': 'Scegli una dimensione',
+    'tables.size': '{rows} x {columns}',
+    'tables.align.default': 'Nessuno',
+    'tables.align.left': 'Sinistra',
+    'tables.align.center': 'Centro',
+    'tables.align.right': 'Destra',
+    'html.reportMissingTag': 'Manca un tag? Segnalalo!',
+    'latex.introduction': 'Introduzione alla matematica in LaTeX',
+    'latex.reportMissingFunction': 'Manca una funzione LaTeX? Segnalalo!',
+    'greek.lowerCase': 'Minuscole',
+    'greek.upperCase': 'Maiuscole',
+    'greek.overview': "Panoramica dell'alfabeto greco",
+    'colors.select': 'Scegli un colore',
+    'colors.save': 'Salva colore',
+    'colors.optionColor': ' Aggiungi "color: {your color}"',
+    'colors.optionBackgroundColor': ' Aggiungi "background-color: {your color}"',
+    'colors.optionStyleTag': ' Aggiungi attributo: "style={your color}"',
+    'colors.optionHtmlTag': ' Aggiungi HTML: "<font color={your color}></font>"',
+    'colors.lastUsed': 'Colori recenti:',
+    'colors.saved': 'Colori salvati:',
+    'colors.editInSettings': 'I colori salvati si possono modificare direttamente nelle impostazioni.',
+    'colors.help': 'Ti serve aiuto?',
+    'colors.copied': 'Colore {color} copiato negli appunti',
+    'colors.copyFailed': 'Impossibile copiare il colore negli appunti',
+    'settings.title': 'Impostazioni di Markdown Formatting Assistant',
+    'settings.language.name': 'Lingua',
+    'settings.language.desc': "Lingua dell'interfaccia del plugin. (riavvio necessario)",
+    'settings.language.auto': 'Come Obsidian',
+    'settings.sidePaneSide.name': 'Lato del pannello laterale',
+    'settings.sidePaneSide.desc': 'Scegli su quale lato compare il pannello laterale.',
+    'settings.sidePaneSide.placeholder': 'Inserisci left o right',
+    'settings.panelAlign.name': 'Allineamento dei pulsanti del pannello',
+    'settings.panelAlign.desc': 'Dove stanno i pulsanti nelle sezioni del pannello laterale.',
+    'settings.toggleSection.name': 'Sezione «{section}»',
+    'settings.toggleSection.desc': 'Attiva o disattiva la sezione «{section}». (riavvio necessario)',
+    'settings.savedColors.name': 'Colori salvati',
+    'settings.savedColors.desc': 'Colori salvati tramite il selettore di colore. Viene considerato anche l’ordine. Richiede il riavvio di Obsidian.',
+    'callout.note': 'Nota',
+    'callout.info': 'Info',
+    'callout.todo': 'Da fare',
+    'callout.abstract': 'Sintesi',
+    'callout.summary': 'Riassunto',
+    'callout.tldr': 'In breve',
+    'callout.tip': 'Suggerimento',
+    'callout.hint': 'Indizio',
+    'callout.important': 'Importante',
+    'callout.success': 'Successo',
+    'callout.check': 'Verificato',
+    'callout.done': 'Fatto',
+    'callout.question': 'Domanda',
+    'callout.help': 'Aiuto',
+    'callout.faq': 'FAQ',
+    'callout.warning': 'Avviso',
+    'callout.caution': 'Cautela',
+    'callout.attention': 'Attenzione',
+    'callout.failure': 'Fallimento',
+    'callout.fail': 'Non superato',
+    'callout.missing': 'Mancante',
+    'callout.danger': 'Pericolo',
+    'callout.error': 'Errore',
+    'callout.bug': 'Bug',
+    'callout.example': 'Esempio',
+    'callout.quote': 'Citazione',
+    'settings.savedColors.empty': 'Nessun colore salvato per ora.',
+    'settings.savedColors.removeHint': 'tocca per rimuovere',
+    'settings.toolbar.name': 'Barra sopra la nota',
+    'settings.toolbar.desc': 'Una fila di pulsanti in cima all’editor, così il pannello laterale può restare chiuso. Solo su desktop: su mobile Obsidian ha già una barra sopra la tastiera.',
+    'settings.toolbar.empty': 'Nessun pulsante per ora. Aggiungine uno qui sotto.',
+    'settings.toolbar.unavailable': 'Non disponibile: {id}',
+    'settings.toolbar.remove': 'Togli dalla barra',
+    'settings.toolbar.add': 'Aggiungi un pulsante',
+    'settings.toolbar.addDesc': 'Sulla barra può finire qualsiasi comando del vault, compresi quelli di Obsidian e di altri plugin. Trascina le righe per riordinarle. Fino a {max} pulsanti.',
+    'settings.toolbar.pick': 'Cerca fra tutti i comandi',
+    'settings.toolbar.align.name': 'Allineamento dei pulsanti',
+    'settings.toolbar.align.desc': 'Dove stanno i pulsanti nella riga.',
+    'settings.align.left': 'Sinistra',
+    'settings.align.center': 'Centro',
+    'settings.align.right': 'Destra',
+    'settings.calloutTitles.name': 'Scrivere il titolo del riquadro',
+    'settings.calloutTitles.desc': 'Inserire il nome del riquadro come titolo, così la nota lo mostra nella tua lingua. La parola chiave dentro [!note] resta sempre in inglese: è quella che Obsidian riconosce.',
+};
+
+const ja = {
+    'command.openPanel': 'Markdown Formatting Assistant を開く',
+    'command.openCommandSelector': 'コマンド選択を開く',
+    'command.openCalloutsSelector': 'コールアウト選択を開く',
+    'section.textEdit': 'テキスト編集',
+    'section.tables': '表',
+    'section.html': 'HTML',
+    'section.latex': 'LaTeX',
+    'section.greekLetters': 'ギリシャ文字',
+    'section.colors': '色',
+    'section.callouts': 'コールアウト',
+    'panel.noLeaf': 'パネルを開けませんでした：サイドバーが利用できません。',
+    'tables.pick': 'サイズを選択',
+    'tables.size': '{rows} x {columns}',
+    'tables.align.default': 'なし',
+    'tables.align.left': '左寄せ',
+    'tables.align.center': '中央',
+    'tables.align.right': '右寄せ',
+    'html.reportMissingTag': '足りないタグがありますか？ご報告ください！',
+    'latex.introduction': 'LaTeX 数式入門',
+    'latex.reportMissingFunction': '足りない LaTeX 関数がありますか？ご報告ください！',
+    'greek.lowerCase': '小文字',
+    'greek.upperCase': '大文字',
+    'greek.overview': 'ギリシャ文字一覧',
+    'colors.select': '色を選択',
+    'colors.save': '色を保存',
+    'colors.optionColor': ' "color: {your color}" を追加',
+    'colors.optionBackgroundColor': ' "background-color: {your color}" を追加',
+    'colors.optionStyleTag': ' 属性を追加: "style={your color}"',
+    'colors.optionHtmlTag': ' HTML を追加: "<font color={your color}></font>"',
+    'colors.lastUsed': '最近使った色:',
+    'colors.saved': '保存した色:',
+    'colors.editInSettings': '保存した色は設定から直接編集できます。',
+    'colors.help': 'ヘルプが必要ですか？',
+    'colors.copied': '{color} をクリップボードにコピーしました',
+    'colors.copyFailed': '色をクリップボードにコピーできませんでした',
+    'settings.title': 'Markdown Formatting Assistant の設定',
+    'settings.language.name': '言語',
+    'settings.language.desc': 'プラグインの表示言語。（再起動が必要）',
+    'settings.language.auto': 'Obsidian に合わせる',
+    'settings.sidePaneSide.name': 'サイドパネルの位置',
+    'settings.sidePaneSide.desc': 'サイドパネルを表示する側を選びます。',
+    'settings.sidePaneSide.placeholder': 'left または right を入力',
+    'settings.panelAlign.name': 'パネルのボタンの配置',
+    'settings.panelAlign.desc': 'サイドパネルの各セクションでボタンを寄せる位置です。',
+    'settings.toggleSection.name': '「{section}」セクション',
+    'settings.toggleSection.desc': '「{section}」セクションを有効または無効にします。（再起動が必要）',
+    'settings.savedColors.name': '保存した色',
+    'settings.savedColors.desc': 'カラーピッカーで保存した色です。並び順も保持されます。Obsidian の再起動が必要です。',
+    'callout.note': 'ノート',
+    'callout.info': '情報',
+    'callout.todo': 'ToDo',
+    'callout.abstract': '要約',
+    'callout.summary': 'まとめ',
+    'callout.tldr': '要点',
+    'callout.tip': 'ヒント',
+    'callout.hint': '手がかり',
+    'callout.important': '重要',
+    'callout.success': '成功',
+    'callout.check': '確認済み',
+    'callout.done': '完了',
+    'callout.question': '質問',
+    'callout.help': 'ヘルプ',
+    'callout.faq': 'よくある質問',
+    'callout.warning': '警告',
+    'callout.caution': '注意',
+    'callout.attention': '留意',
+    'callout.failure': '失敗',
+    'callout.fail': '不合格',
+    'callout.missing': '欠落',
+    'callout.danger': '危険',
+    'callout.error': 'エラー',
+    'callout.bug': 'バグ',
+    'callout.example': '例',
+    'callout.quote': '引用',
+    'settings.savedColors.empty': '保存された色はまだありません。',
+    'settings.savedColors.removeHint': 'クリックで削除',
+    'settings.toolbar.name': 'ノート上部のツールバー',
+    'settings.toolbar.desc': 'エディタの上部にボタンを並べます。サイドパネルを閉じたままにできます。デスクトップ専用です。モバイルの Obsidian にはキーボード上のツールバーがすでにあります。',
+    'settings.toolbar.empty': 'ボタンはまだありません。下から追加してください。',
+    'settings.toolbar.unavailable': '利用できません: {id}',
+    'settings.toolbar.remove': 'ツールバーから外す',
+    'settings.toolbar.add': 'ボタンを追加',
+    'settings.toolbar.addDesc': 'Obsidian 自身や他プラグインのものも含め、保管庫のどのコマンドでもツールバーに置けます。行をドラッグすると並べ替えられます。最大 {max} 個。',
+    'settings.toolbar.pick': 'すべてのコマンドを検索',
+    'settings.toolbar.align.name': 'ボタンの配置',
+    'settings.toolbar.align.desc': '行の中でボタンを寄せる位置です。',
+    'settings.align.left': '左寄せ',
+    'settings.align.center': '中央',
+    'settings.align.right': '右寄せ',
+    'settings.calloutTitles.name': 'コールアウトの見出しを書き込む',
+    'settings.calloutTitles.desc': 'コールアウト名を見出しとして挿入し、ノートで選択した言語のまま表示されるようにします。[!note] の中のキーワードは常に英語のままです。Obsidian はそれで種類を判別します。',
+};
+
+const ko = {
+    'command.openPanel': 'Markdown Formatting Assistant 열기',
+    'command.openCommandSelector': '명령 선택기 열기',
+    'command.openCalloutsSelector': '콜아웃 선택기 열기',
+    'section.textEdit': '텍스트 편집',
+    'section.tables': '표',
+    'section.html': 'HTML',
+    'section.latex': 'LaTeX',
+    'section.greekLetters': '그리스 문자',
+    'section.colors': '색상',
+    'section.callouts': '콜아웃',
+    'panel.noLeaf': '패널을 열 수 없습니다: 사이드바를 사용할 수 없습니다.',
+    'tables.pick': '크기 선택',
+    'tables.size': '{rows} x {columns}',
+    'tables.align.default': '없음',
+    'tables.align.left': '왼쪽',
+    'tables.align.center': '가운데',
+    'tables.align.right': '오른쪽',
+    'html.reportMissingTag': '없는 태그가 있나요? 알려 주세요!',
+    'latex.introduction': 'LaTeX 수식 입문',
+    'latex.reportMissingFunction': '없는 LaTeX 함수가 있나요? 알려 주세요!',
+    'greek.lowerCase': '소문자',
+    'greek.upperCase': '대문자',
+    'greek.overview': '그리스 문자 한눈에 보기',
+    'colors.select': '색상 선택',
+    'colors.save': '색상 저장',
+    'colors.optionColor': ' "color: {your color}" 추가',
+    'colors.optionBackgroundColor': ' "background-color: {your color}" 추가',
+    'colors.optionStyleTag': ' 속성 추가: "style={your color}"',
+    'colors.optionHtmlTag': ' HTML 추가: "<font color={your color}></font>"',
+    'colors.lastUsed': '최근 사용한 색상:',
+    'colors.saved': '저장한 색상:',
+    'colors.editInSettings': '저장한 색상은 설정에서 바로 편집할 수 있습니다.',
+    'colors.help': '도움이 필요하신가요?',
+    'colors.copied': '{color}을(를) 클립보드에 복사했습니다',
+    'colors.copyFailed': '색상을 클립보드에 복사하지 못했습니다',
+    'settings.title': 'Markdown Formatting Assistant 설정',
+    'settings.language.name': '언어',
+    'settings.language.desc': '플러그인 인터페이스 언어입니다. (재시작 필요)',
+    'settings.language.auto': 'Obsidian과 동일',
+    'settings.sidePaneSide.name': '사이드 패널 위치',
+    'settings.sidePaneSide.desc': '사이드 패널이 나타날 쪽을 선택하세요.',
+    'settings.sidePaneSide.placeholder': 'left 또는 right 입력',
+    'settings.panelAlign.name': '패널 버튼 정렬',
+    'settings.panelAlign.desc': '사이드 패널의 각 섹션에서 버튼이 놓이는 위치입니다.',
+    'settings.toggleSection.name': '「{section}」 섹션',
+    'settings.toggleSection.desc': '「{section}」 섹션을 켜거나 끕니다. (재시작 필요)',
+    'settings.savedColors.name': '저장한 색상',
+    'settings.savedColors.desc': '색상 선택기로 저장한 색상입니다. 순서도 함께 유지됩니다. Obsidian을 다시 시작해야 합니다.',
+    'callout.note': '노트',
+    'callout.info': '정보',
+    'callout.todo': '할 일',
+    'callout.abstract': '개요',
+    'callout.summary': '요약',
+    'callout.tldr': '핵심 요약',
+    'callout.tip': '팁',
+    'callout.hint': '힌트',
+    'callout.important': '중요',
+    'callout.success': '성공',
+    'callout.check': '확인됨',
+    'callout.done': '완료',
+    'callout.question': '질문',
+    'callout.help': '도움말',
+    'callout.faq': '자주 묻는 질문',
+    'callout.warning': '경고',
+    'callout.caution': '주의',
+    'callout.attention': '유의',
+    'callout.failure': '실패',
+    'callout.fail': '불합격',
+    'callout.missing': '누락',
+    'callout.danger': '위험',
+    'callout.error': '오류',
+    'callout.bug': '버그',
+    'callout.example': '예시',
+    'callout.quote': '인용',
+    'settings.savedColors.empty': '저장된 색상이 아직 없습니다.',
+    'settings.savedColors.removeHint': '클릭하면 삭제',
+    'settings.toolbar.name': '노트 위 도구 모음',
+    'settings.toolbar.desc': '편집기 상단에 버튼을 한 줄로 놓아 사이드 패널을 닫아 둘 수 있습니다. 데스크톱 전용입니다. 모바일에서는 Obsidian이 이미 키보드 위에 도구 모음을 제공합니다.',
+    'settings.toolbar.empty': '아직 버튼이 없습니다. 아래에서 추가하세요.',
+    'settings.toolbar.unavailable': '사용할 수 없음: {id}',
+    'settings.toolbar.remove': '도구 모음에서 제거',
+    'settings.toolbar.add': '버튼 추가',
+    'settings.toolbar.addDesc': 'Obsidian 자체 명령과 다른 플러그인의 명령을 포함해 보관소의 어떤 명령이든 도구 모음에 올릴 수 있습니다. 행을 끌어 순서를 바꾸세요. 최대 {max}개.',
+    'settings.toolbar.pick': '모든 명령 검색',
+    'settings.toolbar.align.name': '버튼 정렬',
+    'settings.toolbar.align.desc': '버튼이 줄에서 놓이는 위치입니다.',
+    'settings.align.left': '왼쪽',
+    'settings.align.center': '가운데',
+    'settings.align.right': '오른쪽',
+    'settings.calloutTitles.name': '콜아웃 제목 삽입',
+    'settings.calloutTitles.desc': '콜아웃 이름을 제목으로 넣어 노트에 선택한 언어로 표시되게 합니다. [!note] 안의 키워드는 항상 영어로 유지되며, Obsidian 은 그것으로 종류를 판별합니다.',
+};
+
+const pt = {
+    'command.openPanel': 'Abrir Markdown Formatting Assistant',
+    'command.openCommandSelector': 'Abrir seletor de comandos',
+    'command.openCalloutsSelector': 'Abrir seletor de destaques',
+    'section.textEdit': 'Texto',
+    'section.tables': 'Tabelas',
+    'section.html': 'HTML',
+    'section.latex': 'LaTeX',
+    'section.greekLetters': 'Letras gregas',
+    'section.colors': 'Cores',
+    'section.callouts': 'Destaques',
+    'panel.noLeaf': 'Não foi possível abrir o painel: a barra lateral não está disponível.',
+    'tables.pick': 'Escolha um tamanho',
+    'tables.size': '{rows} x {columns}',
+    'tables.align.default': 'Sem',
+    'tables.align.left': 'Esquerda',
+    'tables.align.center': 'Centro',
+    'tables.align.right': 'Direita',
+    'html.reportMissingTag': 'Falta alguma tag? Avise!',
+    'latex.introduction': 'Introdução à matemática em LaTeX',
+    'latex.reportMissingFunction': 'Falta alguma função do LaTeX? Avise!',
+    'greek.lowerCase': 'Minúsculas',
+    'greek.upperCase': 'Maiúsculas',
+    'greek.overview': 'Visão geral do alfabeto grego',
+    'colors.select': 'Escolher uma cor',
+    'colors.save': 'Salvar cor',
+    'colors.optionColor': ' Adicionar "color: {your color}"',
+    'colors.optionBackgroundColor': ' Adicionar "background-color: {your color}"',
+    'colors.optionStyleTag': ' Adicionar atributo: "style={your color}"',
+    'colors.optionHtmlTag': ' Adicionar HTML: "<font color={your color}></font>"',
+    'colors.lastUsed': 'Cores recentes:',
+    'colors.saved': 'Cores salvas:',
+    'colors.editInSettings': 'As cores salvas podem ser editadas diretamente nas configurações.',
+    'colors.help': 'Precisa de ajuda?',
+    'colors.copied': 'Cor {color} copiada para a área de transferência',
+    'colors.copyFailed': 'Não foi possível copiar a cor para a área de transferência',
+    'settings.title': 'Configurações do Markdown Formatting Assistant',
+    'settings.language.name': 'Idioma',
+    'settings.language.desc': 'Idioma da interface do plugin. (requer reinício)',
+    'settings.language.auto': 'Igual ao Obsidian',
+    'settings.sidePaneSide.name': 'Lado do painel lateral',
+    'settings.sidePaneSide.desc': 'Escolha de que lado o painel lateral aparece.',
+    'settings.sidePaneSide.placeholder': 'Digite left ou right',
+    'settings.panelAlign.name': 'Alinhamento dos botões do painel',
+    'settings.panelAlign.desc': 'Onde os botões ficam nas seções do painel lateral.',
+    'settings.toggleSection.name': 'Seção «{section}»',
+    'settings.toggleSection.desc': 'Ativar ou desativar a seção «{section}». (requer reinício)',
+    'settings.savedColors.name': 'Cores salvas',
+    'settings.savedColors.desc': 'Cores salvas por meio do seletor de cores. A ordem também é considerada. Requer reiniciar o Obsidian.',
+    'callout.note': 'Nota',
+    'callout.info': 'Informação',
+    'callout.todo': 'Tarefa',
+    'callout.abstract': 'Resumo',
+    'callout.summary': 'Síntese',
+    'callout.tldr': 'Em resumo',
+    'callout.tip': 'Dica',
+    'callout.hint': 'Sugestão',
+    'callout.important': 'Importante',
+    'callout.success': 'Sucesso',
+    'callout.check': 'Verificado',
+    'callout.done': 'Concluído',
+    'callout.question': 'Pergunta',
+    'callout.help': 'Ajuda',
+    'callout.faq': 'Perguntas frequentes',
+    'callout.warning': 'Aviso',
+    'callout.caution': 'Cuidado',
+    'callout.attention': 'Atenção',
+    'callout.failure': 'Falha',
+    'callout.fail': 'Não aprovado',
+    'callout.missing': 'Ausente',
+    'callout.danger': 'Perigo',
+    'callout.error': 'Erro',
+    'callout.bug': 'Bug',
+    'callout.example': 'Exemplo',
+    'callout.quote': 'Citação',
+    'settings.savedColors.empty': 'Ainda não há cores guardadas.',
+    'settings.savedColors.removeHint': 'clique para remover',
+    'settings.toolbar.name': 'Barra acima da nota',
+    'settings.toolbar.desc': 'Uma linha de botões no topo do editor, para o painel lateral poder ficar fechado. Apenas no computador — no telemóvel o Obsidian já tem uma barra acima do teclado.',
+    'settings.toolbar.empty': 'Ainda não há botões. Adicione um abaixo.',
+    'settings.toolbar.unavailable': 'Indisponível: {id}',
+    'settings.toolbar.remove': 'Remover da barra',
+    'settings.toolbar.add': 'Adicionar um botão',
+    'settings.toolbar.addDesc': 'Qualquer comando do cofre pode ir para a barra, incluindo os do próprio Obsidian e os de outros plugins. Arraste as linhas para reordenar. Até {max} botões.',
+    'settings.toolbar.pick': 'Procurar em todos os comandos',
+    'settings.toolbar.align.name': 'Alinhamento dos botões',
+    'settings.toolbar.align.desc': 'Onde os botões ficam na linha.',
+    'settings.align.left': 'Esquerda',
+    'settings.align.center': 'Centro',
+    'settings.align.right': 'Direita',
+    'settings.calloutTitles.name': 'Escrever o título do destaque',
+    'settings.calloutTitles.desc': 'Inserir o nome do destaque como título, para que a nota o mostre no seu idioma. A palavra-chave dentro de [!note] permanece sempre em inglês - é por ela que o Obsidian identifica o tipo.',
+};
+
+/** 'view.displayName' is deliberately absent - the product name stays as is. */
+const ru = {
+    'command.openPanel': 'Открыть Markdown Formatting Assistant',
+    'command.openCommandSelector': 'Открыть выбор команд',
+    'command.openCalloutsSelector': 'Открыть выбор коллаутов',
+    'section.textEdit': 'Текст',
+    'section.tables': 'Таблицы',
+    'section.html': 'HTML',
+    'section.latex': 'LaTeX',
+    'section.greekLetters': 'Греческие буквы',
+    'section.colors': 'Цвета',
+    'section.callouts': 'Коллауты',
+    'panel.noLeaf': 'Не удалось открыть панель: боковая панель недоступна.',
+    'tables.pick': 'Выберите размер',
+    'tables.size': '{rows} x {columns}',
+    'tables.align.default': 'Без',
+    'tables.align.left': 'Слева',
+    'tables.align.center': 'По центру',
+    'tables.align.right': 'Справа',
+    'html.reportMissingTag': 'Не хватает тега? Сообщите!',
+    'latex.introduction': 'Введение в математику LaTeX',
+    'latex.reportMissingFunction': 'Не хватает функции LaTeX? Сообщите!',
+    'greek.lowerCase': 'Строчные',
+    'greek.upperCase': 'Прописные',
+    'greek.overview': 'Обзор греческого алфавита',
+    'colors.select': 'Выбрать цвет',
+    'colors.save': 'Сохранить цвет',
+    'colors.optionColor': ' Добавить "color: {your color}"',
+    'colors.optionBackgroundColor': ' Добавить "background-color: {your color}"',
+    'colors.optionStyleTag': ' Добавить атрибут: "style={your color}"',
+    'colors.optionHtmlTag': ' Добавить HTML: "<font color={your color}></font>"',
+    'colors.lastUsed': 'Последние цвета:',
+    'colors.saved': 'Сохранённые цвета:',
+    'colors.editInSettings': 'Сохранённые цвета можно править прямо в настройках.',
+    'colors.help': 'Нужна помощь?',
+    'colors.copied': 'Цвет {color} скопирован в буфер обмена',
+    'colors.copyFailed': 'Не удалось скопировать цвет в буфер обмена',
+    'settings.title': 'Настройки Markdown Formatting Assistant',
+    'settings.language.name': 'Язык',
+    'settings.language.desc': 'Язык интерфейса плагина. (требуется перезапуск)',
+    'settings.language.auto': 'Как в Obsidian',
+    'settings.sidePaneSide.name': 'Сторона панели',
+    'settings.sidePaneSide.desc': 'С какой стороны открывается боковая панель.',
+    // 'left' and 'right' are the literal values this field accepts, so they are
+    // not translated.
+    'settings.sidePaneSide.placeholder': 'Введите left или right',
+    'settings.panelAlign.name': 'Выравнивание кнопок панели',
+    'settings.panelAlign.desc': 'Где стоят кнопки в секциях боковой панели.',
+    'settings.toggleSection.name': 'Секция «{section}»',
+    'settings.toggleSection.desc': 'Включить или выключить секцию «{section}». (требуется перезапуск)',
+    'settings.savedColors.name': 'Сохранённые цвета',
+    'settings.savedColors.desc': 'Цвета, сохранённые через палитру. Порядок тоже учитывается. Требуется перезапуск Obsidian.',
+    'callout.note': 'Заметка',
+    'callout.info': 'Информация',
+    'callout.todo': 'Задача',
+    'callout.abstract': 'Аннотация',
+    'callout.summary': 'Сводка',
+    'callout.tldr': 'Кратко',
+    'callout.tip': 'Совет',
+    'callout.hint': 'Подсказка',
+    'callout.important': 'Важно',
+    'callout.success': 'Успех',
+    'callout.check': 'Проверено',
+    'callout.done': 'Готово',
+    'callout.question': 'Вопрос',
+    'callout.help': 'Помощь',
+    'callout.faq': 'ЧаВо',
+    'callout.warning': 'Предупреждение',
+    'callout.caution': 'Осторожно',
+    'callout.attention': 'Внимание',
+    'callout.failure': 'Неудача',
+    'callout.fail': 'Провал',
+    'callout.missing': 'Отсутствует',
+    'callout.danger': 'Опасность',
+    'callout.error': 'Ошибка',
+    'callout.bug': 'Баг',
+    'callout.example': 'Пример',
+    'callout.quote': 'Цитата',
+    'settings.savedColors.empty': 'Сохранённых цветов пока нет.',
+    'settings.savedColors.removeHint': 'нажмите, чтобы удалить',
+    'settings.toolbar.name': 'Панель над заметкой',
+    'settings.toolbar.desc': 'Ряд кнопок вверху редактора, чтобы боковую панель можно было закрыть. Только на компьютере — на мобильных у Obsidian уже есть своя панель над клавиатурой.',
+    'settings.toolbar.empty': 'Кнопок пока нет. Добавьте ниже.',
+    'settings.toolbar.unavailable': 'Недоступна: {id}',
+    'settings.toolbar.remove': 'Убрать с панели',
+    'settings.toolbar.add': 'Добавить кнопку',
+    'settings.toolbar.addDesc': 'На панель можно положить любую команду хранилища, включая команды самого Obsidian и других плагинов. Порядок меняется перетаскиванием. До {max} кнопок.',
+    'settings.toolbar.pick': 'Поиск по всем командам',
+    'settings.toolbar.align.name': 'Выравнивание кнопок',
+    'settings.toolbar.align.desc': 'Где кнопки стоят в ряду.',
+    'settings.align.left': 'По левому краю',
+    'settings.align.center': 'По центру',
+    'settings.align.right': 'По правому краю',
+    'settings.calloutTitles.name': 'Писать заголовок коллаута',
+    'settings.calloutTitles.desc': 'Вставлять название коллаута как заголовок, чтобы в заметке оно отображалось на вашем языке. Ключевое слово внутри [!note] всегда остаётся английским — именно по нему Obsidian опознаёт тип.',
+};
+
+const uk = {
+    'command.openPanel': 'Відкрити Markdown Formatting Assistant',
+    'command.openCommandSelector': 'Відкрити вибір команд',
+    'command.openCalloutsSelector': 'Відкрити вибір виносок',
+    'section.textEdit': 'Текст',
+    'section.tables': 'Таблиці',
+    'section.html': 'HTML',
+    'section.latex': 'LaTeX',
+    'section.greekLetters': 'Грецькі літери',
+    'section.colors': 'Кольори',
+    'section.callouts': 'Виноски',
+    'panel.noLeaf': 'Не вдалося відкрити панель: бічна панель недоступна.',
+    'tables.pick': 'Оберіть розмір',
+    'tables.size': '{rows} x {columns}',
+    'tables.align.default': 'Без',
+    'tables.align.left': 'Ліворуч',
+    'tables.align.center': 'По центру',
+    'tables.align.right': 'Праворуч',
+    'html.reportMissingTag': 'Бракує тега? Повідомте!',
+    'latex.introduction': 'Вступ до математики LaTeX',
+    'latex.reportMissingFunction': 'Бракує функції LaTeX? Повідомте!',
+    'greek.lowerCase': 'Малі літери',
+    'greek.upperCase': 'Великі літери',
+    'greek.overview': 'Огляд грецької абетки',
+    'colors.select': 'Вибрати колір',
+    'colors.save': 'Зберегти колір',
+    'colors.optionColor': ' Додати "color: {your color}"',
+    'colors.optionBackgroundColor': ' Додати "background-color: {your color}"',
+    'colors.optionStyleTag': ' Додати атрибут: "style={your color}"',
+    'colors.optionHtmlTag': ' Додати HTML: "<font color={your color}></font>"',
+    'colors.lastUsed': 'Останні кольори:',
+    'colors.saved': 'Збережені кольори:',
+    'colors.editInSettings': 'Збережені кольори можна редагувати просто в налаштуваннях.',
+    'colors.help': 'Потрібна допомога?',
+    'colors.copied': 'Колір {color} скопійовано до буфера обміну',
+    'colors.copyFailed': 'Не вдалося скопіювати колір до буфера обміну',
+    'settings.title': 'Налаштування Markdown Formatting Assistant',
+    'settings.language.name': 'Мова',
+    'settings.language.desc': 'Мова інтерфейсу плагіна. (потрібен перезапуск)',
+    'settings.language.auto': 'Як в Obsidian',
+    'settings.sidePaneSide.name': 'Сторона панелі',
+    'settings.sidePaneSide.desc': 'З якого боку відкривається бічна панель.',
+    'settings.sidePaneSide.placeholder': 'Введіть left або right',
+    'settings.panelAlign.name': 'Вирівнювання кнопок панелі',
+    'settings.panelAlign.desc': 'Де стоять кнопки в секціях бічної панелі.',
+    'settings.toggleSection.name': 'Секція «{section}»',
+    'settings.toggleSection.desc': 'Увімкнути або вимкнути секцію «{section}». (потрібен перезапуск)',
+    'settings.savedColors.name': 'Збережені кольори',
+    'settings.savedColors.desc': 'Кольори, збережені через палітру. Порядок також враховується. Потрібен перезапуск Obsidian.',
+    'callout.note': 'Нотатка',
+    'callout.info': 'Інформація',
+    'callout.todo': 'Завдання',
+    'callout.abstract': 'Анотація',
+    'callout.summary': 'Підсумок',
+    'callout.tldr': 'Стисло',
+    'callout.tip': 'Порада',
+    'callout.hint': 'Підказка',
+    'callout.important': 'Важливо',
+    'callout.success': 'Успіх',
+    'callout.check': 'Перевірено',
+    'callout.done': 'Готово',
+    'callout.question': 'Питання',
+    'callout.help': 'Довідка',
+    'callout.faq': 'ЧаПи',
+    'callout.warning': 'Попередження',
+    'callout.caution': 'Обережно',
+    'callout.attention': 'Увага',
+    'callout.failure': 'Невдача',
+    'callout.fail': 'Провал',
+    'callout.missing': 'Відсутнє',
+    'callout.danger': 'Небезпека',
+    'callout.error': 'Помилка',
+    'callout.bug': 'Баг',
+    'callout.example': 'Приклад',
+    'callout.quote': 'Цитата',
+    'settings.savedColors.empty': 'Збережених кольорів поки немає.',
+    'settings.savedColors.removeHint': 'натисніть, щоб видалити',
+    'settings.toolbar.name': 'Панель над нотаткою',
+    'settings.toolbar.desc': 'Ряд кнопок угорі редактора, щоб бічну панель можна було закрити. Лише на комп’ютері — на мобільних Obsidian уже має власну панель над клавіатурою.',
+    'settings.toolbar.empty': 'Кнопок поки немає. Додайте нижче.',
+    'settings.toolbar.unavailable': 'Недоступна: {id}',
+    'settings.toolbar.remove': 'Прибрати з панелі',
+    'settings.toolbar.add': 'Додати кнопку',
+    'settings.toolbar.addDesc': 'На панель можна покласти будь-яку команду сховища, зокрема команди самого Obsidian та інших плагінів. Порядок змінюється перетягуванням. До {max} кнопок.',
+    'settings.toolbar.pick': 'Пошук за всіма командами',
+    'settings.toolbar.align.name': 'Вирівнювання кнопок',
+    'settings.toolbar.align.desc': 'Де кнопки стоять у ряду.',
+    'settings.align.left': 'За лівим краєм',
+    'settings.align.center': 'По центру',
+    'settings.align.right': 'За правим краєм',
+    'settings.calloutTitles.name': 'Писати заголовок виноски',
+    'settings.calloutTitles.desc': 'Вставляти назву виноски як заголовок, щоб у нотатці вона відображалася вашою мовою. Ключове слово всередині [!note] завжди залишається англійським — саме за ним Obsidian розпізнає тип.',
+};
+
+/** Simplified Chinese. */
+const zh = {
+    'command.openPanel': '打开 Markdown Formatting Assistant',
+    'command.openCommandSelector': '打开命令选择器',
+    'command.openCalloutsSelector': '打开标注选择器',
+    'section.textEdit': '文本编辑',
+    'section.tables': '表格',
+    'section.html': 'HTML',
+    'section.latex': 'LaTeX',
+    'section.greekLetters': '希腊字母',
+    'section.colors': '颜色',
+    'section.callouts': '标注',
+    'panel.noLeaf': '无法打开面板：侧边栏不可用。',
+    'tables.pick': '选择大小',
+    'tables.size': '{rows} x {columns}',
+    'tables.align.default': '默认',
+    'tables.align.left': '左对齐',
+    'tables.align.center': '居中',
+    'tables.align.right': '右对齐',
+    'html.reportMissingTag': '缺少标签？告诉我们！',
+    'latex.introduction': 'LaTeX 数学公式入门',
+    'latex.reportMissingFunction': '缺少 LaTeX 函数？告诉我们！',
+    'greek.lowerCase': '小写',
+    'greek.upperCase': '大写',
+    'greek.overview': '希腊字母表一览',
+    'colors.select': '选择颜色',
+    'colors.save': '保存颜色',
+    'colors.optionColor': ' 添加 "color: {your color}"',
+    'colors.optionBackgroundColor': ' 添加 "background-color: {your color}"',
+    'colors.optionStyleTag': ' 添加属性："style={your color}"',
+    'colors.optionHtmlTag': ' 添加 HTML："<font color={your color}></font>"',
+    'colors.lastUsed': '最近使用的颜色：',
+    'colors.saved': '已保存的颜色：',
+    'colors.editInSettings': '已保存的颜色可以直接在设置中编辑。',
+    'colors.help': '需要帮助吗？',
+    'colors.copied': '已将 {color} 复制到剪贴板',
+    'colors.copyFailed': '无法将颜色复制到剪贴板',
+    'settings.title': 'Markdown Formatting Assistant 设置',
+    'settings.language.name': '语言',
+    'settings.language.desc': '插件界面语言。（需要重启）',
+    'settings.language.auto': '与 Obsidian 一致',
+    'settings.sidePaneSide.name': '侧边栏位置',
+    'settings.sidePaneSide.desc': '选择侧边栏出现在哪一侧。',
+    'settings.sidePaneSide.placeholder': '输入 left 或 right',
+    'settings.panelAlign.name': '面板按钮对齐',
+    'settings.panelAlign.desc': '按钮在侧边栏各板块中的位置。',
+    'settings.toggleSection.name': '「{section}」板块',
+    'settings.toggleSection.desc': '启用或禁用「{section}」板块。（需要重启）',
+    'settings.savedColors.name': '已保存的颜色',
+    'settings.savedColors.desc': '通过取色器保存的颜色。顺序同样会被保留。需要重启 Obsidian。',
+    'callout.note': '笔记',
+    'callout.info': '信息',
+    'callout.todo': '待办',
+    'callout.abstract': '摘要',
+    'callout.summary': '概要',
+    'callout.tldr': '太长不看',
+    'callout.tip': '提示',
+    'callout.hint': '提醒',
+    'callout.important': '重要',
+    'callout.success': '成功',
+    'callout.check': '已检查',
+    'callout.done': '完成',
+    'callout.question': '问题',
+    'callout.help': '帮助',
+    'callout.faq': '常见问题',
+    'callout.warning': '警告',
+    'callout.caution': '注意',
+    'callout.attention': '留意',
+    'callout.failure': '失败',
+    'callout.fail': '未通过',
+    'callout.missing': '缺失',
+    'callout.danger': '危险',
+    'callout.error': '错误',
+    'callout.bug': '缺陷',
+    'callout.example': '示例',
+    'callout.quote': '引用',
+    'settings.savedColors.empty': '暂无已保存的颜色。',
+    'settings.savedColors.removeHint': '点击删除',
+    'settings.toolbar.name': '笔记上方的工具栏',
+    'settings.toolbar.desc': '在编辑器顶部显示一排按钮，这样就可以关闭侧边栏。仅限桌面端——移动端 Obsidian 已经在键盘上方提供了工具栏。',
+    'settings.toolbar.empty': '暂无按钮，请在下方添加。',
+    'settings.toolbar.unavailable': '不可用：{id}',
+    'settings.toolbar.remove': '从工具栏移除',
+    'settings.toolbar.add': '添加按钮',
+    'settings.toolbar.addDesc': '库中的任何命令都可以放到工具栏上，包括 Obsidian 自带的命令和其他插件的命令。拖动行即可调整顺序。最多 {max} 个按钮。',
+    'settings.toolbar.pick': '搜索全部命令',
+    'settings.toolbar.align.name': '按钮对齐',
+    'settings.toolbar.align.desc': '按钮在这一行中的位置。',
+    'settings.align.left': '左对齐',
+    'settings.align.center': '居中',
+    'settings.align.right': '右对齐',
+    'settings.calloutTitles.name': '写入标注标题',
+    'settings.calloutTitles.desc': '把标注名称作为标题插入，这样笔记中就会显示你所选语言的名称。[!note] 中的关键字始终保持英文，Obsidian 依靠它识别类型。',
+};
+
+/**
+ * Adding a language means writing one dictionary file and adding it here -
+ * `LocaleCode`, the settings dropdown and the detection all derive from this
+ * object, so no other code changes.
+ */
+const LOCALES = {
+    en,
+    be,
+    de,
+    es,
+    fr,
+    it,
+    ja,
+    ko,
+    pt,
+    ru,
+    uk,
+    zh,
+};
+/** Language names are shown in their own language, as language pickers do. */
+const LOCALE_NAMES = {
+    en: 'English',
+    be: 'Беларуская',
+    de: 'Deutsch',
+    es: 'Español',
+    fr: 'Français',
+    it: 'Italiano',
+    ja: '日本語',
+    ko: '한국어',
+    pt: 'Português',
+    ru: 'Русский',
+    uk: 'Українська',
+    zh: '简体中文',
+};
+
+/**
+ * Translation layer for everything the user reads.
+ *
+ * English is the source of truth: its keys define the `TranslationKey` type, so
+ * a typo in a `t()` call is a build error rather than a blank label. Other
+ * locales are partial - anything they leave out falls back to English, which
+ * means a half-finished translation still yields a usable interface.
+ *
+ * The dictionaries themselves live in ./locales, one file per language.
+ */
+const AUTO_LOCALE = 'auto';
+const SUPPORTED_LOCALES = Object.keys(LOCALES);
+/**
+ * Region names are persisted in the settings file, so they must never change.
+ * This maps them to the label the user sees, for both the panel and settings.
+ */
+const SECTION_LABEL_KEYS = {
+    textEdit: 'section.textEdit',
+    tables: 'section.tables',
+    html: 'section.html',
+    latex: 'section.latex',
+    greekLetters: 'section.greekLetters',
+    colors: 'section.colors',
+    callouts: 'section.callouts',
+};
+let activeLocale = 'en';
+function isSupported(code) {
+    return SUPPORTED_LOCALES.indexOf(code) >= 0;
+}
+/**
+ * Obsidian keeps the interface language in local storage under 'language'.
+ * The browser locale is the fallback for the rare case where it is unset.
+ *
+ * Regional variants collapse onto the base language, so 'pt-BR' resolves to
+ * 'pt'. The one place that loses information is Traditional Chinese, which
+ * lands on the Simplified dictionary.
+ */
+function detectLocale() {
+    let candidate = '';
+    try {
+        candidate = window.localStorage.getItem('language') || '';
+    }
+    catch (error) {
+        candidate = '';
+    }
+    if (!candidate)
+        candidate = navigator.language || '';
+    const normalised = candidate.toLowerCase().split('-')[0];
+    return isSupported(normalised) ? normalised : 'en';
+}
+function setLocale(setting) {
+    if (setting === AUTO_LOCALE) {
+        activeLocale = detectLocale();
+        return;
+    }
+    activeLocale = isSupported(setting) ? setting : 'en';
+}
+/**
+ * Looks up a key in the active locale and substitutes `{name}` placeholders.
+ *
+ * Only names present in `vars` are substituted, so literal braces in a label -
+ * such as the '{your color}' in the colour options - are left alone.
+ */
+function t(key, vars) {
+    const template = LOCALES[activeLocale][key] || en[key];
+    if (!vars)
+        return template;
+    return Object.keys(vars).reduce((text, name) => text.split('{' + name + '}').join(String(vars[name])), template);
+}
+function sectionLabel(regionName) {
+    const key = SECTION_LABEL_KEYS[regionName];
+    return key ? t(key) : regionName;
+}
+/**
+ * Callout ids double as the Obsidian keyword in '> [!note]', so they stay
+ * English forever. Only the button label goes through here.
+ */
+function calloutLabel(calloutId) {
+    const key = ('callout.' + calloutId);
+    return en[key] ? t(key) : calloutId;
+}
+
+/**
+ * Names for Obsidian's own command palette and hotkey list. A leaf module with
+ * no imports, so the tests can reach it - see the note in textPlacement.ts.
+ *
+ * The panel's labels are terse keys like 'code_block'. They work as search
+ * terms in this plugin's own window, but the hotkey list sits next to entries
+ * such as "Toggle bold", so they are widened just enough to be readable -
+ * without inventing and translating a second name for every button.
+ */
+/** Turns a panel label into the name shown in Obsidian's command list. */
+function commandName(label) {
+    const words = (label || '').trim().replace(/_/g, ' ');
+    if (!words)
+        return '';
+    // 'h1' through 'h6' keep their shape on purpose: that is what the panel
+    // button says and what people type when they search for it.
+    return words.charAt(0).toUpperCase() + words.slice(1);
+}
+/**
+ * What to write on a toolbar button for a command that has no icon.
+ *
+ * Obsidian prefixes a command's name with the plugin it came from, so the
+ * useful part is whatever follows the last colon - and even that is often a
+ * sentence. Two characters is what fits a square button; the full name is on
+ * the tooltip either way.
+ */
+function shortLabel(name) {
+    const parts = (name || '').split(':');
+    const tail = parts[parts.length - 1].trim();
+    return tail.slice(0, 2);
+}
+
+const SidePanelControlViewType = 'side-panel-control-view';
+// The repository the community catalogue installs from, so the one whose
+// tracker is open. The fork this was maintained in has issues turned off.
+const REPOSITORY_URL = 'https://github.com/Reocin/obsidian-markdown-formatting-assistant-plugin';
+const ISSUES_URL = `${REPOSITORY_URL}/issues`;
+class SidePanelControlView extends obsidian.ItemView {
+    constructor(leaf, plugin) {
+        super(leaf);
+        this.plugin = plugin;
+    }
+    getViewType() {
         return SidePanelControlViewType;
-    };
-    SidePanelControlView.prototype.getDisplayText = function () {
-        return 'Markdown-Autocomplete';
-    };
-    SidePanelControlView.prototype.getIcon = function () {
+    }
+    getDisplayText() {
+        return t('view.displayName');
+    }
+    getIcon() {
         return 'viewIcon';
-    };
-    SidePanelControlView.prototype.load = function () {
-        _super.prototype.load.call(this);
+    }
+    load() {
+        super.load();
         this.draw();
-    };
-    SidePanelControlView.prototype.draw = function () {
-        var container = this.containerEl.children[1];
-        var rootEl = document.createElement('div');
-        rootEl.id = 'SidePaneRootElement';
+    }
+    draw() {
+        const container = this.containerEl.children[1];
+        const rootEl = document.createElement('div');
+        rootEl.id = 'mfa-panel-root';
         this.drawContentOfRootElement(rootEl);
         container.empty();
         container.appendChild(rootEl);
-    };
-    SidePanelControlView.prototype.drawContentOfRootElement = function (rootEl) {
-        var _this = this;
-        if (rootEl === void 0) { rootEl = null; }
+    }
+    /**
+     * Where the buttons sit, as a class the stylesheet reads. The panel is drawn
+     * with it; this moves it when the setting changes, so an open panel follows
+     * the dropdown without being rebuilt - which would throw away its scroll
+     * position and the keyboard focus.
+     */
+    applyAlignment() {
+        const panel = this.containerEl.querySelector('.markdown-formatting-assistant-panel');
+        if (!(panel instanceof HTMLElement))
+            return;
+        const wanted = this.plugin.settings.panelAlignment;
+        PANEL_ALIGNMENTS.forEach((alignment) => panel.toggleClass(`is-align-${alignment}`, alignment === wanted));
+    }
+    drawContentOfRootElement(rootEl = null) {
         if (!rootEl)
-            rootEl = document.getElementById('SidePaneRootElement');
+            rootEl = document.getElementById('mfa-panel-root');
         rootEl.textContent = '';
-        var getRegion = function (name) {
-            return _this.plugin.settings.regionSettings.find(function (item) { return item.name === name; });
+        const getRegion = (name) => {
+            return this.plugin.settings.regionSettings.find((item) => item.name === name);
         };
-        var mainDiv = rootEl.createDiv({ cls: 'nav-header' });
-        mainDiv.style.maxWidth = '300px';
-        mainDiv.style.minWidth = '300px';
+        // Width is left to the stylesheet - the leaf is user-resizable, so nothing
+        // in here may pin a fixed width.
+        const mainDiv = rootEl.createDiv({
+            cls: `nav-header markdown-formatting-assistant-panel mfa-scope is-align-${this.plugin.settings.panelAlignment}`,
+        });
         // --------------
         // Text Edit Section
         // --------------
-        var addTextEditSection = function () {
-            var content = _this.addSelectableHeader(mainDiv, 'textEdit', 'Text Edit');
-            _this.addTextEditButtons(content);
+        const addTextEditSection = () => {
+            let content = this.addSelectableHeader(mainDiv, 'textEdit');
+            this.addTextEditButtons(content);
         };
         // --------------
         // Table Section
         // --------------
-        var addTabelsSection = function () {
-            var content = _this.addSelectableHeader(mainDiv, 'tables', 'Tables');
-            var info = content.createEl('p');
-            info.appendText('upcoming ...');
-            info.style.textAlign = 'center';
+        const addTabelsSection = () => {
+            const content = this.addSelectableHeader(mainDiv, 'tables');
+            this.addTableBuilder(content);
         };
         // --------------
         // HTML Section
         // --------------
-        var addHtmlSection = function () {
-            var content = _this.addSelectableHeader(mainDiv, 'html', 'HTML');
-            _this.addHtmlButtons(content);
-            var info = content.createEl('p');
-            info.style.textAlign = 'center';
-            info.style.marginTop = '10px';
-            info.style.marginBottom = '10px';
-            var link = info.createEl('a');
-            link.appendText('Do you miss a Tag? report it!');
-            link.style.textAlign = 'center';
-            link.style.fontSize = '10px';
-            link.href =
-                'https://github.com/Reocin/obsidian-markdown-formatting-assistant-plugin/issues';
+        const addHtmlSection = () => {
+            const content = this.addSelectableHeader(mainDiv, 'html');
+            this.addHtmlButtons(content);
+            this.addNote(content, t('html.reportMissingTag'), ISSUES_URL);
         };
         // --------------
         // Latex Section
         // --------------
-        var addLatexSection = function () {
-            var content = _this.addSelectableHeader(mainDiv, 'latex', 'Latex');
-            _this.addLatexButtons(content);
-            var info = content.createEl('p');
-            info.style.textAlign = 'center';
-            info.style.marginTop = '10px';
-            info.style.marginBottom = '10px';
-            var link = info.createEl('a');
-            link.appendText('Introduction into latex mathematics');
-            link.style.textAlign = 'center';
-            link.style.fontSize = '10px';
-            link.href = 'https://en.wikibooks.org/wiki/LaTeX/Mathematics';
-            info = content.createEl('p');
-            info.style.textAlign = 'center';
-            info.style.marginTop = '10px';
-            info.style.marginBottom = '10px';
-            link = info.createEl('a');
-            link.appendText('Do you miss a latex function? report it!');
-            link.style.textAlign = 'center';
-            link.style.fontSize = '10px';
-            link.href =
-                'https://github.com/Reocin/obsidian-markdown-formatting-assistant-plugin/issues';
+        const addLatexSection = () => {
+            const content = this.addSelectableHeader(mainDiv, 'latex');
+            this.addLatexButtons(content);
+            this.addNote(content, t('latex.introduction'), 'https://en.wikibooks.org/wiki/LaTeX/Mathematics');
+            this.addNote(content, t('latex.reportMissingFunction'), ISSUES_URL);
         };
         // --------------
         // Greek Section
         // --------------
-        var addGreekLettersSection = function () {
-            var content = _this.addSelectableHeader(mainDiv, 'greekLetters', 'Greek Letters');
-            var header = content.createEl('h5');
-            header.appendText('Lower Case');
-            header.style.textAlign = 'center';
-            header.style.marginTop = '0px';
-            header.style.marginBottom = '5px';
-            _this.addGreekLowerCaseLetters(content);
-            header = content.createEl('h5');
-            header.appendText('Upper Case');
-            header.style.textAlign = 'center';
-            header.style.marginTop = '10px';
-            header.style.marginBottom = '5px';
-            _this.addGreekUpperCaseLetters(content);
-            var info = content.createEl('p');
-            info.style.textAlign = 'center';
-            info.style.marginTop = '10px';
-            info.style.marginBottom = '10px';
-            var link = info.createEl('a');
-            link.appendText('Overview of greek letters');
-            link.style.textAlign = 'center';
-            link.style.fontSize = '10px';
-            link.href = 'https://en.wikipedia.org/wiki/Greek_alphabet';
+        const addGreekLettersSection = () => {
+            const content = this.addSelectableHeader(mainDiv, 'greekLetters');
+            content
+                .createEl('h5', { cls: 'mfa-subheading' })
+                .setText(t('greek.lowerCase'));
+            this.addGreekLowerCaseLetters(content);
+            content
+                .createEl('h5', { cls: 'mfa-subheading' })
+                .setText(t('greek.upperCase'));
+            this.addGreekUpperCaseLetters(content);
+            this.addNote(content, t('greek.overview'), 'https://en.wikipedia.org/wiki/Greek_alphabet');
         };
         // --------------
         // Colors
         // --------------
-        var addColorsSection = function () {
-            var content = _this.addSelectableHeader(mainDiv, 'colors', 'Colors');
-            _this.addColorBody(content);
+        const addColorsSection = () => {
+            const content = this.addSelectableHeader(mainDiv, 'colors');
+            this.addColorBody(content);
         };
         // --------------
         // Callouts
         // --------------
-        var addCalloutsSection = function () {
-            var content = _this.addSelectableHeader(mainDiv, 'callouts', 'Callouts');
-            _this.addCalloutsButtons(content);
+        const addCalloutsSection = () => {
+            let content = this.addSelectableHeader(mainDiv, 'callouts');
+            this.addCalloutsButtons(content);
         };
-        var regions = {
+        const regions = {
             textEdit: addTextEditSection,
             tables: addTabelsSection,
             html: addHtmlSection,
@@ -4011,662 +5513,625 @@ var SidePanelControlView = /** @class */ (function (_super) {
             colors: addColorsSection,
             callouts: addCalloutsSection,
         };
-        this.plugin.settings.regionSettings.map(function (item) {
+        this.plugin.settings.regionSettings.map((item) => {
             // @ts-ignore
-            var regionFunction = regions[item.name];
+            const regionFunction = regions[item.name];
             if (regionFunction && getRegion(item.name).active)
                 regionFunction();
         });
-    };
-    SidePanelControlView.prototype.addHtmlButtons = function (mainDiv) {
-        var _this = this;
-        var addClickEvent = function (btn, type) {
-            btn.onClickEvent(function () {
-                // @ts-ignore
-                var formatterSetting = htmlFormatterSettings[type];
-                var leaf = _this.app.workspace.getMostRecentLeaf();
-                var editor = null;
-                if (checkIfMarkdownSource(leaf)) {
-                    // @ts-ignore
-                    editor = leaf.view.sourceMode.cmEditor;
-                    htmlFormatter(editor, formatterSetting);
-                }
+    }
+    /**
+     * Turns one of the panel's divs into something a keyboard and a screen
+     * reader can use.
+     *
+     * The panel is built from divs on purpose: they carry Obsidian's own
+     * `nav-action-button` styling, which is what makes the buttons follow the
+     * user's theme. A real `<button>` would be the better element, but it also
+     * arrives with browser chrome that would have to be fought back off, and the
+     * hover states are the theme's rather than ours. So the div is given the
+     * three things the element type would otherwise have supplied: a role, a
+     * place in the tab order, and activation by Enter and Space.
+     *
+     * The name matters most. Most of these buttons hold nothing but a drawing,
+     * so without a label a screen reader has literally nothing to announce - not
+     * a mislabelled button, no button at all. It also gives everyone else the
+     * hover tooltip the panel never had.
+     */
+    asButton(element, label, activate) {
+        element.setAttribute('role', 'button');
+        element.setAttribute('aria-label', label);
+        element.tabIndex = 0;
+        element.onClickEvent(() => activate());
+        element.addEventListener('keydown', (event) => {
+            if (event.key !== 'Enter' && event.key !== ' ')
+                return;
+            // Space scrolls the panel otherwise, which is the one thing a person
+            // pressing it on a button does not want.
+            event.preventDefault();
+            activate();
+        });
+    }
+    /** The small centred link that closes several of the sections. */
+    addNote(parent, text, href) {
+        parent
+            .createEl('p', { cls: 'mfa-note' })
+            .createEl('a', { cls: 'mfa-note-link', href })
+            .appendText(text);
+    }
+    /**
+     * A size picker for markdown tables: hovering the grid previews the table
+     * that a click would insert, which is a lot less fiddly in a narrow pane than
+     * two number inputs.
+     */
+    addTableBuilder(mainDiv) {
+        let alignment = this.plugin.settings.tableAlignment;
+        const label = mainDiv.createEl('p', { cls: 'mfa-table-label' });
+        const idleLabel = () => t('tables.pick');
+        label.setText(idleLabel());
+        const grid = mainDiv.createDiv({ cls: 'mfa-table-grid' });
+        const cells = [];
+        const paint = (rows, columns) => {
+            cells.forEach((cellRow, rowIndex) => cellRow.forEach((cell, columnIndex) => {
+                cell.toggleClass('is-covered', rowIndex < rows && columnIndex < columns);
+            }));
+        };
+        for (let rowIndex = 0; rowIndex < MAX_TABLE_ROWS; rowIndex++) {
+            const rowEl = grid.createDiv({ cls: 'mfa-table-grid-row' });
+            const rowCells = [];
+            for (let columnIndex = 0; columnIndex < MAX_TABLE_COLUMNS; columnIndex++) {
+                const cell = rowEl.createDiv({ cls: 'mfa-table-cell' });
+                const rows = rowIndex + 1;
+                const columns = columnIndex + 1;
+                cell.addEventListener('mouseenter', () => {
+                    paint(rows, columns);
+                    label.setText(t('tables.size', { rows, columns }));
+                });
+                // The grid is a picture of the table, so each cell says the size it
+                // would insert - the only way to use it without seeing it.
+                this.asButton(cell, t('tables.size', { rows, columns }), () => {
+                    const editor = getTargetEditor(this.app.workspace);
+                    if (editor)
+                        tableFormatter(editor, rows, columns, alignment);
+                });
+                rowCells.push(cell);
+            }
+            cells.push(rowCells);
+        }
+        grid.addEventListener('mouseleave', () => {
+            paint(0, 0);
+            label.setText(idleLabel());
+        });
+        const alignmentRow = mainDiv.createDiv({
+            cls: 'nav-buttons-container mfa-table-alignment',
+        });
+        const alignmentButtons = [];
+        const highlightAlignment = () => {
+            alignmentButtons.forEach((button, index) => {
+                button.toggleClass('is-active', TABLE_ALIGNMENTS[index] === alignment);
             });
         };
-        var numberOfCols = 3;
-        var row = null;
-        sortBy(identity, keys(htmlFormatterSettings)).forEach(function (key, index) {
+        TABLE_ALIGNMENTS.forEach((option) => {
+            const label = t(`tables.align.${option}`);
+            const button = alignmentRow.createDiv({ cls: 'nav-action-text-button' });
+            button.appendText(label);
+            this.asButton(button, label, () => {
+                alignment = option;
+                this.plugin.settings.tableAlignment = option;
+                highlightAlignment();
+                void this.plugin.saveSettings();
+            });
+            alignmentButtons.push(button);
+        });
+        highlightAlignment();
+    }
+    addHtmlButtons(mainDiv) {
+        const activate = (type) => {
             // @ts-ignore
-            var item = htmlFormatterSettings[key];
+            const formatterSetting = htmlFormatterSettings[type];
+            const editor = getTargetEditor(this.app.workspace);
+            if (editor)
+                htmlFormatter(editor, formatterSetting);
+        };
+        const numberOfCols = 3;
+        let row = null;
+        sortBy(identity, keys(htmlFormatterSettings)).forEach((key, index) => {
+            // @ts-ignore
+            const item = htmlFormatterSettings[key];
             if (index % numberOfCols === 0) {
                 row = mainDiv.createDiv({ cls: 'nav-buttons-container' });
             }
-            var button = row.createDiv({ cls: 'nav-action-text-button' });
-            addClickEvent(button, key);
+            const button = row.createDiv({ cls: 'nav-action-text-button' });
             button.appendText(item.des);
+            this.asButton(button, item.des, () => activate(key));
         });
-    };
-    //xxxxx
-    SidePanelControlView.prototype.addCalloutsButtons = function (mainDiv) {
-        var _this = this;
-        var addClickEvent = function (btn, type) {
-            btn.onClickEvent(function () {
-                // @ts-ignore
-                var formatterSetting = calloutsFormatterSettings[type];
-                var leaf = _this.app.workspace.getMostRecentLeaf();
-                var editor = null;
-                if (checkIfMarkdownSource(leaf)) {
-                    // @ts-ignore
-                    editor = leaf.view.sourceMode.cmEditor;
-                    calloutsFormatter(editor, formatterSetting);
-                }
-            });
-        };
-        var row = null;
-        keys(calloutsFormatterSettings).forEach(function (key, index) {
+    }
+    addCalloutsButtons(mainDiv) {
+        const activate = (type) => {
             // @ts-ignore
-            var item = calloutsFormatterSettings[key];
+            const formatterSetting = calloutsFormatterSettings[type];
+            const editor = getTargetEditor(this.app.workspace);
+            if (!editor)
+                return;
+            // The heading is written into the note so it renders translated; the
+            // keyword inside [!...] stays English either way.
+            calloutsFormatter(editor, formatterSetting, this.plugin.settings.calloutTitles
+                ? calloutLabel(formatterSetting.id)
+                : '');
+        };
+        let row = null;
+        keys(calloutsFormatterSettings).forEach((key, index) => {
+            // @ts-ignore
+            const item = calloutsFormatterSettings[key];
             if (index === 0 || item.newLine) {
                 row = mainDiv.createDiv({ cls: 'nav-buttons-container' });
             }
-            var button = row.createDiv({ cls: 'nav-action-text-button' });
-            // @ts-ignore
-            button.style.textJustify = 'center';
-            button.style.textAlign = 'center';
-            button.style.backgroundColor = item.bgColor;
-            addClickEvent(button, key);
-            var spanText = document.createElement('span');
-            spanText.innerHTML = ' ' + item.text;
-            var spanIcon = document.createElement('span');
+            const button = row.createDiv({
+                cls: 'nav-action-text-button mfa-centered-button mfa-callout-button',
+            });
+            // Each callout carries its own colours as data, so the stylesheet takes
+            // delivery of them through custom properties.
+            button.style.setProperty('--mfa-callout-color', item.color);
+            button.style.setProperty('--mfa-callout-background', item.bgColor);
+            this.asButton(button, calloutLabel(item.id), () => activate(key));
+            const spanIcon = button.createSpan({ cls: 'mfa-callout-icon' });
             obsidian.setIcon(spanIcon, item.icon);
-            spanIcon.style.verticalAlign = 'middle';
-            spanIcon.style.color = item.color;
-            button.appendChild(spanIcon);
-            button.appendChild(spanText);
+            button.createSpan().setText(' ' + calloutLabel(item.id));
         });
-    };
-    SidePanelControlView.prototype.addLatexButtons = function (mainDiv) {
-        var _this = this;
-        var addClickEvent = function (btn, type) {
-            btn.onClickEvent(function () {
-                // @ts-ignore
-                var formatterSetting = latexFormatterSettings[type];
-                var leaf = _this.app.workspace.getMostRecentLeaf();
-                var editor = null;
-                if (checkIfMarkdownSource(leaf)) {
-                    // @ts-ignore
-                    editor = leaf.view.sourceMode.cmEditor;
-                    latexFormatter(editor, formatterSetting);
-                }
-            });
-        };
-        var row = null;
-        keys(latexFormatterSettings).forEach(function (key, index) {
+    }
+    addLatexButtons(mainDiv) {
+        const activate = (type) => {
             // @ts-ignore
-            var item = latexFormatterSettings[key];
+            const formatterSetting = latexFormatterSettings[type];
+            const editor = getTargetEditor(this.app.workspace);
+            if (editor)
+                latexFormatter(editor, formatterSetting);
+        };
+        let row = null;
+        // The panel shows a chosen few; the rest are reachable through ALT+Q,
+        // which is what issue #21 asked for. Filtered before the index is taken,
+        // or a hidden entry would take its row break with it.
+        const shown = keys(latexFormatterSettings).filter(
+        // @ts-ignore
+        (key) => !latexFormatterSettings[key].suggestOnly);
+        shown.forEach((key, index) => {
+            // @ts-ignore
+            const item = latexFormatterSettings[key];
             if (index === 0 || item.newLine) {
                 row = mainDiv.createDiv({ cls: 'nav-buttons-container' });
             }
-            var button = row.createDiv({ cls: 'nav-action-text-button' });
-            // @ts-ignore
-            button.style.textJustify = 'center';
-            button.style.textAlign = 'center';
-            addClickEvent(button, key);
+            const button = row.createDiv({
+                cls: 'nav-action-text-button mfa-centered-button',
+            });
+            // Half of these are drawn as an svg, so des is the only name they have.
+            this.asButton(button, commandName(item.des), () => activate(key));
             if (item.type === 'icon') {
-                var svg = svgToElement(item.text);
-                svg.style.display = 'inline-block';
-                svg.style.verticalAlign = 'middle';
+                const svg = svgToElement(item.text);
+                svg.addClass('mfa-inline-svg');
                 button.appendChild(svg);
             }
             else if (item.type === 'text') {
-                var div = document.createElement('div');
-                div.innerHTML = item.text;
-                button.appendChild(div);
+                appendLabel(button.createDiv(), item.text);
             }
         });
-    };
-    SidePanelControlView.prototype.addGreekLowerCaseLetters = function (mainDiv) {
-        var _this = this;
-        var addClickEvent = function (btn, type) {
-            btn.onClickEvent(function () {
-                // @ts-ignore
-                var formatterSetting = greekLowerCaseFormatterSettings[type];
-                var leaf = _this.app.workspace.getMostRecentLeaf();
-                var editor = null;
-                if (checkIfMarkdownSource(leaf)) {
-                    // @ts-ignore
-                    editor = leaf.view.sourceMode.cmEditor;
-                    greekFormatter(editor, formatterSetting);
-                }
-            });
-        };
-        var numberOfCols = 5;
-        var row = null;
-        keys(greekLowerCaseFormatterSettings).forEach(function (key, index) {
+    }
+    addGreekLowerCaseLetters(mainDiv) {
+        const activate = (type) => {
             // @ts-ignore
-            var item = greekLowerCaseFormatterSettings[key];
+            const formatterSetting = greekLowerCaseFormatterSettings[type];
+            const editor = getTargetEditor(this.app.workspace);
+            if (editor)
+                greekFormatter(editor, formatterSetting);
+        };
+        const numberOfCols = 5;
+        let row = null;
+        keys(greekLowerCaseFormatterSettings).forEach((key, index) => {
+            // @ts-ignore
+            const item = greekLowerCaseFormatterSettings[key];
             if (index % numberOfCols === 0) {
                 row = mainDiv.createDiv({ cls: 'nav-buttons-container' });
             }
-            var button = row.createDiv({ cls: 'nav-action-button' });
-            addClickEvent(button, key);
+            const button = row.createDiv({ cls: 'nav-action-button' });
+            // A letter drawn as an svg has no text at all, so 'Alpha' is the only
+            // thing there is to announce or to show on hover.
+            this.asButton(button, commandName(item.des), () => activate(key));
             button.appendChild(svgToElement(item.icon));
         });
-    };
-    SidePanelControlView.prototype.addGreekUpperCaseLetters = function (mainDiv) {
-        var _this = this;
-        var addClickEvent = function (btn, type) {
-            btn.onClickEvent(function () {
-                // @ts-ignore
-                var formatterSetting = greekUpperCaseFormatterSettings[type];
-                var leaf = _this.app.workspace.getMostRecentLeaf();
-                var editor = null;
-                if (checkIfMarkdownSource(leaf)) {
-                    // @ts-ignore
-                    editor = leaf.view.sourceMode.cmEditor;
-                    greekFormatter(editor, formatterSetting);
-                }
-            });
-        };
-        var numberOfCols = 5;
-        var row = null;
-        keys(greekUpperCaseFormatterSettings).forEach(function (key, index) {
+    }
+    addGreekUpperCaseLetters(mainDiv) {
+        const activate = (type) => {
             // @ts-ignore
-            var item = greekUpperCaseFormatterSettings[key];
+            const formatterSetting = greekUpperCaseFormatterSettings[type];
+            const editor = getTargetEditor(this.app.workspace);
+            if (editor)
+                greekFormatter(editor, formatterSetting);
+        };
+        const numberOfCols = 5;
+        let row = null;
+        keys(greekUpperCaseFormatterSettings).forEach((key, index) => {
+            // @ts-ignore
+            const item = greekUpperCaseFormatterSettings[key];
             if (index % numberOfCols === 0) {
                 row = mainDiv.createDiv({ cls: 'nav-buttons-container' });
             }
-            var button = row.createDiv({ cls: 'nav-action-button' });
-            addClickEvent(button, key);
+            const button = row.createDiv({ cls: 'nav-action-button' });
+            // A letter drawn as an svg has no text at all, so 'Alpha' is the only
+            // thing there is to announce or to show on hover.
+            this.asButton(button, commandName(item.des), () => activate(key));
             button.appendChild(svgToElement(item.icon));
         });
-    };
-    SidePanelControlView.prototype.addTextEditButtons = function (mainDiv) {
-        var _this = this;
-        var addClickEvent = function (btn, type) {
-            btn.onClickEvent(function () {
-                console.log('Clicked Button', btn, type);
-                // @ts-ignore
-                var formatterSetting = formatSettings[type];
-                var leaf = _this.app.workspace.getMostRecentLeaf();
-                var editor = null;
-                if (checkIfMarkdownSource(leaf)) {
-                    // @ts-ignore
-                    editor = leaf.view.sourceMode.cmEditor;
-                    iconFormatter(editor, formatterSetting);
-                }
+    }
+    addTextEditButtons(mainDiv) {
+        const activate = (type) => {
+            // @ts-ignore
+            const formatterSetting = formatSettings[type];
+            const editor = getTargetEditor(this.app.workspace);
+            if (editor)
+                iconFormatter(editor, formatterSetting);
+        };
+        const rows = [
+            [
+                ['h1', 'h1'],
+                ['h2', 'h2'],
+                ['h3', 'h3'],
+                ['h4', 'h4'],
+                ['h5', 'h5'],
+                ['h6', 'h6'],
+            ],
+            [
+                ['bold', 'bold'],
+                ['italic', 'italic'],
+                ['strikethrough', 'strikethrough'],
+                ['underline', 'underline'],
+                ['highlight', 'highlight'],
+            ],
+            [
+                ['codeInline', 'codeInline'],
+                ['codeBlock', 'codeBlock'],
+                ['mermaidBlock', 'mermaidBlock'],
+                ['link', 'link'],
+                ['internalLink', 'fileLink'],
+                ['blockquote', 'quote'],
+                ['image', 'image'],
+            ],
+            [
+                ['bulletList', 'bulletList'],
+                ['numberList', 'numberList'],
+                ['checkList', 'checkList'],
+            ],
+        ];
+        rows.forEach((actions) => {
+            const row = mainDiv.createDiv({ cls: 'nav-buttons-container' });
+            actions.forEach(([id, icon]) => {
+                const button = row.createDiv({ cls: 'nav-action-button' });
+                // These buttons hold a drawing and nothing else, so the label is the
+                // only thing a screen reader has to go on.
+                this.asButton(button, commandName(formatSettings[id].des), () => activate(id));
+                button.appendChild(svgToElement(icon));
             });
+        });
+    }
+    addColorBody(mainDiv) {
+        const insertColor = (color) => {
+            const editor = getTargetEditor(this.app.workspace);
+            if (!editor)
+                return;
+            const isChecked = (id) => {
+                const box = document.getElementById(id);
+                return box ? box.checked : false;
+            };
+            const options = {
+                color: isChecked('mfa-option-color'),
+                background: isChecked('mfa-option-background'),
+                styleAttribute: isChecked('mfa-option-style'),
+                html: isChecked('mfa-option-html'),
+            };
+            const selection = editor.getSelection();
+            // Selected text is coloured, not overwritten. Clicking a colour with a
+            // word selected used to replace that word with '#ff0000' - three reports
+            // on the tracker are people working around exactly this, two of them
+            // with patches of their own.
+            colorFormatter(editor, selection
+                ? wrapWithColor(color, selection, options)
+                : colorCode(color, options));
+            editor.focus();
         };
-        var row = mainDiv.createDiv({ cls: 'nav-buttons-container' });
-        for (var _i = 0, _a = ['h1', 'h2', 'h3', 'h4', 'h5', 'h6']; _i < _a.length; _i++) {
-            var icon = _a[_i];
-            var button_1 = row.createDiv({ cls: 'nav-action-button' });
-            addClickEvent(button_1, icon);
-            button_1.appendChild(svgToElement(icon));
-        }
-        row = mainDiv.createDiv({ cls: 'nav-buttons-container' });
-        var button = row.createDiv({ cls: 'nav-action-button' });
-        addClickEvent(button, 'bold');
-        button.appendChild(svgToElement('bold'));
-        button.id = 'obsidianMarkdownFormattingAssistantPluginButtonBold';
-        button = row.createDiv({ cls: 'nav-action-button' });
-        addClickEvent(button, 'italic');
-        button.appendChild(svgToElement('italic'));
-        button.id = 'obsidianMarkdownFormattingAssistantPluginButtonItalic';
-        button = row.createDiv({ cls: 'nav-action-button' });
-        addClickEvent(button, 'strikethrough');
-        button.appendChild(svgToElement('strikethrough'));
-        button.id = 'obsidianMarkdownFormattingAssistantPluginButtonStrikethrough';
-        button = row.createDiv({ cls: 'nav-action-button' });
-        addClickEvent(button, 'underline');
-        button.appendChild(svgToElement('underline'));
-        button.id = 'obsidianMarkdownFormattingAssistantPluginButtonUnderline';
-        button = row.createDiv({ cls: 'nav-action-button' });
-        addClickEvent(button, 'highlight');
-        button.appendChild(svgToElement('highlight'));
-        button.id = 'obsidianMarkdownFormattingAssistantPluginButtonHighlight';
-        row = mainDiv.createDiv({ cls: 'nav-buttons-container' });
-        button = row.createDiv({ cls: 'nav-action-button' });
-        addClickEvent(button, 'codeInline');
-        button.appendChild(svgToElement('codeInline'));
-        button = row.createDiv({ cls: 'nav-action-button' });
-        addClickEvent(button, 'codeBlock');
-        button.appendChild(svgToElement('codeBlock'));
-        button = row.createDiv({ cls: 'nav-action-button' });
-        addClickEvent(button, 'mermaidBlock');
-        button.appendChild(svgToElement('mermaidBlock'));
-        button = row.createDiv({ cls: 'nav-action-button' });
-        addClickEvent(button, 'link');
-        button.appendChild(svgToElement('link'));
-        button = row.createDiv({ cls: 'nav-action-button' });
-        addClickEvent(button, 'internalLink');
-        button.appendChild(svgToElement('fileLink'));
-        button = row.createDiv({ cls: 'nav-action-button' });
-        addClickEvent(button, 'blockquote');
-        button.appendChild(svgToElement('quote'));
-        button = row.createDiv({ cls: 'nav-action-button' });
-        addClickEvent(button, 'image');
-        button.appendChild(svgToElement('image'));
-        row = mainDiv.createDiv({ cls: 'nav-buttons-container' });
-        button = row.createDiv({ cls: 'nav-action-button' });
-        addClickEvent(button, 'bulletList');
-        button.appendChild(svgToElement('bulletList'));
-        button = row.createDiv({ cls: 'nav-action-button' });
-        addClickEvent(button, 'numberList');
-        button.appendChild(svgToElement('numberList'));
-        button = row.createDiv({ cls: 'nav-action-button' });
-        addClickEvent(button, 'checkList');
-        button.appendChild(svgToElement('checkList'));
-    };
-    SidePanelControlView.prototype.addColorBody = function (mainDiv) {
-        var _this = this;
-        var insertColor = function (color) {
-            var leaf = _this.app.workspace.getMostRecentLeaf();
-            var editor = null;
-            if (checkIfMarkdownSource(leaf)) {
-                var addColor = 
-                // @ts-ignore
-                document.getElementById('inputColorTagCheckBox').checked;
-                var addBackgroundColor = 
-                // @ts-ignore
-                document.getElementById('inputBackgroundColorTagCheckBox').checked;
-                var addStyle = 
-                // @ts-ignore
-                document.getElementById('inputStyleTagCheckBox').checked;
-                var res = color;
-                if (addColor)
-                    res = "color: ".concat(color);
-                if (addBackgroundColor)
-                    res = "background-color: ".concat(color);
-                if (addColor && addBackgroundColor)
-                    res = "color: ".concat(color, "; background-color: ").concat(color);
-                if (addStyle)
-                    res = "style=\"".concat(res, "\"");
-                // @ts-ignore
-                editor = leaf.view.sourceMode.cmEditor;
-                colorFormatter(editor, res);
-                editor.focus();
-            }
-        };
-        var drawLastSelectedColorIcons = function (container) {
-            if (container === void 0) { container = null; }
+        const drawLastSelectedColorIcons = (container = null) => {
             if (!container)
-                container = document.getElementById('lastSelectedColorsDiv');
+                container = document.getElementById('mfa-recent-colors');
             container.textContent = '';
-            var table = container.createEl('table');
-            var tbody = table.createEl('tbody');
-            var row;
-            reverse(SidePanelControlView.lastColors).forEach(function (color, index) {
-                if (index % 10 === 0)
-                    row = tbody.createEl('tr');
-                var colorBox = row.createEl('td');
-                colorBox.classList.add('color-icon');
-                colorBox.style.backgroundColor = color;
-                colorBox.onClickEvent(function (ev) {
-                    if (ev.type === 'click') {
-                        insertColor(color);
-                    }
-                    else {
-                        SidePanelControlView.lastColors = without([color], SidePanelControlView.lastColors);
-                        drawLastSelectedColorIcons();
-                    }
-                });
-            });
-        };
-        var drawLastSavedColorIcons = function (container) {
-            if (container === void 0) { container = null; }
-            if (!container)
-                container = document.getElementById('lastSavedColorsDiv');
-            container.textContent = '';
-            var table = container.createEl('table');
-            var tbody = table.createEl('tbody');
-            var row;
-            reverse(_this.plugin.settings.savedColors).forEach(function (color, index) {
-                if (index % 10 === 0)
-                    row = tbody.createEl('tr');
-                var colorBox = row.createEl('td');
-                colorBox.id = 'lastSavedColorsDiv' + color;
-                colorBox.classList.add('color-icon');
-                colorBox.style.backgroundColor = color;
-                colorBox.draggable = true;
-                colorBox.onClickEvent(function (ev) { return __awaiter(_this, void 0, void 0, function () {
-                    return __generator(this, function (_a) {
-                        switch (_a.label) {
-                            case 0:
-                                if (!(ev.type === 'click')) return [3 /*break*/, 1];
-                                insertColor(color);
-                                return [3 /*break*/, 3];
-                            case 1:
-                                this.plugin.settings.savedColors = without([color], this.plugin.settings.savedColors);
-                                return [4 /*yield*/, this.plugin.saveSettings()];
-                            case 2:
-                                _a.sent();
-                                drawLastSavedColorIcons();
-                                _a.label = 3;
-                            case 3: return [2 /*return*/];
-                        }
-                    });
-                }); });
-                colorBox.ondragstart = function (event) {
-                    // @ts-ignore
-                    _this.dragStartColor = event.target.id.replace('lastSavedColorsDiv', '');
+            reverse(SidePanelControlView.lastColors).forEach((color) => {
+                const colorBox = container.createDiv({ cls: 'mfa-color-icon' });
+                colorBox.style.setProperty('--mfa-swatch', color);
+                this.asButton(colorBox, color, () => insertColor(color));
+                // onClickEvent binds 'click' and nothing else, so the removal branch
+                // this used to share with it could never run: right-clicking a colour
+                // simply inserted it. The README promised otherwise.
+                colorBox.oncontextmenu = (event) => {
+                    event.preventDefault();
+                    SidePanelControlView.lastColors = without([color], SidePanelControlView.lastColors);
+                    drawLastSelectedColorIcons();
                 };
-                colorBox.ondrop = function (event) { return __awaiter(_this, void 0, void 0, function () {
-                    var id, startColor, endColor, startIndex, endIndex;
-                    return __generator(this, function (_a) {
-                        switch (_a.label) {
-                            case 0:
-                                if (!(event && event.target)) return [3 /*break*/, 2];
-                                id = event.target.id;
-                                if (!(id.indexOf('lastSavedColorsDiv') === 0)) return [3 /*break*/, 2];
-                                startColor = this.dragStartColor;
-                                endColor = id.replace('lastSavedColorsDiv', '');
-                                startIndex = indexOf(startColor, this.plugin.settings.savedColors);
-                                endIndex = indexOf(endColor, this.plugin.settings.savedColors);
-                                this.plugin.settings.savedColors[startIndex] = endColor;
-                                this.plugin.settings.savedColors[endIndex] = startColor;
-                                return [4 /*yield*/, this.plugin.saveSettings()];
-                            case 1:
-                                _a.sent();
-                                drawLastSavedColorIcons();
-                                _a.label = 2;
-                            case 2: return [2 /*return*/];
-                        }
-                    });
-                }); };
-                colorBox.ondragover = function (event) {
+            });
+        };
+        const drawLastSavedColorIcons = (container = null) => {
+            if (!container)
+                container = document.getElementById('mfa-saved-colors');
+            container.textContent = '';
+            reverse(this.plugin.settings.savedColors).forEach((color) => {
+                const colorBox = container.createDiv({ cls: 'mfa-color-icon' });
+                colorBox.id = 'mfa-saved-colors' + color;
+                colorBox.style.setProperty('--mfa-swatch', color);
+                colorBox.draggable = true;
+                this.asButton(colorBox, color, () => insertColor(color));
+                // Same dead branch as the last-used swatches above: 'click' was the
+                // only event ever bound, so a saved colour could not be removed here.
+                colorBox.oncontextmenu = async (event) => {
+                    event.preventDefault();
+                    this.plugin.settings.savedColors = without([color], this.plugin.settings.savedColors);
+                    await this.plugin.saveSettings();
+                    drawLastSavedColorIcons();
+                };
+                colorBox.ondragstart = (event) => {
+                    // @ts-ignore
+                    this.dragStartColor = event.target.id.replace('mfa-saved-colors', '');
+                };
+                colorBox.ondrop = async (event) => {
+                    const target = event.target;
+                    if (!target || !target.id)
+                        return;
+                    const savedColors = this.plugin.settings.savedColors;
+                    const startColor = this.dragStartColor;
+                    const endColor = target.id.replace('mfa-saved-colors', '');
+                    const startIndex = indexOf(startColor, savedColors);
+                    const endIndex = indexOf(endColor, savedColors);
+                    // The container carries the id 'mfa-saved-colors' itself, so a drop
+                    // into the empty space next to the swatches used to resolve to an
+                    // empty colour and index -1 - which then wrote junk into the list.
+                    if (startIndex < 0 || endIndex < 0 || startIndex === endIndex)
+                        return;
+                    this.plugin.settings.savedColors = moveItem(savedColors, startIndex, endIndex);
+                    await this.plugin.saveSettings();
+                    drawLastSavedColorIcons();
+                };
+                colorBox.ondragover = (event) => {
                     event.preventDefault();
                 };
             });
         };
-        var colorSection = mainDiv.createDiv();
-        var colorSelector = colorSection.createDiv();
-        colorSelector.style.backgroundColor = last(SidePanelControlView.lastColors);
-        colorSelector.style.height = '16px';
-        colorSelector.style.borderRadius = '8px';
-        colorSelector.style.padding = '5px';
-        colorSelector.style.margin = '4px';
-        colorSelector.style.marginBottom = '10px';
-        var colorInput = colorSelector.createEl('input');
-        colorInput.id = 'colorInput';
+        const colorSection = mainDiv.createDiv();
+        const colorSelector = colorSection.createDiv({ cls: 'mfa-color-preview' });
+        colorSelector.style.setProperty('--mfa-swatch', last(SidePanelControlView.lastColors));
+        const colorInput = colorSelector.createEl('input', {
+            cls: 'mfa-color-input',
+        });
+        colorInput.id = 'mfa-color-input';
         colorInput.type = 'color';
         colorInput.value = last(SidePanelControlView.lastColors);
-        colorInput.style.visibility = 'hidden';
-        colorInput.style.padding = '0';
-        colorInput.style.margin = '0';
-        // colorInput.style.display = 'block';
-        // colorInput.style.opacity = '0';
-        colorInput.addEventListener('input', function (ev) {
+        colorInput.addEventListener('input', (ev) => {
             // @ts-ignore
-            var color = ev.target.value;
-            colorSelector.style.backgroundColor = color;
+            const color = ev.target.value;
+            colorSelector.style.setProperty('--mfa-swatch', color);
         });
-        colorInput.addEventListener('change', function (ev) {
+        colorInput.addEventListener('change', (ev) => {
             // @ts-ignore
-            var color = ev.target.value;
+            const color = ev.target.value;
             // @ts-ignore
             SidePanelControlView.lastColors = pipe(without([color]), append(color), takeLast(10))(SidePanelControlView.lastColors);
             drawLastSelectedColorIcons();
             insertColor(color);
-            colorSelector.style.backgroundColor = color;
-            navigator.clipboard.writeText(color).then(function () {
-                // @ts-ignore
-                new obsidian.Notice('Copied ' + color + ' to clipboard');
-            }, function () {
-                new obsidian.Notice('Could not copy the color to clipboard');
-            });
+            colorSelector.style.setProperty('--mfa-swatch', color);
+            // Mobile webviews are not a secure context, so navigator.clipboard is
+            // undefined there - reading .writeText would throw synchronously,
+            // which a rejection handler does not catch.
+            if (navigator.clipboard) {
+                navigator.clipboard.writeText(color).then(() => new obsidian.Notice(t('colors.copied', { color })), () => new obsidian.Notice(t('colors.copyFailed')));
+            }
         }, false);
-        var colorButton = colorSection.createEl('label');
-        colorButton.classList.add('nav-action-text-button');
-        colorButton.appendText('Select a Color');
-        colorButton.style.display = 'block';
-        colorButton.htmlFor = 'colorInput';
-        var colorSaveButton = colorSection.createEl('div');
-        colorSaveButton.classList.add('nav-action-text-button');
-        colorSaveButton.appendText('Save Color');
-        colorSaveButton.style.display = 'block';
-        colorSaveButton.onClickEvent(function (ev) { return __awaiter(_this, void 0, void 0, function () {
-            var color;
-            return __generator(this, function (_a) {
-                switch (_a.label) {
-                    case 0:
-                        color = last(SidePanelControlView.lastColors);
-                        this.plugin.settings.savedColors = pipe(without([color]), append(color))(this.plugin.settings.savedColors);
-                        drawLastSavedColorIcons();
-                        return [4 /*yield*/, this.plugin.saveSettings()];
-                    case 1:
-                        _a.sent();
-                        return [2 /*return*/];
-                }
-            });
-        }); });
-        colorSaveButton.style.marginBottom = '20px';
-        var addCheckbox = function (id, text) {
-            var div = colorSection.createEl('div');
-            var input = div.createEl('input');
+        const colorButton = colorSection.createEl('label', {
+            cls: 'nav-action-text-button mfa-block-button',
+        });
+        colorButton.appendText(t('colors.select'));
+        colorButton.htmlFor = 'mfa-color-input';
+        const colorSaveButton = colorSection.createEl('div', {
+            cls: 'nav-action-text-button mfa-block-button mfa-color-save',
+        });
+        colorSaveButton.appendText(t('colors.save'));
+        this.asButton(colorSaveButton, t('colors.save'), () => {
+            const color = last(SidePanelControlView.lastColors);
+            this.plugin.settings.savedColors = pipe(without([color]), append(color))(this.plugin.settings.savedColors);
+            drawLastSavedColorIcons();
+            void this.plugin.saveSettings();
+        });
+        const addCheckbox = (id, text) => {
+            const div = colorSection.createEl('div');
+            const input = div.createEl('input');
             input.id = id;
             input.type = 'checkbox';
             input.name = id;
-            var label = div.createEl('label');
+            // Tied to the input, which is what lets the words be clicked as well as
+            // the box - and what a screen reader reads out instead of "checkbox".
+            const label = div.createEl('label', { cls: 'mfa-checkbox-label' });
+            label.htmlFor = id;
             label.appendText(text);
-            label.style.fontSize = '12px';
         };
-        addCheckbox('inputColorTagCheckBox', ' Add "color: {your color}"');
-        addCheckbox('inputBackgroundColorTagCheckBox', ' Add "background-color: {your color}"');
-        addCheckbox('inputStyleTagCheckBox', ' Add tag: "style={your color}"');
-        var lastSelectedColorsTitle = colorSection.createEl('p');
-        lastSelectedColorsTitle.appendText('Last used colors:');
-        lastSelectedColorsTitle.style.marginBottom = '0px';
-        var lastSelectedColors = colorSection.createEl('div');
-        lastSelectedColors.id = 'lastSelectedColorsDiv';
-        lastSelectedColors.style.display = 'flex';
+        addCheckbox('mfa-option-color', t('colors.optionColor'));
+        addCheckbox('mfa-option-background', t('colors.optionBackgroundColor'));
+        addCheckbox('mfa-option-style', t('colors.optionStyleTag'));
+        addCheckbox('mfa-option-html', t('colors.optionHtmlTag'));
+        colorSection
+            .createEl('p', { cls: 'mfa-swatches-title' })
+            .appendText(t('colors.lastUsed'));
+        const lastSelectedColors = colorSection.createEl('div', {
+            cls: 'mfa-color-swatches',
+        });
+        lastSelectedColors.id = 'mfa-recent-colors';
         drawLastSelectedColorIcons(lastSelectedColors);
-        var lastSavedColorsTitle = colorSection.createEl('p');
-        lastSavedColorsTitle.appendText('Saved Colors:');
-        lastSavedColorsTitle.style.marginBottom = '0px';
-        var settingsInfo = colorSection.createEl('p');
-        settingsInfo.appendText('Saved colors can be directly edited in the settings.');
-        settingsInfo.style.textAlign = 'left';
-        settingsInfo.style.fontSize = '10px';
-        settingsInfo.style.marginTop = '0px';
-        var lastSavedColors = colorSection.createEl('div');
-        lastSavedColors.id = 'lastSavedColorsDiv';
-        lastSavedColors.style.display = 'flex';
+        colorSection
+            .createEl('p', { cls: 'mfa-swatches-title' })
+            .appendText(t('colors.saved'));
+        colorSection
+            .createEl('p', { cls: 'mfa-swatches-hint' })
+            .appendText(t('colors.editInSettings'));
+        const lastSavedColors = colorSection.createEl('div', {
+            cls: 'mfa-color-swatches',
+        });
+        lastSavedColors.id = 'mfa-saved-colors';
         drawLastSavedColorIcons(lastSavedColors);
-        var info = colorSection.createEl('p');
-        info.style.textAlign = 'center';
-        info.style.marginTop = '10px';
-        info.style.marginBottom = '10px';
-        var link = info.createEl('a');
-        link.appendText('Do you need some Help?');
-        link.style.textAlign = 'center';
-        link.style.fontSize = '10px';
-        link.href =
-            'https://github.com/Reocin/obsidian-markdown-formatting-assistant-plugin#color-picker';
-    };
-    SidePanelControlView.prototype.addSelectableHeader = function (mainDiv, regionName, sectionTitle) {
-        var _this = this;
-        var getRegion = function (name) {
-            return _this.plugin.settings.regionSettings.find(function (item) { return item.name === name; });
+        this.addNote(colorSection, t('colors.help'), `${REPOSITORY_URL}#color-picker`);
+    }
+    addSelectableHeader(mainDiv, regionName) {
+        const sectionTitle = sectionLabel(regionName);
+        const getRegion = (name) => {
+            return this.plugin.settings.regionSettings.find((item) => item.name === name);
         };
-        var header = mainDiv.createEl('div');
-        header.id = 'lastSavedHeaderDiv' + regionName;
-        var hr = mainDiv.createEl('hr');
-        var title = header.createEl('h4');
-        var arrowButton = header.createDiv({ cls: 'nav-action-button' });
-        var content = mainDiv.createEl('div');
-        header.style.width = '100%';
-        // header.style.border = '2px solid white';
-        header.style.display = 'flex';
-        header.style.flexWrap = 'nowrap';
-        header.style.alignContent = 'center';
-        header.style.position = 'relative';
-        header.style.cursor = 'move';
+        const header = mainDiv.createEl('div', { cls: 'mfa-section-header' });
+        header.id = 'mfa-region-' + regionName;
+        mainDiv.createEl('hr', { cls: 'mfa-section-rule' });
+        const title = header.createEl('h4', { cls: 'mfa-section-title' });
+        const arrowButton = header.createDiv({
+            cls: 'nav-action-button mfa-section-arrow',
+        });
+        const content = mainDiv.createEl('div', { cls: 'mfa-section-content' });
         header.draggable = true;
-        header.ondragstart = function (event) {
+        header.ondragstart = (event) => {
             // @ts-ignore
-            var sectionId = event.target.id.replace('lastSavedHeaderDiv', '');
+            const sectionId = event.target.id.replace('mfa-region-', '');
             event.dataTransfer.setData('sectionHeaderMoveId', sectionId);
         };
-        var onDrop = function (event) { return __awaiter(_this, void 0, void 0, function () {
-            var getId, start, end, startIndex, endIndex, startRegion;
-            return __generator(this, function (_a) {
-                switch (_a.label) {
-                    case 0:
-                        getId = pipe(find(pipe(prop('id'), undefined('lastSavedHeaderDiv'))), prop('id'), replace('lastSavedHeaderDiv', ''));
-                        start = event.dataTransfer.getData('sectionHeaderMoveId');
-                        end = getId(event.path);
-                        if (!(end &&
-                            this.plugin.settings.aviabileRegions.contains(end) &&
-                            start !== end)) return [3 /*break*/, 2];
-                        startIndex = findIndex(propEq('name', start), this.plugin.settings.regionSettings);
-                        endIndex = findIndex(propEq('name', end), this.plugin.settings.regionSettings);
-                        startRegion = this.plugin.settings.regionSettings[startIndex];
-                        this.plugin.settings.regionSettings[startIndex] =
-                            this.plugin.settings.regionSettings[endIndex];
-                        this.plugin.settings.regionSettings[endIndex] = startRegion;
-                        return [4 /*yield*/, this.plugin.saveSettings()];
-                    case 1:
-                        _a.sent();
-                        this.drawContentOfRootElement();
-                        _a.label = 2;
-                    case 2:
-                        event.preventDefault();
-                        return [2 /*return*/];
-                }
-            });
-        }); };
-        header.ondragover = function (event) { return __awaiter(_this, void 0, void 0, function () {
-            return __generator(this, function (_a) {
-                event.preventDefault();
-                return [2 /*return*/];
-            });
-        }); };
+        const onDrop = async (event) => {
+            // The drop can land on any descendant of a section header, so walk the
+            // event path up to the header that carries the region id. composedPath()
+            // also yields document and window, which have no id at all.
+            const getDroppedRegionName = (path) => {
+                const header = path.find((target) => target instanceof HTMLElement &&
+                    target.id.startsWith('mfa-region-'));
+                return header
+                    ? header.id.replace('mfa-region-', '')
+                    : undefined;
+            };
+            event.preventDefault();
+            const regions = this.plugin.settings.regionSettings;
+            const start = event.dataTransfer?.getData('sectionHeaderMoveId');
+            const end = getDroppedRegionName(event.composedPath());
+            if (!start || !end || start === end)
+                return;
+            const startIndex = regions.findIndex((region) => region.name === start);
+            const endIndex = regions.findIndex((region) => region.name === end);
+            // Headers accept any drag - a note dropped from the file explorer lands
+            // here too, with an empty payload. Both indices must resolve, or the move
+            // below would write undefined into the array and persist it.
+            if (startIndex < 0 || endIndex < 0)
+                return;
+            this.plugin.settings.regionSettings = moveItem(regions, startIndex, endIndex);
+            await this.plugin.saveSettings();
+            this.drawContentOfRootElement();
+        };
+        header.ondragover = async (event) => {
+            event.preventDefault();
+        };
         header.ondrop = onDrop;
         title.appendText(sectionTitle);
-        title.style.flexDirection = 'column';
-        title.style.textAlign = 'left';
-        title.style.margin = '0px';
-        title.style.display = 'flex';
-        title.style.flexWrap = 'nowrap';
-        title.style.justifyContent = 'center';
-        arrowButton.appendChild(svgToElement('expandArrowDown'));
-        arrowButton.style.position = 'absolute';
-        arrowButton.style.right = '0px';
-        arrowButton.style.top = '0px';
-        arrowButton.style.bottom = '0px';
-        arrowButton.style.marginTop = 'auto';
-        arrowButton.style.marginBottom = 'auto';
-        arrowButton.style.width = '24px';
-        arrowButton.style.height = '24px';
-        var region = getRegion(regionName);
-        if (region && region.active && region.visible) {
-            content.style.display = 'block';
-        }
-        else {
-            content.style.display = 'none';
-        }
-        arrowButton.onClickEvent(function (e) { return __awaiter(_this, void 0, void 0, function () {
-            var region;
-            return __generator(this, function (_a) {
-                switch (_a.label) {
-                    case 0:
-                        region = getRegion(regionName);
-                        if (!(region && region.active)) return [3 /*break*/, 2];
-                        if (!region.visible) {
-                            content.style.display = 'block';
-                            arrowButton.innerHTML = null;
-                            arrowButton.appendChild(svgToElement('expandArrowUp'));
-                            region.visible = true;
-                        }
-                        else {
-                            content.style.display = 'none';
-                            arrowButton.innerHTML = null;
-                            arrowButton.appendChild(svgToElement('expandArrowDown'));
-                            region.visible = false;
-                        }
-                        return [4 /*yield*/, this.plugin.saveSettings()];
-                    case 1: return [2 /*return*/, _a.sent()];
-                    case 2: return [2 /*return*/];
-                }
-            });
-        }); });
-        hr.style.marginTop = '0px';
-        hr.style.marginBottom = '10px';
+        const region = getRegion(regionName);
+        /**
+         * The arrow points the way the click will move the section: down to open
+         * it, up to close it again. It used to be drawn as "down" unconditionally,
+         * so a section that started open contradicted itself until it was clicked
+         * twice.
+         */
+        const drawArrow = (expanded) => {
+            arrowButton.empty();
+            arrowButton.appendChild(svgToElement(expanded ? 'expandArrowUp' : 'expandArrowDown'));
+        };
+        const expanded = Boolean(region && region.active && region.visible);
+        content.toggleClass('is-collapsed', !expanded);
+        drawArrow(expanded);
+        // Announced as expanded or collapsed, and updated on every toggle - the
+        // arrow itself is a drawing and says nothing.
+        arrowButton.setAttribute('aria-expanded', String(expanded));
+        this.asButton(arrowButton, sectionTitle, () => {
+            const region = getRegion(regionName);
+            if (!region || !region.active)
+                return;
+            region.visible = !region.visible;
+            content.toggleClass('is-collapsed', !region.visible);
+            drawArrow(region.visible);
+            arrowButton.setAttribute('aria-expanded', String(region.visible));
+            void this.plugin.saveSettings();
+        });
         return content;
-    };
-    SidePanelControlView.lastColors = ['#ff0000'];
-    return SidePanelControlView;
-}(obsidian.ItemView));
+    }
+}
+SidePanelControlView.lastColors = ['#ff0000'];
 
-var suggestions$1 = values(formatSettings).concat(
+const builtInSuggestions = values(formatSettings).concat(
 // @ts-ignore
 values(htmlFormatterSettings), values(latexFormatterSettings), values(greekLowerCaseFormatterSettings), values(greekUpperCaseFormatterSettings));
-var CodeSuggestionModal = /** @class */ (function (_super) {
-    __extends(CodeSuggestionModal, _super);
-    function CodeSuggestionModal() {
-        var _this = _super !== null && _super.apply(this, arguments) || this;
-        _this.setEditor = function (editor) {
-            _this.editor = editor;
+class CodeSuggestionModal extends obsidian.SuggestModal {
+    constructor() {
+        super(...arguments);
+        this.setEditor = (editor) => {
+            this.editor = editor;
         };
-        return _this;
     }
     // Returns all available suggestions.
-    CodeSuggestionModal.prototype.getSuggestions = function (query) {
-        var filterFunction = function (setting) {
-            return setting.des.toLowerCase().includes(query.toLowerCase());
-        };
-        // @ts-ignore
-        return values(filter(filterFunction, suggestions$1));
-    };
+    getSuggestions(query) {
+        // The tables are heterogeneous - only some entries carry an icon, a text or
+        // a type - so they do not structurally satisfy baseFormatterSetting. Every
+        // reader below branches on objectType before touching those fields, which
+        // is what makes this safe in practice.
+        const suggestions = builtInSuggestions;
+        // Matching the id as well as the label keeps every command reachable by
+        // its English name once the labels get translated.
+        const needle = query.toLowerCase();
+        return suggestions.filter((setting) => setting.des.toLowerCase().includes(needle) ||
+            setting.id.toLowerCase().includes(needle));
+    }
     // Renders each suggestion item.
-    CodeSuggestionModal.prototype.renderSuggestion = function (baseFormatterSetting, el) {
-        var row = el.createEl('div');
-        row.classList.add('command-list-view-row');
-        var iconContainer = row.createDiv();
-        iconContainer.classList.add('command-list-view-container');
-        var iconDiv = iconContainer.createDiv();
-        iconDiv.classList.add('command-list-view-icon');
-        var cell2 = row.createDiv();
-        cell2.classList.add('command-list-view-text');
+    renderSuggestion(baseFormatterSetting, el) {
+        const row = el.createEl('div');
+        row.classList.add('mfa-suggestion-row');
+        const iconContainer = row.createDiv();
+        iconContainer.classList.add('mfa-suggestion-icon-container');
+        const iconDiv = iconContainer.createDiv();
+        iconDiv.classList.add('mfa-suggestion-icon');
+        const cell2 = row.createDiv();
+        cell2.classList.add('mfa-suggestion-text');
         cell2.setText(baseFormatterSetting.des);
-        console.log(baseFormatterSetting.objectType);
+        // The label is tinted by which table the entry came from, so the four
+        // groups stay apart at a glance. The tints are theme variables now: the
+        // fixed hexes they replace were picked against a dark background, and the
+        // green in particular was close to unreadable on a light one.
         if (baseFormatterSetting.objectType === 'formatterSetting') {
             iconDiv.appendChild(svgToElement(baseFormatterSetting.icon));
-            cell2.style.color = '#c7254e';
+            cell2.addClass('mfa-suggestion-text--markdown');
         }
         else if (baseFormatterSetting.objectType === 'htmlFormatterSetting') {
             iconDiv.appendText('HTML');
-            cell2.style.color = '#0055F2';
+            cell2.addClass('mfa-suggestion-text--html');
         }
         else if (baseFormatterSetting.objectType === 'greekFormatterSetting') {
             iconDiv.appendChild(svgToElement(baseFormatterSetting.icon));
-            cell2.style.color = '#25e712';
+            cell2.addClass('mfa-suggestion-text--greek');
         }
         else if (baseFormatterSetting.objectType === 'latexFormatterSetting') {
-            var item = baseFormatterSetting;
+            const item = baseFormatterSetting;
             if (item.type === 'icon') {
-                var svg = svgToElement(item.text);
-                svg.style.display = 'inline-block';
-                svg.style.verticalAlign = 'middle';
+                const svg = svgToElement(item.text);
+                svg.addClass('mfa-inline-svg');
                 iconDiv.appendChild(svg);
             }
             else if (item.type === 'text') {
-                var div = document.createElement('div');
-                div.innerHTML = item.text;
-                iconDiv.appendChild(div);
+                appendLabel(iconDiv.createDiv(), item.text);
             }
-            cell2.style.color = '#25e712';
+            cell2.addClass('mfa-suggestion-text--latex');
         }
         else {
             iconDiv.appendText('HTML');
         }
-    };
+    }
     // Perform action on the selected suggestion.
-    CodeSuggestionModal.prototype.onChooseSuggestion = function (baseFormatterSetting, evt) {
-        // @ts-ignore
-        var item = baseFormatterSetting;
-        console.log(baseFormatterSetting);
+    onChooseSuggestion(baseFormatterSetting, evt) {
+        const item = baseFormatterSetting;
         if (item.objectType === 'formatterSetting') {
             // @ts-ignore
             iconFormatter(this.editor, item);
@@ -4684,79 +6149,421 @@ var CodeSuggestionModal = /** @class */ (function (_super) {
             greekFormatter(this.editor, item);
         }
         // new Notice(`Selected ${baseFormatterSetting.des}`);
-    };
-    CodeSuggestionModal.display = function (app, editor) {
-        var modal = new CodeSuggestionModal(app);
-        modal.setEditor(editor);
-        modal.open();
-    };
-    return CodeSuggestionModal;
-}(obsidian.SuggestModal));
+    }
+}
+CodeSuggestionModal.display = (app, editor) => {
+    const modal = new CodeSuggestionModal(app);
+    modal.setEditor(editor);
+    modal.open();
+};
 
-var suggestions = values(calloutsFormatterSettings);
-var CalloutsSuggestionModal = /** @class */ (function (_super) {
-    __extends(CalloutsSuggestionModal, _super);
-    function CalloutsSuggestionModal() {
-        var _this = _super !== null && _super.apply(this, arguments) || this;
-        _this.setEditor = function (editor) {
-            _this.editor = editor;
+const suggestions = values(calloutsFormatterSettings);
+class CalloutsSuggestionModal extends obsidian.SuggestModal {
+    constructor() {
+        super(...arguments);
+        /** Whether to write the translated heading into the note. */
+        this.useTitles = true;
+        this.setEditor = (editor) => {
+            this.editor = editor;
         };
-        return _this;
     }
     // Returns all available suggestions.
-    CalloutsSuggestionModal.prototype.getSuggestions = function (query) {
-        var filterFunction = function (setting) {
-            return setting.des.toLowerCase().includes(query.toLowerCase());
+    getSuggestions(query) {
+        // Matching the translated label as well as the id keeps callouts findable
+        // both by their Russian name and by the English keyword.
+        const filterFunction = (setting) => {
+            const needle = query.toLowerCase();
+            return (calloutLabel(setting.id).toLowerCase().includes(needle) ||
+                setting.id.toLowerCase().includes(needle));
         };
         // @ts-ignore
         return values(filter(filterFunction, suggestions));
-    };
+    }
     // Renders each suggestion item.
-    CalloutsSuggestionModal.prototype.renderSuggestion = function (calloutsFormatterSetting, el) {
-        var row = el.createEl('div');
-        row.classList.add('command-list-view-row');
-        var iconContainer = row.createDiv();
-        iconContainer.classList.add('command-list-view-container');
-        var iconDiv = iconContainer.createDiv();
-        iconDiv.classList.add('command-list-view-icon');
-        var cell2 = row.createDiv();
-        cell2.classList.add('command-list-view-text');
-        cell2.setText(calloutsFormatterSetting.des);
-        var spanIcon = document.createElement('span');
-        spanIcon.style.verticalAlign = 'middle';
-        spanIcon.style.color = calloutsFormatterSetting.color;
+    renderSuggestion(calloutsFormatterSetting, el) {
+        const row = el.createEl('div');
+        row.classList.add('mfa-suggestion-row');
+        const iconContainer = row.createDiv();
+        iconContainer.classList.add('mfa-suggestion-icon-container');
+        const iconDiv = iconContainer.createDiv();
+        iconDiv.classList.add('mfa-suggestion-icon');
+        const cell2 = row.createDiv();
+        cell2.classList.add('mfa-suggestion-text', 'mfa-suggestion-text--muted');
+        cell2.setText(calloutLabel(calloutsFormatterSetting.id));
+        const spanIcon = iconDiv.createSpan({ cls: 'mfa-callout-icon' });
         obsidian.setIcon(spanIcon, calloutsFormatterSetting.icon);
-        iconDiv.appendChild(spanIcon);
-    };
+        // The colours belong to the callout type, so they arrive as data rather
+        // than as anything the stylesheet could know in advance. Custom properties
+        // are how a stylesheet takes delivery of that.
+        row.addClass('mfa-callout-row');
+        row.style.setProperty('--mfa-callout-color', calloutsFormatterSetting.color);
+        row.style.setProperty('--mfa-callout-background', calloutsFormatterSetting.bgColor);
+    }
     // Perform action on the selected suggestion.
-    CalloutsSuggestionModal.prototype.onChooseSuggestion = function (calloutsFormatterSetting, evt) {
-        // @ts-ignore
-        var item = calloutsFormatterSetting;
-        console.log(calloutsFormatterSetting);
-        calloutsFormatter(this.editor, item);
+    onChooseSuggestion(calloutsFormatterSetting, evt) {
+        const item = calloutsFormatterSetting;
+        calloutsFormatter(this.editor, item, this.useTitles ? calloutLabel(item.id) : '');
         // new Notice(`Selected ${calloutsFormatterSetting.des}`);
-    };
-    CalloutsSuggestionModal.display = function (app, editor) {
-        var modal = new CalloutsSuggestionModal(app);
-        modal.setEditor(editor);
-        modal.open();
-    };
-    return CalloutsSuggestionModal;
-}(obsidian.SuggestModal));
+    }
+}
+CalloutsSuggestionModal.display = (app, editor, useTitles = true) => {
+    const modal = new CalloutsSuggestionModal(app);
+    modal.setEditor(editor);
+    modal.useTitles = useTitles;
+    modal.open();
+};
 
-var DEFAULT_SETTINGS = {
-    triggerChar: '\\',
+/**
+ * Picks a command to put on the toolbar.
+ *
+ * Fuzzy search over everything the vault has registered, which is the point of
+ * building the toolbar out of command ids: Obsidian's own commands and other
+ * plugins' are as eligible as this plugin's, so the row can be assembled around
+ * how someone actually writes rather than around what this plugin happens to
+ * provide.
+ */
+class CommandPickerModal extends obsidian.FuzzySuggestModal {
+    constructor() {
+        super(...arguments);
+        this.choices = [];
+        this.onPick = () => { };
+    }
+    getItems() {
+        return this.choices;
+    }
+    getItemText(command) {
+        return command.name;
+    }
+    /**
+     * With nothing typed, keep the order the list arrived in - this plugin's
+     * commands first.
+     *
+     * The fuzzy matcher scores an empty query the same for everything, so the
+     * order it returns rests on the sort being stable, which is not a promise
+     * worth relying on for the one view every user sees before typing.
+     */
+    getSuggestions(query) {
+        if (query.trim())
+            return super.getSuggestions(query);
+        // Nothing was searched for, so there is nothing to highlight.
+        const matches = [];
+        return this.choices.map((item) => ({ item, match: { score: 0, matches } }));
+    }
+    onChooseItem(command) {
+        this.onPick(command.id);
+    }
+    static open(app, available, taken, placeholder, onPick) {
+        const modal = new CommandPickerModal(app);
+        // Already on the toolbar means nothing to add: a second button would run
+        // the same command, and removing one would appear to remove both.
+        modal.choices = available.filter((command) => !taken.includes(command.id));
+        modal.onPick = onPick;
+        modal.setPlaceholder(placeholder);
+        // Well above the default, which is a screenful. This plugin's own commands
+        // are at the head of the list and there are fifty of them, so the default
+        // would show those and nothing else to browse past.
+        modal.limit = 150;
+        modal.open();
+    }
+}
+
+/**
+ * One Obsidian command per formatting action, so people can bind their own
+ * hotkeys. Obsidian owns that interface entirely - this only supplies the list,
+ * which is why there is no key binding anywhere in the plugin's own settings.
+ *
+ * Only Text Edit and the callouts are registered. The HTML, LaTeX and Greek
+ * tables hold another 93 entries between them: nobody binds a key to \alpha,
+ * and adding them would bury the user's own commands in the palette. They stay
+ * reachable through the ALT+Q window, which is what it is for.
+ */
+function registerFormattingCommands(plugin, writeCalloutTitle) {
+    // The table is heterogeneous for the suggestion window's benefit, so it does
+    // not structurally satisfy the interface. Every entry in this one does carry
+    // the fields iconFormatter reads.
+    const textEdit = values(formatSettings);
+    textEdit.forEach((item) => {
+        plugin.addCommand({
+            // The table key rather than the label, so a binding survives a rename.
+            id: item.id,
+            name: commandName(item.des),
+            // The panel's own icons, registered with addIcon at load. Obsidian shows
+            // these on mobile and in the ribbon, and the editor toolbar reads them
+            // straight off the command rather than keeping a second table.
+            icon: item.icon,
+            // editorCallback rather than callback: these all write to a note, and
+            // Obsidian then hides them when no editor has focus.
+            editorCallback: (editor) => iconFormatter(editor, item),
+        });
+    });
+    const callouts = values(calloutsFormatterSettings);
+    callouts.forEach((item) => {
+        plugin.addCommand({
+            // Namespaced. The two tables happen not to share a key today, but they
+            // are edited independently and both are plain English words - 'quote'
+            // and 'image' would each be at home in either. Obsidian keeps one
+            // command per id and drops the rest silently, so the day they do collide
+            // nothing would say so.
+            id: `callout-${item.id}`,
+            name: `${t('section.callouts')}: ${calloutLabel(item.id)}`,
+            icon: item.icon,
+            editorCallback: (editor) => 
+            // Read when the command runs rather than when it is registered, so the
+            // setting takes effect without a restart.
+            calloutsFormatter(editor, item, writeCalloutTitle() ? calloutLabel(item.id) : ''),
+        });
+    });
+}
+
+/**
+ * What the toolbar stores and how that list is kept sane. A leaf module with
+ * no imports, so the tests can reach it - see the note in textPlacement.ts.
+ *
+ * The toolbar is a list of Obsidian command ids and nothing else. That is the
+ * whole design: anything registered as a command can sit on it, including
+ * Obsidian's own and other plugins', not merely this one's buttons.
+ */
+/**
+ * Must match the `id` in manifest.json - Obsidian namespaces every command by
+ * it, so the default buttons below would resolve to nothing if the two drifted.
+ * There is a test on exactly that.
+ */
+const PLUGIN_ID = 'obsidian-markdown-formatting-assistant-plugin';
+/**
+ * A ceiling rather than a design limit. The toolbar wraps, so a long list
+ * costs the user their writing space rather than breaking anything - but a
+ * settings file that somehow grew unbounded should not take the editor with it.
+ */
+const MAX_TOOLBAR_COMMANDS = 40;
+/** Everyday formatting, in the order a toolbar usually reads. */
+const DEFAULT_TOOLBAR_COMMANDS = [
+    'h1',
+    'h2',
+    'h3',
+    'bold',
+    'italic',
+    'strikethrough',
+    'highlight',
+    'codeInline',
+    'blockquote',
+    'bulletList',
+    'numberList',
+    'checkList',
+    'link',
+].map((id) => `${PLUGIN_ID}:${id}`);
+const TOOLBAR_ALIGNMENTS = [
+    'left',
+    'center',
+    'right',
+];
+const DEFAULT_TOOLBAR = {
+    enabled: false,
+    commands: DEFAULT_TOOLBAR_COMMANDS,
+    // Left, because that is where the text starts.
+    alignment: 'left',
+};
+/** Anything unrecognised falls back to the default rather than to no layout. */
+function normaliseToolbarAlignment(value) {
+    return TOOLBAR_ALIGNMENTS.includes(value)
+        ? value
+        : DEFAULT_TOOLBAR.alignment;
+}
+/**
+ * Every registered command, in the order a person would look for one.
+ *
+ * Takes the whole register on purpose. Obsidian also offers `listCommands()`,
+ * which answers a different question - what can run *right now* - and with the
+ * settings dialog focused there is no editor, so every command that writes to a
+ * note is missing from it. That is all but one of this plugin's and most of
+ * Obsidian's, which is exactly what the picker is for.
+ *
+ * This plugin's own commands come first, and that ordering matters rather than
+ * being a courtesy: a suggester renders only its first screenful until a query
+ * narrows it. Obsidian prefixes every command name with the plugin it belongs
+ * to, so sorting the whole register by name buries this one's under M, behind
+ * several hundred of Obsidian's - present, findable by typing, and invisible to
+ * anyone who scrolls.
+ */
+function sortedCommands(commands) {
+    const all = Object.values(commands || {});
+    const byName = (a, b) => (a.name || '').localeCompare(b.name || '');
+    const isOwn = (command) => (command.id || '').startsWith(`${PLUGIN_ID}:`);
+    return [
+        ...all.filter(isOwn).sort(byName),
+        ...all.filter((command) => !isOwn(command)).sort(byName),
+    ];
+}
+/**
+ * Rebuilds the stored list into something safe to render.
+ *
+ * Anything at all can be in a settings file - it is hand-editable, it is
+ * synced between machines, and it is written by older versions of this plugin.
+ * A duplicate id is the interesting case: two buttons would run the same
+ * command, and removing one of them would look like it removed both.
+ */
+function normaliseToolbarCommands(value) {
+    if (!Array.isArray(value))
+        return [...DEFAULT_TOOLBAR_COMMANDS];
+    const seen = new Set();
+    const commands = [];
+    for (const entry of value) {
+        if (typeof entry !== 'string')
+            continue;
+        const id = entry.trim();
+        if (!id || seen.has(id))
+            continue;
+        seen.add(id);
+        commands.push(id);
+        if (commands.length === MAX_TOOLBAR_COMMANDS)
+            break;
+    }
+    return commands;
+}
+
+const TOOLBAR_CLASS = 'mfa-toolbar';
+function getCommandRegistry(plugin) {
+    // @ts-ignore - see the note above.
+    return plugin.app.commands;
+}
+/** Everything registered, sorted - see sortedCommands for why not listCommands. */
+function allCommands(registry) {
+    return sortedCommands(registry.commands);
+}
+/**
+ * A row of buttons above the note.
+ *
+ * Obsidian publishes no place to put one, so the element is inserted into the
+ * markdown view's own content container. That is a dependency on the app's
+ * layout rather than on its API, which is the price of the feature: it is the
+ * first thing to check if a future Obsidian release moves the toolbar or
+ * loses it.
+ *
+ * Everything is torn down again in `detachAll`, called from the plugin's
+ * onunload, because an element left behind would outlive the plugin.
+ */
+class EditorToolbar {
+    constructor(plugin, settings) {
+        this.plugin = plugin;
+        this.settings = settings;
+        /**
+         * Every bar this instance built.
+         *
+         * Kept rather than searched for at teardown time. A note moved to its own
+         * window gets a bar too - getLeavesOfType covers floating leaves - and that
+         * window has its own `document`, which a query from here would never reach.
+         * Holding the elements sidesteps the question of which realm each is in.
+         */
+        this.bars = new Set();
+    }
+    /** Starts watching for panes to decorate. */
+    start() {
+        const { workspace } = this.plugin.app;
+        // Both are needed: opening a tab is a layout change, moving between
+        // existing tabs is not.
+        this.plugin.registerEvent(workspace.on('layout-change', () => this.refresh()));
+        this.plugin.registerEvent(workspace.on('active-leaf-change', () => this.refresh()));
+        workspace.onLayoutReady(() => this.refresh());
+    }
+    /** Brings every open markdown pane in line with the current settings. */
+    refresh() {
+        const { enabled, commands, alignment } = this.settings();
+        this.plugin.app.workspace.getLeavesOfType('markdown').forEach((leaf) => {
+            const view = leaf.view;
+            if (!(view instanceof obsidian.MarkdownView))
+                return;
+            // Reading mode has no editor to write to, and every button here writes.
+            const wanted = enabled && commands.length > 0 && view.getMode() === 'source';
+            this.apply(leaf, view, wanted ? commands : [], alignment);
+        });
+    }
+    /** Removes every toolbar this plugin put on the page. */
+    detachAll() {
+        this.bars.forEach((bar) => bar.remove());
+        this.bars.clear();
+    }
+    discard(bar) {
+        if (!bar)
+            return;
+        this.bars.delete(bar);
+        bar.remove();
+    }
+    apply(leaf, view, commands, alignment) {
+        const registry = getCommandRegistry(this.plugin);
+        const host = view.contentEl;
+        const existing = host.querySelector(`:scope > .${TOOLBAR_CLASS}`);
+        // What can actually be drawn. A command is missing while the plugin that
+        // registered it is disabled, and that has to be part of the comparison
+        // below: otherwise re-enabling that plugin leaves the button missing until
+        // something else forces a rebuild.
+        const drawable = commands.filter((id) => registry.commands[id]);
+        if (drawable.length === 0) {
+            this.discard(existing);
+            return;
+        }
+        // Rebuilding on every pane switch would be wasteful and would drop the
+        // focus ring mid-click, so what was rendered is stamped on the element and
+        // compared first. The alignment is in the stamp too: it is a class on the
+        // same element, and a change to it has to reach a pane already on screen.
+        const signature = [alignment, ...drawable].join('\n');
+        if (existing instanceof HTMLElement) {
+            if (existing.dataset.signature === signature)
+                return;
+        }
+        this.discard(existing);
+        // Built through the host so it belongs to that pane's document - a popout
+        // window has its own, and an element made here would be foreign to it.
+        const bar = host.createDiv({
+            cls: `${TOOLBAR_CLASS} is-align-${alignment}`,
+        });
+        bar.dataset.signature = signature;
+        this.fill(bar, leaf, view, drawable, registry);
+        this.bars.add(bar);
+        // createDiv appends; the bar belongs above the note, not below it.
+        host.prepend(bar);
+    }
+    fill(bar, leaf, view, commands, registry) {
+        commands.forEach((id) => {
+            const command = registry.commands[id];
+            if (!command)
+                return;
+            const button = bar.createEl('button', {
+                cls: 'mfa-toolbar-button clickable-icon',
+            });
+            button.setAttribute('aria-label', command.name);
+            button.type = 'button';
+            if (command.icon) {
+                obsidian.setIcon(button, command.icon);
+            }
+            else {
+                button.setText(shortLabel(command.name));
+            }
+            // Focus moves on mousedown, before any click handler runs, so this is
+            // the only place it can be stopped. Left alone the caret lands on the
+            // button: the note stops receiving what is typed, and the next Space or
+            // Enter activates the button again and undoes the command.
+            button.addEventListener('mousedown', (event) => event.preventDefault());
+            button.addEventListener('click', () => {
+                // Commands run against whatever Obsidian considers active, and with
+                // the focus steal suppressed a click no longer makes that this pane.
+                // With two notes side by side the button would otherwise write into
+                // the other one.
+                this.plugin.app.workspace.setActiveLeaf(leaf, { focus: true });
+                view.editor.focus();
+                registry.executeCommandById(id);
+            });
+        });
+    }
+}
+
+/** The drag payload for reordering toolbar buttons. */
+const DRAG_PAYLOAD = 'toolbarButtonIndex';
+/** Preselected in the saved-colours picker, so it never opens on black. */
+const DEFAULT_PICKER_COLOR = '#448aff';
+const DEFAULT_SETTINGS = {
+    language: AUTO_LOCALE,
     sidePaneSideLeft: false,
+    panelAlignment: DEFAULT_PANEL_ALIGNMENT,
     savedColors: ['#ff0000'],
-    aviabileRegions: [
-        'textEdit',
-        'tabels',
-        'html',
-        'latex',
-        'greekLetters',
-        'colors',
-        'callouts',
-    ],
     regionSettings: [
         { name: 'textEdit', active: true, visible: false },
         { name: 'tables', active: true, visible: false },
@@ -4766,367 +6573,392 @@ var DEFAULT_SETTINGS = {
         { name: 'colors', active: true, visible: false },
         { name: 'callouts', active: true, visible: false },
     ],
+    tableAlignment: 'default',
+    calloutTitles: true,
+    toolbar: DEFAULT_TOOLBAR,
 };
-var MarkdownAutocompletePlugin = /** @class */ (function (_super) {
-    __extends(MarkdownAutocompletePlugin, _super);
-    function MarkdownAutocompletePlugin() {
-        var _this = _super !== null && _super.apply(this, arguments) || this;
-        _this.toggleSidePanelControlView = function () { return __awaiter(_this, void 0, void 0, function () {
-            return __generator(this, function (_a) {
-                switch (_a.label) {
-                    case 0:
-                        // const existing = this.app.workspace.getLeavesOfType(
-                        //   SidePanelControlViewType,
-                        // );
-                        // if (existing.length) {
-                        //   this.app.workspace.revealLeaf(existing[0]);
-                        //   return;
-                        // }
-                        this.app.workspace.detachLeavesOfType(SidePanelControlViewType);
-                        if (!this.settings.sidePaneSideLeft) return [3 /*break*/, 2];
-                        return [4 /*yield*/, this.app.workspace.getLeftLeaf(false).setViewState({
-                                type: SidePanelControlViewType,
-                                active: true,
-                            })];
-                    case 1:
-                        _a.sent();
-                        return [3 /*break*/, 4];
-                    case 2: return [4 /*yield*/, this.app.workspace.getRightLeaf(false).setViewState({
-                            type: SidePanelControlViewType,
-                            active: true,
-                        })];
-                    case 3:
-                        _a.sent();
-                        _a.label = 4;
-                    case 4:
-                        this.app.workspace.revealLeaf(this.app.workspace.getLeavesOfType(SidePanelControlViewType)[0]);
-                        return [2 /*return*/];
-                }
+/** Order the section toggles appear in the settings tab. */
+const SECTION_ORDER = DEFAULT_SETTINGS.regionSettings.map((region) => region.name);
+class MarkdownAutocompletePlugin extends obsidian.Plugin {
+    constructor() {
+        super(...arguments);
+        this.toggleSidePanelControlView = async () => {
+            const { workspace } = this.app;
+            // Detaching first is what lets the ribbon icon move the panel to the other
+            // side after the setting changes.
+            workspace.detachLeavesOfType(SidePanelControlViewType);
+            // Both getters return null when the sidebar cannot host a leaf.
+            const leaf = this.settings.sidePaneSideLeft
+                ? workspace.getLeftLeaf(false)
+                : workspace.getRightLeaf(false);
+            if (!leaf) {
+                new obsidian.Notice(t('panel.noLeaf'));
+                return;
+            }
+            await leaf.setViewState({
+                type: SidePanelControlViewType,
+                active: true,
             });
-        }); };
-        return _this;
+            await workspace.revealLeaf(leaf);
+        };
     }
-    MarkdownAutocompletePlugin.prototype.onload = function () {
-        return __awaiter(this, void 0, void 0, function () {
-            var _this = this;
-            return __generator(this, function (_a) {
-                switch (_a.label) {
-                    case 0:
-                        console.log('loading obsidian-markdown-formatting-assistant-plugin');
-                        return [4 /*yield*/, this.loadSettings()];
-                    case 1:
-                        _a.sent();
-                        addIcons();
-                        this.registerView(SidePanelControlViewType, function (leaf) {
-                            _this.sidePanelControlView = new SidePanelControlView(leaf, _this);
-                            return _this.sidePanelControlView;
-                        });
-                        this.addRibbonIcon('viewIcon', 'Open Markdown Formatting Assistant', function () {
-                            _this.toggleSidePanelControlView();
-                        });
-                        this.addCommand({
-                            id: 'open-command-selector',
-                            name: 'Open Command Selector',
-                            hotkeys: [{ modifiers: ['Alt'], key: 'q' }],
-                            editorCallback: function (editor, view) {
-                                CodeSuggestionModal.display(_this.app, editor);
-                            },
-                        });
-                        this.addCommand({
-                            id: 'open-callouts-selector',
-                            name: 'Open Callouts Selector',
-                            hotkeys: [{ modifiers: ['Alt'], key: 'c' }],
-                            editorCallback: function (editor, view) {
-                                CalloutsSuggestionModal.display(_this.app, editor);
-                            },
-                        });
-                        this.addSettingTab(new SettingsTab(this.app, this));
-                        return [2 /*return*/];
-                }
-            });
+    async onload() {
+        await this.loadSettings();
+        // Has to happen before anything renders a label.
+        setLocale(this.settings.language);
+        addIcons();
+        this.registerView(SidePanelControlViewType, (leaf) => new SidePanelControlView(leaf, this));
+        this.addRibbonIcon('viewIcon', t('command.openPanel'), () => {
+            this.toggleSidePanelControlView();
         });
-    };
-    MarkdownAutocompletePlugin.prototype.onunload = function () { };
-    MarkdownAutocompletePlugin.prototype.loadSettings = function () {
-        return __awaiter(this, void 0, void 0, function () {
-            var _a, _b, _c, _d;
-            return __generator(this, function (_e) {
-                switch (_e.label) {
-                    case 0:
-                        _a = this;
-                        _c = (_b = Object).assign;
-                        _d = [DEFAULT_SETTINGS];
-                        return [4 /*yield*/, this.loadData()];
-                    case 1:
-                        _a.settings = _c.apply(_b, _d.concat([_e.sent()]));
-                        return [2 /*return*/];
-                }
-            });
+        this.addCommand({
+            id: 'open-command-selector',
+            name: t('command.openCommandSelector'),
+            hotkeys: [{ modifiers: ['Alt'], key: 'q' }],
+            editorCallback: (editor, view) => {
+                CodeSuggestionModal.display(this.app, editor);
+            },
         });
-    };
-    MarkdownAutocompletePlugin.prototype.saveSettings = function () {
-        return __awaiter(this, void 0, void 0, function () {
-            return __generator(this, function (_a) {
-                switch (_a.label) {
-                    case 0: return [4 /*yield*/, this.saveData(this.settings)];
-                    case 1:
-                        _a.sent();
-                        return [2 /*return*/];
-                }
-            });
+        this.addCommand({
+            id: 'open-callouts-selector',
+            name: t('command.openCalloutsSelector'),
+            hotkeys: [{ modifiers: ['Alt'], key: 'c' }],
+            editorCallback: (editor, view) => {
+                CalloutsSuggestionModal.display(this.app, editor, this.settings.calloutTitles);
+            },
         });
-    };
-    return MarkdownAutocompletePlugin;
-}(obsidian.Plugin));
-var SettingsTab = /** @class */ (function (_super) {
-    __extends(SettingsTab, _super);
-    function SettingsTab(app, plugin) {
-        var _this = _super.call(this, app, plugin) || this;
-        _this.plugin = plugin;
-        return _this;
+        // The panel had only the ribbon icon, which is the one thing a keyboard
+        // cannot reach.
+        this.addCommand({
+            id: 'toggle-side-panel',
+            name: t('command.openPanel'),
+            callback: () => {
+                void this.toggleSidePanelControlView();
+            },
+        });
+        registerFormattingCommands(this, () => this.settings.calloutTitles);
+        this.toolbar = new EditorToolbar(this, () => this.settings.toolbar);
+        this.toolbar.start();
+        this.addSettingTab(new SettingsTab(this.app, this));
     }
-    SettingsTab.prototype.close = function () {
-        console.log('closed');
-        _super.prototype.hide.call(this);
-    };
-    SettingsTab.prototype.display = function () {
-        return __awaiter(this, void 0, void 0, function () {
-            var containerEl, getRegion;
-            var _this = this;
-            return __generator(this, function (_a) {
-                containerEl = this.containerEl;
-                containerEl.empty();
-                containerEl.createEl('h2', {
-                    text: 'Markdown Formatting Assistant Settings',
-                });
-                new obsidian.Setting(containerEl)
-                    .setName('Trigger Char')
-                    .setDesc('Char which triggers the autocompletion')
-                    .addText(function (text) {
-                    return text
-                        .setPlaceholder('Enter a char to trigger the autocompletion')
-                        .setValue(_this.plugin.settings.triggerChar)
-                        .onChange(function (value) { return __awaiter(_this, void 0, void 0, function () {
-                        return __generator(this, function (_a) {
-                            switch (_a.label) {
-                                case 0:
-                                    this.plugin.settings.triggerChar = value;
-                                    return [4 /*yield*/, this.plugin.saveSettings()];
-                                case 1:
-                                    _a.sent();
-                                    return [2 /*return*/];
-                            }
-                        });
-                    }); });
-                });
-                new obsidian.Setting(containerEl)
-                    .setName('Side Pane Side')
-                    .setDesc('Choose on which side the Side Pane accours. ()')
-                    .addText(function (text) {
-                    return text
-                        .setPlaceholder('Enter left or right')
-                        .setValue(_this.plugin.settings.sidePaneSideLeft ? 'left' : 'right')
-                        .onChange(function (value) { return __awaiter(_this, void 0, void 0, function () {
-                        return __generator(this, function (_a) {
-                            switch (_a.label) {
-                                case 0:
-                                    this.plugin.settings.sidePaneSideLeft =
-                                        value === 'left' ? true : false;
-                                    return [4 /*yield*/, this.plugin.saveSettings()];
-                                case 1:
-                                    _a.sent();
-                                    return [2 /*return*/];
-                            }
-                        });
-                    }); });
-                });
-                getRegion = function (name) {
-                    return _this.plugin.settings.regionSettings.find(function (item) { return item.name === name; });
-                };
-                new obsidian.Setting(containerEl)
-                    .setName('Toggle Text Section')
-                    .setDesc('Activate or deactivate the Text Editor section. (restart required)')
-                    .addToggle(function (comp) {
-                    comp.setValue(getRegion('textEdit').active).onChange(function (e) { return __awaiter(_this, void 0, void 0, function () {
-                        var region;
-                        return __generator(this, function (_a) {
-                            switch (_a.label) {
-                                case 0:
-                                    region = getRegion('textEdit');
-                                    region.active = e;
-                                    return [4 /*yield*/, this.plugin.saveSettings()];
-                                case 1:
-                                    _a.sent();
-                                    return [2 /*return*/];
-                            }
-                        });
-                    }); });
-                });
-                new obsidian.Setting(containerEl)
-                    .setName('Toggle Tabels Section')
-                    .setDesc('Activate or deactivate the Greek Letters section. (restart required)')
-                    .addToggle(function (comp) {
-                    comp.setValue(getRegion('tables').active).onChange(function (e) { return __awaiter(_this, void 0, void 0, function () {
-                        var region;
-                        return __generator(this, function (_a) {
-                            switch (_a.label) {
-                                case 0:
-                                    region = getRegion('tables');
-                                    region.active = e;
-                                    return [4 /*yield*/, this.plugin.saveSettings()];
-                                case 1:
-                                    _a.sent();
-                                    return [2 /*return*/];
-                            }
-                        });
-                    }); });
-                });
-                new obsidian.Setting(containerEl)
-                    .setName('Toggle HTML Section')
-                    .setDesc('Activate or deactivate the HTML section. (restart required)')
-                    .addToggle(function (comp) {
-                    comp.setValue(getRegion('html').active).onChange(function (e) { return __awaiter(_this, void 0, void 0, function () {
-                        var region;
-                        return __generator(this, function (_a) {
-                            switch (_a.label) {
-                                case 0:
-                                    region = getRegion('html');
-                                    region.active = e;
-                                    return [4 /*yield*/, this.plugin.saveSettings()];
-                                case 1:
-                                    _a.sent();
-                                    return [2 /*return*/];
-                            }
-                        });
-                    }); });
-                });
-                new obsidian.Setting(containerEl)
-                    .setName('Toggle Colors Section')
-                    .setDesc('Activate or deactivate the Colors section. (restart required)')
-                    .addToggle(function (comp) {
-                    comp.setValue(getRegion('colors').active).onChange(function (e) { return __awaiter(_this, void 0, void 0, function () {
-                        var region;
-                        return __generator(this, function (_a) {
-                            switch (_a.label) {
-                                case 0:
-                                    region = getRegion('colors');
-                                    region.active = e;
-                                    return [4 /*yield*/, this.plugin.saveSettings()];
-                                case 1:
-                                    _a.sent();
-                                    return [2 /*return*/];
-                            }
-                        });
-                    }); });
-                });
-                new obsidian.Setting(containerEl)
-                    .setName('Toggle Latex Section')
-                    .setDesc('Activate or deactivate the Latex section. (restart required)')
-                    .addToggle(function (comp) {
-                    comp.setValue(getRegion('latex').active).onChange(function (e) { return __awaiter(_this, void 0, void 0, function () {
-                        var region;
-                        return __generator(this, function (_a) {
-                            switch (_a.label) {
-                                case 0:
-                                    region = getRegion('latex');
-                                    region.active = e;
-                                    return [4 /*yield*/, this.plugin.saveSettings()];
-                                case 1:
-                                    _a.sent();
-                                    return [2 /*return*/];
-                            }
-                        });
-                    }); });
-                });
-                new obsidian.Setting(containerEl)
-                    .setName('Toggle Greek Letters Section')
-                    .setDesc('Activate or deactivate the Greek Letters section. (restart required)')
-                    .addToggle(function (comp) {
-                    comp.setValue(getRegion('greekLetters').active).onChange(function (e) { return __awaiter(_this, void 0, void 0, function () {
-                        var region;
-                        return __generator(this, function (_a) {
-                            switch (_a.label) {
-                                case 0:
-                                    region = getRegion('greekLetters');
-                                    region.active = e;
-                                    return [4 /*yield*/, this.plugin.saveSettings()];
-                                case 1:
-                                    _a.sent();
-                                    return [2 /*return*/];
-                            }
-                        });
-                    }); });
-                });
-                new obsidian.Setting(containerEl)
-                    .setName('Saved Colors')
-                    .setDesc('Colors which are saved vie the color picker. The order will be also considered. Requiers a restart of obsidian.')
-                    .addTextArea(function (text) {
-                    text.inputEl.style.minHeight = '400px';
-                    text
-                        .setValue(_this.plugin.settings.savedColors
-                        .reverse()
-                        .map(function (color, i) { return color; })
-                        .join('\n'))
-                        .onChange(function (value) { return __awaiter(_this, void 0, void 0, function () {
-                        var colors, filteredColors;
-                        return __generator(this, function (_a) {
-                            switch (_a.label) {
-                                case 0:
-                                    colors = value.split('\n').reverse();
-                                    filteredColors = colors.filter(function (color) {
-                                        return /^#[0-9A-F]{6}$/i.test(color);
-                                    });
-                                    this.plugin.settings.savedColors = filteredColors;
-                                    return [4 /*yield*/, this.plugin.saveSettings()];
-                                case 1:
-                                    _a.sent();
-                                    return [2 /*return*/];
-                            }
-                        });
-                    }); });
-                    text.inputEl.addEventListener('focusout', function (ev) {
-                        // @ts-ignore
-                        var colors = ev.target.value.split('\n').reverse();
-                        // @ts-ignore
-                        colors.map(function (color, i) {
-                            var isHex = /^#[0-9A-F]{6}$/i.test(color);
-                            if (!isHex) {
-                                new obsidian.Notice('The color ' +
-                                    color +
-                                    'on Line' +
-                                    (i + 1) +
-                                    " has the wrong format and wan't be saved.");
-                            }
-                        });
-                    });
-                });
-                new obsidian.Setting(containerEl)
-                    .setName('Toggle Callouts Section')
-                    .setDesc('Activate or deactivate the Callouts section. (restart required)')
-                    .addToggle(function (comp) {
-                    comp.setValue(getRegion('callouts').active).onChange(function (e) { return __awaiter(_this, void 0, void 0, function () {
-                        var region;
-                        return __generator(this, function (_a) {
-                            switch (_a.label) {
-                                case 0:
-                                    region = getRegion('callouts');
-                                    region.active = e;
-                                    return [4 /*yield*/, this.plugin.saveSettings()];
-                                case 1:
-                                    _a.sent();
-                                    return [2 /*return*/];
-                            }
-                        });
-                    }); });
-                });
-                return [2 /*return*/];
+    onunload() {
+        // Views, commands, the ribbon icon and the settings tab are torn down by
+        // Plugin itself. These two are the exception: addIcon is a module-level
+        // function outside that lifecycle, and the toolbar lives in the markdown
+        // view's own container rather than in anything the plugin owns.
+        removeIcons();
+        this.toolbar?.detachAll();
+    }
+    async loadSettings() {
+        // Merge into a fresh object - assigning onto DEFAULT_SETTINGS would
+        // permanently overwrite the defaults for the rest of the session.
+        this.settings = Object.assign({}, DEFAULT_SETTINGS, await this.loadData());
+        // The merge is shallow, so every array either comes straight off disk -
+        // where it may be anything at all - or IS the default array itself. Both
+        // need handling: a malformed value would throw here and take the whole
+        // plugin down with it, and mutating a default would poison it for the
+        // session. Rebuilding each one solves both at once.
+        const storedRegions = Array.isArray(this.settings.regionSettings)
+            ? this.settings.regionSettings
+            : DEFAULT_SETTINGS.regionSettings;
+        this.settings.regionSettings = storedRegions
+            .filter((region) => region && typeof region.name === 'string')
+            // A section removed since the file was written has no renderer any more,
+            // so keeping its entry would only leave a dead toggle behind.
+            .filter((region) => SECTION_ORDER.includes(region.name))
+            .map((region) => ({
+            name: region.name,
+            active: region.active !== false,
+            visible: region.visible === true,
+        }));
+        // A settings file written by an older version lacks sections added since.
+        const known = this.settings.regionSettings.map((region) => region.name);
+        DEFAULT_SETTINGS.regionSettings
+            .filter((region) => !known.includes(region.name))
+            .forEach((region) => this.settings.regionSettings.push({ ...region }));
+        this.settings.savedColors = (Array.isArray(this.settings.savedColors)
+            ? this.settings.savedColors
+            : DEFAULT_SETTINGS.savedColors).filter((color) => typeof color === 'string');
+        this.settings.panelAlignment = normalisePanelAlignment(this.settings.panelAlignment);
+        const stored = this.settings.toolbar;
+        this.settings.toolbar = {
+            enabled: Boolean(stored && stored.enabled),
+            commands: normaliseToolbarCommands(stored && stored.commands),
+            alignment: normaliseToolbarAlignment(stored && stored.alignment),
+        };
+    }
+    async saveSettings() {
+        await this.saveData(this.settings);
+    }
+    /** Every open panel, so the alignment changes without reopening it. */
+    applyPanelAlignment() {
+        this.app.workspace
+            .getLeavesOfType(SidePanelControlViewType)
+            .forEach((leaf) => {
+            // A leaf restored from the saved layout but not yet shown holds a
+            // placeholder view; it draws with the current setting when revealed.
+            if (leaf.view instanceof SidePanelControlView) {
+                leaf.view.applyAlignment();
+            }
+        });
+    }
+}
+class SettingsTab extends obsidian.PluginSettingTab {
+    constructor(app, plugin) {
+        super(app, plugin);
+        /**
+         * Text fields fire on every keystroke and each save rewrites data.json in
+         * full, so a 200-character template meant 200 rewrites - and on a synced
+         * vault, 200 chances at a conflict. Coalescing them costs nothing: the
+         * in-memory settings are already up to date when the panel reads them.
+         */
+        this.saveSoon = obsidian.debounce(() => {
+            void this.plugin.saveSettings();
+        }, 400, true);
+        this.plugin = plugin;
+    }
+    /**
+     * Obsidian calls this when the tab goes away. Whatever the debounce is still
+     * holding has to be written now: quitting within 400 ms of the last
+     * keystroke used to lose the setting that was just typed.
+     */
+    hide() {
+        this.saveSoon.run();
+    }
+    // Must stay synchronous: other plugins (e.g. Settings Search) call display()
+    // and read containerEl straight after, which sees nothing if this returns a
+    // promise instead of a filled container.
+    display() {
+        let { containerEl } = this;
+        containerEl.empty();
+        // Scopes the stylesheet's overrides of Obsidian's own button classes to
+        // this tab, so they cannot restyle the rest of the app.
+        containerEl.addClass('mfa-scope');
+        new obsidian.Setting(containerEl)
+            .setName(t('settings.language.name'))
+            .setDesc(t('settings.language.desc'))
+            .addDropdown((dropdown) => {
+            dropdown.addOption(AUTO_LOCALE, t('settings.language.auto'));
+            SUPPORTED_LOCALES.forEach((code) => dropdown.addOption(code, LOCALE_NAMES[code]));
+            dropdown
+                .setValue(this.plugin.settings.language)
+                .onChange(async (value) => {
+                this.plugin.settings.language = value;
+                setLocale(this.plugin.settings.language);
+                await this.plugin.saveSettings();
+                // Redraw so the change is visible without reopening the tab.
+                this.display();
             });
         });
-    };
-    return SettingsTab;
-}(obsidian.PluginSettingTab));
+        new obsidian.Setting(containerEl)
+            .setName(t('settings.sidePaneSide.name'))
+            .setDesc(t('settings.sidePaneSide.desc'))
+            .addText((text) => text
+            .setPlaceholder(t('settings.sidePaneSide.placeholder'))
+            .setValue(this.plugin.settings.sidePaneSideLeft ? 'left' : 'right')
+            .onChange((value) => {
+            this.plugin.settings.sidePaneSideLeft =
+                value === 'left' ? true : false;
+            this.saveSoon();
+        }));
+        new obsidian.Setting(containerEl)
+            .setName(t('settings.panelAlign.name'))
+            .setDesc(t('settings.panelAlign.desc'))
+            .addDropdown((dropdown) => {
+            PANEL_ALIGNMENTS.forEach((option) => dropdown.addOption(option, t(`settings.align.${option}`)));
+            dropdown
+                .setValue(this.plugin.settings.panelAlignment)
+                .onChange(async (value) => {
+                this.plugin.settings.panelAlignment = normalisePanelAlignment(value);
+                this.plugin.applyPanelAlignment();
+                await this.plugin.saveSettings();
+            });
+        });
+        new obsidian.Setting(containerEl)
+            .setName(t('settings.calloutTitles.name'))
+            .setDesc(t('settings.calloutTitles.desc'))
+            .addToggle((comp) => {
+            comp
+                .setValue(this.plugin.settings.calloutTitles)
+                .onChange(async (value) => {
+                this.plugin.settings.calloutTitles = value;
+                await this.plugin.saveSettings();
+            });
+        });
+        const getRegion = (name) => {
+            return this.plugin.settings.regionSettings.find((item) => item.name === name);
+        };
+        // One templated pair of strings instead of seven hand-written ones - which
+        // is also how the old copy-paste mix-ups got fixed, where the Tables toggle
+        // described the Greek Letters section.
+        SECTION_ORDER.forEach((regionName) => {
+            const region = getRegion(regionName);
+            // A settings file written by an older version may not list every region.
+            if (!region)
+                return;
+            const section = sectionLabel(regionName);
+            new obsidian.Setting(containerEl)
+                .setName(t('settings.toggleSection.name', { section }))
+                .setDesc(t('settings.toggleSection.desc', { section }))
+                .addToggle((comp) => {
+                comp.setValue(region.active).onChange(async (value) => {
+                    region.active = value;
+                    await this.plugin.saveSettings();
+                });
+            });
+        });
+        this.addSavedColorSettings(containerEl);
+        this.addToolbarSettings(containerEl);
+    }
+    /**
+     * The toolbar above the note: whether to show it, and which buttons.
+     *
+     * A button is a command id and nothing more, so this list can hold anything
+     * the vault has registered - Obsidian's own commands and other plugins' as
+     * readily as this one's.
+     */
+    addToolbarSettings(containerEl) {
+        const toolbar = this.plugin.settings.toolbar;
+        new obsidian.Setting(containerEl)
+            .setName(t('settings.toolbar.name'))
+            .setDesc(t('settings.toolbar.desc'))
+            .addToggle((toggle) => toggle.setValue(toolbar.enabled).onChange(async (value) => {
+            toolbar.enabled = value;
+            await this.plugin.saveSettings();
+            this.plugin.toolbar.refresh();
+            // Redraw so the button list appears or goes away with the toggle.
+            this.display();
+        }));
+        if (!toolbar.enabled)
+            return;
+        new obsidian.Setting(containerEl)
+            .setName(t('settings.toolbar.align.name'))
+            .setDesc(t('settings.toolbar.align.desc'))
+            .addDropdown((dropdown) => {
+            TOOLBAR_ALIGNMENTS.forEach((option) => dropdown.addOption(option, t(`settings.align.${option}`)));
+            dropdown.setValue(toolbar.alignment).onChange(async (value) => {
+                toolbar.alignment = normaliseToolbarAlignment(value);
+                await this.plugin.saveSettings();
+                this.plugin.toolbar.refresh();
+            });
+        });
+        const registry = getCommandRegistry(this.plugin);
+        // Redraw before the write, never after. Awaiting first leaves the old rows
+        // on screen and clickable for the whole of it, and each of them closes over
+        // the position it was rendered at - so a second click removes whatever has
+        // since moved into that slot. Double-clicking a button's x used to delete
+        // its neighbour. The saved-colour swatches already work this way.
+        const commit = (commands) => {
+            toolbar.commands = commands;
+            this.display();
+            this.plugin.toolbar.refresh();
+            void this.plugin.saveSettings();
+        };
+        const list = containerEl.createDiv({ cls: 'mfa-toolbar-editor' });
+        if (toolbar.commands.length === 0) {
+            list
+                .createDiv({ cls: 'mfa-toolbar-empty' })
+                .setText(t('settings.toolbar.empty'));
+        }
+        toolbar.commands.forEach((id, index) => {
+            const command = registry.commands[id];
+            const row = list.createDiv({ cls: 'mfa-toolbar-item' });
+            row.draggable = true;
+            const icon = row.createSpan({ cls: 'mfa-toolbar-item-icon' });
+            if (command && command.icon) {
+                obsidian.setIcon(icon, command.icon);
+            }
+            // A command vanishes when its plugin is disabled or uninstalled. The
+            // entry is kept - it works again when the plugin returns - but saying so
+            // beats showing a blank row.
+            row
+                .createSpan({ cls: 'mfa-toolbar-item-name' })
+                .setText(command ? command.name : t('settings.toolbar.unavailable', { id }));
+            if (!command)
+                row.addClass('is-unavailable');
+            const remove = row.createSpan({ cls: 'mfa-toolbar-item-remove' });
+            obsidian.setIcon(remove, 'x');
+            remove.setAttribute('aria-label', t('settings.toolbar.remove'));
+            remove.onClickEvent(() => {
+                commit(toolbar.commands.filter((_, at) => at !== index));
+            });
+            // Named like the panel's own drag payload rather than with the mfa-
+            // prefix, which throughout this project means a CSS class - and there is
+            // a test that holds it to that.
+            row.ondragstart = (event) => {
+                event.dataTransfer?.setData(DRAG_PAYLOAD, String(index));
+            };
+            row.ondragover = (event) => {
+                event.preventDefault();
+            };
+            row.ondrop = (event) => {
+                event.preventDefault();
+                // Every row accepts any drag, so the payload has to be checked rather
+                // than trusted. getData returns '' for a format that was never set,
+                // and Number('') is 0 - a perfectly valid index, which used to send
+                // the first button wherever a stray text selection was dropped.
+                const payload = event.dataTransfer?.getData(DRAG_PAYLOAD);
+                if (!payload)
+                    return;
+                commit(moveItem(toolbar.commands, Number(payload), index));
+            };
+        });
+        new obsidian.Setting(containerEl)
+            .setName(t('settings.toolbar.add'))
+            .setDesc(t('settings.toolbar.addDesc', { max: String(MAX_TOOLBAR_COMMANDS) }))
+            .addButton((button) => button
+            .setButtonText(t('settings.toolbar.add'))
+            .setCta()
+            .setDisabled(toolbar.commands.length >= MAX_TOOLBAR_COMMANDS)
+            .onClick(() => {
+            CommandPickerModal.open(this.app, allCommands(registry), toolbar.commands, t('settings.toolbar.pick'), (id) => void commit([...toolbar.commands, id]));
+        }));
+    }
+    /**
+     * Saved colours as swatches rather than a text field.
+     *
+     * The old version was a textarea pinned to 400px whatever it held, and it
+     * asked people to type hex codes by hand - so it also needed a validator and
+     * a warning for malformed lines. Showing the actual colours removes all of
+     * that: a swatch cannot be misspelled.
+     */
+    addSavedColorSettings(containerEl) {
+        const colors = this.plugin.settings.savedColors;
+        const setting = new obsidian.Setting(containerEl)
+            .setName(t('settings.savedColors.name'))
+            .setDesc(t('settings.savedColors.desc'));
+        // Built into the control area ahead of the picker rather than left loose
+        // under the description, where they read as leftover decoration instead of
+        // as a control.
+        const swatches = setting.controlEl.createDiv({ cls: 'mfa-color-swatches' });
+        if (colors.length === 0) {
+            swatches.createSpan({ cls: 'mfa-color-empty' }).setText(t('settings.savedColors.empty'));
+        }
+        colors.forEach((color, index) => {
+            const swatch = swatches.createDiv({
+                cls: 'mfa-color-icon mfa-removable',
+            });
+            swatch.style.setProperty('--mfa-swatch', color);
+            swatch.setAttribute('aria-label', color);
+            swatch.title = `${color} - ${t('settings.savedColors.removeHint')}`;
+            // Redraw before awaiting the write: the old DOM stays live during the
+            // await, and a second click would still carry its stale index.
+            swatch.onClickEvent(() => {
+                colors.splice(index, 1);
+                this.display();
+                void this.plugin.saveSettings();
+            });
+        });
+        setting.addColorPicker((picker) => picker.setValue(DEFAULT_PICKER_COLOR).onChange(async (value) => {
+            if (colors.includes(value))
+                return;
+            colors.push(value);
+            await this.plugin.saveSettings();
+            this.display();
+        }));
+    }
+}
 
 module.exports = MarkdownAutocompletePlugin;
-
 
 /* nosourcemap */
