@@ -28,7 +28,7 @@ __export(main_exports, {
   default: () => CustomNoteWidth
 });
 module.exports = __toCommonJS(main_exports);
-var import_obsidian8 = require("obsidian");
+var import_obsidian9 = require("obsidian");
 
 // src/settings/settingsTab.ts
 var import_obsidian4 = require("obsidian");
@@ -56,11 +56,14 @@ var en = {
   "command.change_all_width.name": "Change the width for all notes",
   "command.change_all_width.modal_title": "Enter the width for all notes",
   "command.apply_pill_preset.name": "Apply pill preset {{index}}",
+  "command.create_diagnostics.name": "Create diagnostics report",
   // Notices
   "notice.slider_too_large": "Slider too large!",
   "notice.local_overrides_cleared": "Removed {{count}} local width override(s).",
   "notice.local_overrides_empty": "No local width overrides to clear.",
   "notice.yaml_key_forbidden": "This YAML key is not allowed.",
+  "notice.diagnostics_created": "Diagnostics report copied to the clipboard and saved to the plugin folder. Attach it to your GitHub issue.",
+  "notice.diagnostics_failed": "Could not write the diagnostics report. Check the developer console for details.",
   "modal.reset_overrides.title": "Reset local width overrides",
   "modal.reset_overrides.desc": "{{count}} note(s) have a locally stored width. Pick which ones to remove.",
   "modal.reset_overrides.search_placeholder": "Filter by path\u2026",
@@ -125,6 +128,10 @@ var en = {
   "settings.source_mode.desc": "Apply code block width in source/edit mode.",
   "settings.live_preview.name": "Live preview mode",
   "settings.live_preview.desc": "Apply code block width in live preview mode.",
+  // Settings — Diagnostics
+  "settings.diagnostics.name": "Diagnostics",
+  "settings.diagnostics.desc": "Create an anonymised diagnostics report to attach to a bug report on GitHub. It never includes note contents, file names, or vault paths.",
+  "settings.diagnostics.button": "Create diagnostics report",
   // Plugin info
   "plugin.loaded": "{{name}} v{{version}} loaded!",
   "plugin.unloaded": "{{name}} v{{version}} unloaded!"
@@ -141,11 +148,14 @@ var de = {
   "command.change_all_width.name": "Breite f\xFCr alle Notizen \xE4ndern",
   "command.change_all_width.modal_title": "Breite f\xFCr alle Notizen eingeben",
   "command.apply_pill_preset.name": "Pill-Voreinstellung {{index}} anwenden",
+  "command.create_diagnostics.name": "Diagnosebericht erstellen",
   // Notices
   "notice.slider_too_large": "Schieberegler zu gro\xDF!",
   "notice.local_overrides_cleared": "{{count}} lokale Breite(n) entfernt.",
   "notice.local_overrides_empty": "Keine lokalen Breiten zum Zur\xFCcksetzen.",
   "notice.yaml_key_forbidden": "Dieser YAML-Schl\xFCssel ist nicht erlaubt.",
+  "notice.diagnostics_created": "Diagnosebericht in die Zwischenablage kopiert und im Plugin-Ordner gespeichert. H\xE4nge ihn an dein GitHub-Issue an.",
+  "notice.diagnostics_failed": "Diagnosebericht konnte nicht geschrieben werden. Details stehen in der Entwicklerkonsole.",
   "modal.reset_overrides.title": "Lokale Notizbreiten zur\xFCcksetzen",
   "modal.reset_overrides.desc": "{{count}} Notiz(en) haben eine lokal gespeicherte Breite. W\xE4hle aus, welche entfernt werden sollen.",
   "modal.reset_overrides.search_placeholder": "Nach Pfad filtern\u2026",
@@ -210,6 +220,10 @@ var de = {
   "settings.source_mode.desc": "Codeblock-Breite im Quell-/Bearbeitungsmodus anwenden.",
   "settings.live_preview.name": "Live-Vorschau",
   "settings.live_preview.desc": "Codeblock-Breite im Live-Vorschaumodus anwenden.",
+  // Settings — Diagnostics
+  "settings.diagnostics.name": "Diagnose",
+  "settings.diagnostics.desc": "Erstellt einen anonymisierten Diagnosebericht f\xFCr einen Fehlerbericht auf GitHub. Er enth\xE4lt nie Notizinhalte, Dateinamen oder Pfade.",
+  "settings.diagnostics.button": "Diagnosebericht erstellen",
   // Plugin info
   "plugin.loaded": "{{name}} v{{version}} geladen!",
   "plugin.unloaded": "{{name}} v{{version}} entladen!"
@@ -226,11 +240,14 @@ var ru = {
   "command.change_all_width.name": "\u0418\u0437\u043C\u0435\u043D\u0438\u0442\u044C \u0448\u0438\u0440\u0438\u043D\u0443 \u0434\u043B\u044F \u0432\u0441\u0435\u0445 \u0437\u0430\u043C\u0435\u0442\u043E\u043A",
   "command.change_all_width.modal_title": "\u0412\u0432\u0435\u0434\u0438\u0442\u0435 \u0448\u0438\u0440\u0438\u043D\u0443 \u0434\u043B\u044F \u0432\u0441\u0435\u0445 \u0437\u0430\u043C\u0435\u0442\u043E\u043A",
   "command.apply_pill_preset.name": "\u041F\u0440\u0438\u043C\u0435\u043D\u0438\u0442\u044C \u043D\u0430\u0431\u043E\u0440 \u043A\u043D\u043E\u043F\u043E\u043A {{index}}",
+  "command.create_diagnostics.name": "\u0421\u043E\u0437\u0434\u0430\u0442\u044C \u0434\u0438\u0430\u0433\u043D\u043E\u0441\u0442\u0438\u0447\u0435\u0441\u043A\u0438\u0439 \u043E\u0442\u0447\u0451\u0442",
   // Notices
   "notice.slider_too_large": "\u0417\u043D\u0430\u0447\u0435\u043D\u0438\u0435 \u043F\u043E\u043B\u0437\u0443\u043D\u043A\u0430 \u0441\u043B\u0438\u0448\u043A\u043E\u043C \u0431\u043E\u043B\u044C\u0448\u043E\u0435!",
   "notice.local_overrides_cleared": "\u0423\u0434\u0430\u043B\u0435\u043D\u043E \u043B\u043E\u043A\u0430\u043B\u044C\u043D\u044B\u0445 \u0448\u0438\u0440\u0438\u043D: {{count}}.",
   "notice.local_overrides_empty": "\u041D\u0435\u0442 \u043B\u043E\u043A\u0430\u043B\u044C\u043D\u044B\u0445 \u0448\u0438\u0440\u0438\u043D \u0434\u043B\u044F \u0441\u0431\u0440\u043E\u0441\u0430.",
   "notice.yaml_key_forbidden": "\u042D\u0442\u043E\u0442 YAML-\u043A\u043B\u044E\u0447 \u0437\u0430\u043F\u0440\u0435\u0449\u0451\u043D.",
+  "notice.diagnostics_created": "\u0414\u0438\u0430\u0433\u043D\u043E\u0441\u0442\u0438\u0447\u0435\u0441\u043A\u0438\u0439 \u043E\u0442\u0447\u0451\u0442 \u0441\u043A\u043E\u043F\u0438\u0440\u043E\u0432\u0430\u043D \u0432 \u0431\u0443\u0444\u0435\u0440 \u043E\u0431\u043C\u0435\u043D\u0430 \u0438 \u0441\u043E\u0445\u0440\u0430\u043D\u0451\u043D \u0432 \u043F\u0430\u043F\u043A\u0435 \u043F\u043B\u0430\u0433\u0438\u043D\u0430. \u041F\u0440\u0438\u043A\u0440\u0435\u043F\u0438\u0442\u0435 \u0435\u0433\u043E \u043A \u0441\u0432\u043E\u0435\u043C\u0443 issue \u043D\u0430 GitHub.",
+  "notice.diagnostics_failed": "\u041D\u0435 \u0443\u0434\u0430\u043B\u043E\u0441\u044C \u0437\u0430\u043F\u0438\u0441\u0430\u0442\u044C \u0434\u0438\u0430\u0433\u043D\u043E\u0441\u0442\u0438\u0447\u0435\u0441\u043A\u0438\u0439 \u043E\u0442\u0447\u0451\u0442. \u041F\u043E\u0434\u0440\u043E\u0431\u043D\u043E\u0441\u0442\u0438 \u0432 \u043A\u043E\u043D\u0441\u043E\u043B\u0438 \u0440\u0430\u0437\u0440\u0430\u0431\u043E\u0442\u0447\u0438\u043A\u0430.",
   "modal.reset_overrides.title": "\u0421\u0431\u0440\u043E\u0441 \u043B\u043E\u043A\u0430\u043B\u044C\u043D\u044B\u0445 \u0448\u0438\u0440\u0438\u043D \u0437\u0430\u043C\u0435\u0442\u043E\u043A",
   "modal.reset_overrides.desc": "\u0423 {{count}} \u0437\u0430\u043C\u0435\u0442\u043E\u043A(\u0438) \u0435\u0441\u0442\u044C \u043B\u043E\u043A\u0430\u043B\u044C\u043D\u043E \u0441\u043E\u0445\u0440\u0430\u043D\u0451\u043D\u043D\u0430\u044F \u0448\u0438\u0440\u0438\u043D\u0430. \u0412\u044B\u0431\u0435\u0440\u0438\u0442\u0435, \u043A\u0430\u043A\u0438\u0435 \u0443\u0434\u0430\u043B\u0438\u0442\u044C.",
   "modal.reset_overrides.search_placeholder": "\u0424\u0438\u043B\u044C\u0442\u0440 \u043F\u043E \u043F\u0443\u0442\u0438\u2026",
@@ -295,6 +312,10 @@ var ru = {
   "settings.source_mode.desc": "\u041F\u0440\u0438\u043C\u0435\u043D\u044F\u0442\u044C \u0448\u0438\u0440\u0438\u043D\u0443 \u0431\u043B\u043E\u043A\u043E\u0432 \u043A\u043E\u0434\u0430 \u0432 \u0440\u0435\u0436\u0438\u043C\u0435 \u043F\u0440\u043E\u0441\u043C\u043E\u0442\u0440\u0430 \u0438\u0441\u0445\u043E\u0434\u043D\u043E\u0433\u043E \u043A\u043E\u0434\u0430.",
   "settings.live_preview.name": "\u0412 \u0440\u0435\u0436\u0438\u043C\u0435 \u0434\u0438\u043D\u0430\u043C\u0438\u0447\u0435\u0441\u043A\u043E\u0433\u043E \u043F\u0440\u043E\u0441\u043C\u043E\u0442\u0440\u0430",
   "settings.live_preview.desc": "\u041F\u0440\u0438\u043C\u0435\u043D\u044F\u0442\u044C \u0448\u0438\u0440\u0438\u043D\u0443 \u0431\u043B\u043E\u043A\u043E\u0432 \u043A\u043E\u0434\u0430 \u0432 \u0440\u0435\u0436\u0438\u043C\u0435 \u0434\u0438\u043D\u0430\u043C\u0438\u0447\u0435\u0441\u043A\u043E\u0433\u043E \u043F\u0440\u043E\u0441\u043C\u043E\u0442\u0440\u0430.",
+  // Settings — Diagnostics
+  "settings.diagnostics.name": "\u0414\u0438\u0430\u0433\u043D\u043E\u0441\u0442\u0438\u043A\u0430",
+  "settings.diagnostics.desc": "\u0421\u043E\u0437\u0434\u0430\u0451\u0442 \u0430\u043D\u043E\u043D\u0438\u043C\u043D\u044B\u0439 \u0434\u0438\u0430\u0433\u043D\u043E\u0441\u0442\u0438\u0447\u0435\u0441\u043A\u0438\u0439 \u043E\u0442\u0447\u0451\u0442 \u0434\u043B\u044F \u043E\u0442\u0447\u0451\u0442\u0430 \u043E\u0431 \u043E\u0448\u0438\u0431\u043A\u0435 \u043D\u0430 GitHub. \u041E\u043D \u043D\u0438\u043A\u043E\u0433\u0434\u0430 \u043D\u0435 \u0441\u043E\u0434\u0435\u0440\u0436\u0438\u0442 \u0441\u043E\u0434\u0435\u0440\u0436\u0438\u043C\u043E\u0435 \u0437\u0430\u043C\u0435\u0442\u043E\u043A, \u0438\u043C\u0435\u043D\u0430 \u0444\u0430\u0439\u043B\u043E\u0432 \u0438\u043B\u0438 \u043F\u0443\u0442\u0438.",
+  "settings.diagnostics.button": "\u0421\u043E\u0437\u0434\u0430\u0442\u044C \u0434\u0438\u0430\u0433\u043D\u043E\u0441\u0442\u0438\u0447\u0435\u0441\u043A\u0438\u0439 \u043E\u0442\u0447\u0451\u0442",
   // Plugin info
   "plugin.loaded": "{{name}} v{{version}} \u0437\u0430\u0433\u0440\u0443\u0436\u0435\u043D!",
   "plugin.unloaded": "{{name}} v{{version}} \u0432\u044B\u0433\u0440\u0443\u0436\u0435\u043D!"
@@ -339,8 +360,10 @@ var DONATION_LINK = "https://ko-fi.com/skater_";
 var COMMAND_IDS = {
   CHANGE_NOTE_WIDTH: "change-note-width",
   CHANGE_DEFAULT_NOTE_WIDTH: "change-default-note-width",
-  CHANGE_ALL_NOTE_WIDTH: "change-all-note-width"
+  CHANGE_ALL_NOTE_WIDTH: "change-all-note-width",
+  CREATE_DIAGNOSTICS_REPORT: "create-diagnostics-report"
 };
+var DIAGNOSTICS_FILE_NAME = "diagnostics.json";
 var DOM_IDENTIFIERS = {
   DUMMY: "dummy",
   SLIDER: "custom-note-width-slider",
@@ -539,6 +562,21 @@ function validateWidth(width, unit = "%", unitConfig) {
 }
 function validateWidthValue(wv, unitConfig) {
   return { value: validateWidth(wv.value, wv.unit, unitConfig), unit: wv.unit };
+}
+function parsePxValue(value) {
+  if (!value) {
+    return null;
+  }
+  const match = value.trim().match(/^(-?\d+(?:\.\d+)?)px$/);
+  return match ? parseFloat(match[1]) : null;
+}
+function pixelsDiffer(a, b, tolerance = 1) {
+  const pa = parsePxValue(a);
+  const pb = parsePxValue(b);
+  if (pa === null || pb === null) {
+    return false;
+  }
+  return Math.abs(pa - pb) > tolerance;
 }
 
 // src/note/yamlFrontMatterProcessor.ts
@@ -1349,6 +1387,12 @@ var CustomNoteWidthSettingTab = class extends import_obsidian4.PluginSettingTab 
         });
       });
     }
+    new import_obsidian4.Setting(containerEl).setName(t("settings.diagnostics.name")).setDesc(t("settings.diagnostics.desc")).addButton((btn) => {
+      btn.setButtonText(t("settings.diagnostics.button"));
+      btn.onClick(() => {
+        void this.plugin.diagnostics.createReportAndReveal();
+      });
+    });
     containerEl.appendChild(this.donationButton.createDonationButton(containerEl));
     const versionEl = containerEl.createDiv({ cls: "cnw-version-info" });
     versionEl.setText(`${PLUGIN_NAME} v${this.plugin.manifest.version}`);
@@ -1565,6 +1609,21 @@ var CommandsManager = class {
     this.commands.push(new ChangeAllNoteWidthCommand(plugin));
     this.registerCommands();
     this.registerPillCommands();
+    this.registerDiagnosticsCommand();
+  }
+  /**
+   * Registers the "Create diagnostics report" command. It runs directly (no
+   * modal) and is always available, so users can generate a report even when
+   * no note is open.
+   */
+  registerDiagnosticsCommand() {
+    this.plugin.addCommand({
+      id: COMMAND_IDS.CREATE_DIAGNOSTICS_REPORT,
+      name: t("command.create_diagnostics.name"),
+      callback: () => {
+        void this.plugin.diagnostics.createReportAndReveal();
+      }
+    });
   }
   /**
    * Registers one command per pill preset slot. Commands are always listed
@@ -1934,6 +1993,7 @@ var SettingsManager = class {
 
 // src/note/noteWidthManager.ts
 var import_obsidian6 = require("obsidian");
+var VIEW_SELECTORS = [".markdown-source-view", ".markdown-preview-view"];
 var NoteWidthManager = class {
   /**
    * Constructs a new NoteWidthManager instance.
@@ -1952,6 +2012,8 @@ var NoteWidthManager = class {
   /** Every containerEl the plugin has tagged with `data-cnw-id`, so cleanup
    *  can find them without a global DOM query. */
   taggedLeaves = /* @__PURE__ */ new Set();
+  /** Pending rAF handle for the debounced consistency check (0 = none). */
+  consistencyRaf = 0;
   /**
    * Ensures a view's container element has a data-cnw-id attribute and returns it.
    * @param view - The MarkdownView to get/assign an ID for.
@@ -2009,6 +2071,30 @@ var NoteWidthManager = class {
     return defaultWv;
   }
   /**
+   * Reports which store supplied the effective width for a file, mirroring the
+   * precedence in {@link resolveWidthForFile}. Used only by the diagnostics report.
+   * @param file - The file to inspect.
+   * @returns The origin of the width that {@link resolveWidthForFile} would return.
+   */
+  getWidthSource(file) {
+    if (!this.plugin.settingsManager.getEnablePerNoteWidth()) {
+      return "default";
+    }
+    const mode = this.plugin.settingsManager.getPerNoteMode();
+    if (mode === "local" && this.plugin.settingsManager.getLocalOverrides()[file.path]) {
+      return "local";
+    }
+    if (mode === "view-only" && this.viewOnlyWidths.get(file.path)) {
+      return "view-only";
+    }
+    const yamlKey = this.plugin.settingsManager.getYAMLKey();
+    const frontmatter = this.app.metadataCache.getFileCache(file)?.frontmatter;
+    if (frontmatter && parseWidthValue(frontmatter[yamlKey], this.plugin.settingsManager.getDefaultWidthUnit())) {
+      return "frontmatter";
+    }
+    return "default";
+  }
+  /**
    * Synchronously applies the correct width for a leaf by resolving
    * the width from metadata and calculating the CSS value.
    * Used on tab switch, resize, and layout change events.
@@ -2017,16 +2103,25 @@ var NoteWidthManager = class {
    */
   applyWidthForLeaf(leaf) {
     const view = leaf?.view instanceof import_obsidian6.MarkdownView ? leaf.view : getActiveMarkdownView(this.app);
-    if (!view || !view.file) return;
+    if (!view || !view.file) {
+      this.recordApply(false, "no-view");
+      return;
+    }
     const wv = this.resolveWidthForFile(view.file);
     const editorMode = view.getMode();
     const editorDiv = getEditorDivForView(view, editorMode);
-    if (!editorDiv) return;
+    if (!editorDiv) {
+      this.recordApply(false, "no-editor-element");
+      return;
+    }
     const cssValue = widthValueToCss(wv, editorDiv);
-    if (!cssValue) return;
-    this.getLeafId(view);
-    this.setLeafWidthVars(view.containerEl, cssValue, this.computeCodeBlockCss(editorDiv));
-    this.applyCodeBlockModes();
+    if (!cssValue) {
+      this.recordApply(false, "no-char-width");
+      return;
+    }
+    this.applyWidthToLeaf(view, cssValue, this.computeCodeBlockCss(editorDiv));
+    this.recordApply(true, null);
+    this.scheduleConsistencyCheck(view);
     this.plugin.uiManager.setSliderAndTextField(wv.value);
     this.plugin.uiManager.updateSliderRange(wv.unit);
     this.plugin.uiManager.setUnitSelector(wv.unit);
@@ -2069,8 +2164,10 @@ var NoteWidthManager = class {
     return count;
   }
   /**
-   * Removes all custom width styles from every tagged leaf and drops the
-   * `data-cnw-id` attribute so the shared stylesheet rules stop matching.
+   * Removes all custom width styles from every tagged leaf: clears the inline
+   * `--file-line-width` on its editor views, the reference variables on the
+   * container, and drops the `data-cnw-id` attribute so the code-block rules
+   * stop matching.
    */
   removeNoteWidthEditorStyle() {
     for (const el of this.taggedLeaves) {
@@ -2079,6 +2176,7 @@ var NoteWidthManager = class {
         "--cnw-note-width": "",
         "--cnw-code-block-width": ""
       });
+      this.setFileLineWidthOnViews(el, "");
     }
     this.taggedLeaves.clear();
   }
@@ -2086,6 +2184,10 @@ var NoteWidthManager = class {
    * Removes plugin state from the DOM. Call on plugin unload.
    */
   destroy() {
+    if (this.consistencyRaf) {
+      window.cancelAnimationFrame(this.consistencyRaf);
+      this.consistencyRaf = 0;
+    }
     this.removeNoteWidthEditorStyle();
     this.viewOnlyWidths.clear();
     document.body.removeClass("cnw-cb-reading");
@@ -2120,7 +2222,21 @@ var NoteWidthManager = class {
     return widthValueToCss(cbWv, editorDiv);
   }
   /**
-   * Writes both custom CSS variables in one call. Passing `null` for the
+   * Applies a resolved width to a leaf: tags it, writes the reference variables
+   * on the container, writes `--file-line-width` inline onto its editor views,
+   * and keeps the body-scoped code-block mode classes in sync.
+   * @param view - The markdown view whose leaf receives the width.
+   * @param noteWidthCss - The CSS width value (e.g. "700px" or "80ch").
+   * @param codeBlockCss - The value for `--cnw-code-block-width`, or null to unset.
+   */
+  applyWidthToLeaf(view, noteWidthCss, codeBlockCss) {
+    this.getLeafId(view);
+    this.setLeafWidthVars(view.containerEl, noteWidthCss, codeBlockCss);
+    this.setFileLineWidthOnViews(view.containerEl, noteWidthCss);
+    this.applyCodeBlockModes();
+  }
+  /**
+   * Writes both reference CSS variables in one call. Passing `null` for the
    * code block value unsets it so a leaf does not keep a stale width after
    * the feature is turned off.
    * @param el - The container element that owns the variables.
@@ -2134,24 +2250,101 @@ var NoteWidthManager = class {
     });
   }
   /**
+   * Writes `--file-line-width` inline onto the leaf's editor view elements
+   * (source and preview), with priority `important`, or clears it when the
+   * value is empty. This is the declaration that drives the visible width.
+   *
+   * The `important` priority restores the 2.4.1 behaviour: an inline
+   * `!important` declaration beats even a theme or snippet that marks
+   * `--file-line-width` `!important` on a selector (inline wins over selectors
+   * in the cascade). `setCssProps` cannot set a priority, so this goes through
+   * `style.setProperty` directly with a dynamic value (not a static literal,
+   * so the `no-static-styles-assignment` rule does not apply).
+   * @param container - The leaf's container element.
+   * @param cssValue - The width value, or "" to clear it.
+   */
+  setFileLineWidthOnViews(container, cssValue) {
+    for (const selector of VIEW_SELECTORS) {
+      const el = container.querySelector(selector);
+      if (!el) {
+        continue;
+      }
+      if (cssValue === "") {
+        el.style.removeProperty("--file-line-width");
+      } else {
+        el.style.setProperty("--file-line-width", cssValue, "important");
+      }
+    }
+  }
+  /** Records the outcome of a width apply in the diagnostics log. */
+  recordApply(completed, abortReason) {
+    this.plugin.diagnosticsLog.recordApply({ completed, abortReason });
+  }
+  /**
+   * Schedules a debounced consistency check on the next animation frame. The
+   * check only reads computed styles (never re-applies), so it cannot loop.
+   *
+   * A single shared frame handle is intentional: the sync apply and its rAF
+   * re-apply (and rapid successive applies) all target the same leaf, so the
+   * previous pending check is cancelled and only one check runs per frame,
+   * against the final applied state. That is the state worth verifying.
+   * @param view - The view to check after the browser has laid it out.
+   */
+  scheduleConsistencyCheck(view) {
+    if (this.consistencyRaf) {
+      window.cancelAnimationFrame(this.consistencyRaf);
+    }
+    this.consistencyRaf = window.requestAnimationFrame(() => {
+      this.consistencyRaf = 0;
+      this.checkConsistency(view);
+    });
+  }
+  /**
+   * Compares the `--file-line-width` the plugin set with the `max-width` that
+   * actually computed on the sizer. A divergence (beyond ~1px) means a theme or
+   * snippet is overriding the width; it is logged to the ring buffer for the
+   * diagnostics report. No Notice is shown.
+   * @param view - The view to check.
+   */
+  checkConsistency(view) {
+    const mode = view.getMode();
+    const container = view.containerEl;
+    const viewEl = mode === "preview" ? container.querySelector(".markdown-preview-view") : container.querySelector(".markdown-source-view");
+    const sizer = mode === "preview" ? container.querySelector(".markdown-preview-sizer") : container.querySelector(".cm-sizer");
+    if (!viewEl || !sizer) {
+      return;
+    }
+    const setWidth = window.getComputedStyle(viewEl).getPropertyValue("--file-line-width").trim();
+    const actualWidth = window.getComputedStyle(sizer).maxWidth.trim();
+    const mismatch = pixelsDiffer(setWidth, actualWidth);
+    this.plugin.diagnosticsLog.recordConsistency(mismatch, setWidth || "(unset)", actualWidth || "(unset)");
+  }
+  /**
    * Updates the custom editor style with a new WidthValue on the active view.
    * Used for user-driven width changes (slider, commands).
    * @param wv - The WidthValue to be applied.
    */
   updateNoteWidthEditorStyle(wv) {
     const view = getActiveMarkdownView(this.app);
-    if (!view) return;
+    if (!view) {
+      this.recordApply(false, "no-view");
+      return;
+    }
     const editorMode = view.getMode();
     const editorDiv = getActiveEditorDiv(this.app, editorMode);
-    if (!editorDiv) return;
+    if (!editorDiv) {
+      this.recordApply(false, "no-editor-element");
+      return;
+    }
     const cssValue = widthValueToCss(wv, editorDiv);
     if (!cssValue) {
       console.error("Something went wrong while changing the note width!", new Error().stack);
+      this.recordApply(false, "no-char-width");
       return;
     }
-    this.getLeafId(view);
-    this.setLeafWidthVars(view.containerEl, cssValue, this.computeCodeBlockCss(editorDiv));
-    this.applyCodeBlockModes();
+    this.applyWidthToLeaf(view, cssValue, this.computeCodeBlockCss(editorDiv));
+    this.recordApply(true, null);
+    this.scheduleConsistencyCheck(view);
   }
   /**
    * Changes the width of all notes via YAML frontmatter.
@@ -2234,6 +2427,7 @@ var EventHandler = class {
    * Handles the resize event of the workspace.
    */
   handleResize = async () => {
+    this.plugin.diagnosticsLog.recordEvent("resize");
     if (this.plugin.settingsManager.getSliderWidth() / window.innerWidth > CONFIG.SLIDER_HIDE_THRESHOLD) {
       new import_obsidian7.Notice(t("notice.slider_too_large"), 5e3);
       const slider = this.plugin.uiManager.getSliderElement();
@@ -2249,6 +2443,7 @@ var EventHandler = class {
    * Handles the active leaf change event.
    */
   handleActiveLeafChange = async (leaf) => {
+    this.plugin.diagnosticsLog.recordEvent("activeLeafChange");
     if (this.updateTimeout) window.clearTimeout(this.updateTimeout);
     if (isActiveLeafMarkdown(this.app)) {
       this.plugin.statusBarManager.showStatusBarItem();
@@ -2267,6 +2462,7 @@ var EventHandler = class {
    * recent YAML write asked to suppress this cycle to avoid a stale metadataCache read).
    */
   handleLayoutChange = () => {
+    this.plugin.diagnosticsLog.recordEvent("layoutChange");
     this.plugin.noteWidthManager.cleanupViewOnlyWidths();
     if (this.layoutChangeSuppressed) return;
     this.plugin.noteWidthManager.applyWidthForLeaf();
@@ -2853,8 +3049,581 @@ var UIManager = class {
   }
 };
 
+// src/diagnostics/diagnosticsLog.ts
+var MAX_MESSAGE_LENGTH = 160;
+function sanitizeText(text) {
+  let out = text;
+  out = out.replace(/(?:app|file|https?):\/\/\S+/gi, "<path>");
+  out = out.replace(/\\\\[^\s"'<>]+/g, "<path>");
+  out = out.replace(/[A-Za-z]:[\\/][^\s"'<>]*/g, "<path>");
+  out = out.replace(/"[^"]*"/g, "<path>").replace(/'[^']*'/g, "<path>");
+  out = out.replace(/\S*\/\S*/g, "<path>");
+  out = out.replace(/[\w-]+\.[A-Za-z][A-Za-z0-9]{1,7}(?![\w])/g, "<path>");
+  if (out.length > MAX_MESSAGE_LENGTH) {
+    out = out.slice(0, MAX_MESSAGE_LENGTH);
+  }
+  return out;
+}
+var DiagnosticsLog = class _DiagnosticsLog {
+  /** Keep the last N messages; older ones are dropped. */
+  static MAX_ENTRIES = 50;
+  entries = [];
+  counters = {
+    events: { activeLeafChange: 0, layoutChange: 0, resize: 0 },
+    applyCalls: 0,
+    lastApply: null,
+    consistencyChecks: 0,
+    consistencyMismatches: 0
+  };
+  /** Signature of the last logged consistency mismatch, to avoid flooding the buffer. */
+  lastMismatchSignature = null;
+  /**
+   * Appends a message to the ring buffer, trimming the oldest entries once
+   * the cap is reached.
+   * @param level - Severity of the message.
+   * @param message - Human-readable, path-free message.
+   */
+  log(level, message) {
+    this.entries.push({ time: (/* @__PURE__ */ new Date()).toISOString(), level, message: sanitizeText(message) });
+    if (this.entries.length > _DiagnosticsLog.MAX_ENTRIES) {
+      this.entries.splice(0, this.entries.length - _DiagnosticsLog.MAX_ENTRIES);
+    }
+  }
+  /** Increments the counter for a workspace event. */
+  recordEvent(kind) {
+    this.counters.events[kind]++;
+  }
+  /**
+   * Records the outcome of a width apply. Successful applies only bump the
+   * counter; aborts additionally get a debug entry so the reason survives in
+   * the report without flooding the buffer on every event.
+   * @param result - The apply outcome.
+   */
+  recordApply(result) {
+    this.counters.applyCalls++;
+    this.counters.lastApply = result;
+    if (!result.completed && result.abortReason) {
+      this.log("debug", `width apply aborted: ${result.abortReason}`);
+    }
+  }
+  /**
+   * Records a consistency check between the width the plugin set and the width
+   * actually computed on the sizer. A new mismatch is logged once (as warn);
+   * repeated identical mismatches only bump the counter.
+   * @param mismatch - Whether the computed width diverged from the set value.
+   * @param setWidth - The width the plugin applied (computed --file-line-width).
+   * @param actualWidth - The width actually in effect (computed max-width).
+   */
+  recordConsistency(mismatch, setWidth, actualWidth) {
+    this.counters.consistencyChecks++;
+    if (!mismatch) {
+      this.lastMismatchSignature = null;
+      return;
+    }
+    this.counters.consistencyMismatches++;
+    const signature = `${setWidth}|${actualWidth}`;
+    if (signature !== this.lastMismatchSignature) {
+      this.lastMismatchSignature = signature;
+      this.log("warn", `width mismatch: set ${setWidth}, computed max-width ${actualWidth} (a theme or snippet is likely overriding it)`);
+    }
+  }
+  /** Returns a copy of the current ring-buffer entries. */
+  getEntries() {
+    return [...this.entries];
+  }
+  /** Returns a deep copy of the current runtime counters. */
+  getCounters() {
+    return {
+      events: { ...this.counters.events },
+      applyCalls: this.counters.applyCalls,
+      lastApply: this.counters.lastApply ? { ...this.counters.lastApply } : null,
+      consistencyChecks: this.counters.consistencyChecks,
+      consistencyMismatches: this.counters.consistencyMismatches
+    };
+  }
+};
+
+// src/diagnostics/diagnosticsManager.ts
+var import_obsidian8 = require("obsidian");
+var CONFLICT_HINT = /width|readable|line.?length/i;
+var MAX_WINNING_RULES = 30;
+var DiagnosticsManager = class {
+  /**
+   * @param app - The Obsidian application instance.
+   * @param plugin - Reference to the CustomNoteWidth plugin.
+   * @param log - Shared ring-buffer log and runtime counters.
+   */
+  constructor(app, plugin, log) {
+    this.app = app;
+    this.plugin = plugin;
+    this.log = log;
+  }
+  /**
+   * Creates the report, writes it, copies it to the clipboard, reveals it and
+   * notifies the user. Any failure surfaces as a Notice plus a console error;
+   * nothing here throws to the caller.
+   */
+  async createReportAndReveal() {
+    try {
+      const dir = this.plugin.manifest.dir;
+      if (!dir) {
+        throw new Error("plugin manifest.dir is not set");
+      }
+      const report = await this.buildReport();
+      const json = JSON.stringify(report, null, 2);
+      const relPath = (0, import_obsidian8.normalizePath)(`${dir}/${DIAGNOSTICS_FILE_NAME}`);
+      await this.app.vault.adapter.write(relPath, json);
+      await this.copyToClipboard(json);
+      this.revealReport(relPath);
+      new import_obsidian8.Notice(t("notice.diagnostics_created"), 1e4);
+    } catch (error) {
+      console.error("Custom Note Width: failed to create diagnostics report", error);
+      new import_obsidian8.Notice(t("notice.diagnostics_failed"), 1e4);
+    }
+  }
+  /**
+   * Gathers the full report. Async because the plugin-file hashes are read
+   * and digested from disk.
+   * @returns The report object, ready to be serialised.
+   */
+  async buildReport() {
+    const environment = this.collectEnvironment();
+    const obsidianSettings = this.collectObsidianSettings();
+    const appearance = this.collectAppearance();
+    const otherPlugins = this.collectOtherPlugins();
+    const pluginSettings = this.collectPluginSettings();
+    const pluginFiles = await this.collectPluginFiles();
+    const styles = this.collectStyles();
+    const activeNote = this.collectActiveNote();
+    const winningCssRules = this.collectWinningRules();
+    const runtime = this.collectRuntime();
+    const log = this.log.getEntries();
+    return {
+      schema: { reportVersion: 3, generatedAt: (/* @__PURE__ */ new Date()).toISOString() },
+      environment,
+      obsidianSettings,
+      appearance,
+      otherPlugins,
+      pluginSettings,
+      pluginFiles,
+      styles,
+      activeNote,
+      winningCssRules,
+      runtime,
+      log
+    };
+  }
+  /** Environment: versions, platform, viewport metrics. No OS detection via navigator. */
+  collectEnvironment() {
+    const proc = this.readProcessInfo();
+    return {
+      pluginVersion: this.plugin.manifest.version,
+      obsidianVersion: import_obsidian8.apiVersion,
+      electronVersion: proc.electron,
+      chromeVersion: proc.chrome,
+      nodeVersion: proc.node,
+      platform: this.platformName(),
+      osVersion: proc.osVersion,
+      uiLanguage: this.readUiLanguage(),
+      devicePixelRatio: window.devicePixelRatio,
+      windowInnerWidth: window.innerWidth,
+      editorWidth: this.activeEditorWidth()
+    };
+  }
+  /** Obsidian editor settings that decide whether the width can apply at all. */
+  collectObsidianSettings() {
+    const vault = this.app.vault;
+    const getConfig = (key) => {
+      try {
+        return vault.getConfig?.(key);
+      } catch {
+        return null;
+      }
+    };
+    return {
+      readableLineLength: getConfig("readableLineLength") ?? null,
+      defaultViewMode: getConfig("defaultViewMode") ?? null,
+      livePreview: getConfig("livePreview") ?? null,
+      baseFontSize: getConfig("baseFontSize") ?? null
+    };
+  }
+  /** Active theme (name + version) and the names of enabled CSS snippets. */
+  collectAppearance() {
+    const customCss = this.app.customCss;
+    const themeName = customCss?.theme ?? "";
+    return {
+      theme: themeName === "" ? "default" : themeName,
+      themeVersion: themeName ? customCss?.themes?.[themeName]?.version ?? null : null,
+      enabledSnippets: customCss?.enabledSnippets ? [...customCss.enabledSnippets] : []
+    };
+  }
+  /**
+   * Other enabled community plugins (id + version), with a flag for those whose
+   * id/name suggests they also control line width. Also reports loaded vs
+   * enabled counts, which together indicate whether community plugins are in
+   * restricted mode (a report can only be generated while this plugin runs, so
+   * that is effectively never the case here).
+   */
+  collectOtherPlugins() {
+    const plugins = this.app.plugins;
+    const manifests = plugins?.manifests ?? {};
+    const enabled = plugins?.enabledPlugins ?? /* @__PURE__ */ new Set();
+    const loadedCount = plugins?.plugins ? Object.keys(plugins.plugins).length : 0;
+    const active = [];
+    for (const id of enabled) {
+      if (id === this.plugin.manifest.id) {
+        continue;
+      }
+      const manifest = manifests[id];
+      const name = manifest?.name ?? id;
+      active.push({
+        id,
+        version: manifest?.version ?? null,
+        conflictCandidate: CONFLICT_HINT.test(`${id} ${name}`)
+      });
+    }
+    return {
+      enabledCount: enabled.size,
+      loadedCount,
+      active
+    };
+  }
+  /** The plugin's own settings, with local overrides reduced to a count (keys are paths). */
+  collectPluginSettings() {
+    const settings = this.plugin.settingsManager.settings;
+    const localOverridesCount = Object.keys(settings.localOverrides ?? {}).length;
+    const { localOverrides: _localOverrides, ...rest } = settings;
+    return { ...rest, localOverridesCount };
+  }
+  /** Size and SHA-256 of the shipped plugin files, to catch stale or missing deployments. */
+  async collectPluginFiles() {
+    const dir = this.plugin.manifest.dir;
+    const names = ["main.js", "manifest.json", "styles.css"];
+    const out = [];
+    if (!dir) {
+      return out;
+    }
+    for (const name of names) {
+      const path = (0, import_obsidian8.normalizePath)(`${dir}/${name}`);
+      try {
+        if (!await this.app.vault.adapter.exists(path)) {
+          out.push({ name, present: false, bytes: null, sha256: null });
+          continue;
+        }
+        const buffer = await this.app.vault.adapter.readBinary(path);
+        out.push({ name, present: true, bytes: buffer.byteLength, sha256: await this.sha256(buffer) });
+      } catch {
+        out.push({ name, present: false, bytes: null, sha256: null });
+      }
+    }
+    return out;
+  }
+  /**
+   * Whether styles.css is loaded (via its `--cnw-styles-loaded` sentinel) and
+   * which version it reports (`--cnw-styles-version`), so a stale copy (an old
+   * styles.css shipped next to a newer main.js) can be detected.
+   */
+  collectStyles() {
+    const computed = window.getComputedStyle(document.body);
+    const loaded = computed.getPropertyValue("--cnw-styles-loaded").trim() === "1";
+    const version = computed.getPropertyValue("--cnw-styles-version").trim().replace(/^["']|["']$/g, "") || null;
+    return { loaded, version, versionMatches: version !== null && version === this.plugin.manifest.version };
+  }
+  /**
+   * State of the active note (never its name): resolved width and its source,
+   * the inline variables the plugin set, and the width actually in effect.
+   */
+  collectActiveNote() {
+    const view = this.app.workspace.getActiveViewOfType(import_obsidian8.MarkdownView);
+    if (!view || !view.file) {
+      return null;
+    }
+    const mode = view.getMode();
+    const container = view.containerEl;
+    const viewEl = mode === "preview" ? container.querySelector(".markdown-preview-view") : container.querySelector(".markdown-source-view");
+    const sizer = mode === "preview" ? container.querySelector(".markdown-preview-sizer") : container.querySelector(".cm-sizer");
+    const editorDiv = mode === "preview" ? container.querySelector(".markdown-preview-view") : container.querySelector(".cm-scroller");
+    const wv = this.plugin.noteWidthManager.resolveWidthForFile(view.file);
+    const desiredCss = editorDiv ? widthValueToCss(wv, editorDiv) : null;
+    const computedFileLineWidth = viewEl ? window.getComputedStyle(viewEl).getPropertyValue("--file-line-width").trim() : null;
+    const sizerMaxWidth = sizer ? window.getComputedStyle(sizer).maxWidth : null;
+    return {
+      viewMode: mode,
+      widthSource: this.plugin.noteWidthManager.getWidthSource(view.file),
+      desiredValue: wv.value,
+      desiredUnit: wv.unit,
+      desiredCss,
+      // The note's own raw width value (only the width, never other frontmatter).
+      rawFrontmatterWidth: this.readRawFrontmatterWidth(view.file),
+      dataCnwIdPresent: container.hasAttribute("data-cnw-id"),
+      cnwNoteWidthInline: container.style.getPropertyValue("--cnw-note-width") || null,
+      fileLineWidthInline: viewEl?.style.getPropertyValue("--file-line-width") || null,
+      fileLineWidthInlineImportant: viewEl ? viewEl.style.getPropertyPriority("--file-line-width") === "important" : false,
+      computedFileLineWidth: computedFileLineWidth || null,
+      computedSizerMaxWidth: sizerMaxWidth,
+      mismatch: pixelsDiffer(computedFileLineWidth, sizerMaxWidth)
+    };
+  }
+  /**
+   * The note's raw width value from frontmatter, but only when it actually looks
+   * like a width (a number, optionally with px/%/ch). Any other string is
+   * replaced with a fixed marker so arbitrary frontmatter text can never be
+   * echoed into the report. Absent value returns null.
+   */
+  readRawFrontmatterWidth(file) {
+    const yamlKey = this.plugin.settingsManager.getYAMLKey();
+    const frontmatter = this.app.metadataCache.getFileCache(file)?.frontmatter;
+    const raw = frontmatter?.[yamlKey];
+    if (raw === void 0 || raw === null) {
+      return null;
+    }
+    if (typeof raw === "number") {
+      return raw;
+    }
+    if (typeof raw === "string" && /^\s*-?\d+(?:\.\d+)?\s*(?:px|%|ch)?\s*$/.test(raw)) {
+      return raw.trim();
+    }
+    return "<invalid-width-value>";
+  }
+  /**
+   * CSS rules from every readable stylesheet that set `max-width` on the active
+   * sizer or `--file-line-width` on the active view, with `!important` flags and
+   * their source element. This is the key signal for issue #14: it shows which
+   * rule (app, theme, snippet or another plugin) is actually winning.
+   */
+  collectWinningRules() {
+    const view = this.app.workspace.getActiveViewOfType(import_obsidian8.MarkdownView);
+    if (!view) {
+      return [];
+    }
+    const mode = view.getMode();
+    const container = view.containerEl;
+    const viewEl = mode === "preview" ? container.querySelector(".markdown-preview-view") : container.querySelector(".markdown-source-view");
+    const sizer = mode === "preview" ? container.querySelector(".markdown-preview-sizer") : container.querySelector(".cm-sizer");
+    const results = [];
+    for (const sheet of Array.from(document.styleSheets)) {
+      let rules = null;
+      try {
+        rules = sheet.cssRules;
+      } catch {
+        continue;
+      }
+      if (!rules) {
+        continue;
+      }
+      this.walkRules(rules, sheet, sizer, viewEl, results);
+      if (results.length >= MAX_WINNING_RULES) {
+        break;
+      }
+    }
+    return results;
+  }
+  /** Recursively walks a rule list (following @media/@supports) collecting matches. */
+  walkRules(rules, sheet, sizer, viewEl, out) {
+    for (const rule of Array.from(rules)) {
+      if (out.length >= MAX_WINNING_RULES) {
+        return;
+      }
+      if (rule instanceof CSSStyleRule) {
+        this.matchStyleRule(rule, sheet, sizer, viewEl, out);
+      } else if (rule instanceof CSSMediaRule || rule instanceof CSSSupportsRule) {
+        this.walkRules(rule.cssRules, sheet, sizer, viewEl, out);
+      }
+    }
+  }
+  /** Records a match when a style rule sets max-width on the sizer or --file-line-width on the view. */
+  matchStyleRule(rule, sheet, sizer, viewEl, out) {
+    const maxWidth = rule.style.getPropertyValue("max-width");
+    const fileLineWidth = rule.style.getPropertyValue("--file-line-width");
+    if (maxWidth === "" && fileLineWidth === "") {
+      return;
+    }
+    const origin = this.classifyOrigin(sheet);
+    try {
+      if (maxWidth !== "" && sizer && sizer.matches(rule.selectorText)) {
+        out.push({
+          target: "sizer-max-width",
+          selector: rule.selectorText,
+          property: "max-width",
+          value: maxWidth,
+          important: rule.style.getPropertyPriority("max-width") === "important",
+          origin
+        });
+      }
+      if (fileLineWidth !== "" && viewEl && viewEl.matches(rule.selectorText)) {
+        out.push({
+          target: "view-file-line-width",
+          selector: rule.selectorText,
+          property: "--file-line-width",
+          value: fileLineWidth,
+          important: rule.style.getPropertyPriority("--file-line-width") === "important",
+          origin
+        });
+      }
+    } catch {
+    }
+  }
+  /**
+   * Classifies where a stylesheet comes from, without ever exposing a raw path
+   * (which could contain the vault location). Derived from the stylesheet href
+   * or its owning element.
+   * @param sheet - The stylesheet to classify.
+   * @returns A safe origin label such as 'app', 'theme', 'snippet' or 'plugin:<id>'.
+   */
+  classifyOrigin(sheet) {
+    const href = sheet.href;
+    if (href) {
+      const pluginMatch = href.match(/\/plugins\/([^/?]+)/);
+      if (pluginMatch) return `plugin:${this.safeName(pluginMatch[1])}`;
+      const snippetMatch = href.match(/\/snippets\/([^/?]+)/);
+      if (snippetMatch) return `snippet:${this.safeName(snippetMatch[1])}`;
+      const themeMatch = href.match(/\/themes\/([^/?]+)/);
+      if (themeMatch) return `theme:${this.safeName(themeMatch[1])}`;
+      if (href.includes("app.css") || href.includes("obsidian.md")) return "app";
+      return "external";
+    }
+    const el = sheet.ownerNode instanceof HTMLElement ? sheet.ownerNode : null;
+    if (!el) {
+      return "unknown";
+    }
+    if (el.id) {
+      return `style#${el.id}`;
+    }
+    return "theme-or-snippet";
+  }
+  /** Reduces a path or name to a safe base name (no directory components, no query). */
+  safeName(value) {
+    let name = value;
+    try {
+      name = decodeURIComponent(name);
+    } catch {
+    }
+    name = name.split("?")[0].replace(/\\/g, "/");
+    return name.split("/").pop() || name;
+  }
+  /** Runtime counters plus open-leaf and popout-window counts. */
+  collectRuntime() {
+    return {
+      ...this.log.getCounters(),
+      openMarkdownLeaves: this.app.workspace.getLeavesOfType("markdown").length,
+      popoutWindows: this.countPopoutWindows()
+    };
+  }
+  /**
+   * Records an uncaught error or promise rejection whose stack points at this
+   * plugin. Only the error type and a message are stored, and the ring buffer
+   * sanitises every message before keeping it, so no path or note name survives.
+   * The stack is used solely to decide relevance and is never stored.
+   * @param kind - Which global event produced this.
+   * @param errorName - The error class/type (e.g. "TypeError").
+   * @param message - The error message (sanitised on store).
+   * @param stack - The stack trace, used only to test plugin relevance.
+   * @param filename - Optional source file, also used only for the relevance test.
+   */
+  captureError(kind, errorName, message, stack, filename) {
+    const haystack = `${stack ?? ""} ${filename ?? ""} ${message}`;
+    if (!haystack.includes("custom-note-width")) {
+      return;
+    }
+    this.log.log("error", `uncaught ${kind} [${errorName}]: ${message}`);
+  }
+  /** Counts distinct popout windows by their owning document. */
+  countPopoutWindows() {
+    const docs = /* @__PURE__ */ new Set();
+    try {
+      this.app.workspace.iterateAllLeaves((leaf) => {
+        const el = leaf.view.containerEl;
+        const doc = el?.ownerDocument;
+        if (doc && doc !== document) {
+          docs.add(doc);
+        }
+      });
+    } catch {
+    }
+    return docs.size;
+  }
+  /** Copies text to the clipboard, tolerating environments where it is unavailable. */
+  async copyToClipboard(text) {
+    try {
+      await navigator.clipboard.writeText(text);
+    } catch (error) {
+      console.warn("Custom Note Width: clipboard write failed", error);
+    }
+  }
+  /**
+   * Reveals the written report in the OS file manager. Prefers `showInFolder`
+   * (highlights the file in its folder); falls back to `openWithDefaultApp`.
+   * @param relPath - Vault-relative path to the report file.
+   */
+  revealReport(relPath) {
+    const internal = this.app;
+    if (typeof internal.showInFolder === "function") {
+      internal.showInFolder(relPath);
+      return;
+    }
+    if (typeof internal.openWithDefaultApp === "function") {
+      internal.openWithDefaultApp(relPath);
+    }
+  }
+  /** SHA-256 of a buffer as a lowercase hex string, via the Web Crypto API. */
+  async sha256(buffer) {
+    const digest = await crypto.subtle.digest("SHA-256", buffer);
+    return Array.from(new Uint8Array(digest)).map((b) => b.toString(16).padStart(2, "0")).join("");
+  }
+  /** 'windows' | 'macos' | 'linux' | 'unknown', via the Platform API (not navigator). */
+  platformName() {
+    if (import_obsidian8.Platform.isWin) return "windows";
+    if (import_obsidian8.Platform.isMacOS) return "macos";
+    if (import_obsidian8.Platform.isLinux) return "linux";
+    return "unknown";
+  }
+  /** Electron/Chrome/Node versions and OS version from the `process` global (desktop-only plugin). */
+  readProcessInfo() {
+    const empty = { electron: null, chrome: null, node: null, osVersion: null };
+    try {
+      if (typeof process === "undefined" || !process.versions) {
+        return empty;
+      }
+      const proc = process;
+      let osVersion = null;
+      try {
+        osVersion = proc.getSystemVersion?.() ?? proc.platform ?? null;
+      } catch {
+        osVersion = null;
+      }
+      return {
+        electron: process.versions.electron ?? null,
+        chrome: process.versions.chrome ?? null,
+        node: process.versions.node ?? null,
+        osVersion
+      };
+    } catch {
+      return empty;
+    }
+  }
+  /** Obsidian's UI language via the bundled moment locale (no localStorage access). */
+  readUiLanguage() {
+    try {
+      const moment = window.moment;
+      return moment?.locale?.() ?? null;
+    } catch {
+      return null;
+    }
+  }
+  /** Client width of the active editor element, for the width calculation context. */
+  activeEditorWidth() {
+    const view = this.app.workspace.getActiveViewOfType(import_obsidian8.MarkdownView);
+    if (!view) {
+      return null;
+    }
+    const mode = view.getMode();
+    const el = mode === "preview" ? view.containerEl.querySelector(".markdown-preview-view") : view.containerEl.querySelector(".cm-scroller");
+    return el ? el.clientWidth : null;
+  }
+};
+
 // src/main.ts
-var CustomNoteWidth = class extends import_obsidian8.Plugin {
+var CustomNoteWidth = class extends import_obsidian9.Plugin {
   settingsManager;
   noteWidthManager;
   eventHandler;
@@ -2865,6 +3634,12 @@ var CustomNoteWidth = class extends import_obsidian8.Plugin {
   settingsTab;
   uiManager;
   yamlFrontMatterProcessor;
+  diagnosticsLog;
+  diagnostics;
+  /** Pending startup re-apply frame, cancelled on unload (0 = none). */
+  startupRaf = 0;
+  /** Set in onunload so a late onLayoutReady/rAF callback cannot re-apply after destroy. */
+  unloaded = false;
   /**
    * This function is called when the plugin is loaded.
    * It initializes various managers, handlers, and UI elements.
@@ -2873,6 +3648,7 @@ var CustomNoteWidth = class extends import_obsidian8.Plugin {
   async onload() {
     this.settingsManager = new SettingsManager(this);
     await this.settingsManager.loadSettings();
+    this.diagnosticsLog = new DiagnosticsLog();
     this.settingsTab = new CustomNoteWidthSettingTab(this.app, this);
     this.addSettingTab(this.settingsTab);
     this.wrapperManager = new WrapperManager();
@@ -2882,13 +3658,37 @@ var CustomNoteWidth = class extends import_obsidian8.Plugin {
     this.eventHandler = new EventHandler(this.app, this);
     this.uiManager = new UIManager(this);
     this.uiElementCreator = new UIElementCreator(this);
+    this.diagnostics = new DiagnosticsManager(this.app, this, this.diagnosticsLog);
+    this.registerDomEvent(window, "error", (evt) => {
+      const errorName = evt.error instanceof Error ? evt.error.name : "Error";
+      const stack = evt.error instanceof Error ? evt.error.stack : void 0;
+      this.diagnostics.captureError("error", errorName, evt.message, stack, evt.filename);
+    });
+    this.registerDomEvent(window, "unhandledrejection", (evt) => {
+      const reason = evt.reason;
+      let errorName = "UnhandledRejection";
+      let message = "non-error rejection";
+      let stack;
+      if (reason instanceof Error) {
+        errorName = reason.name;
+        message = reason.message;
+        stack = reason.stack;
+      } else if (typeof reason === "string") {
+        message = reason;
+      }
+      this.diagnostics.captureError("unhandledrejection", errorName, message, stack);
+    });
     this.commandsManager = new CommandsManager(this);
     this.eventHandler.registerEventHandlers();
-    const defaultWv = {
-      value: this.settingsManager.getDefaultWidth(),
-      unit: this.settingsManager.getDefaultWidthUnit()
-    };
-    this.noteWidthManager.updateNoteWidthEditorStyle(defaultWv);
+    this.app.workspace.onLayoutReady(() => {
+      if (this.unloaded) return;
+      this.noteWidthManager.applyWidthForLeaf();
+      this.startupRaf = window.requestAnimationFrame(() => {
+        this.startupRaf = 0;
+        if (this.unloaded) return;
+        this.noteWidthManager.applyWidthForLeaf();
+      });
+    });
     console.debug(getLoadedMessage(this.manifest.version));
   }
   /**
@@ -2898,6 +3698,11 @@ var CustomNoteWidth = class extends import_obsidian8.Plugin {
    * automatically by Obsidian; no manual deregistration needed.
    */
   onunload() {
+    this.unloaded = true;
+    if (this.startupRaf) {
+      window.cancelAnimationFrame(this.startupRaf);
+      this.startupRaf = 0;
+    }
     this.wrapperManager.removeWrapper();
     this.noteWidthManager.destroy();
     console.debug(getUnloadedMessage(this.manifest.version));
